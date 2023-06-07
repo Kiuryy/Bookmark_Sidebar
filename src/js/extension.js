@@ -428,6 +428,7 @@
         const initSidebarMarkup = async () => {
             initAppFrame();
 
+            const pageType = this.helper.utility.getPageType();
             const config = this.helper.model.getData(["a/theme", "a/surface", "a/highContrast"]);
             this.elm.iframe = $(`<${rootElement} id="${$.opts.ids.page.iframe}"></${rootElement}>`)
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
@@ -442,6 +443,11 @@
                 .attr("aria-hidden", "true");
 
             this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\"></section>").appendTo(this.elm.iframeBody);
+            if (pageType === "sidepanel") {
+                this.elm.iframe.addClass($.cl.sidebar.sidepanel);
+                this.elm.sidebar.addClass([$.cl.sidebar.sidepanel, $.cl.sidebar.permanent]);
+            }
+
             this.elm.bookmarkBox = {};
 
             ["all", "search"].forEach((val) => {
@@ -450,7 +456,7 @@
 
             this.elm.widthDrag = $("<span></span>").addClass($.cl.drag.trigger);
 
-            if (this.helper.model.getUserType() === "premium") {
+            if (this.helper.model.getUserType() === "premium" && pageType !== "sidepanel") {
                 this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
             }
 

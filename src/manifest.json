@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "111",
+  "minimum_chrome_version": "114",
   "homepage_url": "https://extensions.redeviation.com/",
   "background": {
     "service_worker": "js/background.js"
@@ -85,6 +85,9 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "side_panel": {
+    "default_path": "html/sidepanel.html"
+  },
   "permissions": [
     "bookmarks",
     "storage",
@@ -92,7 +95,8 @@
     "contextMenus",
     "scripting",
     "unlimitedStorage",
-    "fontSettings"
+    "fontSettings",
+    "sidePanel"
   ],
   "optional_permissions": [
     "tabs",

@@ -8,6 +8,7 @@
     $.SidebarEventsHelper = function (ext) {
 
         let markTimeout = null;
+        let sidepanelLeaveTimeout = null;
         let lockPinnedEntriesTimeout = null;
         let isRestoring = false;
         let sidebarPos = null;
@@ -25,6 +26,7 @@
             surface = ext.helper.model.getData("a/surface");
 
             initBookmarkEntriesEvents();
+            initSidepanelEvents();
             initFilterEvents();
             initPinnedEntriesEvents();
             initGeneralEvents();
@@ -92,6 +94,24 @@
             } else {
                 ext.helper.selection.select(id);
             }
+        };
+
+        /**
+         * Initializes the eventhandlers for the sidepanel
+         */
+        const initSidepanelEvents = () => {
+            $(document).on("mouseenter.bs", () => {
+                if (sidepanelLeaveTimeout) {
+                    clearTimeout(sidepanelLeaveTimeout);
+                }
+            });
+
+            $(document).on("mouseleave.bs", () => {
+                sidepanelLeaveTimeout = setTimeout(() => {
+                    ext.helper.contextmenu.close();
+                    ext.helper.tooltip.close();
+                }, 1000);
+            });
         };
 
         /**

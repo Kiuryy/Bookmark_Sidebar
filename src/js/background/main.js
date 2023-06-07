@@ -19,6 +19,9 @@
                 this.helper.cache.remove({name: "htmlPinnedEntries"})
             ]);
 
+            $.api.sidePanel.setOptions({
+                path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14)
+            });
             const tabs = await $.api.tabs.query({});
             for (const tab of tabs) {
                 await $.delay(70);
@@ -86,6 +89,9 @@
          * @param {string} type
          */
         const notifyReinitialization = (tabId, type) => {
+            $.api.sidePanel.setOptions({
+                path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14)
+            });
             $.api.tabs.sendMessage(tabId, {
                 action: "reinitialize",
                 type: type

@@ -96,6 +96,11 @@ section#sidebar {
     border-color: rgba(0, 0, 0, 0.15);
   }
 
+  &.sidepanel {
+    border: none;
+    width: 100%;
+  }
+
   &[data-pos='right'] {
     float: right;
     box-shadow: -15px 0 35px rgba(0, 0, 0, 0.12);

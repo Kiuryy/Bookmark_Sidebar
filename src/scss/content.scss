@@ -104,6 +104,10 @@ body > #redeviation-bs-sidebar {
     transition: opacity 0.3s, transform 0.3s;
   }
 
+  &.sidepanel {
+    width: 100% !important;
+  }
+
   &.redeviation-bs-hideMask {
     background: none !important;
 

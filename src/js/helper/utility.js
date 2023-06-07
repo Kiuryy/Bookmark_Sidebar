@@ -304,6 +304,43 @@
         this.isWebapp = () => {
             return window.matchMedia("(display-mode: standalone)").matches;
         };
+
+        /**
+         * Returns the type of the current url
+         *
+         * @returns {string}
+         */
+        this.getPageType = () => {
+            const url = location.href;
+            let ret = "other";
+            let found = false;
+
+            Object.entries({
+                newtab_default: ["https?://www\\.google\\..+/_/chrome/newtab"],
+                newtab_fallback: [$.api.runtime.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
+                newtab_replacement: [$.api.runtime.getURL("html/newtab.html")],
+                sidepanel: [$.api.runtime.getURL("html/sidepanel.html")],
+                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
+                website: ["https?://"],
+                onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],
+                chrome: ["chrome://", "edge://"],
+                extension: ["chrome\\-extension://", "extension://"],
+                local: ["file://"]
+            }).some(([key, patterns]) => {
+                patterns.some((str) => {
+                    if (url.search(new RegExp(str, "gi")) === 0) {
+                        ret = key;
+                        found = true;
+                        return true;
+                    }
+                });
+                if (found) {
+                    return true;
+                }
+            });
+
+            return ret;
+        };
     };
 
 })(jsu);

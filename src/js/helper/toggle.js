@@ -89,9 +89,11 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            const pageType = getPageType();
+            const pageType = ext.helper.utility.getPageType();
 
-            if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen) || data.performReopening) {
+            if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen)
+                || pageType === "sidepanel"
+                || data.performReopening) {
                 this.openSidebar();
                 ext.helper.model.setData({"u/performReopening": false});
             }
@@ -148,7 +150,7 @@
             if (!ext.elm.iframe.hasClass($.cl.page.visible)) {
                 ext.helper.model.call("track", {
                     name: "action",
-                    value: {name: "sidebar", value: getPageType()}
+                    value: {name: "sidebar", value: ext.helper.utility.getPageType()}
                 });
             }
 
@@ -378,52 +380,17 @@
          * @returns {boolean}
          */
         const sidebarHasMask = () => {
-            const pageType = getPageType();
+            const pageType = ext.helper.utility.getPageType();
             const styles = ext.helper.model.getData("a/styles");
             const newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
             const maskColor = styles.sidebarMaskColor || null;
 
             return !(
                 ((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && newtabAutoOpen)
+                || pageType === "sidepanel"
                 || pageType === "onboarding"
                 || maskColor === "transparent"
             );
-        };
-
-        /**
-         * Returns the type of the current url
-         *
-         * @returns {string}
-         */
-        const getPageType = () => {
-            const url = location.href;
-            let ret = "other";
-            let found = false;
-
-            Object.entries({
-                newtab_default: ["https?://www\\.google\\..+/_/chrome/newtab"],
-                newtab_fallback: [$.api.runtime.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
-                newtab_replacement: [$.api.runtime.getURL("html/newtab.html")],
-                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
-                website: ["https?://"],
-                onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],
-                chrome: ["chrome://", "edge://"],
-                extension: ["chrome\\-extension://", "extension://"],
-                local: ["file://"]
-            }).some(([key, patterns]) => {
-                patterns.some((str) => {
-                    if (url.search(new RegExp(str, "gi")) === 0) {
-                        ret = key;
-                        found = true;
-                        return true;
-                    }
-                });
-                if (found) {
-                    return true;
-                }
-            });
-
-            return ret;
         };
 
         /**

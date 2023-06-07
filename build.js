@@ -176,6 +176,15 @@
                     ],
                     path.tmp + "newtab-merged.js"
                 ),
+                // concat sidepanel javascripts
+                Func.concat(
+                    [
+                        path.src + "js/lib/jsu.js",
+                        path.src + "js/opts.js",
+                        path.src + "js/sidepanel.js"
+                    ],
+                    path.tmp + "sidepanel-merged.js"
+                ),
                 // concat onboarding javascripts
                 Func.concat(
                     [
@@ -205,6 +214,7 @@
                 [path.tmp + "background-merged-2.js"]: path.tmp + "background.js",
                 [path.tmp + "settings-merged.js"]: path.tmp + "settings.js",
                 [path.tmp + "newtab-merged.js"]: path.tmp + "newtab.js",
+                [path.tmp + "sidepanel-merged.js"]: path.tmp + "sidepanel.js",
                 [path.tmp + "onboarding-merged.js"]: path.tmp + "onboarding.js"
             }, [
                 [/importScripts\([^)]*\);?/mig, ""],
@@ -222,6 +232,7 @@
                     path.tmp + "settings.js",
                     path.tmp + "background.js",
                     path.tmp + "newtab.js",
+                    path.tmp + "sidepanel.js",
                     path.tmp + "onboarding.js"
                 ], path.dist + "js/", true, packageJson.preamble),
                 Func.minify([
@@ -339,7 +350,7 @@
                 console.error("Could not determine current Chrome version");
                 process.exit(1);
             } else {
-                const minVersion = Math.max(111, currentVersion - 5); // @TODO remove the hard requirement of Chromium 111 for mv3
+                const minVersion = Math.max(114, currentVersion - 5); // @TODO remove the hard requirement of Chromium for the mv3 sidepanel API
 
                 await Func.replace({ // update the min version in the manifest
                     [path.src + "manifest.json"]: path.src + "manifest.json"

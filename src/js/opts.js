@@ -56,6 +56,7 @@
                 extLoaded: "loaded",
                 selectionMode: "selectionMode",
                 openedOnce: "openedOnce",
+                sidepanel: "sidepanel",
                 permanent: "permanent",
                 cached: "cached",
                 mark: "mark",

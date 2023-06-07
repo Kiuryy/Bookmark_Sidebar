@@ -139,7 +139,7 @@
          */
         const initEvents = async () => {
             $.api.runtime.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration
+                if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration)
                     location.reload(true);
                 }
             });

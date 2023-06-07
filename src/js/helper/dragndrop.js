@@ -7,6 +7,7 @@
      */
     $.DragDropHelper = function (ext) {
 
+        let dragOutsideTimeout = null;
         let sidebarPos = null;
         let showCreationDialog = false;
         let oldAboveElm = null;
@@ -155,6 +156,23 @@
 
                 ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
                 ext.helper.toggle.removeSidebarHoverClass();
+            });
+
+            ext.elm.iframeBody.on("dragleave", () => {
+                if (dragOutsideTimeout) {
+                    clearInterval(dragOutsideTimeout);
+                }
+                dragOutsideTimeout = setTimeout(async () => {
+                    ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+                    ext.elm.iframeBody.find("li." + $.cl.drag.isDragged).remove();
+                    ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
+                    ext.helper.toggle.removeSidebarHoverClass();
+                }, 100);
+            }).on("dragenter", async () => {
+                await $.delay(0);
+                if (dragOutsideTimeout) {
+                    clearInterval(dragOutsideTimeout);
+                }
             });
         };
 
@@ -398,6 +416,10 @@
                 bookmarkElm = $("<li></li>").html("<a>&nbsp;</a>").addClass($.cl.drag.isDragged);
             } else { // dragging bookmark or directory
                 draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
+                if (draggedElm.length() === 0) {
+                    return;
+                }
+
                 const startPos = draggedElm.data("startPos");
                 topVal = y - startPos.top;
                 leftVal = x - startPos.left;

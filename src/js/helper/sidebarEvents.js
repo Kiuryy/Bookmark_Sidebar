@@ -26,10 +26,13 @@
             surface = ext.helper.model.getData("a/surface");
 
             initBookmarkEntriesEvents();
-            initSidepanelEvents();
             initFilterEvents();
             initPinnedEntriesEvents();
             initGeneralEvents();
+
+            if (ext.helper.utility.getPageType() === "sidepanel") {
+                initSidepanelEvents();
+            }
 
             if (ext.helper.model.getUserType() === "premium") {
                 initSidebarWidthEvents();

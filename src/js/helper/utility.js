@@ -16,10 +16,7 @@
          * @returns {Promise}
          */
         this.openUrl = async (infos, type = "default", active = true) => {
-            ext.helper.model.setData({
-                "u/lastOpened": infos.id,
-                "u/performReopening": active ? (infos.reopenSidebar || false) : false
-            });
+            ext.helper.model.setData({"u/lastOpened": infos.id});
 
             if (type === "incognito") {
                 await ext.helper.model.call("openLink", {

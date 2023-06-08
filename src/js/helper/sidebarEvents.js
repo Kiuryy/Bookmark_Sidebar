@@ -69,8 +69,6 @@
                     ext.helper.list.toggleBookmarkDir(elm);
                 }
             } else if (!data.isDir) { // Click on link
-                data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
-
                 if (middleClick) { // new tab -> middle click
                     const active = e.shiftKey || (config.newTab === "background" && config.linkAction === "newtab");
                     ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground

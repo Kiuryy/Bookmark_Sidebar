@@ -124,6 +124,7 @@
                 delete obj.behaviour.rememberSearch;
                 delete obj.behaviour.rememberScroll;
                 delete obj.behaviour.autoOpen;
+                delete obj.behaviour.reopenSidebar;
                 delete obj.behaviour.pxTolerance;
                 delete obj.behaviour.scrollSensitivity;
                 delete obj.behaviour.hideEmptyDirs;

@@ -411,7 +411,6 @@
          */
         clickFuncs.currentTab = (opts) => {
             if (opts.data) {
-                opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
                 ext.helper.utility.openUrl(opts.data);
             }
         };
@@ -424,7 +423,6 @@
         clickFuncs.newTab = (opts) => {
             if (opts.data) {
                 const inForeground = ext.helper.model.getData("b/newTab") === "foreground";
-                opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
                 ext.helper.utility.openUrl(opts.data, "newTab", inForeground);
 
                 if (inForeground) {

@@ -14,7 +14,7 @@
             initToggleAreaFields();
             initFilter();
 
-            ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.elm.checkbox[field].trigger("click");
                 }
@@ -77,7 +77,7 @@
                 conf.behaviour[field] = val;
             });
 
-            ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
             });
 

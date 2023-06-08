@@ -28,7 +28,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "n/autoOpen", "u/performReopening"]);
+            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "n/autoOpen"]);
             const pageType = ext.helper.utility.getPageType();
 
             ext.elm.indicator = $("<div></div>")
@@ -91,10 +91,8 @@
             initEvents();
 
             if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen)
-                || pageType === "sidepanel"
-                || data.performReopening) {
+                || pageType === "sidepanel") {
                 this.openSidebar();
-                ext.helper.model.setData({"u/performReopening": false});
             }
 
             if (sidebarHasMask() === false) {

@@ -482,11 +482,20 @@
     "onboarding_headline": {
         "message": "Thank you for installing this extension."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "There are multiple ways to open your sidebar."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Open on top of websites"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Open in the browsers side panel next to the websites"
+    },
+    "onboarding_setup_start": {
         "message": "Setup now"
     },
-    "onboarding_skip": {
-        "message": "Skip setup"
+    "onboarding_setup_complete": {
+        "message": "Setup completed"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Where do you want to have your sidebar to appear?"
@@ -515,17 +524,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Click on the extension icon at the top of your browser to open the sidebar."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Click on the side panel icon at the top of your browser and choose the Bookmark Sidebar view."
+    },
     "onboarding_left": {
         "message": "left"
     },
     "onboarding_right": {
         "message": "right"
     },
+    "onboarding_handson_done": {
+        "message": "I'm done"
+    },
     "onboarding_finish_desc": {
         "message": "Have fun with your sidebar."
-    },
-    "onboarding_finish_notice": {
-        "message": "If you frequently need to click things on the {1} side of the browser window, you may want to change where the sidebar is positioned vertically when it opens to avoid opening it accidentally."
     },
     "onboarding_goto_settings": {
         "message": "More settings"
@@ -1021,6 +1033,9 @@
     },
     "settings_theme_changed": {
         "message": "Changed theme successfully"
+    },
+    "settings_overlay_disable": {
+        "message": "I don\"t want to use this overlaying sidebar"
     },
     "settings_presets": {
         "message": "Set relative sizes"

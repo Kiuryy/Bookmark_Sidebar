@@ -482,11 +482,20 @@
     "onboarding_headline": {
         "message": "Danke, dass du die Erweiterung installiert hast."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Es gibt mehrere Wege deine Seitenleiste zu \u00f6ffnen."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "\u00dcber Webseiten anzeigen (\u00dcberlagert Seiteninhalt)."
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
+    },
+    "onboarding_setup_start": {
         "message": "Jetzt einrichten"
     },
-    "onboarding_skip": {
-        "message": "\u00dcberspringen"
+    "onboarding_setup_complete": {
+        "message": "Eingerichtet"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Wo willst du deine Sidebar haben?"
@@ -515,17 +524,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Klicke auf das Symbol der Erweiterung um die Sidebar zu \u00f6ffnen."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klicke auf das Seitenleisten-Symbol und w\u00e4hle die Lesezeichenleiste f\u00fcr die Anzeige aus."
+    },
     "onboarding_left": {
         "message": "linken"
     },
     "onboarding_right": {
         "message": "rechten"
     },
+    "onboarding_handson_done": {
+        "message": "Ich bin fertig"
+    },
     "onboarding_finish_desc": {
         "message": "Viel Spa\u00df mit deiner Sidebar."
-    },
-    "onboarding_finish_notice": {
-        "message": "Wenn du h\u00e4ufiger etwas am {1} Rand des Browserfenster anklickst, solltest du auch konfigurieren, wo die Sidebar vertikal ge\u00f6ffnet werden kann, um versehentliches \u00d6ffnen zu vermeiden."
     },
     "onboarding_goto_settings": {
         "message": "Mehr Einstellungen"
@@ -1021,6 +1033,9 @@
     },
     "settings_theme_changed": {
         "message": "Das Design wurde erfolgreich ge\u00e4ndert"
+    },
+    "settings_overlay_disable": {
+        "message": "Ich m\u00f6chte diese \u00fcberlagernde Seitenleiste nicht verwenden"
     },
     "settings_presets": {
         "message": "Relative Gr\u00f6\u00dfen"

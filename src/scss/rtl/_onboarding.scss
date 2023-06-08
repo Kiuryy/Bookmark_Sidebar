@@ -2,10 +2,36 @@ html[dir='rtl'] {
 
   section.slide {
 
+    &[data-name='intro-2'] {
+      > div.videos > div.video {
+        > span.setup.finished {
+          padding-left: 20px;
+          padding-right: 40px;
+
+          &::before {
+            -webkit-mask-position-x: right;
+            right: 12px;
+          }
+        }
+      }
+    }
+
     &[data-name='position'] {
 
       > div {
         flex-direction: row-reverse;
+      }
+    }
+
+    &[data-name='openAction'] {
+
+      > a.cancel {
+        padding-left: 0;
+        padding-right: 26px;
+
+        &::before {
+          -webkit-mask-position-x: right;
+        }
       }
     }
 
@@ -15,19 +41,6 @@ html[dir='rtl'] {
 
         a[data-value="auto"]::before {
           transform: skewX(20deg);
-        }
-      }
-    }
-
-    &[data-name='finished'] {
-
-      p.info {
-        padding-left: 30px;
-        padding-right: 65px;
-        text-align: right;
-
-        &::before {
-          transform: scaleX(-1);
         }
       }
     }

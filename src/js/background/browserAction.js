@@ -4,6 +4,7 @@
     $.BrowserActionHelper = function (b) {
 
         let timeout = null;
+        let sidepanelLastReload = 0;
         let reason = null;
 
         /**
@@ -77,6 +78,21 @@
             if (timeout) {
                 clearTimeout(timeout);
                 timeout = null;
+            }
+        };
+
+        /**
+         * Reloads the sidebar in the sidepanel by updating the url with an uid query string
+         *
+         * @returns {Promise<void>}
+         */
+        this.reloadSidepanel = async () => {
+            const now = +new Date();
+            if (now - sidepanelLastReload > 1000) {
+                sidepanelLastReload = now;
+                await $.api.sidePanel.setOptions({
+                    path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14),
+                });
             }
         };
 

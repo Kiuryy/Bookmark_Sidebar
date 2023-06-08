@@ -153,8 +153,12 @@
                 settings: "settings",
                 toggleArea: "toggleArea",
                 appearance: "appearance",
+                finished: "finished",
+                highlightIcon: "highlightIcon",
                 hideOpenTypeIcon: "hideOpenType",
-                large: "large"
+                video: "video",
+                large: "large",
+                small: "small"
             },
             settings: {
                 tabs: {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title data-i18n="onboarding_title"></title>
     <style>
         body.building > * {
@@ -12,39 +12,40 @@
 
 <body class="building">
 
-<section class="slide" data-name="intro">
+<section class="slide" data-name="intro-1">
     <p class="large" data-i18n="onboarding_headline"></p>
-
-    <a href="#" class="nextSlide" data-i18n="onboarding_setup"></a><br />
-    <a href="#" class="skip" data-i18n="onboarding_skip"></a>
 </section>
 
-<section class="slide" data-name="position">
-    <p class="large" data-i18n="onboarding_sidebar_position_desc"></p>
+<section class="slide" data-name="intro-2">
+    <p class="large" data-i18n="onboarding_intro_desc"></p>
 
-    <div>
-        <a href="#" data-value="left" data-i18n="settings_sidebar_position_left"></a>
-        <a href="#" data-value="right" data-i18n="settings_sidebar_position_right"></a>
+    <div class="videos">
+        <div class="video" data-type="overlay">
+            <strong data-i18n="onboarding_intro_sidebar_overlay_desc"></strong>
+            <video autoplay muted loop>
+                <source src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4" type="video/mp4">
+            </video>
+            <span class="setup" data-i18n="onboarding_setup_start"></span>
+        </div>
+        <div class="video" data-type="sidepanel">
+            <strong data-i18n="onboarding_intro_sidebar_sidepanel_desc"></strong>
+            <video autoplay muted loop>
+                <source src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4" type="video/mp4">
+            </video>
+            <span class="setup" data-i18n="onboarding_setup_start"></span>
+        </div>
     </div>
-</section>
-
-<section class="slide" data-name="surface">
-    <p class="large" data-i18n="onboarding_sidebar_surface_desc"></p>
-
-    <div>
-        <a href="#" data-value="light" data-i18n="onboarding_sidebar_surface_light"></a>
-        <a href="#" data-value="dark" data-i18n="onboarding_sidebar_surface_dark"></a>
-        <p class="wrap">
-            <a href="#" data-value="auto"><span data-i18n="settings_surface_auto"></span></a>
-        </p>
-    </div>
-
-    <a class="info"></a>
-    <p class="desc" data-i18n="settings_surface_info"></p>
 </section>
 
 <section class="slide" data-name="openAction">
     <p class="large" data-i18n="onboarding_sidebar_open_action_desc"></p>
+
+    <div class="video">
+        <span></span>
+        <video autoplay muted loop>
+            <source src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div>
         <a href="#" data-value="mousedown" data-i18n="settings_open_action_leftclick"></a>
@@ -53,22 +54,46 @@
         <a href="#" data-value="icon" data-i18n="settings_open_action_icon"></a>
     </div>
 
-    <a class="info"></a>
-    <p class="desc" data-i18n="settings_open_action_desc"></p>
+    <p class="small" data-i18n="settings_open_action_desc"></p>
+
+    <a href="#" class="cancel" data-i18n="settings_overlay_disable"></a>
+</section>
+
+<section class="slide" data-name="position">
+    <p class="large" data-i18n="onboarding_sidebar_position_desc"></p>
+    <div>
+        <a href="#" data-value="left" data-i18n="settings_sidebar_position_left"></a>
+        <a href="#" data-value="right" data-i18n="settings_sidebar_position_right"></a>
+    </div>
+</section>
+
+<section class="slide" data-name="surface">
+    <p class="large" data-i18n="onboarding_sidebar_surface_desc"></p>
+    <p class="small" data-i18n="settings_surface_info"></p>
+    <div>
+        <a href="#" data-value="light" data-i18n="onboarding_sidebar_surface_light"></a>
+        <a href="#" data-value="dark" data-i18n="onboarding_sidebar_surface_dark"></a>
+        <p class="wrap">
+            <a href="#" data-value="auto"><span data-i18n="settings_surface_auto"></span></a>
+        </p>
+    </div>
 </section>
 
 <section class="slide" data-name="handson">
     <p class="large" data-i18n="onboarding_handson_desc"></p>
+    <div class="video">
+        <video autoplay muted loop>
+            <source src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4" type="video/mp4">
+        </video>
+    </div>
+    <p class="small"></p>
+    <div>
+        <a href="#" data-i18n="onboarding_handson_done"></a>
+    </div>
 </section>
 
 <section class="slide" data-name="finished">
     <p class="large" data-i18n="onboarding_finish_desc"></p>
-
-    <p class="info">
-        <span></span>
-        <a href="#" class="toggleArea" data-i18n="settings_toggle_area"></a>
-    </p>
-
     <a href="#" class="settings" data-i18n="onboarding_goto_settings"></a>
     <a href="#" class="appearance" data-i18n="onboarding_goto_appearance"></a>
 </section>

@@ -4,6 +4,8 @@
     const Onboarding = function () {
 
         let configChanged = false;
+        let currentSetup = "";
+        let surfaceConfiguredInSetup = "";
 
         /*
          * ################################
@@ -23,44 +25,44 @@
         /**
          * Constructor
          */
-        this.run = () => {
+        this.run = async () => {
             initHelpers();
             const loader = this.helper.template.loading().appendTo(this.elm.body);
             this.elm.body.addClass($.cl.initLoading);
 
-            this.helper.model.init().then(() => {
-                return this.helper.i18n.init();
-            }).then(() => {
-                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+            await this.helper.model.init();
+            await this.helper.i18n.init();
 
-                this.helper.stylesheet.init({defaultVal: true});
+            this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-                this.helper.i18n.parseHtml(document);
-                this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+            this.helper.stylesheet.init({defaultVal: true});
 
-                return this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
-            }).then(() => {
-                this.elm.body.removeClass($.cl.building);
+            this.helper.i18n.parseHtml(document);
+            this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                this.elm.sidebar.right = $(this.elm.sidebar.left[0].outerHTML).appendTo(this.elm.body);
-                this.elm.sidebar.right.attr($.attr.position, "right");
+            await this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
 
-                initGeneralEvents();
-                initIntroEvents();
-                initPositionEvents();
-                initSurfaceEvents();
-                initOpenActionEvents();
-                initHandsOnEvents();
-                initFinishedEvents();
+            this.elm.body.removeClass($.cl.building);
 
-                $.delay(500).then(() => { // finish loading
-                    this.elm.body.removeClass($.cl.initLoading);
-                    gotoSlide("intro");
-                    return $.delay(300);
-                }).then(() => {
-                    loader.remove();
-                });
-            });
+            this.elm.sidebar.right = $(this.elm.sidebar.left[0].outerHTML).appendTo(this.elm.body);
+            this.elm.sidebar.right.attr($.attr.position, "right");
+
+            initGeneralEvents();
+            initIntroEvents();
+            initPositionEvents();
+            initSurfaceEvents();
+            initOpenActionEvents();
+            initHandsOnEvents();
+            initFinishedEvents();
+
+            await $.delay(500); // finish loading
+            this.elm.body.removeClass($.cl.initLoading);
+
+            await gotoSlide("intro-1");
+            loader.remove();
+
+            await $.delay(1200);
+            await gotoSlide("intro-2");
         };
 
         /*
@@ -98,13 +100,13 @@
          * Initialises the eventhandlers for the intro slide
          */
         const initIntroEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='intro'] a").on("click", (e) => {
+            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='intro-2'] div.video").on("click", async (e) => {
                 e.preventDefault();
-
-                if ($(e.currentTarget).hasClass($.cl.onboarding.skip)) {
-                    initHandsOn();
+                currentSetup = $(e.currentTarget).attr($.attr.type);
+                if (currentSetup === "sidepanel") {
+                    await gotoSlide("surface");
                 } else {
-                    gotoNextSlide();
+                    await gotoNextSlide();
                 }
             });
         };
@@ -113,8 +115,13 @@
          * Initialises the eventhandlers for the position slide
          */
         const initPositionEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='position'] a").on("mouseenter click", (e) => {
+            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='position'] a").on("click", async (e) => {
                 e.preventDefault();
+                const value = $(e.currentTarget).attr($.attr.value);
+                await this.helper.model.setData({"b/sidebarPosition": value});
+                configChanged = true;
+                await gotoNextSlide();
+            }).on("mouseenter", (e) => {
                 const value = $(e.currentTarget).attr($.attr.value);
                 this.elm.body.attr($.attr.position, value);
 
@@ -123,32 +130,42 @@
                 });
 
                 this.elm.sidebar[value].addClass($.cl.visible);
-
-                if (e.type === "click") {
-                    this.helper.model.setData({"b/sidebarPosition": value}).then(() => {
-                        configChanged = true;
-                        gotoNextSlide();
+            }).on("mouseleave", async (e) => {
+                const slide = $(e.currentTarget).parent();
+                await $.delay();
+                if (slide.hasClass($.cl.visible)) {
+                    Object.values(this.elm.sidebar).forEach((sidebar) => {
+                        sidebar.removeClass($.cl.visible);
                     });
                 }
-            }).on("mouseleave", (e) => {
-                const slide = $(e.currentTarget).parent();
-                $.delay().then(() => {
-                    if (slide.hasClass($.cl.visible)) {
-                        Object.values(this.elm.sidebar).forEach((sidebar) => {
-                            sidebar.removeClass($.cl.visible);
-                        });
-                    }
-                });
             });
-
         };
 
         /**
          * Initialises the eventhandlers for the surface slide
          */
         const initSurfaceEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("mouseenter click", (e) => {
+            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("click", async (e) => {
                 e.preventDefault();
+                const value = $(e.currentTarget).attr($.attr.value);
+                const styles = this.helper.model.getData("a/styles");
+                const defaultColors = this.helper.model.getDefaultColors();
+
+                styles.colorScheme = defaultColors.colorScheme[value];
+                styles.textColor = defaultColors.textColor[value];
+                styles.bookmarksDirColor = defaultColors.textColor[value];
+                styles.sidebarMaskColor = defaultColors.sidebarMaskColor[value];
+                styles.hoverColor = defaultColors.hoverColor[value];
+
+                await this.helper.model.setData({
+                    "a/surface": value,
+                    "a/styles": styles
+                });
+
+                configChanged = true;
+                surfaceConfiguredInSetup = currentSetup;
+                await gotoNextSlide();
+            }).on("mouseenter", (e) => {
                 const value = $(e.currentTarget).attr($.attr.value);
                 let bodyAttr = value;
                 if (value === "auto") {
@@ -156,35 +173,15 @@
                 }
                 this.elm.body.attr($.attr.onboarding.surface, bodyAttr);
 
-                if (e.type === "click") {
-                    const styles = this.helper.model.getData("a/styles");
-                    const defaultColors = this.helper.model.getDefaultColors();
-
-                    styles.colorScheme = defaultColors.colorScheme[value];
-                    styles.textColor = defaultColors.textColor[value];
-                    styles.bookmarksDirColor = defaultColors.textColor[value];
-                    styles.sidebarMaskColor = defaultColors.sidebarMaskColor[value];
-                    styles.hoverColor = defaultColors.hoverColor[value];
-
-                    Object.values(this.elm.sidebar).forEach((sidebar) => {
-                        sidebar.removeClass($.cl.visible);
-                    });
-
-                    this.helper.model.setData({
-                        "a/surface": value,
-                        "a/styles": styles
-                    }).then(() => {
-                        configChanged = true;
-                        gotoNextSlide();
-                    });
+                if (currentSetup === "sidepanel") {
+                    this.elm.sidebar.right.addClass($.cl.visible);
                 }
-            }).on("mouseleave", (e) => {
+            }).on("mouseleave", async (e) => {
                 const slide = $(e.currentTarget).parent();
-                $.delay().then(() => {
-                    if (slide.hasClass($.cl.visible)) {
-                        this.elm.body.removeAttr($.attr.onboarding.surface);
-                    }
-                });
+                await $.delay();
+                if (slide.hasClass($.cl.visible)) {
+                    this.elm.body.removeAttr($.attr.onboarding.surface);
+                }
             });
         };
 
@@ -192,26 +189,32 @@
          * Initialises the eventhandlers for the openAction slide
          */
         const initOpenActionEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] a").on("mouseenter click", (e) => {
+            const videoWrapper = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] div." + $.cl.onboarding.video);
+
+            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] a").on("click", async (e) => {
                 e.preventDefault();
+                configChanged = true;
+                if ($(e.currentTarget).hasClass($.cl.cancel)) {
+                    await this.helper.model.setData({"b/overlayEnabled": false});
+                    await gotoSlide("finished");
+                } else {
+                    const value = $(e.currentTarget).attr($.attr.value);
+                    await this.helper.model.setData({
+                        "b/openAction": value,
+                        "b/overlayEnabled": true
+                    });
+                    await gotoNextSlide();
+                }
+            }).on("mouseenter", (e) => {
                 const value = $(e.currentTarget).attr($.attr.value);
 
-                if (value) {
-                    if (e.type === "click") {
-                        this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
-                        this.helper.model.setData({"b/openAction": value}).then(() => {
-                            configChanged = true;
-                            initHandsOn();
-                        });
-                    } else {
-                        this.elm.body.removeClass($.cl.onboarding.hideOpenTypeIcon);
-                        this.elm.body.attr($.attr.onboarding.openType, value === "icon" ? "icon" : "mouse");
-                    }
+                if (value === "icon") {
+                    videoWrapper.addClass($.cl.onboarding.highlightIcon);
+                } else {
+                    videoWrapper.removeClass($.cl.onboarding.highlightIcon);
                 }
             }).on("mouseleave", (e) => {
-                if ($(e.currentTarget).parent("section").hasClass($.cl.visible)) {
-                    this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
-                }
+                videoWrapper.removeClass($.cl.onboarding.highlightIcon);
             });
         };
 
@@ -219,11 +222,15 @@
          * Initialises the eventhandlers for the hands-on slide
          */
         const initHandsOnEvents = () => {
-            $(document).on($.opts.events.sidebarOpened, () => {
-                if (!$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished']").hasClass($.cl.visible)) {
-                    this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
-                    initFinishedSlide();
+            $(document).on($.opts.events.sidebarOpened, async () => {
+                if ($("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']").hasClass($.cl.visible)) {
+                    await gotoSlide("finished");
                 }
+            });
+
+            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson'] a").on("click", async (e) => {
+                e.preventDefault();
+                await gotoSlide("finished");
             });
         };
 
@@ -246,9 +253,9 @@
         /**
          * Shows the next slide
          */
-        const gotoNextSlide = () => {
+        const gotoNextSlide = async () => {
             const name = $("section." + $.cl.onboarding.slide + "." + $.cl.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
-            gotoSlide(name);
+            await gotoSlide(name);
         };
 
         /**
@@ -256,71 +263,78 @@
          *
          * @param {string} name
          */
-        const gotoSlide = (name) => {
+        const gotoSlide = async (name) => {
+            if (name === "surface" && surfaceConfiguredInSetup && surfaceConfiguredInSetup !== currentSetup) {
+                // skip "surface" slide if the user has this already configured in another setup (e.g. sidepanel)
+                name = "handson";
+            }
+
+            if (name === "handson") {
+                await updateHandsOnSlide();
+            } else if (name === "finished") {
+                this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
+                $("section." + $.cl.onboarding.slide + " [" + $.attr.type + "='" + currentSetup + "'] > span.setup").text(this.helper.i18n.get("onboarding_setup_complete")).addClass($.cl.onboarding.finished);
+                const unfinishedSetups = $("section." + $.cl.onboarding.slide + " span.setup:not(." + $.cl.onboarding.finished + ")").length() > 0;
+                if (unfinishedSetups) {
+                    name = "intro-2";
+                }
+            }
+
             const prevSlide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
             prevSlide.removeClass($.cl.visible);
 
-            $.delay(300).then(() => {
-                const newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
-                const num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
+            await $.delay(300);
+            const newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
+            const num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
 
-                this.helper.model.call("track", {
-                    name: "action",
-                    value: {name: "onboarding", value: num + "_" + name},
-                    always: true
-                });
+            this.helper.model.call("track", {
+                name: "action",
+                value: {name: "onboarding", value: num + "_" + (currentSetup ? currentSetup + "_" : "") + name},
+                always: true
             });
-        };
-
-        /**
-         * Initialises the finish slide with links to the settings and a notice when choosing to open the sidebar by clicking inside the browser content
-         */
-        const initFinishedSlide = () => {
-            gotoSlide("finished");
-            const config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
-            const info = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] p." + $.cl.info);
-
-            if (config.openAction === "icon") {
-                info.remove();
-            } else {
-                const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
-                info.children("span").text(this.helper.i18n.get("onboarding_finish_notice", [position]));
-            }
         };
 
         /**
          * Initialises the Hands-On slide with the actual sidebar loaded
          */
-        const initHandsOn = () => {
-            gotoSlide("handson");
-            loadSidebar();
+        const updateHandsOnSlide = async () => {
+            const slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");
+            if (currentSetup === "sidepanel") {
+                slide.children("div." + $.cl.onboarding.video).addClass($.cl.visible);
+            } else {
+                slide.children("div." + $.cl.onboarding.video).removeClass($.cl.visible);
+                loadSidebar();
+            }
 
             Object.values(this.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar
                 sidebar.removeClass($.cl.visible);
             });
 
-            const slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");
+            const infoText = slide.children("p." + $.cl.onboarding.small);
 
             const config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
             this.elm.body.attr($.attr.position, config.sidebarPosition);
 
             // change description how to open the sidebar based on sidebar position and configurated openAction
-            if (config.openAction === "icon") {
-                $("<p></p>").text(this.helper.i18n.get("onboarding_handson_icon_desc")).appendTo(slide);
+            if (currentSetup === "sidepanel") {
+                infoText.text(this.helper.i18n.get("onboarding_handson_sidepanel_desc"));
+            } else if (config.openAction === "icon") {
+                infoText.text(this.helper.i18n.get("onboarding_handson_icon_desc"));
             } else {
                 const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
-                $("<p></p>").text(this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position])).appendTo(slide);
+                let text = this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position]);
 
                 if (config.openAction !== "mousemove") {
                     const mouseButton = this.helper.i18n.get("onboarding_" + (config.openAction === "contextmenu" ? "right" : "left"));
-                    $("<p></p>").text(this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton])).appendTo(slide);
+                    text += " " + this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton]);
                 }
+
+                infoText.text(text);
             }
 
-            $.delay(300).then(() => { // show icon as help
-                this.elm.body.removeClass($.cl.onboarding.hideOpenTypeIcon);
-                this.elm.body.attr($.attr.onboarding.openType, config.openAction === "icon" ? "icon" : "mouse");
-            });
+            await $.delay(300);
+            this.elm.body.removeClass($.cl.onboarding.hideOpenTypeIcon);
+            this.elm.body.attr($.attr.onboarding.openType, config.openAction === "icon" || currentSetup === "sidepanel" ? "icon" : "mouse");
         };
 
         /**

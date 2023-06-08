@@ -35,7 +35,7 @@ body {
 section.slide {
   position: absolute;
   width: 650px;
-  top: 30vh;
+  top: 25vh;
   left: 0;
   right: 0;
   margin: auto;
@@ -54,51 +54,36 @@ section.slide {
     margin: 0 0 40px 0;
   }
 
-  > p.desc {
-    position: relative;
-    background: $contentBackground;
-    color: $textColor;
-    width: 400px;
-    font-size: 90%;
-    line-height: 160%;
-    margin: 15px auto 0;
-    padding: 7px 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    transform: translate3d(0, -7px, 0);
-    transition: opacity 0.3s, transform 0.3s;
-    @extend %hidden;
+  > p.small {
+    color: $textColorInverted;
+    font-size: 120%;
+    line-height: 140%;
+    max-width: 550px;
+    opacity: 0.7;
+    margin: 0 auto 30px;
+    padding: 7px 0;
+  }
 
-    &::before {
+  div.video {
+    position: relative;
+
+    &::after {
       content: "";
       position: absolute;
-      top: -14px;
+      top: 0;
       left: 0;
-      right: 0;
-      margin: auto;
-      width: 0;
-      border: 7px solid transparent;
-      border-bottom-color: $contentBackground;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 10px 10px $mainColor2;
+      z-index: 2;
+    }
+
+    > video {
+      width: 100%;
     }
   }
 
-  > a.info {
-    @extend %button;
-    @include mask('icon-info', $textColor, 26px);
-    position: relative;
-    display: block;
-    width: 48px;
-    height: 48px;
-    margin: 70px auto 0;
-    border-radius: 50%;
-
-    &:hover + p.desc {
-      @extend %visible;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  &[data-name='intro'] {
+  &[data-name='intro-1'] {
 
     &::before {
       content: "";
@@ -111,19 +96,69 @@ section.slide {
       height: 64px;
       background: img('icon/icon.png') no-repeat center / 100%;
     }
+  }
 
-    > a.nextSlide {
-      @extend %button;
-    }
+  &[data-name='intro-2'] {
+    top: 5vh;
+    width: 100%;
+    max-width: 1400px;
 
-    > a.skip {
-      color: $textColorInverted;
-      font-size: 90%;
-      opacity: 0.5;
+    > div.videos {
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      margin-top: 70px;
+
+      > div.video {
+        width: 50%;
+        cursor: pointer;
+        transition: transform 0.2s;
+
+        > strong {
+          position: absolute;
+          width: 100%;
+          top: -15px;
+          color: $textColorInverted;
+          font-weight: $__fontWeightNormal;
+          font-size: 120%;
+          opacity: 0.7;
+          z-index: 3;
+        }
+
+        > span.setup {
+          @extend %button;
+          position: absolute;
+          bottom: 2%;
+          left: 50%;
+          z-index: 3;
+          transform: translate(-50%, 0);
+          background: $mainColor3;
+          transition: transform 0.2s, box-shadow 0.2s;
+
+          &.finished {
+            @include mask('icon-check', $textColorInverted, 24px);
+            background: $colorSuccess;
+            color: $textColorInverted;
+            padding-left: 40px;
+
+            &::before {
+              -webkit-mask-position-x: left;
+              left: 12px;
+            }
+          }
+        }
+
+        &:hover {
+          > span.setup:not(.finished) {
+            box-shadow: 0 3px 30px $mainColor3, 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1) translate(-45%, 0);
+          }
+        }
+      }
     }
   }
 
-  &[data-name='position'], &[data-name='openAction'], &[data-name='surface'] {
+  &[data-name='position'], &[data-name='openAction'], &[data-name='surface'], &[data-name='handson'] {
 
     > div {
       display: flex;
@@ -136,6 +171,53 @@ section.slide {
         @extend %button;
         margin-left: 12px;
         margin-right: 12px;
+      }
+    }
+  }
+
+  &[data-name='openAction'] {
+    top: 5vh;
+
+    > div.video {
+      margin: -20px auto 0;
+      width: 590px;
+
+      &.highlightIcon > span {
+        @include mask('icon-arrow-sketch', $textColorInverted, 48px);
+        position: absolute;
+        display: block;
+        right: 98px;
+        top: 46px;
+        width: 22px;
+        height: 22px;
+        border: 3px solid $colorError;
+        border-radius: 50%;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          top: -48px;
+          left: -43px;
+          transform: scale(1, -1);
+        }
+      }
+    }
+
+    > p.small {
+      margin-top: 20px;
+    }
+
+    > a.cancel {
+      @include mask('icon-close', $colorError, 22px);
+      position: relative;
+      color: $textColorInverted;
+      padding-left: 26px;
+
+      &::before {
+        -webkit-mask-position-x: left;
+        pointer-events: none;
       }
     }
   }
@@ -182,14 +264,20 @@ section.slide {
   &[data-name='handson'] {
 
     > p.large {
-      margin-bottom: 70px;
+      margin-bottom: 50px;
     }
 
-    > p:not(.large) {
-      color: $textColorInverted;
-      font-size: 120%;
-      opacity: 0.7;
-      padding: 7px 0;
+    > div.video {
+      margin: -30px auto 0;
+      width: 590px;
+
+      &:not(.visible) {
+        display: none;
+      }
+    }
+
+    &:has(> div.video.visible) {
+      top: 5vh;
     }
   }
 
@@ -222,40 +310,6 @@ section.slide {
 
     a.appearance::before {
       @include maskImage('settings/icon-appearance');
-    }
-
-    p.info {
-      @include mask('icon-info', $textColorInverted, 36px);
-      position: relative;
-      padding: 20px 30px 24px 65px;
-      margin: 0 0 40px 0;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      text-align: left;
-
-      > span {
-        display: block;
-        font-size: 120%;
-        line-height: 160%;
-        color: $textColorInverted;
-      }
-
-      &::before {
-        -webkit-mask-position-x: 15px;
-        -webkit-mask-position-y: 22px;
-      }
-
-      > a {
-        position: relative;
-        display: inline-block;
-        background: $textColorInverted;
-        color: $textColor;
-        cursor: pointer;
-        padding: 4px 12px;
-        margin-top: 10px;
-        border-radius: 25px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      }
     }
   }
 }
@@ -352,26 +406,6 @@ body {
 
   &.hideOpenType::before {
     opacity: 0;
-  }
-}
-
-@media (max-width: 1500px) {
-  body {
-
-    &[data-pos='left'] {
-
-      section.slide:not([data-name='position']):not([data-name='handson']) {
-        right: 40px;
-        left: auto;
-      }
-    }
-
-    &[data-pos='right'] {
-
-      section.slide:not([data-name='position']):not([data-name='handson']) {
-        left: 40px;
-      }
-    }
   }
 }
 

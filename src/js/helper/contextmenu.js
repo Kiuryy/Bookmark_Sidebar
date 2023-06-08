@@ -332,7 +332,6 @@
 
                 if (ext.helper.i18n.isRtl()) {
                     offset.left = elmBoundClientRect.width - dim.w;
-                    console.log(offset,elmBoundClientRect.width,dim)
 
                     if (sidebarPos === "left" && offset.left < 0) { // contextmenu will be cut at the left -> limit left position to positive values to prevent that
                         offset.left = 0;

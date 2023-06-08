@@ -19,9 +19,7 @@
                 this.helper.cache.remove({name: "htmlPinnedEntries"})
             ]);
 
-            $.api.sidePanel.setOptions({
-                path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14)
-            });
+            this.helper.browserAction.reloadSidepanel();
             const tabs = await $.api.tabs.query({});
             for (const tab of tabs) {
                 await $.delay(70);
@@ -60,6 +58,7 @@
                 type = opts.type;
             }
 
+            this.helper.browserAction.reloadSidepanel();
             const tabs = await $.api.tabs.query({});
             for (const tab of tabs) {
                 if (typeof tab.url === "undefined" || tab.url.startsWith("http://") || tab.url.startsWith("https://") || tab.url.startsWith("file://")) {
@@ -89,9 +88,7 @@
          * @param {string} type
          */
         const notifyReinitialization = (tabId, type) => {
-            $.api.sidePanel.setOptions({
-                path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14)
-            });
+            this.helper.browserAction.reloadSidepanel();
             $.api.tabs.sendMessage(tabId, {
                 action: "reinitialize",
                 type: type

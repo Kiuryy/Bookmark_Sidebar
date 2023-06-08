@@ -98,6 +98,7 @@
                 viewAsTree: true
             },
             b: { // behaviour -> synced across devices
+                overlayEnabled: true,
                 animations: true,
                 preventPageScroll: false,
                 toggleArea: {

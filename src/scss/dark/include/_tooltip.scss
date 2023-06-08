@@ -10,10 +10,12 @@ body.dark {
     }
   }
 
-  section#sidebar[data-pos='right'] ~ div.tooltip {
+  section#sidebar[data-pos='right'] ~ div.tooltip::before {
+    border-left-color: $darkTooltipBackground;
+  }
 
-    &::before {
-      border-left-color: $darkTooltipBackground;
-    }
+  section#sidebar.sidepanel ~ div.tooltip::before {
+    border-color: transparent;
+    border-bottom-color: $darkTooltipBackground;
   }
 }

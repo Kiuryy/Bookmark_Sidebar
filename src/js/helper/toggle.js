@@ -29,6 +29,7 @@
          */
         this.init = async () => {
             const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "n/autoOpen", "u/performReopening"]);
+            const pageType = ext.helper.utility.getPageType();
 
             ext.elm.indicator = $("<div></div>")
                 .attr("id", $.opts.ids.page.indicator)
@@ -48,7 +49,7 @@
             });
 
             openDelay = +data.openDelay * 1000;
-            sidebarPos = data.sidebarPosition;
+            sidebarPos = pageType === "sidepanel" ? "right" : data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
             preventWindowed = data.preventWindowed;
             preventWebapp = data.preventWebapp;
@@ -74,7 +75,7 @@
                 }
             }
 
-            if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
+            if (data.showIndicator && pageType !== "sidepanel" && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
                 ext.elm.indicator.html("<div></div>").attr($.attr.position, sidebarPos);
 
                 if (data.showIndicatorIcon) { // show indicator icon
@@ -88,8 +89,6 @@
 
             handleLeftsideBackExtension();
             initEvents();
-
-            const pageType = ext.helper.utility.getPageType();
 
             if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen)
                 || pageType === "sidepanel"

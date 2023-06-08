@@ -73,4 +73,18 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
   }
 }
 
+section#sidebar.sidepanel ~ div.tooltip {
+  transform: translate3d(0, -5px, 0);
+
+  &::before {
+    top: -12px;
+    width: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-color: transparent;
+    border-bottom-color: $tooltipBackground;
+  }
+}
+
 @import "../dark/include/tooltip";

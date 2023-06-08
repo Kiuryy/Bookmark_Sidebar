@@ -455,7 +455,6 @@
             });
 
             this.elm.widthDrag = $("<span></span>").addClass($.cl.drag.trigger);
-
             if (this.helper.model.getUserType() === "premium" && pageType !== "sidepanel") {
                 this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
             }

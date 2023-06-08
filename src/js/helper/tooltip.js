@@ -9,6 +9,8 @@
 
         let timeout = {};
         let config = {};
+        let styles = {};
+        let isSidepanel = false;
 
         /**
          *
@@ -16,8 +18,8 @@
          */
         this.init = async () => {
             config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipAdditionalInfo", "b/tooltipDelay", "b/sidebarPosition"]);
-
-            const styles = ext.helper.model.getData("a/styles");
+            isSidepanel = ext.helper.utility.getPageType() === "sidepanel";
+            styles = ext.helper.model.getData("a/styles");
             config.scrollBarWidth = +(styles.scrollBarWidth.toString()).replace("px", "");
         };
 
@@ -58,8 +60,7 @@
 
                         timeout[id] = setTimeout(() => {
                             tooltip.addClass($.cl.visible);
-                            tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
-
+                            setVerticalPosition(tooltip, elm);
                             setHorizontalPosition(tooltip, elm);
                         }, +config.tooltipDelay * 1000);
                     }
@@ -111,22 +112,44 @@
         };
 
         /**
+         * Sets the vertical position of the given tooltip
+         *
+         * @param {jsu} tooltip
+         * @param {jsu} elm
+         */
+        const setVerticalPosition = (tooltip, elm) => {
+            let top = elm[0].getBoundingClientRect().top;
+            if (isSidepanel) {
+                top += elm.realHeight();
+            } else {
+                top += (elm.realHeight() / 2) - (tooltip.realHeight() / 2);
+            }
+            tooltip.css("top", top + "px");
+        };
+
+        /**
          * Sets the horizontal position of the given tooltip
          *
          * @param {jsu} tooltip
          * @param {jsu} elm
          */
         const setHorizontalPosition = (tooltip, elm) => {
-            const isRtl = ext.helper.i18n.isRtl();
-            const ref = {
-                l: ext.elm.sidebar.realWidth() - config.scrollBarWidth,
-                r: elm.realWidth() + 10
-            };
-
-            if (config.sidebarPosition === "right") {
-                tooltip.css("right", ref[isRtl ? "l" : "r"] + "px");
+            if (isSidepanel) {
+                const left = elm[0].getBoundingClientRect().left;
+                const padding = +(styles.bookmarksHorizontalPadding.toString()).replace("px", "");
+                tooltip.css("left", (left + padding / 2) + "px");
             } else {
-                tooltip.css("left", ref[isRtl ? "r" : "l"] + "px");
+                const isRtl = ext.helper.i18n.isRtl();
+                const ref = {
+                    l: ext.elm.sidebar.realWidth() - config.scrollBarWidth,
+                    r: elm.realWidth() + 10
+                };
+
+                if (config.sidebarPosition === "right") {
+                    tooltip.css("right", ref[isRtl ? "l" : "r"] + "px");
+                } else {
+                    tooltip.css("left", ref[isRtl ? "r" : "l"] + "px");
+                }
             }
         };
 

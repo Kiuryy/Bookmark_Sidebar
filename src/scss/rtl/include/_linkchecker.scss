@@ -140,5 +140,12 @@ html[dir='rtl'] {
         }
       }
     }
+
+    &.sidepanel {
+
+      > div[id^='results_'] {
+        margin-right: 0;
+      }
+    }
   }
 }

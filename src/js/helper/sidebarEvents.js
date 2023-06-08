@@ -103,6 +103,10 @@
          * Initializes the eventhandlers for the sidepanel
          */
         const initSidepanelEvents = () => {
+            $(window).on("resize.bs", async () => {
+                await ext.helper.list.handleSidebarWidthChange();
+            });
+
             $(document).on("mouseenter.bs", () => {
                 if (sidepanelLeaveTimeout) {
                     clearTimeout(sidepanelLeaveTimeout);

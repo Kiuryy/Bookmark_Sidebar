@@ -8,7 +8,7 @@ html[dir='rtl'] {
 
     &[data-type='menu'], &[data-type='sort'] {
       left: 0;
-      right: unset;
+      right: unset !important;
     }
 
     > ul.icons {
@@ -59,7 +59,7 @@ html[dir='rtl'] {
 
   section#sidebar {
 
-    &[data-pos='right'] {
+    &[data-pos='right']:not(.sidepanel) {
 
       div.contextmenu {
 

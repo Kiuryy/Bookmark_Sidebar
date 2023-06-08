@@ -144,6 +144,11 @@
 
             ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
             elements.overlay.removeClass($.cl.page.visible);
+
+            if (ext.helper.utility.getPageType() === "sidepanel") { // modal out-animation only for sidepanel
+                elements.modal.removeClass($.cl.visible);
+            }
+
             ext.helper.scroll.focus();
 
             $.delay(400).then(() => {

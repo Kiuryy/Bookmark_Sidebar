@@ -152,7 +152,7 @@ div.modal {
   }
 
   > div.info {
-    margin: 30px 30px 0 30px;
+    margin: 30px 30px 0;
     padding: 20px 0 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     clear: both;
@@ -272,14 +272,28 @@ div.modal {
         }
       }
     }
+
+    &.sidepanel {
+      > div.scrollBox {
+        > div {
+          padding: 20px 15px 5px;
+        }
+      }
+    }
   }
 
   &[data-type='delete'], &[data-type='deleteSelected'], &[data-type='hide'], &[data-type='openChildren'], &[data-type='openSelected'] {
 
     > p {
-      padding: 30px 30px 5px 30px;
+      padding: 30px 30px 5px;
       font-size: 140%;
       line-height: 170%;
+    }
+
+    &.sidepanel {
+      > p {
+        padding: 30px 15px 5px;
+      }
     }
   }
 
@@ -337,7 +351,7 @@ div.modal {
 
     > ul.breadcrumb {
       font-size: 80%;
-      margin: 0 30px 20px 30px;
+      margin: 0 30px 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -401,7 +415,7 @@ div.modal {
       display: flex;
       flex-flow: row;
       font-size: 120%;
-      margin: 40px 30px 0 30px;
+      margin: 40px 30px 0;
       padding: 40px 0 0 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       justify-content: space-between;
@@ -457,6 +471,21 @@ div.modal {
         }
       }
     }
+
+    &.sidepanel {
+      > ul.breadcrumb {
+        margin: 0 15px 20px;
+      }
+
+      > ul:not(.breadcrumb) {
+        flex-flow: column;
+        margin: 30px 15px 0;
+
+        > li + li {
+          margin-top: 12px;
+        }
+      }
+    }
   }
 
   &[data-type='edit'], &[data-type='add'] {
@@ -500,6 +529,12 @@ div.modal {
             border-color: rgba(0, 0, 0, 0.3);
           }
         }
+      }
+    }
+
+    &.sidepanel {
+      > ul {
+        padding: 2px 15px;
       }
     }
   }
@@ -567,6 +602,7 @@ div.modal {
       width: 100%;
       height: calc(100% - 30px);
       display: flex;
+      flex-flow: row wrap;
       align-items: center;
       justify-content: space-around;
       padding: 0 30px;
@@ -642,6 +678,21 @@ div.modal {
         display: inline-block;
       }
     }
+
+    &.sidepanel {
+      > menu[data-name='select'] {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+
+        > a {
+          margin-top: 80px;
+
+          + a {
+            margin-top: 60px;
+          }
+        }
+      }
+    }
   }
 
   > menu.buttons {
@@ -678,6 +729,29 @@ div.modal {
       &:hover::before {
         opacity: 0.15;
       }
+    }
+  }
+
+  &.sidepanel {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    transform: translate3d(-50px, 0, 0);
+
+    &.visible {
+      transform: translate3d(0, 0, 0);
+    }
+
+    > a.preview, > span.preview {
+      margin: 20px 15px 20px;
+
+      + a.previewUrl {
+        margin: -15px 15px 20px;
+      }
+    }
+
+    > div.info {
+      margin: 30px 15px 0;
     }
   }
 }

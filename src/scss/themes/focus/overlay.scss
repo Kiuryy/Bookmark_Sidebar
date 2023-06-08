@@ -36,11 +36,17 @@
 
     > a.preview, > span.preview {
       transition: none;
-      margin: 20px 30px 10px 30px;
+      margin: 20px 30px 10px;
       padding: 10px 12px;
 
       + a.previewUrl {
         margin-top: -6px;
+      }
+    }
+
+    &.sidepanel {
+      > a.preview, > span.preview {
+        margin: 10px 15px 10px;
       }
     }
 

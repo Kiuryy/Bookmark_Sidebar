@@ -56,6 +56,11 @@
                 ret.overlay.addClass($.cl.page.noAnimations);
             }
 
+            if (ext.helper.utility.getPageType() === "sidepanel") {
+                ret.modal.addClass($.cl.sidebar.sidepanel);
+                ret.overlay.addClass($.cl.sidebar.sidepanel);
+            }
+
             if (config.surface === "dark" || (config.surface === "auto" && ext.helper.stylesheet.getSystemSurface() === "dark")) {
                 iframeBody.addClass($.cl.page.dark);
             } else if (config.highContrast) {

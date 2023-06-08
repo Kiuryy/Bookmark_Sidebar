@@ -134,12 +134,13 @@
          * @param {jsu} elm
          */
         const setHorizontalPosition = (tooltip, elm) => {
+            const isRtl = ext.helper.i18n.isRtl();
+
             if (isSidepanel) {
                 const left = elm[0].getBoundingClientRect().left;
                 const padding = +(styles.bookmarksHorizontalPadding.toString()).replace("px", "");
-                tooltip.css("left", (left + padding / 2) + "px");
+                tooltip.css(isRtl ? "right" : "left", (left + padding / 2) + "px");
             } else {
-                const isRtl = ext.helper.i18n.isRtl();
                 const ref = {
                     l: ext.elm.sidebar.realWidth() - config.scrollBarWidth,
                     r: elm.realWidth() + 10

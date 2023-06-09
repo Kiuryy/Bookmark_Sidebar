@@ -167,99 +167,95 @@
             list.find("ul").css("height", "");
         };
 
-        const showPage = (...path) => {
-            return new Promise((resolve) => {
-                if (!running) { // prevent popstate and event both running this method
-                    running = true;
-                    let pathLen = path.length;
-                    const breadcrumb = [];
-                    let menu = list.children("li[" + $.attr.name + "='" + path[0] + "']");
-                    let page = s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']");
+        const showPage = async (...path) => {
+            if (running) { // prevent popstate and event both running this method
+                return;
+            }
 
-                    if (page.length() === 0) { // invalid page -> redirect to startpage of the settings
-                        location.href = location.protocol + "//" + location.host + location.pathname;
-                        return;
-                    }
+            running = true;
+            let pathLen = path.length;
+            const breadcrumb = [];
+            let menu = list.children("li[" + $.attr.name + "='" + path[0] + "']");
+            let page = s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']");
 
-                    page.find("img[" + $.attr.src + "]").forEach((_self) => { // load images of the visible page
-                        const img = $(_self);
-                        const src = img.attr($.attr.src);
-                        img.removeAttr($.attr.src);
-                        img.attr("src", src);
-                    });
+            if (page.length() === 0) { // invalid page -> redirect to startpage of the settings
+                location.href = location.protocol + "//" + location.host + location.pathname;
+                return;
+            }
 
-                    if (pathLen === 1 && page.find("> div[" + $.attr.name + "]").length() > 0) {
-
-                        if (menu.hasClass($.cl.settings.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
-                            path.push(page.find("> div[" + $.attr.name + "='translate']").eq(0).attr($.attr.name));
-                        } else {
-                            path.push(page.find("> div[" + $.attr.name + "]").eq(0).attr($.attr.name));
-                        }
-
-                        pathLen++;
-                    }
-
-                    if (pathLen >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // open the modal for configuring the toggle area
-                        s.elm.buttons.toggleAreaOpen.eq(0).trigger("click");
-                    }
-
-                    const hash = path.join("_");
-                    hidePages();
-
-                    for (let i = 1; i <= pathLen; i++) {
-                        const menuParent = menu.parent("ul");
-
-                        if (menuParent && menuParent.length() > 0) {
-                            menu.addClass($.cl.active);
-                            page.addClass($.cl.active);
-                            breadcrumb.push(menu.children("a").html());
-
-                            let listHeight = 0;
-                            menuParent.children("li:not(." + $.cl.hidden + ")").forEach((menuEntry) => {
-                                listHeight += $(menuEntry).data("height") || 0;
-                            });
-
-                            if (listHeight > 0) {
-                                menuParent.css("height", listHeight + "px");
-                            }
-
-                            if (i < pathLen) {
-                                menu = menu.find("> ul > li[" + $.attr.name + "='" + path[i] + "']");
-                                page = page.find("> div[" + $.attr.name + "='" + path[i] + "']");
-                            }
-                        }
-                    }
-
-                    s.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
-                    s.elm.body.attr($.attr.type, hash);
-
-                    location.hash = hash;
-                    currentPage = page;
-                    currentPath = path;
-
-                    s.elm.content[0].scrollTop = 0;
-                    updateHeaderMenu();
-
-                    const padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
-                    s.elm.header.css(padding, "");
-                    s.elm.content.css(padding, "");
-
-                    document.dispatchEvent(new CustomEvent($.opts.events.pageChanged, {
-                        detail: {
-                            path: path
-                        },
-                        bubbles: true,
-                        cancelable: false
-                    }));
-
-                    $.delay().then(() => {
-                        running = false;
-                        resolve();
-                    });
-                } else {
-                    resolve();
-                }
+            page.find("img[" + $.attr.src + "]").forEach((_self) => { // load images of the visible page
+                const img = $(_self);
+                const src = img.attr($.attr.src);
+                img.removeAttr($.attr.src);
+                img.attr("src", src);
             });
+
+            if (pathLen === 1 && page.find("> div[" + $.attr.name + "]").length() > 0) {
+
+                if (menu.hasClass($.cl.settings.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
+                    path.push(page.find("> div[" + $.attr.name + "='translate']").eq(0).attr($.attr.name));
+                } else {
+                    path.push(page.find("> div[" + $.attr.name + "]").eq(0).attr($.attr.name));
+                }
+
+                pathLen++;
+            }
+
+            if (pathLen >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // open the modal for configuring the toggle area
+                s.elm.buttons.toggleAreaOpen.eq(0).trigger("click");
+            }
+
+            const hash = path.join("_");
+            hidePages();
+
+            for (let i = 1; i <= pathLen; i++) {
+                const menuParent = menu.parent("ul");
+
+                if (menuParent && menuParent.length() > 0) {
+                    menu.addClass($.cl.active);
+                    page.addClass($.cl.active);
+                    breadcrumb.push(menu.children("a").html());
+
+                    let listHeight = 0;
+                    menuParent.children("li:not(." + $.cl.hidden + ")").forEach((menuEntry) => {
+                        listHeight += $(menuEntry).data("height") || 0;
+                    });
+
+                    if (listHeight > 0) {
+                        menuParent.css("height", listHeight + "px");
+                    }
+
+                    if (i < pathLen) {
+                        menu = menu.find("> ul > li[" + $.attr.name + "='" + path[i] + "']");
+                        page = page.find("> div[" + $.attr.name + "='" + path[i] + "']");
+                    }
+                }
+            }
+
+            s.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
+            s.elm.body.attr($.attr.type, hash);
+
+            location.hash = hash;
+            currentPage = page;
+            currentPath = path;
+
+            s.elm.content[0].scrollTop = 0;
+            updateHeaderMenu();
+
+            const padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
+            s.elm.header.css(padding, "");
+            s.elm.content.css(padding, "");
+
+            document.dispatchEvent(new CustomEvent($.opts.events.pageChanged, {
+                detail: {
+                    path: path
+                },
+                bubbles: true,
+                cancelable: false
+            }));
+
+            await $.delay();
+            running = false;
         };
     };
 

@@ -24,9 +24,7 @@
                 save: $("body > header > menu > li > button.save"),
                 restore: $("body > header > menu > li > button.restore"),
                 keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
-                toggleAreaOpen: $("div.toggleAreaDesc > a.button"),
-                toggleAreaSave: $("div.toggleAreaModal a.save"),
-                toggleAreaCancel: $("div.toggleAreaModal a.cancel"),
+                toggleAreaGoto: $("body a.gotoToggleArea"),
                 "import": $("body a.import"),
                 "export": $("body a.export")
             },
@@ -38,6 +36,8 @@
                 footerCopyright: $("div.tab[data-name='dashboard'] footer div.copyright")
             },
             sidebar: {
+                previewVideos: $("div.tab[data-name='sidebar'] div.preview video"),
+                toggleArea: $("div.tab[data-name='sidebar'] div.toggleArea"),
                 filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
                 filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation"),
                 rememberOpenStatesSubDirectories: $("div.tab[data-name='sidebar'] div.rememberOpenStatesSubDirectories")

@@ -67,6 +67,27 @@ body > section#wrapper {
       margin: 0 0 20px;
       border-radius: 10px;
       line-height: 140%;
+
+      > div.info {
+        @include mask("icon-info", $textColorLight, 32px);
+        position: relative;
+
+        &::before {
+          top: 18px;
+          left: 0;
+          width: 32px;
+          height: 32px;
+        }
+
+        > a {
+          margin: 10px 0 0 40px;
+        }
+
+        > p {
+          padding: 3px 0 3px 40px;
+          line-height: 150%;
+        }
+      }
     }
 
     div.boxWrapper {

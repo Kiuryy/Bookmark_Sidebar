@@ -42,8 +42,8 @@
             });
 
             const path = s.helper.menu.getPath();
-            if (path.length >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // initially open the modal for configuring the toggle area (will be called from the finish slide of the onboarding page)
-                s.elm.buttons.toggleAreaOpen.eq(0).trigger("click");
+            if (path[0] === "sidebar") {
+                loadPreviewVideos();
             }
         };
 
@@ -149,13 +149,13 @@
         };
 
         /**
-         * Initialises the eventhandlers for the toggleArea modal
+         * Initialises the eventhandlers for the toggleArea box
          *
          * @returns {Promise}
          */
         const initToggleAreaEvents = async () => {
-            const modal = s.elm.body.children("div." + $.cl.settings.toggleArea.modal);
-            const previewWrapper = modal.children("div." + $.cl.settings.toggleArea.preview);
+            s.elm.sidebar.toggleArea.attr($.attr.type, s.elm.select.sidebarPosition[0].value);
+            const previewWrapper = s.elm.sidebar.toggleArea.children("div[" + $.attr.type + "='preview']");
             const preview = previewWrapper.children("div");
 
             $([s.elm.range.toggleArea_width, s.elm.range.toggleArea_height, s.elm.range.toggleArea_top]).on("change input", (e) => {
@@ -195,38 +195,6 @@
                 }
             });
 
-            s.elm.buttons.toggleAreaOpen.on("click", async (e) => { // open modal for advanced toggle options
-                e.preventDefault();
-                await $.delay(100);
-                modal.attr($.attr.type, s.elm.select.sidebarPosition[0].value);
-                s.elm.body.addClass($.cl.settings.showModal);
-            });
-
-            s.elm.buttons.toggleAreaSave.on("click", (e) => { // save settings
-                e.preventDefault();
-                s.elm.buttons.save.trigger("click");
-                s.elm.body.trigger("click");
-                s.elm.range.indicatorWidth.trigger("change");
-            });
-
-            s.elm.buttons.toggleAreaCancel.on("click", async (e) => { // close modal
-                e.preventDefault();
-                s.elm.body.trigger("click");
-                await $.delay(500);
-                initToggleAreaFields();
-            });
-
-            s.elm.body.on("click", (e) => { // close modal when click something outside the overlay
-                const _target = $(e.target);
-                if (
-                    !preview.hasClass($.cl.settings.toggleArea.dragging) &&
-                    !_target.hasClass($.cl.settings.toggleArea.modal) &&
-                    _target.parents("div." + $.cl.settings.toggleArea.modal).length() === 0
-                ) {
-                    s.elm.body.removeClass($.cl.settings.showModal);
-                }
-            });
-
             preview.on("mousedown", (e) => { // drag start
                 preview.addClass([$.cl.settings.toggleArea.dragged, $.cl.settings.toggleArea.dragging]);
                 preview.data("pos", {start: preview[0].offsetTop, y: e.pageY});
@@ -245,11 +213,29 @@
         };
 
         /**
+         * Start playing the preview videos in a loop
+         */
+        const loadPreviewVideos = () => {
+            s.elm.sidebar.previewVideos.forEach((video) => {
+                video.controls = false;
+                video.loop = true;
+                video.muted = true;
+                video.play();
+            });
+        };
+
+        /**
          * Initialises the eventhandlers
          *
          * @returns {Promise}
          */
         const initEvents = async () => {
+            $(document).on($.opts.events.pageChanged, (e) => {
+                if (e.detail.path && e.detail.path[0] === "sidebar") {
+                    loadPreviewVideos();
+                }
+            });
+
             s.elm.select.openAction.on("change", (e) => {
                 const indicatorMenuPoint = s.elm.aside.find("li[" + $.attr.name + "='indicator']");
 
@@ -260,13 +246,11 @@
                     indicatorMenuPoint.addClass($.cl.hidden);
                 }
 
-                // hide "configure area" when user wants to open the sidebar by clicking the extension icon only
-                const toggleAreaWrapper = s.elm.buttons.toggleAreaOpen.parent("div");
-
+                // hide the "configure area" box when user wants to open the sidebar by clicking the extension icon only
                 if (e.currentTarget.value === "icon") {
-                    toggleAreaWrapper.addClass($.cl.hidden);
+                    s.elm.sidebar.toggleArea.addClass($.cl.hidden);
                 } else {
-                    toggleAreaWrapper.removeClass($.cl.hidden);
+                    s.elm.sidebar.toggleArea.removeClass($.cl.hidden);
                 }
             });
 

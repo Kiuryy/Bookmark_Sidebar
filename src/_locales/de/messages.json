@@ -432,7 +432,7 @@
         "message": "L\u00f6scht den aktuell markierten Eintrag"
     },
     "keyboard_shortcuts_esc_desc": {
-        "message": "Schlie\u00dft die Sidebar, das ge\u00f6ffnete Overlay oder Rechtsklickmen\u00fc"
+        "message": "Schlie\u00dft die Sidebar, den ge\u00f6ffneten Dialog oder Rechtsklickmen\u00fc"
     },
     "contribute_intro": {
         "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen, wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
@@ -581,8 +581,8 @@
     "settings_menu_appearance_icon": {
         "message": "Symbol"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overlay"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Neuer Tab"
@@ -922,12 +922,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nie ausblenden"
-    },
-    "settings_reopen_sidebar": {
-        "message": "Sidebar erneut \u00f6ffnen"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Sidebar automatisch wieder \u00f6ffnen, nachdem ein Lesezeichen aus der Sidebar heraus ge\u00f6ffnet wurde."
     },
     "settings_prevent_windowed": {
         "message": "Sidebar im Fenstermodus deaktivieren"

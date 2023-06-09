@@ -435,7 +435,7 @@
         "message": "Removes the currently hovered entry"
     },
     "keyboard_shortcuts_esc_desc": {
-        "message": "Closes the sidebar, opened overlay or context menu"
+        "message": "Closes the sidebar, opened dialog or context menu"
     },
     "contribute_intro": {
         "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
@@ -584,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Icon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overlay"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "New Tab"
@@ -955,12 +955,6 @@
     },
     "settings_dnd_open_dir_delay_desc": {
         "message": "Delay before opening a hovered folder when dragging an element over it."
-    },
-    "settings_reopen_sidebar": {
-        "message": "Reopen sidebar"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Automatically open the sidebar again, after opening a bookmark from within the sidebar."
     },
     "settings_prevent_windowed": {
         "message": "Disable sidebar in window mode"

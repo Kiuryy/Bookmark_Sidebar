@@ -11,6 +11,25 @@ html[dir='rtl'] {
         padding-right: 50px;
         padding-left: 20px;
       }
+
+      div.contentBox {
+        > div.info {
+          &::before {
+            left:unset;
+            right: 0;
+          }
+
+          > a {
+            margin-left: 0;
+            margin-right: 40px;
+          }
+
+          > p {
+            margin-left: 0;
+            margin-right: 40px;
+          }
+        }
+      }
     }
   }
 }

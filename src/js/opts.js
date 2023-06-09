@@ -188,11 +188,9 @@
                     goto: "goto"
                 },
                 toggleArea: {
-                    preview: "preview",
                     fullHeight: "fullHeight",
                     dragged: "dragged",
-                    dragging: "dragging",
-                    modal: "toggleAreaModal",
+                    dragging: "dragging"
                 },
                 appearance: {
                     preview: {
@@ -208,7 +206,6 @@
                 inactive: "inactive",
                 revert: "revert",
                 highlight: "highlight",
-                showModal: "showModal",
                 lazyloaded: "lazyloaded",
                 sub: "sub",
                 desc: "desc",

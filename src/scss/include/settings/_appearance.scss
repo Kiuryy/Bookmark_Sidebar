@@ -365,7 +365,7 @@ iframe[data-appearance] {
   z-index: 4;
 }
 
-iframe[data-appearance='overlay'] {
+iframe[data-appearance='dialog'] {
   width: 700px;
   height: 650px;
   transform-origin: top right;
@@ -383,7 +383,7 @@ iframe[data-appearance='overlay'] {
   body[data-type='appearance_general'] > iframe[data-appearance='general'],
   body[data-type='appearance_sidebar'] > iframe[data-appearance='sidebar'],
   body[data-type='appearance_indicator'] > iframe[data-appearance='indicator'],
-  body[data-type='appearance_overlay'] > iframe[data-appearance='overlay'] {
+  body[data-type='appearance_dialog'] > iframe[data-appearance='dialog'] {
     display: block;
   }
 }

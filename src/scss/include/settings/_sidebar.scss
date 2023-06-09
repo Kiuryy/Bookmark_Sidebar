@@ -1,0 +1,183 @@
+
+body[data-type^='sidebar'] {
+
+  > section#wrapper > main {
+
+    div.preview {
+      display: flex;
+      flex-flow: row wrap;
+      background: $mainColor2;
+      padding: 0;
+      overflow: hidden;
+
+      > div {
+        width: 50%;
+
+        > strong {
+          display: block;
+          color: $textColorInverted;
+          font-weight: $__fontWeightNormal;
+          padding: 12px 20px 0;
+        }
+
+        > div.video {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 10px 10px $mainColor2;
+            z-index: 2;
+          }
+
+          > video {
+            width: 100%;
+          }
+
+          > strong {
+            position: absolute;
+            width: 100%;
+            top: 20px;
+            color: $textColorInverted;
+            font-weight: $__fontWeightNormal;
+            font-size: 110%;
+            padding-left: 20px;
+            opacity: 0.7;
+            z-index: 3;
+          }
+        }
+      }
+    }
+
+    div.toggleArea {
+      position: relative;
+      margin: 40px 0 15px;
+      padding: 90px 25px 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+
+      &.hidden {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-image: img('settings/mockup-left.png'), img('settings/mockup-right.png'), img('settings/mockup-middle.png');
+        background-repeat: no-repeat, no-repeat, repeat-x;
+        background-position: left 0, right 0, left 0;
+        background-size: auto 60px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+      }
+
+      > div[data-type='preview'] {
+        position: absolute;
+        top: 60px;
+        width: 20px;
+        height: calc(100% - 60px);
+
+        > div {
+          @include mask('icon-bookmark', $textColorInverted, 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          transition: width 0.2s, height 0.2s, top 0.2s, border-radius 0.2s;
+          cursor: ns-resize;
+
+          &.fullHeight {
+            cursor: default;
+          }
+
+          &.dragging {
+            transition: none;
+          }
+        }
+
+        > span {
+          @include mask('icon-arrow-sketch', $textColor, 100%);
+          position: absolute;
+          top: 0;
+          display: block;
+          white-space: nowrap;
+          padding: 8px;
+          font-size: 90%;
+          font-weight: $__fontWeightMedium;
+          transition: opacity 0.3s;
+          @extend %hidden;
+
+          &::before {
+            width: 26px;
+            -webkit-mask-position: 0 -4px;
+          }
+        }
+
+        > div:not(.fullHeight) ~ span {
+          @extend %visible;
+        }
+      }
+
+      > div.hidden {
+        display: none;
+      }
+
+      &[data-type='left'] {
+        padding-left: 75px;
+
+        > div[data-type='preview'] {
+          left: 0;
+
+          > div:not(.fullHeight) {
+            border-radius: 0 12px 12px 0;
+          }
+
+          > span {
+            padding-left: 32px;
+            left: calc(100% + 3px);
+
+            &::before {
+              transform: scaleX(-1) scaleY(-1);
+            }
+          }
+        }
+      }
+
+      &[data-type='right'] {
+        padding-right: 75px;
+
+        > div[data-type='preview'] {
+          right: 0;
+
+          > div:not(.fullHeight) {
+            border-radius: 12px 0 0 12px;
+          }
+
+          > span {
+            padding-right: 32px;
+            right: calc(100% + 3px);
+
+            &::before {
+              transform: scaleY(-1);
+              left: unset;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//@import "../../rtl/include/settings/general";

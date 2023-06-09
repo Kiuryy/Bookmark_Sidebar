@@ -6,7 +6,7 @@
         const previews = {
             sidebar: {template: "sidebar", styles: ["sidebar"]},
             general: {template: "sidebar", styles: ["sidebar"]},
-            overlay: {template: "overlay", styles: ["overlay"]},
+            dialog: {template: "dialog", styles: ["overlay"]},
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
@@ -70,97 +70,92 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                initIconShapeOptions();
-                theme = s.helper.model.getData("a/theme");
+        this.init = async () => {
+            initIconShapeOptions();
+            theme = s.helper.model.getData("a/theme");
 
-                initPreviews().then(() => {
-                    return initThemeSelector();
-                }).then(() => {
-                    $("[" + $.attr.theme + "]").forEach((elm) => { // hide all options, which aren't meant for the currently selected theme
-                        if ($(elm).attr($.attr.theme) !== theme) {
-                            $(elm).addClass($.cl.hidden);
-                        }
-                    });
+            await initPreviews();
+            await initThemeSelector();
 
-                    ["directoryArrows"].forEach((field) => {
-                        let checked = false;
-                        if (s.helper.model.getData("a/" + field) === true) {
-                            s.elm.checkbox[field].trigger("click");
-                            checked = true;
-                        }
-                        s.elm.checkbox[field].children("input").data("initial", checked);
-                    });
-
-                    const surface = s.helper.model.getData("a/surface");
-                    if (surface === "auto") {
-                        s.elm.checkbox.surfaceColorAuto.trigger("click");
-                    } else if (surface === "dark") {
-                        s.elm.checkbox.surface.trigger("click");
-                    }
-                    s.elm.checkbox.surfaceColorAuto.children("input").data("initial", surface === "auto");
-                    s.elm.checkbox.surface.children("input").data("initial", surface === "dark");
-
-                    if (s.helper.model.getUserType() !== "default") {
-                        const customCss = s.helper.model.getData("u/customCss");
-                        s.elm.textarea.customCss[0].value = customCss;
-                        s.elm.textarea.customCss.data("initial", customCss);
-                        s.elm.textarea.customCss.attr("placeholder", "section#sidebar {\n   ...\n}");
-                        s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
-                    } else {
-                        s.elm.textarea.customCss.addClass($.cl.settings.inactive);
-                        s.addNoPremiumText(s.elm.textarea.customCss.parent());
-                    }
-
-                    const styles = s.helper.model.getData("a/styles");
-
-                    Object.entries(styles).forEach(([key, value]) => {
-                        if (s.elm.range[key]) {
-                            value = ("" + value).replace("px", "");
-
-                            if (key === "sidebarWidth" && +value > sidebarMaxSelectableWidth) { // wider sidebar is possible when the user expanded the width manually
-                                s.elm.range[key].attr("max", value);
-                            }
-
-                            s.elm.range[key][0].value = value;
-                            s.elm.range[key].data("initial", value);
-                            s.elm.range[key].trigger("change");
-                        } else if (s.elm.color[key]) {
-                            if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the color of the first suggestion as predefined color
-                                value = s.elm.color[key].siblings("span." + $.cl.settings.suggestion).eq(0).attr($.attr.value);
-                                s.elm.select.iconColorType[0].value = "auto";
-                            }
-
-                            s.helper.form.changeColorValue(s.elm.color[key], value);
-                            s.elm.color[key].data("initial", s.elm.color[key][0].value);
-                        } else if (s.elm.select[key]) {
-                            if (key === "fontFamily") {
-                                value = value.replace(/(^'*)|('*$)/g, "");
-                                if (s.elm.select[key].children("option[value='" + value + "']").length() === 0) {
-                                    value = "default";
-                                }
-                            }
-
-                            s.elm.select[key][0].value = value;
-                            s.elm.select[key].data("initial", value);
-                        } else if (s.elm.radio[key]) {
-                            s.elm.radio[key][0].value = value;
-                            s.elm.radio[key].trigger("change");
-                            s.elm.radio[key].data("initial", value);
-                        }
-                    });
-
-                    initEvents();
-
-                    $.delay(100).then(() => {
-                        updateAllPreviewStyles();
-                        showHideSurfaceColorDependentOptions();
-                        $(window).trigger("resize");
-                        resolve();
-                    });
-                });
+            $("[" + $.attr.theme + "]").forEach((elm) => { // hide all options, which aren't meant for the currently selected theme
+                if ($(elm).attr($.attr.theme) !== theme) {
+                    $(elm).addClass($.cl.hidden);
+                }
             });
+
+            ["directoryArrows"].forEach((field) => {
+                let checked = false;
+                if (s.helper.model.getData("a/" + field) === true) {
+                    s.elm.checkbox[field].trigger("click");
+                    checked = true;
+                }
+                s.elm.checkbox[field].children("input").data("initial", checked);
+            });
+
+            const surface = s.helper.model.getData("a/surface");
+            if (surface === "auto") {
+                s.elm.checkbox.surfaceColorAuto.trigger("click");
+            } else if (surface === "dark") {
+                s.elm.checkbox.surface.trigger("click");
+            }
+            s.elm.checkbox.surfaceColorAuto.children("input").data("initial", surface === "auto");
+            s.elm.checkbox.surface.children("input").data("initial", surface === "dark");
+
+            if (s.helper.model.getUserType() !== "default") {
+                const customCss = s.helper.model.getData("u/customCss");
+                s.elm.textarea.customCss[0].value = customCss;
+                s.elm.textarea.customCss.data("initial", customCss);
+                s.elm.textarea.customCss.attr("placeholder", "section#sidebar {\n   ...\n}");
+                s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
+            } else {
+                s.elm.textarea.customCss.addClass($.cl.settings.inactive);
+                s.addNoPremiumText(s.elm.textarea.customCss.parent());
+            }
+
+            const styles = s.helper.model.getData("a/styles");
+
+            Object.entries(styles).forEach(([key, value]) => {
+                if (s.elm.range[key]) {
+                    value = ("" + value).replace("px", "");
+
+                    if (key === "sidebarWidth" && +value > sidebarMaxSelectableWidth) { // wider sidebar is possible when the user expanded the width manually
+                        s.elm.range[key].attr("max", value);
+                    }
+
+                    s.elm.range[key][0].value = value;
+                    s.elm.range[key].data("initial", value);
+                    s.elm.range[key].trigger("change");
+                } else if (s.elm.color[key]) {
+                    if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the color of the first suggestion as predefined color
+                        value = s.elm.color[key].siblings("span." + $.cl.settings.suggestion).eq(0).attr($.attr.value);
+                        s.elm.select.iconColorType[0].value = "auto";
+                    }
+
+                    s.helper.form.changeColorValue(s.elm.color[key], value);
+                    s.elm.color[key].data("initial", s.elm.color[key][0].value);
+                } else if (s.elm.select[key]) {
+                    if (key === "fontFamily") {
+                        value = value.replace(/(^'*)|('*$)/g, "");
+                        if (s.elm.select[key].children("option[value='" + value + "']").length() === 0) {
+                            value = "default";
+                        }
+                    }
+
+                    s.elm.select[key][0].value = value;
+                    s.elm.select[key].data("initial", value);
+                } else if (s.elm.radio[key]) {
+                    s.elm.radio[key][0].value = value;
+                    s.elm.radio[key].trigger("change");
+                    s.elm.radio[key].data("initial", value);
+                }
+            });
+
+            initEvents();
+
+            await $.delay(100);
+            updateAllPreviewStyles();
+            showHideSurfaceColorDependentOptions();
+            $(window).trigger("resize");
         };
 
         /**
@@ -763,6 +758,11 @@
                         }
                     }
                 });
+            });
+
+            s.elm.buttons.toggleAreaGoto.on("click", async (e) => {
+                e.preventDefault();
+                location.hash = "sidebar_toggle";
             });
 
             $(document).on($.opts.events.pageChanged, (e) => {

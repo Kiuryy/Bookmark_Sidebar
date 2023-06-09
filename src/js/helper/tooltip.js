@@ -39,9 +39,8 @@
                 const existingTooltip = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
-                    if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
-                        existingTooltip.addClass($.cl.visible);
-                    }
+                    setVerticalPosition(existingTooltip, elm);
+                    setHorizontalPosition(existingTooltip, elm);
                 } else if (+config.tooltipDelay !== -1) { // no tooltip for the given element yet -> generate and show it after the configured delay (if delay > -1)
                     const data = ext.helper.entry.getDataById(id);
 
@@ -58,10 +57,11 @@
                             timeout[id] = null;
                         }
 
+                        setVerticalPosition(tooltip, elm);
+                        setHorizontalPosition(tooltip, elm);
+
                         timeout[id] = setTimeout(() => {
                             tooltip.addClass($.cl.visible);
-                            setVerticalPosition(tooltip, elm);
-                            setHorizontalPosition(tooltip, elm);
                         }, +config.tooltipDelay * 1000);
                     }
                 }
@@ -159,7 +159,7 @@
          *
          * @param {int} except
          */
-        const closeAllExcept = (except = null) => {
+        const closeAllExcept = async (except = null) => {
             Object.values(timeout).forEach((id) => {
                 if (id) {
                     clearTimeout(timeout[id]);
@@ -178,10 +178,9 @@
             });
 
             tooltips.removeClass($.cl.visible);
-            $.delay(hasVisibleTooltips ? 300 : 0).then(() => {
-                tooltips.remove();
-                ext.helper.toggle.removeSidebarHoverClass();
-            });
+            await $.delay(hasVisibleTooltips ? 300 : 0);
+            tooltips.remove();
+            ext.helper.toggle.removeSidebarHoverClass();
         };
     };
 

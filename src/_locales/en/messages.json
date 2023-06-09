@@ -560,8 +560,8 @@
     "settings_menu_sidebar_general": {
         "message": "General"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Toggle"
+    "settings_menu_sidebar_overlay": {
+        "message": "Overlay"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"

@@ -244,8 +244,6 @@
                     location.href = $.api.runtime.getURL("html/settings.html");
                 } else if ($(e.currentTarget).hasClass($.cl.onboarding.appearance)) {
                     location.href = $.api.runtime.getURL("html/settings.html") + "#appearance_sidebar";
-                } else if ($(e.currentTarget).hasClass($.cl.onboarding.toggleArea)) {
-                    location.href = $.api.runtime.getURL("html/settings.html") + "#sidebar_toggle_area";
                 }
             });
         };

@@ -762,7 +762,7 @@
 
             s.elm.buttons.toggleAreaGoto.on("click", async (e) => {
                 e.preventDefault();
-                location.hash = "sidebar_toggle";
+                location.hash = "sidebar_overlay";
             });
 
             $(document).on($.opts.events.pageChanged, (e) => {

@@ -23,7 +23,7 @@
                 },
                 activation_area: {
                     img: "https://extensions.redeviation.com/img/tips-tricks/activation_area.png",
-                    action: {label: "settings_toggle_area", dest: "#sidebar_toggle_area"}
+                    action: {label: "settings_toggle_area", dest: "#sidebar_overlay"}
                 },
                 i18n: {
                     img: "https://extensions.redeviation.com/img/tips-tricks/i18n.png",

@@ -557,8 +557,8 @@
     "settings_menu_sidebar_general": {
         "message": "Allgemein"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Ein\/Ausblenden"
+    "settings_menu_sidebar_overlay": {
+        "message": "Overlay"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"

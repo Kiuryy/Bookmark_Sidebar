@@ -49,7 +49,7 @@
             $.api.runtime.onMessage.addListener((message, sender, callback) => {
                 if (mapping[message.type]) { // function for message type exists
                     c++;
-                    if (c === 100) { // check whether the userdata should be shared for today from time to time
+                    if (c === 50) { // check whether the userdata should be shared for today from time to time
                         b.helper.analytics.trackUserData();
                         c = 0;
                     }

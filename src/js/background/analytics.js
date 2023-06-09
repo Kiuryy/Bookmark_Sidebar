@@ -27,25 +27,28 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            await $.api.storage.local.set({analytics_stack: []});
-
+            await intervalCallback();
             setInterval(async () => {
-                const storageData = await $.api.storage.local.get(["analytics_stack"]);
-                const stack = storageData.analytics_stack || [];
-
-                if (stack.length > 0) {
-                    try {
-                        const success = await sendStackToServer(stack);
-                        if (success) {
-                            await $.api.storage.local.set({analytics_stack: []});
-                        } else {
-                            console.error("Failed to send analytics data");
-                        }
-                    } catch (e) {
-                        console.error("Error while sending analytics data", e);
-                    }
-                }
+                await intervalCallback();
             }, 25 * 1000);
+        };
+
+        const intervalCallback = async () => {
+            const storageData = await $.api.storage.local.get(["analytics_stack"]);
+            const stack = storageData.analytics_stack || [];
+
+            if (stack.length > 0) {
+                try {
+                    const success = await sendStackToServer(stack);
+                    if (success) {
+                        await $.api.storage.local.set({analytics_stack: []});
+                    } else {
+                        console.error("Failed to send analytics data");
+                    }
+                } catch (e) {
+                    console.error("Error while sending analytics data", e);
+                }
+            }
         };
 
         /**

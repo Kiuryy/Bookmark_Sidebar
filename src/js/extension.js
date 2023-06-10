@@ -307,12 +307,19 @@
          * @returns {boolean}
          */
         const isAllowedToInitialize = () => {
-            let ret = true;
-            const visibility = this.helper.model.getData("b/visibility");
+            const isSidepanel = this.helper.utility.getPageType() === "sidepanel";
+            const overlayModeEnabled = this.helper.model.getData("b/overlayEnabled");
+            if (!overlayModeEnabled && !isSidepanel) {
+                return false;
+            }
 
-            if (visibility === "always" || location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0) {
-                ret = true;
-            } else if (visibility === "blacklist" || visibility === "whitelist") {
+            const visibility = this.helper.model.getData("b/visibility");
+            if (visibility === "always" || isSidepanel || location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0) {
+                return true;
+            }
+
+            if (visibility === "blacklist" || visibility === "whitelist") {
+                let ret = true;
                 const rules = this.helper.model.getData("b/" + visibility);
                 let match = false;
 
@@ -342,9 +349,11 @@
                         this.state = "notWhitelisted";
                     }
                 }
+
+                return ret;
             }
 
-            return ret;
+            return true;
         };
 
         /**

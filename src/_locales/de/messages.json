@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Zuletzt hinzugef\u00fcgt"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Verzeichnisse anzeigen"
     },

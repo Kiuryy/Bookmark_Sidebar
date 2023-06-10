@@ -150,6 +150,9 @@
                 alphabetical: {
                     dir: "ASC"
                 },
+                url: {
+                    dir: "ASC"
+                },
                 mostUsed: {
                     dir: "DESC"
                 },
@@ -204,6 +207,17 @@
                     case "alphabetical": {
                         doSort("ASC", (a, b) => {
                             return collator.compare(a.title, b.title);
+                        });
+                        break;
+                    }
+                    case "url": {
+                        doSort("ASC", (a, b) => {
+                            if (!a.url || !b.url) {
+                                return a.index - b.index;
+                            }
+                            const aUrl = a.url.replace(/^https?:\/\//, "").replace(/^www\./, "");
+                            const bUrl = b.url.replace(/^https?:\/\//, "").replace(/^www\./, "");
+                            return collator.compare(aUrl, bUrl);
                         });
                         break;
                     }

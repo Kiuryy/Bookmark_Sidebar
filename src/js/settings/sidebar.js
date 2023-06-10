@@ -267,7 +267,7 @@
 
             s.elm.select.openAction.on("change", (e) => {
                 // hide menupoint for changing the appearance of the indicator if it is not visible at all
-                if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
+                if ((e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") && s.helper.checkbox.isChecked(s.elm.checkbox.overlayEnabled)) {
                     indicatorMenuPoint.removeClass($.cl.hidden);
                 } else {
                     indicatorMenuPoint.addClass($.cl.hidden);

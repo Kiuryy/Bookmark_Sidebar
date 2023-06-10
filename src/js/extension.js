@@ -308,13 +308,14 @@
          */
         const isAllowedToInitialize = () => {
             const isSidepanel = this.helper.utility.getPageType() === "sidepanel";
+            const isNewTabPage = location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0;
             const overlayModeEnabled = this.helper.model.getData("b/overlayEnabled");
-            if (!overlayModeEnabled && !isSidepanel) {
+            if (!overlayModeEnabled && !isSidepanel && !isNewTabPage) {
                 return false;
             }
 
             const visibility = this.helper.model.getData("b/visibility");
-            if (visibility === "always" || isSidepanel || location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0) {
+            if (visibility === "always" || isSidepanel || isNewTabPage) {
                 return true;
             }
 

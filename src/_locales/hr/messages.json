@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Desno"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Ako ne \u017eelite da se bo\u010dna traka oznaka u\u010dita na svakoj stranici, mo\u017eete konfigurirati na kojoj \u0107e se u\u010ditati pro\u0161irenje (bijela lista) ili na kojoj se ne\u0107e (crna lista)."
     },
     "settings_filter_explanation_1": {

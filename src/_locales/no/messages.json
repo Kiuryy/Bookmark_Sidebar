@@ -824,7 +824,7 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f8yre"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Om du \u00f8nsker at sidefeltet skal lastes p\u00e5 alle sider kan du konfigurere hvor tillegget skal lastes (hviteliste) eller hvor det ikke skal lastes (svarteliste)."
     },
     "settings_filter_explanation_1": {

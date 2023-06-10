@@ -815,7 +815,7 @@
     "settings_sidebar_position_right": {
         "message": "Kanan"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Jika Anda tidak ingin bar samping dimuat di setiap halaman, Anda dapat mengonfigurasi tempat memuat ekstensi (daftar putih) atau di mana tidak memuatnya (daftar hitam)."
     },
     "settings_filter_explanation_1": {

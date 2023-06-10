@@ -17,6 +17,9 @@
             const ctrlKeyLabel = navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl";
 
             const tipsTricks = {
+                sidepanel: {
+                    video: "https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4"
+                },
                 synchronization: {
                     img: "https://extensions.redeviation.com/img/tips-tricks/synchronization.png",
                     action: {label: "settings_tips_tricks_synchronization_action", dest: "chrome://settings/syncSetup"}
@@ -116,6 +119,7 @@
                 return new Promise((resolve) => {
                     s.elm.dashboard.tipsTricks.children("div." + $.cl.info).remove();
                     s.elm.dashboard.tipsTricks.children("img").remove();
+                    s.elm.dashboard.tipsTricks.children("video").remove();
 
                     if (obj.img) {
                         const img = $("<img/>").prependTo(s.elm.dashboard.tipsTricks);
@@ -123,6 +127,19 @@
                             .on("load", resolve)
                             .on("error", resolve)
                             .attr("src", obj.img);
+                    } else if (obj.video) {
+                        const video = $("<video/>").prependTo(s.elm.dashboard.tipsTricks);
+                        video
+                            .on("loadeddata", () => {
+                                video[0].loop = true;
+                                video[0].autoplay = true;
+                                video[0].muted = true;
+                                video[0].controls = false;
+                                video[0].play();
+                                resolve();
+                            })
+                            .on("error", resolve)
+                            .attr("src", obj.video);
                     } else {
                         $.delay(50).then(resolve);
                     }

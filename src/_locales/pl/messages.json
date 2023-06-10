@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Prawa"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."
     },
     "settings_filter_explanation_1": {

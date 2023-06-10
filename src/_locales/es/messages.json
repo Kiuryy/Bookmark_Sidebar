@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Derecha"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"
     },
     "settings_filter_explanation_1": {

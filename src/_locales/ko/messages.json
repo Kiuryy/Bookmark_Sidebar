@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "\uc624\ub978\ucabd"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\uac00 \ub098\uc62c \uc218 \uc788\ub294 \ud398\uc774\uc9c0(\ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8)\uc640 \ub098\uc62c \uc218 \uc5c6\ub294 \ud398\uc774\uc9c0(\ube14\ub799\ub9ac\uc2a4\ud2b8)\ub97c \uc124\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
     },
     "settings_filter_explanation_1": {

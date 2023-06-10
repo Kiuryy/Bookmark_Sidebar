@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Dreta"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Si no vols que la barra lateral es carregui en cada p\u00e0gina, pots configurar on carregar l'extensi\u00f3 (Llista blanca) i on no (Llista negra)"
     },
     "settings_filter_explanation_1": {

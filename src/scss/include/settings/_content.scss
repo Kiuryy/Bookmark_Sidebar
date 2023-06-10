@@ -68,6 +68,10 @@ body > section#wrapper {
       border-radius: 10px;
       line-height: 140%;
 
+      &.hidden {
+        display: none !important;
+      }
+
       > div.info {
         @include mask("icon-info", $textColorLight, 32px);
         position: relative;
@@ -100,6 +104,10 @@ body > section#wrapper {
 
       @media (max-width: 1100px) {
         display: block;
+      }
+
+      &.hidden {
+        display: none;
       }
 
       > div.box {

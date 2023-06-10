@@ -494,6 +494,9 @@
     "onboarding_intro_sidebar_sidepanel_desc": {
         "message": "Open in the browsers side panel next to the websites"
     },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "I don't want to use this overlaying sidebar"
+    },
     "onboarding_setup_start": {
         "message": "Setup now"
     },
@@ -565,9 +568,6 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Appearance"
@@ -788,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only displays the ones of your browser in the sidebar."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Browser side panel"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "You can have your bookmark sidebar permanently opened while you are browsing. There is a side panel provided by your browser. Click on the side panel icon at the top of your browser and choose the Bookmark Sidebar view."
+    },
     "settings_open_action": {
         "message": "Open sidebar"
     },
@@ -995,8 +1001,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Additional info"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Here you can change the behaviour of the overlaying sidebar which opens on top of websites."
+    },
     "settings_sidebar_position": {
         "message": "Position"
+    },
+    "settings_sidebar_overlay_enabled": {
+        "message": "Enable overlaying sidebar"
+    },
+    "settings_sidebar_overlay_enabled_desc": {
+        "message": "If you only want to access your bookmarks in the browser provided side panel, you can deactivate the overlaying sidebar."
     },
     "settings_sidebar_position_desc": {
         "message": "Define whether the sidebar should open on the left or right side of the browser window."
@@ -1013,9 +1028,6 @@
     "settings_animations_desc": {
         "message": "Allows you to disable all sidebar animations. This can be useful if the animations are not running smoothly on your system."
     },
-    "settings_filter_intro": {
-        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
-    },
     "settings_filter_explanation_1": {
         "message": "Only add one URL pattern per line"
     },
@@ -1030,6 +1042,9 @@
     },
     "settings_filter_visibility": {
         "message": "Load sidebar"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
     },
     "settings_filter_visibility_always": {
         "message": "On every page"
@@ -1069,12 +1084,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Changed theme successfully"
-    },
-    "settings_overlay_disable": {
-        "message": "I don't want to use this overlaying sidebar"
     },
     "settings_close_on_tab_change": {
         "message": "Close on tab change"
@@ -1244,8 +1253,11 @@
     "settings_installed_theme_info": {
         "message": "Currently installed"
     },
+    "settings_theme_changed": {
+        "message": "Changed theme successfully"
+    },
     "settings_newtab_desc": {
-        "message": "Chromium based browsers do not allow loading extensions on the default new tab page. Because of this the sidebar feature will not work there. To circumvent this problem options have been added allowing you to access your bookmarks when opening a new tab."
+        "message": "You can override the default new tab page of your browser with a page provided by this extension. This page will show your bookmark sidebar and can be configured to enhance your productivity."
     },
     "settings_newtab_override": {
         "message": "Override new tab page"

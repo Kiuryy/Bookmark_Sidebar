@@ -38,16 +38,12 @@ body[data-type^='newtab'] {
       }
     }
 
-    div.faviconOptions {
+    div.contentBox.faviconOptions {
       display: grid;
       grid-template-columns: auto 1fr;
 
       @media (max-width: 1280px) {
         grid-template-columns: 1fr;
-      }
-
-      &.hidden {
-        display: none;
       }
 
       > h2 {

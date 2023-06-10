@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Droite"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
     },
     "settings_filter_explanation_1": {

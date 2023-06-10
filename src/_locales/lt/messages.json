@@ -794,7 +794,7 @@
     "settings_sidebar_position_right": {
         "message": "De\u0161n\u0117je"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Jei nenorite, kad \u0161onin\u0117 juosta b\u016bt\u0173 \u012fkelta \u012f kiekvien\u0105 puslap\u012f, galite sukonfig\u016bruoti, kur \u012fkelti pl\u0117tin\u012f (balt\u0105j\u012f s\u0105ra\u0161\u0105), o kur ne - juod\u0105j\u012f s\u0105ra\u0161\u0105."
     },
     "settings_filter_explanation_1": {

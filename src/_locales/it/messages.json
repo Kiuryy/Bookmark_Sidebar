@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Destro"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Se non vuoi che la barra laterale venga aperta in ogni pagina, puoi decidere in quali \u00e8 permesso (whitelist) e in quali \u00e8 proibito (blacklist)."
     },
     "settings_filter_explanation_1": {

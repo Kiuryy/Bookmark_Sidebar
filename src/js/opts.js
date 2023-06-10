@@ -28,6 +28,7 @@
             active: "active",
             visible: "visible",
             hidden: "hidden",
+            disabled: "disabled",
             success: "success",
             selected: "selected",
             premium: "premium",
@@ -171,9 +172,6 @@
                 radio: {
                     wrapper: "radioWrapper"
                 },
-                newtab: {
-                    hideable: "hideable"
-                },
                 translation: {
                     select: "languageSelect",
                     category: "category",
@@ -203,6 +201,7 @@
                     noHeight: "noHeight",
                     absolute: "absolute"
                 },
+                hideable: "hideable",
                 inactive: "inactive",
                 revert: "revert",
                 highlight: "highlight",

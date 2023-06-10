@@ -107,6 +107,14 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
         }
       }
 
+      > video {
+        display: block;
+        width: 460px;
+
+        @media (max-width: 1200px) {
+          margin: 20px auto;
+        }
+      }
 
       > button {
         @extend %highlightButton;

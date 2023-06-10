@@ -14,10 +14,11 @@
             initToggleAreaFields();
             initFilter();
 
-            ["dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["overlayEnabled", "dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.elm.checkbox[field].trigger("click");
                 }
+                s.elm.checkbox[field].children("input").trigger("change");
             });
 
             s.elm.select.language[0].value = s.helper.i18n.getLanguage();
@@ -77,7 +78,7 @@
                 conf.behaviour[field] = val;
             });
 
-            ["dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["overlayEnabled", "dirAccordion", "preventPageScroll", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
             });
 
@@ -113,7 +114,7 @@
         const initFilter = () => {
             s.elm.textarea.visibilityFilter.attr("placeholder", "example.com/*\n*.example.com/*");
 
-            s.elm.sidebar.filterExplanation.find("> ul > li").forEach((elm) => { // highlight [*] in the explanations
+            s.elm.sidebar.filterOptions.find("> div > ul > li").forEach((elm) => { // highlight [*] in the explanations
                 const text = $(elm).text();
                 $(elm).html(text.replace(/(?<!\/)\*/g, "<em>*</em>"));
             });
@@ -122,11 +123,9 @@
                 const val = e.currentTarget.value;
 
                 if (val === "always") { // always show sidebar -> don't show url rules
-                    s.elm.sidebar.filterExplanation.addClass($.cl.hidden);
-                    s.elm.sidebar.filterPatters.addClass($.cl.hidden);
+                    s.elm.sidebar.filterOptions.addClass($.cl.hidden);
                 } else if (val === "blacklist" || val === "whitelist") { // show url rules
-                    s.elm.sidebar.filterExplanation.removeClass($.cl.hidden);
-                    s.elm.sidebar.filterPatters.removeClass($.cl.hidden);
+                    s.elm.sidebar.filterOptions.removeClass($.cl.hidden);
 
                     if (s.elm.textarea.visibilityFilter[0].value.length === 0) { // fill with the already set rules, if the field is empty
                         const rules = s.helper.model.getData("b/" + val);
@@ -230,15 +229,37 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
+            const indicatorMenuPoint = s.elm.aside.find("li[" + $.attr.name + "='indicator']");
+
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "sidebar") {
                     loadPreviewVideos();
                 }
             });
 
-            s.elm.select.openAction.on("change", (e) => {
-                const indicatorMenuPoint = s.elm.aside.find("li[" + $.attr.name + "='indicator']");
+            s.elm.sidebar.previewVideos.parent().on("click", (e) => {
+                e.preventDefault();
+                const type = $(e.currentTarget).attr($.attr.type);
+                if (type && $(e.currentTarget).children("span").length() > 0) {
+                    location.hash = "sidebar_" + type;
+                }
+            });
 
+            s.elm.checkbox.overlayEnabled.children("input[type='checkbox']").on("change", () => {
+                const hideableBoxes = s.elm.sidebar.overlayContent.find("div." + $.cl.settings.hideable);
+
+                if (s.helper.checkbox.isChecked(s.elm.checkbox.overlayEnabled)) {
+                    indicatorMenuPoint.removeClass($.cl.hidden);
+                    hideableBoxes.removeClass($.cl.hidden);
+                    s.elm.sidebar.previewVideoOverlay.removeClass($.cl.disabled);
+                } else {
+                    indicatorMenuPoint.addClass($.cl.hidden);
+                    hideableBoxes.addClass($.cl.hidden);
+                    s.elm.sidebar.previewVideoOverlay.addClass($.cl.disabled);
+                }
+            });
+
+            s.elm.select.openAction.on("change", (e) => {
                 // hide menupoint for changing the appearance of the indicator if it is not visible at all
                 if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
                     indicatorMenuPoint.removeClass($.cl.hidden);

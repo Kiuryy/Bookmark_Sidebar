@@ -833,7 +833,7 @@
     "settings_sidebar_position_right": {
         "message": "Oikea"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Jos et halua sivupalkin latautuvan jokaiselle sivulle, voit m\u00e4\u00e4ritt\u00e4\u00e4, mihin laajennus ladataan (sallittujen luettelo) tai mihin ei (musta lista)."
     },
     "settings_filter_explanation_1": {

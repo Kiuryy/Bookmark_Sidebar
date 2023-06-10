@@ -18,9 +18,6 @@
             initEvents();
             initFaviconOptions();
 
-            s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.hidden);
-            s.elm.newtab.buttons.addClass($.cl.hidden);
-
             ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
                     if (field === "override") { // only enable override checkbox if the user granted permissions
@@ -38,6 +35,7 @@
                 } else if (field === "override") {
                     overrideCheckboxInited = true;
                 }
+                s.elm.checkbox[field].children("input").trigger("change");
             });
 
             ["faviconBackground", "faviconColor"].forEach((field) => {
@@ -115,7 +113,7 @@
         const initEvents = () => {
             s.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
                 let override = s.helper.checkbox.isChecked(s.elm.checkbox.override);
-                const hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable);
+                const hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.hideable);
 
                 if (override) {
                     if (overrideCheckboxInited === true) {

@@ -108,16 +108,17 @@
                 <div class="contentBox preview">
                     <div>
                         <strong data-i18n="onboarding_intro_sidebar_overlay_desc"></strong>
-                        <div class="video">
+                        <div class="video" data-type="overlay">
                             <video preload="none">
                                 <source src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4"
                                         type="video/mp4">
                             </video>
+                            <span class="setup" data-i18n="onboarding_setup_start"></span>
                         </div>
                     </div>
                     <div>
                         <strong data-i18n="onboarding_intro_sidebar_sidepanel_desc"></strong>
-                        <div class="video">
+                        <div class="video" data-type="sidepanel">
                             <video preload="none">
                                 <source src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4"
                                         type="video/mp4">
@@ -126,6 +127,7 @@
                     </div>
                 </div>
 
+                <h2 data-i18n="settings_menu_sidebar_general"></h2>
 
                 <div class="boxWrapper">
                     <div class="box">
@@ -189,7 +191,26 @@
 
             <!-- Overlay -->
             <div data-name="overlay">
-                <div class="contentBox openAction">
+                <div class="contentBox preview">
+                    <strong class="large" data-i18n="settings_sidebar_overlay_intro"></strong>
+                    <div>
+                        <div class="video" data-type="overlay">
+                            <video preload="none">
+                                <source src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="box">
+                            <div class="formElement" data-type="checkbox" data-name="overlayEnabled"
+                                 data-i18n="settings_sidebar_overlay_enabled"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentBox openAction hideable">
                     <div>
                         <div class="formElement" data-type="select" data-name="openAction"
                              data-i18n="settings_open_action">
@@ -222,7 +243,7 @@
                     </div>
                 </div>
 
-                <div class="boxWrapper">
+                <div class="boxWrapper hideable">
                     <div class="box">
                         <div class="formElement" data-type="select" data-name="sidebarPosition"
                              data-i18n="settings_sidebar_position">
@@ -237,6 +258,11 @@
                     </div>
 
                     <div class="box">
+                        <div class="formElement" data-type="range" data-name="openDelay" data-min="0" data-max="2"
+                             data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                    </div>
+
+                    <div class="box">
                         <div class="formElement" data-type="checkbox" data-name="preventPageScroll"
                              data-i18n="settings_prevent_pagescroll"></div>
                     </div>
@@ -245,10 +271,29 @@
                         <div class="formElement" data-type="checkbox" data-name="preventWindowed"
                              data-i18n="settings_prevent_windowed"></div>
                     </div>
+                </div>
 
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="openDelay" data-min="0" data-max="2"
-                             data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                <div class="contentBox hideable">
+                    <div class="formElement" data-type="select" data-name="visibility"
+                         data-i18n="settings_filter_visibility">
+                        <span data-value="always" data-i18n="settings_filter_visibility_always"></span>
+                        <span data-value="blacklist" data-i18n="settings_filter_visibility_blacklist"></span>
+                        <span data-value="whitelist" data-i18n="settings_filter_visibility_whitelist"></span>
+                    </div>
+
+                    <div class="filterOptions">
+                        <div class="patterns">
+                            <div class="formElement" data-type="textarea" data-name="visibilityFilter"
+                                 data-i18n="settings_filter_rules"></div>
+                        </div>
+                        <div class="box patternExplanation">
+                            <ul class="bulletList">
+                                <li data-i18n="settings_filter_explanation_1"></li>
+                                <li data-i18n="settings_filter_explanation_2"></li>
+                                <li data-i18n="settings_filter_explanation_3"></li>
+                                <li data-i18n="settings_filter_explanation_4"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,38 +320,6 @@
                     <div class="box">
                         <div class="formElement" data-type="range" data-name="tooltipDelay" data-min="0" data-max="3"
                              data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Filter -->
-            <div data-name="filter">
-                <div class="contentBox noticeBox">
-                    <p data-i18n="settings_filter_intro"></p>
-                </div>
-
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="visibility"
-                             data-i18n="settings_filter_visibility">
-                            <span data-value="always" data-i18n="settings_filter_visibility_always"></span>
-                            <span data-value="blacklist" data-i18n="settings_filter_visibility_blacklist"></span>
-                            <span data-value="whitelist" data-i18n="settings_filter_visibility_whitelist"></span>
-                        </div>
-
-                        <div class="patterns">
-                            <div class="formElement" data-type="textarea" data-name="visibilityFilter"
-                                 data-i18n="settings_filter_rules"></div>
-                        </div>
-                    </div>
-
-                    <div class="box patternExplanation">
-                        <ul class="bulletList">
-                            <li data-i18n="settings_filter_explanation_1"></li>
-                            <li data-i18n="settings_filter_explanation_2"></li>
-                            <li data-i18n="settings_filter_explanation_3"></li>
-                            <li data-i18n="settings_filter_explanation_4"></li>
-                        </ul>
                     </div>
                 </div>
             </div>

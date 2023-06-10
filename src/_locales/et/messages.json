@@ -800,7 +800,7 @@
     "settings_sidebar_position_right": {
         "message": "Paremal"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Kui sa ei soovi, et k\u00fclgriba laetakse igal lehel, saab m\u00e4\u00e4rata lehed musta (keelatud) ja valgesse (lubatud) nimekirja."
     },
     "settings_filter_explanation_1": {

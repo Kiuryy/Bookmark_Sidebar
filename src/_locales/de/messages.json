@@ -483,13 +483,16 @@
         "message": "Danke, dass du die Erweiterung installiert hast."
     },
     "onboarding_intro_desc": {
-        "message": "Es gibt mehrere Wege deine Seitenleiste zu \u00f6ffnen."
+        "message": "Es gibt mehrere Wege deine Lesezeichenleiste zu \u00f6ffnen."
     },
     "onboarding_intro_sidebar_overlay_desc": {
         "message": "\u00dcber Webseiten anzeigen (\u00dcberlagert Seiteninhalt)."
     },
     "onboarding_intro_sidebar_sidepanel_desc": {
         "message": "In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Ich m\u00f6chte diese \u00fcberlagernde Seitenleiste nicht verwenden"
     },
     "onboarding_setup_start": {
         "message": "Jetzt einrichten"
@@ -562,9 +565,6 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Aussehen"
@@ -785,6 +785,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Die Lesezeichen, die in der Sidebar dargestellt werden, werden von {browserName} synchronisiert und verwaltet. Die Erweiterung speichert diese Lesezeichen nicht gesondert und analysiert diese auch nicht, sondern stellt diese lediglich in der Sidebar dar."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Browser Seitenleiste"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Du kannst deine Lesezeichenleiste permanent ge\u00f6ffnet haben, w\u00e4hrend du surfst. Es gibt eine Seitenleiste, die dein Browser bereitstellt. Klicke auf das Seitenleisten-Symbol und w\u00e4hle die Lesezeichenleiste f\u00fcr die Anzeige aus."
+    },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
     },
@@ -956,8 +962,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Zus\u00e4tzliche Infos"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Hier kannst du das Verhalten der \u00fcberlagernden Lesezeichenleiste, sie sich \u00fcber den Seiteninhalt legt, anpassen."
+    },
     "settings_sidebar_position": {
         "message": "Position"
+    },
+    "settings_sidebar_overlay_enabled": {
+        "message": "\u00dcberlagernde Lesezeichenleiste aktivieren"
+    },
+    "settings_sidebar_overlay_enabled_desc": {
+        "message": "Wenn du deine Lesezeichen nur \u00fcber die eingebaute Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen m\u00f6chtest, kannst du die \u00fcberlagernde Lesezeichenleiste deaktivieren."
     },
     "settings_sidebar_position_desc": {
         "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Browserfensters \u00f6ffnen soll."
@@ -967,9 +982,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
-    },
-    "settings_filter_intro": {
-        "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },
     "settings_filter_explanation_1": {
         "message": "Nur eine URL-Regel pro Zeile"
@@ -985,6 +997,9 @@
     },
     "settings_filter_visibility": {
         "message": "Sidebar laden"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },
     "settings_filter_visibility_always": {
         "message": "Auf jeder Seite"
@@ -1024,12 +1039,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Dies ist eine Browserfunktion und nicht Teil der Erweiterung. Erfahre mehr dar\u00fcber, wie du Lesezeichen im {browserName} importieren und exportieren kannst."
-    },
-    "settings_theme_changed": {
-        "message": "Das Design wurde erfolgreich ge\u00e4ndert"
-    },
-    "settings_overlay_disable": {
-        "message": "Ich m\u00f6chte diese \u00fcberlagernde Seitenleiste nicht verwenden"
     },
     "settings_presets": {
         "message": "Relative Gr\u00f6\u00dfen"
@@ -1193,8 +1202,11 @@
     "settings_installed_theme_info": {
         "message": "Aktuell installiert"
     },
+    "settings_theme_changed": {
+        "message": "Das Design wurde erfolgreich ge\u00e4ndert"
+    },
     "settings_newtab_desc": {
-        "message": "Leider k\u00f6nnen Erweiterungen in Chromium-basierten Browsern auf der Standard-New-Tab-Seite keine Inhalte laden. Deshalb funktioniert dort auch die Sidebar nicht. Um dieses Problem zu umgehen, habe ich Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du trotzdem beim \u00d6ffnen eines neuen Tabs auf deine Lesezeichen zugreifen kannst."
+        "message": "Du kannst die Standard-New-Tab-Seite deines Browsers mit einer Seite \u00fcberschreiben, die von dieser Erweiterung bereitgestellt wird. Diese Seite enth\u00e4lt deine Lesezeichenleiste und kann nach Belieben konfiguriert werden."
     },
     "settings_newtab_override": {
         "message": "New-Tab-Seite \u00fcberschreiben"

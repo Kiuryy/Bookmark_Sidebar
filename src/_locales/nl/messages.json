@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
     },
     "settings_filter_explanation_1": {

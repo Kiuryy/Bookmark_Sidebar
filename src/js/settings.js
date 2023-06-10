@@ -37,10 +37,11 @@
             },
             sidebar: {
                 previewVideos: $("div.tab[data-name='sidebar'] div.preview video"),
+                previewVideoOverlay: $("div.tab[data-name='sidebar'] div.preview div.video[data-type='overlay']"),
+                overlayContent:$("div.tab[data-name='sidebar'] > div[data-name='overlay']"),
                 toggleArea: $("div.tab[data-name='sidebar'] div.toggleArea"),
-                filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
-                filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation"),
-                rememberOpenStatesSubDirectories: $("div.tab[data-name='sidebar'] div.rememberOpenStatesSubDirectories")
+                rememberOpenStatesSubDirectories: $("div.tab[data-name='sidebar'] div.rememberOpenStatesSubDirectories"),
+                filterOptions: $("div.tab[data-name='sidebar'] div.filterOptions")
             },
             appearance: {
                 content: $("div.tab[data-name='appearance']"),

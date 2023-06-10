@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
     },
     "settings_filter_explanation_1": {

@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "\u53f3\u5074"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "\u5982\u679c\u60a8\u4e0d\u5e0c\u671b\u5728\u6bcf\u500b\u9801\u9762\u4e0a\u90fd\u8f09\u5165\u5074\u908a\u6b04\uff0c\u60a8\u53ef\u4ee5\u900f\u904e\u914d\u7f6e\u4f86\u6c7a\u5b9a\u54ea\u4e9b\u9801\u9762\u8981\u8f09\u5165\uff08\u767d\u540d\u55ae\uff09\u3001\u54ea\u4e9b\u9801\u9762\u4e0d\u8f09\u5165\uff08\u9ed1\u540d\u55ae\uff09\u3002"
     },
     "settings_filter_explanation_1": {

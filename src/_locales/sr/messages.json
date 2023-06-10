@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "Desno"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Ako ne \u017eelite da se bo\u010dni meni u\u010ditava na svakoj stranici, mo\u017eete namestiti gde \u017eelite da se ekstenzija u\u010ditava (Odobrena lista) ili gde ne \u017eelite (Ne odobrena lista)"
     },
     "settings_filter_explanation_1": {

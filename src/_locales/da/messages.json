@@ -833,7 +833,7 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f8jre"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Hvis du ikke vil have sidebj\u00e6lken indl\u00e6st p\u00e5 hver side, kan du konfigurere hvor du skal indl\u00e6se udvidelsen (hvidlisten) eller hvor ikke (sortliste)."
     },
     "settings_filter_explanation_1": {

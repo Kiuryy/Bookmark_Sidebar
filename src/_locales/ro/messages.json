@@ -815,7 +815,7 @@
     "settings_sidebar_position_right": {
         "message": "Dreapta"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
     },
     "settings_filter_explanation_1": {

@@ -962,7 +962,7 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f6ger"
     },
-    "settings_filter_intro": {
+    "settings_filter_visibility_desc": {
         "message": "Om du inte vill att sidof\u00e4ltet ska laddas p\u00e5 varje sida, s\u00e5 kan du v\u00e4lja var extension (Vitlista) eller inte ska (svartlista) laddas."
     },
     "settings_filter_explanation_1": {

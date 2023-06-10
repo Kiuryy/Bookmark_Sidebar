@@ -125,8 +125,9 @@
          * @returns {Promise}
          */
         const initExport = async () => {
+            const config = JSON.stringify(this.getExportConfig(), null, 2);
             s.elm.buttons["export"].attr({
-                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
+                href: "data:text/json;charset=utf-8," + encodeURIComponent(config),
                 download: getExportFilename()
             });
         };

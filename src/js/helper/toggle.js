@@ -20,6 +20,7 @@
         let sidebarWidth = null;
         let inPixelToleranceTime = null;
         let keypressed = null;
+        let refocusWebsite = null;
         let lastFocussed = null;
 
         /**
@@ -28,7 +29,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "n/autoOpen"]);
+            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "b/refocusWebsite", "n/autoOpen"]);
             const pageType = ext.helper.utility.getPageType();
 
             ext.elm.indicator = $("<div></div>")
@@ -53,6 +54,7 @@
             preventPageScroll = data.preventPageScroll;
             preventWindowed = data.preventWindowed;
             preventWebapp = data.preventWebapp;
+            refocusWebsite = data.refocusWebsite;
 
             ext.elm.indicator.css({
                 height: toggleArea.height + "%",
@@ -118,7 +120,7 @@
                 clearSidebarTimeout("indicator");
                 ext.elm.indicator.removeClass($.cl.page.hover);
 
-                if (lastFocussed && typeof lastFocussed.focus === "function") { // try to restore the focus on the website
+                if (refocusWebsite && lastFocussed && typeof lastFocussed.focus === "function") { // try to restore the focus on the website
                     lastFocussed.focus({
                         preventScroll: true
                     });

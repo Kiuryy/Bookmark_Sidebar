@@ -131,7 +131,8 @@
                 scrollBarHide: 1.5,
                 openDelay: 0,
                 closeTimeout: 1,
-                dndOpenDirDelay: 0.5
+                dndOpenDirDelay: 0.5,
+                refocusWebsite: false
             },
             a: { // appearance -> synced across devices
                 theme: "default",

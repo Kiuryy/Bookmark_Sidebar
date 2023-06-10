@@ -143,10 +143,13 @@
                 delete obj.newtab.shortcutsPosition;
                 delete obj.newtab.shortcuts;
 
-                if (!obj.behaviour.iconAction) {
-                    const installationDate = b.helper.model.getData("installationDate");
-                    if (installationDate && installationDate < +new Date("2023-07-01")) {
+                const installationDate = b.helper.model.getData("installationDate");
+                if (installationDate && installationDate < +new Date("2023-07-01")) {
+                    if (!obj.behaviour.iconAction) {
                         obj.behaviour.iconAction = "overlay";
+                    }
+                    if (typeof obj.behaviour.refocusWebsite === "undefined") {
+                        obj.behaviour.refocusWebsite = true;
                     }
                 }
 

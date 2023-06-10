@@ -1019,10 +1019,10 @@
     "settings_sidebar_position": {
         "message": "Position"
     },
-    "settings_sidebar_overlay_enabled": {
+    "settings_overlay_enabled": {
         "message": "Enable overlaying sidebar"
     },
-    "settings_sidebar_overlay_enabled_desc": {
+    "settings_overlay_enabled_desc": {
         "message": "If you only want to access your bookmarks in the browser provided side panel, you can deactivate the overlaying sidebar."
     },
     "settings_sidebar_position_desc": {

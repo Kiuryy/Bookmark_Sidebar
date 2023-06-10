@@ -980,10 +980,10 @@
     "settings_sidebar_position": {
         "message": "Position"
     },
-    "settings_sidebar_overlay_enabled": {
+    "settings_overlay_enabled": {
         "message": "\u00dcberlagernde Lesezeichenleiste aktivieren"
     },
-    "settings_sidebar_overlay_enabled_desc": {
+    "settings_overlay_enabled_desc": {
         "message": "Wenn du deine Lesezeichen nur \u00fcber die eingebaute Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen m\u00f6chtest, kannst du die \u00fcberlagernde Lesezeichenleiste deaktivieren."
     },
     "settings_sidebar_position_desc": {

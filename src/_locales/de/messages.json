@@ -6,7 +6,7 @@
         "message": "Lesezeichen"
     },
     "extension_desc": {
-        "message": "F\u00fcgt eine ausklappbare Leiste mit all deinen Lesezeichen auf der Seite deines Browsers hinzu."
+        "message": "F\u00fcgt eine ausklappbare Leiste mit all deinen Lesezeichen auf der Seite deines Browsers hinzu. Alternativ kann die Lesezeichenleiste auch in der Seitenleiste des Browsers neben dem Seiteninhalt angezeigt werden."
     },
     "extension_version": {
         "message": "Version"
@@ -492,7 +492,7 @@
         "message": "In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
     },
     "onboarding_sidebar_overlay_disable": {
-        "message": "Ich m\u00f6chte diese \u00fcberlagernde Seitenleiste nicht verwenden"
+        "message": "Ich m\u00f6chte diese \u00fcberlagernde Lesezeichenleiste nicht verwenden"
     },
     "onboarding_setup_start": {
         "message": "Jetzt einrichten"
@@ -832,6 +832,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Tastenkombination einrichten"
+    },
+    "settings_icon_action": {
+        "message": "Klick auf das Erweiterungssymbol"
+    },
+    "settings_icon_action_desc": {
+        "message": "Du kannst konfigurieren, wie die Lesezeichenleiste angezeigt werden soll, wenn du auf das Erweiterungssymbol klickst, welches rechts der Adressleiste des Browsers ist."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Lesezeichenleiste \u00fcber Webseiten anzeigen (\u00dcberlagert Seiteninhalt)"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Lesezeichenleiste In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
     },
     "settings_link_action": {
         "message": "Lesezeichen \u00f6ffnen"

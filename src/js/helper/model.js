@@ -109,6 +109,7 @@
                 blacklist: [],
                 whitelist: [],
                 sidebarPosition: "left",
+                iconAction: "sidepanel",
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",

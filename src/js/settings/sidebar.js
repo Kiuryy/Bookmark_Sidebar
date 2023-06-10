@@ -23,7 +23,7 @@
 
             s.elm.select.language[0].value = s.helper.i18n.getLanguage();
 
-            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["visibility", "iconAction", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.elm.select[field].trigger("change");
             });
@@ -64,7 +64,7 @@
                 conf.behaviour.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
             });
 
-            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["visibility", "iconAction", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 conf.behaviour[field] = s.elm.select[field][0].value;
             });
 
@@ -153,7 +153,6 @@
          * @returns {Promise}
          */
         const initToggleAreaEvents = async () => {
-            s.elm.sidebar.toggleArea.attr($.attr.type, s.elm.select.sidebarPosition[0].value);
             const previewWrapper = s.elm.sidebar.toggleArea.children("div[" + $.attr.type + "='preview']");
             const preview = previewWrapper.children("div");
 
@@ -252,11 +251,18 @@
                     indicatorMenuPoint.removeClass($.cl.hidden);
                     hideableBoxes.removeClass($.cl.hidden);
                     s.elm.sidebar.previewVideoOverlay.removeClass($.cl.disabled);
+                    s.elm.select.iconAction.removeAttr("disabled");
                 } else {
                     indicatorMenuPoint.addClass($.cl.hidden);
                     hideableBoxes.addClass($.cl.hidden);
                     s.elm.sidebar.previewVideoOverlay.addClass($.cl.disabled);
+                    s.elm.select.iconAction[0].value = "sidepanel";
+                    s.elm.select.iconAction.attr("disabled", "disabled").trigger("change");
                 }
+            });
+
+            s.elm.select.sidebarPosition.on("change", (e) => {
+                s.elm.sidebar.toggleArea.attr($.attr.type, e.currentTarget.value);
             });
 
             s.elm.select.openAction.on("change", (e) => {
@@ -270,6 +276,8 @@
                 // hide the "configure area" box when user wants to open the sidebar by clicking the extension icon only
                 if (e.currentTarget.value === "icon") {
                     s.elm.sidebar.toggleArea.addClass($.cl.hidden);
+                    s.elm.select.iconAction[0].value = "overlay";
+                    s.elm.select.iconAction.trigger("change");
                 } else {
                     s.elm.sidebar.toggleArea.removeClass($.cl.hidden);
                 }

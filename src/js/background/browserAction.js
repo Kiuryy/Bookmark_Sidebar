@@ -12,6 +12,14 @@
          * @returns {Promise}
          */
         this.init = async () => {
+            $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: true}); // click on extension icon shall toggle the sidebar
+
+            $.api.storage.sync.get(["behaviour"]).then((config) => {
+                if (config && config.behaviour && config.behaviour.iconAction && config.behaviour.iconAction !== "sidepanel") {
+                    $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: false});
+                }
+            });
+
             await this.initContextmenus();
         };
 

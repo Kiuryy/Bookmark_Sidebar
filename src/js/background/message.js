@@ -37,7 +37,7 @@
                 iconImageData: b.helper.icon.getImageData,
                 updateIcon: b.helper.icon.setExtensionIcon,
                 reloadIcon: b.helper.icon.init,
-                reloadContextmenus: b.helper.browserAction.initContextmenus,
+                reloadBrowserAction: b.helper.browserAction.init,
                 clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
                 setNotWorkingReason: b.helper.browserAction.setReason,
                 addViewAmount: b.helper.viewAmount.addByUrl,

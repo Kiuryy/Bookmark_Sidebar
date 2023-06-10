@@ -143,6 +143,13 @@
                 delete obj.newtab.shortcutsPosition;
                 delete obj.newtab.shortcuts;
 
+                if (!obj.behaviour.iconAction) {
+                    const installationDate = b.helper.model.getData("installationDate");
+                    if (installationDate && installationDate < +new Date("2023-07-01")) {
+                        obj.behaviour.iconAction = "overlay";
+                    }
+                }
+
                 if (obj.appearance.styles && obj.appearance.styles.fontFamily && obj.appearance.styles.fontFamily.toUpperCase() === "DEFAULT") {
                     const existingFontFamily = obj.appearance.styles.fontFamily.toUpperCase();
 

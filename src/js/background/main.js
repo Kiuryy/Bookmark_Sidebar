@@ -109,7 +109,7 @@
 
             $.api.tabs.onCreated.addListener(this.helper.newtab.onTabCreated);
 
-            $.api.action.onClicked.addListener(this.helper.browserAction.toggleSidebar); // click on extension icon shall toggle the sidebar
+            $.api.action.onClicked.addListener(this.helper.browserAction.toggleSidebar);
 
             if ($.api.bookmarks.onImportBegan && $.api.bookmarks.onImportEnded) {
                 $.api.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started

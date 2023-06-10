@@ -6,7 +6,7 @@
         "message": "Bookmarks"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
+        "message": "Adds a toggleable sidebar with all your bookmarks to the edge of your browser window or inside the browser provided side panel alongside the main content of a webpage."
     },
     "extension_version": {
         "message": "Version"
@@ -489,7 +489,7 @@
         "message": "Open on top of websites"
     },
     "onboarding_intro_sidebar_sidepanel_desc": {
-        "message": "Open in the browsers side panel next to the websites"
+        "message": "Open in the side panel alongside the main content of webpages"
     },
     "onboarding_sidebar_overlay_disable": {
         "message": "I don\"t want to use this overlaying sidebar"
@@ -660,7 +660,7 @@
         "message": "With the expert settings you can change all the configuration flags of the extension, even those you cannot change using the regular checkboxes or sliders on the settings page."
     },
     "settings_expert_settings_notice": {
-        "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behaviour of the extension. If something does not work properly however, you can revert to the default configuration."
+        "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behavior of the extension. If something does not work properly however, you can revert to the default configuration."
     },
     "settings_expert_save_error": {
         "message": "Could not save settings. Please correct your input."
@@ -833,6 +833,18 @@
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"
     },
+    "settings_icon_action": {
+        "message": "Click on extension icon"
+    },
+    "settings_icon_action_desc": {
+        "message": "You can choose how the sidebar should show up when you click on the extension icon which is located right of the browser address bar."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Open sidebar on top of websites"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Open sidebar in the browser provided side panel"
+    },
     "settings_link_action": {
         "message": "Open bookmarks"
     },
@@ -963,7 +975,7 @@
         "message": "Additional info"
     },
     "settings_sidebar_overlay_intro": {
-        "message": "Here you can change the behaviour of the overlaying sidebar which opens on top of websites."
+        "message": "Here you can change the behavior of the overlaying sidebar which opens on top of websites."
     },
     "settings_sidebar_position": {
         "message": "Position"

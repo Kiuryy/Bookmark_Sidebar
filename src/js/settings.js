@@ -365,7 +365,7 @@
                     await $.delay(1500);
 
                     this.helper.model.call("reloadIcon");
-                    this.helper.model.call("reloadContextmenus");
+                    this.helper.model.call("reloadBrowserAction");
 
                     await $.delay(0);
                     location.reload(true);
@@ -380,7 +380,7 @@
                     await this.helper.model.call("reinitialize");
 
                     this.helper.model.call("reloadIcon");
-                    this.helper.model.call("reloadContextmenus");
+                    this.helper.model.call("reloadBrowserAction");
                     await this.helper.model.init();
 
                     this.helper.expert.updateRawConfigList();

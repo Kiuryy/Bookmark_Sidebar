@@ -75,18 +75,6 @@ body[data-type^='sidebar'] {
             transform: translate(-50%, 0);
             background: $mainColor3;
             transition: transform 0.2s, box-shadow 0.2s;
-
-            &.finished {
-              @include mask('icon-check', $textColorInverted, 24px);
-              background: $colorSuccess;
-              color: $textColorInverted;
-              padding-left: 40px;
-
-              &::before {
-                -webkit-mask-position-x: left;
-                left: 12px;
-              }
-            }
           }
 
           &:hover {
@@ -96,6 +84,16 @@ body[data-type^='sidebar'] {
             }
           }
         }
+      }
+    }
+
+    a.keyboardShortcut {
+      @include mask('icon-keyboard', $textColorInverted, 20px);
+      padding-left: 40px;
+      margin-top: 20px;
+
+      &::before {
+        -webkit-mask-position-x: 10px;
       }
     }
 
@@ -262,4 +260,4 @@ body[data-type^='sidebar'] {
   }
 }
 
-//@import "../../rtl/include/settings/general";
+@import "../../rtl/include/settings/sidebar";

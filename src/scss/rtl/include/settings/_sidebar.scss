@@ -1,0 +1,11 @@
+html[dir='rtl'] body > section#wrapper > main div.tab[data-name='sidebar'] {
+
+  a.keyboardShortcut {
+    padding-left: 12px;
+    padding-right: 40px;
+
+    &::before {
+     transform: scaleX(-1);
+    }
+  }
+}

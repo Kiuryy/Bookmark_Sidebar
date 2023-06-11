@@ -5,9 +5,6 @@
     "extension_name_short": {
         "message": "Zaznamki"
     },
-    "extension_desc": {
-        "message": "Doda preklopljivo vrstico z vsemi va\u0161imi zaznamki na rob okna va\u0161ega brskalnika."
-    },
     "extension_version": {
         "message": "Verzija"
     },
@@ -482,11 +479,23 @@
     "onboarding_headline": {
         "message": "Hvala za namestitev raz\u0161iritve."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Stransko vrstico lahko odprete na ve\u010d na\u010dinov."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Odprite na vrhu spletnih strani"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Odprite v stranski plo\u0161\u010di brskalnika poleg spletnih mest"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Ne \u017eelim uporabljati te prekrivne stranske vrstice"
+    },
+    "onboarding_setup_start": {
         "message": "Nastavi zdaj"
     },
-    "onboarding_skip": {
-        "message": "Presko\u010di nastavljanje"
+    "onboarding_setup_complete": {
+        "message": "Nastavitev je kon\u010dana"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Kje \u017eelite va\u0161o stransko vrstico?"
@@ -515,17 +524,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknite na ikono raz\u0161iritve da odprete stransko vrstico."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kliknite ikono stranske plo\u0161\u010de na vrhu va\u0161ega brskalnika in izberite pogled Stranske vrstice zaznamkov."
+    },
     "onboarding_left": {
         "message": "levo"
     },
     "onboarding_right": {
         "message": "desno"
     },
+    "onboarding_handson_done": {
+        "message": "Kon\u010dal sem"
+    },
     "onboarding_finish_desc": {
         "message": "Veliko zabave z va\u0161o stransko vrstico."
-    },
-    "onboarding_finish_notice": {
-        "message": "\u010ce pogosti klikate stvari na {1} strani okna brskalnika, lahko raje spremenite kje se stranska vrstica vodoravno odpre da se izognete odpiranju po nesre\u010di."
     },
     "onboarding_goto_settings": {
         "message": "Ve\u010d nastavitev"
@@ -545,14 +557,11 @@
     "settings_menu_sidebar_general": {
         "message": "Osnovno"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Toggle"
+    "settings_menu_sidebar_overlay": {
+        "message": "Overlay"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Namigi"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Izgled"
@@ -569,8 +578,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikona"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overlay"
+    "settings_menu_appearance_dialog": {
+        "message": "Pogovorno okno"
     },
     "settings_menu_newtab": {
         "message": "Nov zavihek"
@@ -911,12 +920,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikoli skrij"
     },
-    "settings_reopen_sidebar": {
-        "message": "Ponovno odpri stransko vrstico"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Samodejno ponovno odpri stransko vrstico za odpiranjem zaznamke iz stranske vrstice."
-    },
     "settings_prevent_windowed": {
         "message": "Onemogo\u010di stransko vrstico v na\u010dinu v oknu."
     },
@@ -962,9 +965,6 @@
     "settings_sidebar_position_right": {
         "message": "Desno"
     },
-    "settings_filter_visibility_desc": {
-        "message": "\u010ce ne \u017eelite, da je stranska vrstica nalo\u017eena na vsaki strani, lahko izberete kje raz\u0161iritev nalo\u017eiti (bela lista) ali kje ne (\u010drna lista)."
-    },
     "settings_filter_explanation_1": {
         "message": "Dodajte le en URL vzorec na vrstico"
     },
@@ -979,6 +979,9 @@
     },
     "settings_filter_visibility": {
         "message": "Nalo\u017ei stransko vrstico"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "\u010ce ne \u017eelite, da je stranska vrstica nalo\u017eena na vsaki strani, lahko izberete kje raz\u0161iritev nalo\u017eiti (bela lista) ali kje ne (\u010drna lista)."
     },
     "settings_filter_visibility_always": {
         "message": "Na vsaki strani"
@@ -1018,9 +1021,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "To je funkcija brskalnika in ni del raz\u0161iritve. Preberite ve\u010d o tem, kako uvoziti in izvoziti zaznamke v {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema uspe\u0161no spremenjena"
     },
     "settings_presets": {
         "message": "Nastavi relativne velikosti"
@@ -1184,8 +1184,8 @@
     "settings_installed_theme_info": {
         "message": "Trenutno name\u0161\u010deno"
     },
-    "settings_newtab_desc": {
-        "message": "Na \u017ealost je Google odstranil mo\u017enost nalaganja raz\u0161iritev na privzeti strani za nov zavihek. Zaradi tega sem dodal nekaj opcij, ki pri odpiranju novega zavihka omogo\u010dajo dostop do zaznamkov na druge na\u010dine."
+    "settings_theme_changed": {
+        "message": "Tema uspe\u0161no spremenjena"
     },
     "settings_newtab_override": {
         "message": "Preglasi stran novega zavihka"
@@ -1278,7 +1278,7 @@
         "message": "Pogosta vpra\u0161anja"
     },
     "settings_support_feedback_headline": {
-        "message": "Povratne infrmacije"
+        "message": "Povratne informacije"
     },
     "settings_support_feedback_desc": {
         "message": "Imate kak\u0161ne predloge za izbolj\u0161anje, vpra\u0161anja, opazite manjkajo\u010de nastavitve, ali ste na\u0161li hro\u0161\u010da? Za pomo\u010d pri izbolj\u0161anju izku\u0161nje z raz\u0161iritvijo bom zelo hvale\u017een za kakr\u0161nekoli in vse povratne informacije, ki jih imate."

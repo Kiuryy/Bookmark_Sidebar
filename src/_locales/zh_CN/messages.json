@@ -5,6 +5,9 @@
     "extension_name_short": {
         "message": "\u4e66\u7b7e"
     },
+    "extension_desc": {
+        "message": "\u5728\u6d4f\u89c8\u5668\u89c6\u56fe\u533a\u5de6\u4fa7\u6dfb\u52a0\u53ef\u8c03\u8282\u7684\u4fa7\u8fb9\u680f\u7ba1\u7406\u60a8\u7684\u4e66\u7b7e."
+    },
     "extension_version": {
         "message": "\u7248\u672c"
     },

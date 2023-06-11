@@ -6,7 +6,7 @@
         "message": "Bookmarks"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks to the edge of your browser window or inside the browser provided side panel alongside the main content of a webpage."
+        "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
     },
     "extension_author": {
         "message": "Philipp K\u00f6nig"

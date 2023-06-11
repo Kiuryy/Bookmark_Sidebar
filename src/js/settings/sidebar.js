@@ -251,14 +251,14 @@
                     indicatorMenuPoint.removeClass($.cl.hidden);
                     hideableBoxes.removeClass($.cl.hidden);
                     s.elm.sidebar.previewVideoOverlay.removeClass($.cl.disabled);
-                    s.elm.select.iconAction.removeAttr("disabled");
+                    s.elm.select.openAction.trigger("change");
                 } else {
                     indicatorMenuPoint.addClass($.cl.hidden);
                     hideableBoxes.addClass($.cl.hidden);
                     s.elm.sidebar.previewVideoOverlay.addClass($.cl.disabled);
                     s.elm.select.iconAction[0].value = "sidepanel";
-                    s.elm.select.iconAction.attr("disabled", "disabled").trigger("change");
                 }
+                enableDisableIconAction();
             });
 
             s.elm.select.sidebarPosition.on("change", (e) => {
@@ -266,8 +266,12 @@
             });
 
             s.elm.select.openAction.on("change", (e) => {
+                if (!s.helper.checkbox.isChecked(s.elm.checkbox.overlayEnabled)) {
+                    return;
+                }
+
                 // hide menupoint for changing the appearance of the indicator if it is not visible at all
-                if ((e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") && s.helper.checkbox.isChecked(s.elm.checkbox.overlayEnabled)) {
+                if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
                     indicatorMenuPoint.removeClass($.cl.hidden);
                 } else {
                     indicatorMenuPoint.addClass($.cl.hidden);
@@ -277,10 +281,10 @@
                 if (e.currentTarget.value === "icon") {
                     s.elm.sidebar.toggleArea.addClass($.cl.hidden);
                     s.elm.select.iconAction[0].value = "overlay";
-                    s.elm.select.iconAction.trigger("change");
                 } else {
                     s.elm.sidebar.toggleArea.removeClass($.cl.hidden);
                 }
+                enableDisableIconAction();
             });
 
             s.elm.select.rememberState.on("change", (e) => { // toggle the checkbox to configure whether to remember opened subdirectories, too (won't be displayed when user select to remember nothing)
@@ -299,6 +303,20 @@
                     active: true
                 });
             });
+        };
+
+        /**
+         * Enable or Disable the ability to change the value of the field "iconAction" based on what is configured
+         */
+        const enableDisableIconAction = () => {
+            const openAction = s.elm.select.openAction[0].value;
+            const overlayEnabled = s.helper.checkbox.isChecked(s.elm.checkbox.overlayEnabled);
+
+            if (openAction === "icon" || !overlayEnabled) {
+                s.elm.select.iconAction.attr("disabled", "disabled").trigger("change");
+            } else {
+                s.elm.select.iconAction.removeAttr("disabled");
+            }
         };
     };
 

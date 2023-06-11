@@ -204,6 +204,7 @@
                         "b/iconAction": value === "icon" ? "overlay" : "sidepanel",
                         "b/overlayEnabled": true
                     });
+                    this.helper.model.call("reloadBrowserAction");
                     await gotoNextSlide();
                 }
             }).on("mouseenter", (e) => {

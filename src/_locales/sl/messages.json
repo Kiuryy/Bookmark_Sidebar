@@ -5,6 +5,9 @@
     "extension_name_short": {
         "message": "Zaznamki"
     },
+    "extension_desc": {
+        "message": "Doda preklopljivo vrstico z vsemi va\u0161imi zaznamki na rob okna va\u0161ega brskalnika."
+    },
     "extension_version": {
         "message": "Verzija"
     },

@@ -12,13 +12,14 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: true}); // click on extension icon shall toggle the sidebar
+            if ($.api.sidePanel) {
+                $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: true}); // click on extension icon shall toggle the sidebar
 
-            $.api.storage.sync.get(["behaviour"]).then((config) => {
+                const config = await $.api.storage.sync.get(["behaviour"]);
                 if (config && config.behaviour && config.behaviour.iconAction && config.behaviour.iconAction !== "sidepanel") {
                     $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: false});
                 }
-            });
+            }
 
             await this.initContextmenus();
         };
@@ -96,7 +97,7 @@
          */
         this.reloadSidepanel = async () => {
             const now = +new Date();
-            if (now - sidepanelLastReload > 1000) {
+            if (now - sidepanelLastReload > 1000 && $.api.sidePanel) {
                 sidepanelLastReload = now;
                 await $.api.sidePanel.setOptions({
                     path: "html/sidepanel.html?uid=" + Math.random().toString(36).substring(2, 14),

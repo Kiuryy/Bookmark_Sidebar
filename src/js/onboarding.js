@@ -201,6 +201,7 @@
                     const value = $(e.currentTarget).attr($.attr.value);
                     await this.helper.model.setData({
                         "b/openAction": value,
+                        "b/iconAction": value === "icon" ? "overlay" : "sidepanel",
                         "b/overlayEnabled": true
                     });
                     await gotoNextSlide();

@@ -144,7 +144,7 @@
                 delete obj.newtab.shortcuts;
 
                 const installationDate = b.helper.model.getData("installationDate");
-                if (installationDate && installationDate < +new Date("2023-07-01")) {
+                if (installationDate && installationDate < +new Date("2023-06-12")) {
                     if (!obj.behaviour.iconAction) {
                         obj.behaviour.iconAction = "overlay";
                     }

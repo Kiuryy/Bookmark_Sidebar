@@ -472,6 +472,7 @@
                             version: $.opts.manifest.version_name,
                             lastUpdate: await s.helper.model.call("lastUpdateDate"),
                             ua: navigator.userAgent,
+                            browser: getBrowser(),
                             lang: s.helper.i18n.getLanguage(),
                             userType: s.helper.model.getUserType(),
                             screenshots: JSON.stringify(screenshots),
@@ -492,11 +493,11 @@
                 loader.remove();
 
                 if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
-                    s.helper.model.call("track", {
-                        name: "action",
-                        value: {name: "feedback", value: "true"},
-                        always: true
-                    });
+                    // s.helper.model.call("track", {
+                    //     name: "action",
+                    //     value: {name: "feedback", value: "true"},
+                    //     always: true
+                    // });
 
                     s.elm.textarea.feedbackMsg[0].value = "";
                     s.elm.field.feedbackEmail[0].value = "";
@@ -515,6 +516,19 @@
 
             await $.delay(700);
             $("." + $.cl.error).removeClass($.cl.error);
+        };
+
+        const getBrowser = () => {
+            let browser = "Other";
+            try {
+                const brand = [...navigator.userAgentData.brands].pop();
+                if (brand && brand.brand) {
+                    browser = brand.brand + " " + (brand.version || " ");
+                }
+            } catch (e) {
+                console.error("Failed to read browser from userAgentData", e);
+            }
+            return browser.trim();
         };
     };
 

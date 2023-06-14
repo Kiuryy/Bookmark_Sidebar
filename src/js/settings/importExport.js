@@ -88,32 +88,35 @@
          *
          * @param {object} config
          */
-        const saveConfig = (config) => {
+        const saveConfig = async (config) => {
             if (config.behaviour && config.appearance && config.newtab) {
-                $.api.storage.sync.set({
+                await $.api.storage.sync.set({
                     behaviour: config.behaviour,
                     appearance: config.appearance,
                     newtab: config.newtab
-                }, () => {
-                    const currentConfig = Object.assign({}, s.helper.model.getAllData());
-                    currentConfig.utility = currentConfig.utility || {};
-
-                    ["customCss", "newtabBackground"].forEach((field) => {
-                        let val = "";
-                        if (config.utility && config.utility[field]) {
-                            val = config.utility[field];
-                        }
-                        currentConfig.utility[field] = val;
-                    });
-
-                    $.api.storage.local.set({utility: currentConfig.utility}, () => {
-                        s.helper.model.call("reinitialize");
-                        s.showSuccessMessage("import_saved");
-                        $.delay(1500).then(() => {
-                            location.reload(true);
-                        });
-                    });
                 });
+
+                const currentConfig = Object.assign({}, s.helper.model.getAllData());
+                currentConfig.utility = currentConfig.utility || {};
+
+                ["customCss", "newtabBackground"].forEach((field) => {
+                    let val = "";
+                    if (config.utility && config.utility[field]) {
+                        val = config.utility[field];
+                    }
+                    currentConfig.utility[field] = val;
+                });
+
+                await $.api.storage.local.set({utility: currentConfig.utility});
+
+                s.showSuccessMessage("import_saved");
+
+                await s.helper.model.call("reinitialize");
+                await $.delay(1500);
+                s.helper.model.call("reloadIcon");
+                s.helper.model.call("reloadBrowserAction");
+
+                location.reload(true);
             } else {
                 alertImportError();
             }

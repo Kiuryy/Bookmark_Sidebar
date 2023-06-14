@@ -324,12 +324,13 @@
                     await $.api.storage.sync.remove(configToRemove);
 
                     this.showSuccessMessage("restored_message");
-                    this.helper.model.call("reloadIcon");
                     $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
 
+                    await this.helper.model.call("reinitialize");
                     await $.delay(1500);
+                    this.helper.model.call("reloadIcon");
+                    this.helper.model.call("reloadBrowserAction");
 
-                    this.helper.model.call("reinitialize");
                     location.reload(true);
                 }
             });
@@ -363,7 +364,6 @@
 
                     await this.helper.model.call("reinitialize");
                     await $.delay(1500);
-
                     this.helper.model.call("reloadIcon");
                     this.helper.model.call("reloadBrowserAction");
 

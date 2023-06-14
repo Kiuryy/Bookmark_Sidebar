@@ -145,8 +145,20 @@
 
                 const installationDate = b.helper.model.getData("installationDate");
                 if (installationDate && installationDate < +new Date("2023-06-12")) {
-                    if (!obj.behaviour.iconAction) {
+                    // Brave is currently unable to work properly with the sidePanel API and crashes.
+                    let isBrave = false;
+                    try {
+                        const brand = [...navigator.userAgentData.brands].pop();
+                        isBrave = brand && brand.brand && brand.brand === "Brave";
+                    } catch (e) {
+                        //
+                    }
+
+                    if (!obj.behaviour.iconAction || isBrave || !$.api.sidePanel) {
                         obj.behaviour.iconAction = "overlay";
+                        if ($.api.sidePanel) {
+                            $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: false});
+                        }
                     }
                     if (typeof obj.behaviour.refocusWebsite === "undefined") {
                         obj.behaviour.refocusWebsite = true;

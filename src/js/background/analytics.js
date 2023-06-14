@@ -91,7 +91,8 @@
                     }
 
                     await addToStack("version", $.opts.manifest.version_name);
-                    await addToStack("system", navigator.userAgent);
+                    await addToStack("browser", getBrowser());
+                    await addToStack("os", getOS());
                     await addToStack("language", b.helper.language.getLanguage());
                     await addToStack("shareInfo", shareState);
                     await addToStack("runtimeId", $.api.runtime.id);
@@ -113,6 +114,39 @@
 
                 trackUserDataRunning = false;
             }
+        };
+
+        /**
+         * Reads the browser with its version from the userAgentData
+         *
+         * @returns string
+         */
+        const getBrowser = () => {
+            let browser = "Other";
+            try {
+                const brand = [...navigator.userAgentData.brands].pop();
+                if (brand && brand.brand) {
+                    browser = brand.brand + " " + (brand.version || " ");
+                }
+            } catch (e) {
+                console.error("Failed to read browser from userAgentData", e);
+            }
+            return browser.trim();
+        };
+
+        /**
+         * Reads the OS with its version from the userAgentData
+         *
+         * @returns string
+         */
+        const getOS = () => {
+            let os = "Other";
+            try {
+                os = navigator.userAgentData.platform;
+            } catch (e) {
+                console.error("Failed to read OS from userAgentData", e);
+            }
+            return os;
         };
 
         /**

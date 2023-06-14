@@ -73,12 +73,28 @@
                 }
             }
 
-            const unsupportedBrowser = /OPERA|OPR\//i.test(navigator.userAgent);
             const suggestionKey = "other_browser";
-            if (unsupportedBrowser && data && data.suggestions && data.suggestions && data.suggestions[suggestionKey]) {
+            if (isUnsupportedBrowser() && data && data.suggestions && data.suggestions && data.suggestions[suggestionKey]) {
                 suggestionInfo.displayed.push(suggestionKey);
                 showSuggestion(suggestionKey, data.suggestions[suggestionKey]);
             }
+        };
+
+        /**
+         * Returns whether the browser is known for incompatibilities
+         *
+         * @returns {boolean}
+         */
+        const isUnsupportedBrowser = () => {
+            try {
+                const brand = [...navigator.userAgentData.brands].pop();
+                if (brand && brand.brand && brand.brand === "Brave") {
+                    return true;
+                }
+            } catch (e) {
+                //
+            }
+            return /OPERA|OPR\//i.test(navigator.userAgent);
         };
 
         /**

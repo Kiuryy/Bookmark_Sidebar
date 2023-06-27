@@ -322,7 +322,7 @@
 
             $("<div></div>")
                 .addClass($.cl.sidebar.searchBox)
-                .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder", null, true) + "' />")
+                .append("<input type='text' autocomplete='off' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder", null, true) + "' />")
                 .append("<a class='" + $.cl.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elm.header);
         };

@@ -87,10 +87,7 @@
          */
         const isUnsupportedBrowser = () => {
             try {
-                const brand = [...navigator.userAgentData.brands].pop();
-                if (brand && brand.brand && brand.brand === "Brave") {
-                    return true;
-                }
+                return navigator.userAgentData.brands.map((b) => b.brand).includes("Brave");
             } catch (e) {
                 //
             }
@@ -472,7 +469,7 @@
                             version: $.opts.manifest.version_name,
                             lastUpdate: await s.helper.model.call("lastUpdateDate"),
                             ua: navigator.userAgent,
-                            browser: getBrowser(),
+                            browser: $.ua().browser,
                             lang: s.helper.i18n.getLanguage(),
                             userType: s.helper.model.getUserType(),
                             screenshots: JSON.stringify(screenshots),
@@ -516,19 +513,6 @@
 
             await $.delay(700);
             $("." + $.cl.error).removeClass($.cl.error);
-        };
-
-        const getBrowser = () => {
-            let browser = "Other";
-            try {
-                const brand = [...navigator.userAgentData.brands].pop();
-                if (brand && brand.brand) {
-                    browser = brand.brand + " " + (brand.version || " ");
-                }
-            } catch (e) {
-                console.error("Failed to read browser from userAgentData", e);
-            }
-            return browser.trim();
         };
     };
 

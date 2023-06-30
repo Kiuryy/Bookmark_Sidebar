@@ -33,6 +33,42 @@
             });
         },
         /**
+         * Returns the basic system information
+         * - OS without version
+         * - Browser + version
+         * @returns {{os: string, browser: string}}
+         */
+        ua: () => {
+            let os = "Other";
+            let browser = "Other";
+
+            try {
+                os = navigator.userAgentData.platform;
+            } catch (e) {
+                //
+            }
+
+            try {
+                let list = navigator.userAgentData.brands.filter(b => {
+                    return !/^NOT[^\w]/i.test(b.brand);
+                });
+                list = list.filter(b => { // ignore Chromium if there is at least one other option to pick from
+                    return b.brand.toUpperCase() !== "CHROMIUM" || list.length === 1;
+                });
+
+                if (list.length > 0) {
+                    browser = list[0].brand + " " + (list[0].version || "");
+                }
+            } catch (e) {
+                //
+            }
+
+            return {
+                os: os.trim(),
+                browser: browser.trim()
+            };
+        },
+        /**
          * Performs an XMLHttpRequest with the given options
          *
          * @param {string} url

@@ -148,8 +148,7 @@
                     // Brave is currently unable to work properly with the sidePanel API and crashes.
                     let isBrave = false;
                     try {
-                        const brand = [...navigator.userAgentData.brands].pop();
-                        isBrave = brand && brand.brand && brand.brand === "Brave";
+                        isBrave = navigator.userAgentData.brands.map((b) => b.brand).includes("Brave");
                     } catch (e) {
                         //
                     }

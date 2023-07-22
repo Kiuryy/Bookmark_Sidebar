@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Ajout\u00e9s r\u00e9cemment"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Afficher les dossiers"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "Merci d'avoir install\u00e9 cette extension."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Il existe plusieurs fa\u00e7ons d'ouvrir votre barre lat\u00e9rale."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Ouvrir en haut des sites Web."
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Ouvrir dans le panneau lat\u00e9ral \u00e0 c\u00f4t\u00e9 du contenu principal des pages Web."
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Je ne veux pas utiliser cette barre lat\u00e9rale superpos\u00e9e."
+    },
+    "onboarding_setup_start": {
         "message": "Commencer la configuration"
     },
-    "onboarding_skip": {
-        "message": "Ignorer la configuration"
+    "onboarding_setup_complete": {
+        "message": "Configuration termin\u00e9e"
     },
     "onboarding_sidebar_position_desc": {
         "message": "O\u00f9 souhaitez-vous afficher la barre lat\u00e9rale ?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Cliquez sur l'ic\u00f4ne de l'extension pour ouvrir la barre lat\u00e9rale."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Cliquez sur l'ic\u00f4ne du panneau lat\u00e9ral en haut de votre navigateur et choisissez la vue de la barre lat\u00e9rale des signets."
+    },
     "onboarding_left": {
         "message": "gauche"
     },
     "onboarding_right": {
         "message": "droite"
     },
+    "onboarding_handson_done": {
+        "message": "J'ai fini."
+    },
     "onboarding_finish_desc": {
         "message": "\u00c0 vous de jouer."
-    },
-    "onboarding_finish_notice": {
-        "message": "Si vous cliquez fr\u00e9quemment sur le {1} c\u00f4t\u00e9 de la fen\u00eatre du navigateur, vous pourriez vouloir changer o\u00f9 la barre lat\u00e9rale peut \u00eatre ouverte verticalement \u00e0 fin de ne pas l'ouvrir accidentellement."
     },
     "onboarding_goto_settings": {
         "message": "Param\u00e8tres suppl\u00e9mentaires"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "G\u00e9n\u00e9ral"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Activation de la barre lat\u00e9rale"
+    "settings_menu_sidebar_overlay": {
+        "message": "Fen\u00eatre d'info"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Infobulle"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtre"
     },
     "settings_menu_appearance": {
         "message": "Apparence"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ic\u00f4ne"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Fen\u00eatre d'info"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialogue"
     },
     "settings_menu_newtab": {
         "message": "Nouvel onglet"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Les signets affich\u00e9s dans votre barre lat\u00e9rale sont synchronis\u00e9s et g\u00e9r\u00e9s par {browserName}. L'extension ne stocke ni n'analyse ces signets, et affiche uniquement ceux de votre navigateur dans la barre lat\u00e9rale."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Panneau lat\u00e9ral du navigateur"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Vous pouvez ouvrir en permanence votre barre lat\u00e9rale de favoris pendant que vous naviguez. Il y a un panneau lat\u00e9ral fourni par votre navigateur. Cliquez sur l'ic\u00f4ne du panneau lat\u00e9ral en haut de votre navigateur et choisissez la vue de la barre lat\u00e9rale des signets."
+    },
     "settings_open_action": {
         "message": "Affichage de la barre"
     },
@@ -814,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "D\u00e9finir un raccourci clavier"
+    },
+    "settings_icon_action": {
+        "message": "Cliquez sur l'ic\u00f4ne de l'extension"
+    },
+    "settings_icon_action_desc": {
+        "message": "Vous pouvez choisir comment la barre lat\u00e9rale doit appara\u00eetre lorsque vous cliquez sur l'ic\u00f4ne d'extension situ\u00e9e \u00e0 droite de la barre d'adresse du navigateur."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Ouvrir la barre lat\u00e9rale en haut des sites Web"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Ouvrir la barre lat\u00e9rale dans le panneau lat\u00e9ral fourni par le navigateur"
     },
     "settings_link_action": {
         "message": "Ouverture des favoris"
@@ -911,12 +944,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Ne jamais cacher"
     },
-    "settings_reopen_sidebar": {
-        "message": "R\u00e9afficher la barre lat\u00e9rale"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "R\u00e9afficher automatiquement la barre lat\u00e9rale suite \u00e0 l'ouverture d'un favori depuis celle-ci."
-    },
     "settings_prevent_windowed": {
         "message": "D\u00e9sactiver la barre lat\u00e9rale en mode fen\u00eatr\u00e9"
     },
@@ -950,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Info compl\u00e9mentaire"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Vous pouvez ici modifier le comportement de la barre lat\u00e9rale superpos\u00e9e qui s'ouvre au-dessus des sites web."
+    },
     "settings_sidebar_position": {
         "message": "Position"
+    },
+    "settings_overlay_enabled": {
+        "message": "Activer la barre lat\u00e9rale superpos\u00e9e"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Si vous souhaitez uniquement acc\u00e9der \u00e0 vos signets dans le panneau lat\u00e9ral fourni par le navigateur, vous pouvez d\u00e9sactiver la barre lat\u00e9rale superpos\u00e9e."
     },
     "settings_sidebar_position_desc": {
         "message": "Permet de positionner l'affichage de la barre de d\u00e9filement sur la gauche ou sur la droite de l'\u00e9cran."
@@ -961,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Droite"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
     },
     "settings_filter_explanation_1": {
         "message": "Ne saisir qu'un masque d'URL par ligne"
@@ -979,6 +1012,9 @@
     },
     "settings_filter_visibility": {
         "message": "Charger la page"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
     },
     "settings_filter_visibility_always": {
         "message": "Sur chaque page"
@@ -1018,9 +1054,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "C'est une fonctionnalit\u00e9 du navigateur et non pas une partie de l'extension. Lisez en plus sur comment importer\/exporter des favoris sur {browserName}"
-    },
-    "settings_theme_changed": {
-        "message": "Changement de th\u00e8me correctement effectu\u00e9"
     },
     "settings_presets": {
         "message": "Param\u00e9trer les tailles par d\u00e9faut"
@@ -1184,8 +1217,11 @@
     "settings_installed_theme_info": {
         "message": "Actuellement install\u00e9"
     },
+    "settings_theme_changed": {
+        "message": "Changement de th\u00e8me correctement effectu\u00e9"
+    },
     "settings_newtab_desc": {
-        "message": "Google a malheureusement retir\u00e9 la possibilit\u00e9 de charger des extensions sur la page nouvel onglet par d\u00e9faut. De fait, j'ai ajout\u00e9 quelques options pour vous permettre d'acc\u00e9der de fa\u00e7on diff\u00e9rente \u00e0 vos favoris \u00e0 l'ouverture d'un nouvel onglet."
+        "message": "Vous pouvez remplacer la page de nouvel onglet par d\u00e9faut de votre navigateur par une page fournie par cette extension. Cette page affichera votre barre lat\u00e9rale de signets et peut \u00eatre configur\u00e9e pour am\u00e9liorer votre productivit\u00e9."
     },
     "settings_newtab_override": {
         "message": "Court-circuiter la page nouvel onglet"

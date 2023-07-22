@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Nyligen tillagd"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Visa mappar"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "Tack f\u00f6r att du installerar detta till\u00e4gg."
     },
-    "onboarding_setup": {
-        "message": "Installera nu"
+    "onboarding_intro_desc": {
+        "message": "Det finns flera s\u00e4tt att \u00f6ppna sidof\u00e4ltet."
     },
-    "onboarding_skip": {
-        "message": "Avbryt installationen"
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "\u00d6ppna ovanp\u00e5 webbplatser"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "\u00d6ppna i sidopanelen bredvid huvudinneh\u00e5llet p\u00e5 webbsidor"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Jag vill inte anv\u00e4nda det h\u00e4r \u00f6verl\u00e4ggande sidof\u00e4ltet"
+    },
+    "onboarding_setup_start": {
+        "message": "Konfigurera nu"
+    },
+    "onboarding_setup_complete": {
+        "message": "Konfiguration slutf\u00f6rd"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Var vill du ha ditt sidof\u00e4lt?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Klicka p\u00e5 ikonen i verktygsf\u00e4ltet f\u00f6r att \u00f6ppna sidof\u00e4ltet."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klicka p\u00e5 sidopanelikonen h\u00f6gst upp i webbl\u00e4saren och v\u00e4lj vyn Bokm\u00e4rke sidof\u00e4lt."
+    },
     "onboarding_left": {
         "message": "v\u00e4nster"
     },
     "onboarding_right": {
         "message": "h\u00f6ger"
     },
+    "onboarding_handson_done": {
+        "message": "Jag \u00e4r klar"
+    },
     "onboarding_finish_desc": {
         "message": "Mycket n\u00f6je med ditt sidof\u00e4lt!"
-    },
-    "onboarding_finish_notice": {
-        "message": "Om du ofta klickar p\u00e5 n\u00e5got av sidan i webbl\u00e4saren s\u00e5 kanske du vill \u00e4ndra s\u00e5 att sidof\u00e4ltet \u00f6ppnas vertikalt f\u00f6r att undvika att det \u00f6ppnas av misstag."
     },
     "onboarding_goto_settings": {
         "message": "Fler inst\u00e4llningar"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Allm\u00e4nt"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "V\u00e4xla"
+    "settings_menu_sidebar_overlay": {
+        "message": "\u00d6vert\u00e4ckning"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Inforuta"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtrera"
     },
     "settings_menu_appearance": {
         "message": "Utseende"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "\u00d6vert\u00e4ckning"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Ny flik"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Bokm\u00e4rkena som visas i sidof\u00e4ltet synkroniseras och hanteras av {browserName}. Till\u00e4gget lagrar eller analyserar inte dessa bokm\u00e4rken och visar bara de i din webbl\u00e4sare i sidof\u00e4ltet."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Webbl\u00e4sarens sidopanel"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Du kan ha bokm\u00e4rkessidof\u00e4ltet permanent \u00f6ppet medan du surfar. Det finns en sidopanel som tillhandah\u00e5lls av din webbl\u00e4sare. Klicka p\u00e5 sidopanelikonen h\u00f6gst upp i webbl\u00e4saren och v\u00e4lj vyn Bokm\u00e4rke sidof\u00e4lt."
+    },
     "settings_open_action": {
         "message": "\u00d6ppna sidof\u00e4ltet"
     },
@@ -814,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "S\u00e4tt tangentbordsgenv\u00e4g"
+    },
+    "settings_icon_action": {
+        "message": "Klicka p\u00e5 till\u00e4ggsikonen"
+    },
+    "settings_icon_action_desc": {
+        "message": "Du kan v\u00e4lja hur sidof\u00e4ltet ska visas n\u00e4r du klickar p\u00e5 till\u00e4ggsikonen som finns till h\u00f6ger om webbl\u00e4sarens adressf\u00e4lt."
+    },
+    "settings_icon_action_overlay": {
+        "message": "\u00d6ppna sidof\u00e4ltet ovanp\u00e5 webbplatser"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "\u00d6ppna sidof\u00e4ltet i webbl\u00e4sarens sidopanel"
     },
     "settings_link_action": {
         "message": "\u00d6ppna bokm\u00e4rken"
@@ -911,12 +944,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "G\u00f6m aldrig"
     },
-    "settings_reopen_sidebar": {
-        "message": "\u00d6ppna sidof\u00e4ltet igen"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "\u00d6ppna automatiskt sidof\u00e4ltet igen, efter att ha \u00f6ppnat ett bokm\u00e4rke innanf\u00f6r sidof\u00e4ltet."
-    },
     "settings_prevent_windowed": {
         "message": "Avaktivera sidof\u00e4lt i f\u00f6nsterl\u00e4ge"
     },
@@ -950,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Mer info"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "H\u00e4r kan du \u00e4ndra beteendet hos det \u00f6verliggande sidof\u00e4ltet som \u00f6ppnas ovanp\u00e5 webbplatser."
+    },
     "settings_sidebar_position": {
         "message": "Position"
+    },
+    "settings_overlay_enabled": {
+        "message": "Aktivera \u00f6verliggande sidof\u00e4lt"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Om du bara vill komma \u00e5t dina bokm\u00e4rken i webbl\u00e4sarens sidopanel kan du inaktivera sidof\u00e4ltet som l\u00e4ggs \u00f6ver."
     },
     "settings_sidebar_position_desc": {
         "message": "L\u00e5ter dig ange huruvida sidof\u00e4ltet ska \u00f6ppnas till v\u00e4nster eller h\u00f6ger p\u00e5 sk\u00e4rmen."
@@ -961,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f6ger"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Om du inte vill att sidof\u00e4ltet ska laddas p\u00e5 varje sida, s\u00e5 kan du v\u00e4lja var extension (Vitlista) eller inte ska (svartlista) laddas."
     },
     "settings_filter_explanation_1": {
         "message": "L\u00e4gg bara till ett URL m\u00f6nster per rad"
@@ -979,6 +1012,9 @@
     },
     "settings_filter_visibility": {
         "message": "Ladda sidof\u00e4ltet"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Om du inte vill att sidof\u00e4ltet ska laddas p\u00e5 varje sida, s\u00e5 kan du v\u00e4lja var extension (Vitlista) eller inte ska (svartlista) laddas."
     },
     "settings_filter_visibility_always": {
         "message": "P\u00e5 varje sida"
@@ -1018,9 +1054,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Detta \u00e4r en webbl\u00e4sarfunktion och ing\u00e5r inte i till\u00e4gget. L\u00e4s mer om hur du importerar och exporterar bokm\u00e4rken i {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "\u00c4ndrat tema framg\u00e5ngsrikt"
     },
     "settings_presets": {
         "message": "Best\u00e4m relativ storlek"
@@ -1184,8 +1217,11 @@
     "settings_installed_theme_info": {
         "message": "F\u00f6r n\u00e4rvarande installerat"
     },
+    "settings_theme_changed": {
+        "message": "\u00c4ndrat tema framg\u00e5ngsrikt"
+    },
     "settings_newtab_desc": {
-        "message": "Tyv\u00e4rr har Google tagit bort m\u00f6jligheten att ladda till\u00e4gg p\u00e5 den vanliga \"ny flik\"-sidan. P\u00e5 grund av detta lade jag till n\u00e5gra alternativ som l\u00e5ter dig komma \u00e5t dina bokm\u00e4rken p\u00e5 ett annat s\u00e4tt n\u00e4r du \u00f6ppnar en ny flik."
+        "message": "Du kan \u00e5sidos\u00e4tta standardsidan f\u00f6r ny flik i din webbl\u00e4sare med en sida som tillhandah\u00e5lls av det h\u00e4r till\u00e4gget. Den h\u00e4r sidan visar bokm\u00e4rkessidof\u00e4ltet och kan konfigureras f\u00f6r att f\u00f6rb\u00e4ttra din produktivitet."
     },
     "settings_newtab_override": {
         "message": "Ers\u00e4tta den \"ny flik\"-sida som visas som standard"

@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Adicionado recentemente"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Mostrar pastas"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "Obrigado por instalar esta extens\u00e3o."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Existem v\u00e1rias maneiras de abrir sua barra lateral."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Abrir em cima de sites"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Abra no painel lateral ao lado do conte\u00fado principal das p\u00e1ginas da web"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "N\u00e3o quero usar esta barra lateral sobreposta"
+    },
+    "onboarding_setup_start": {
         "message": "Configurar agora"
     },
-    "onboarding_skip": {
-        "message": "Pular configura\u00e7\u00e3o"
+    "onboarding_setup_complete": {
+        "message": "Configura\u00e7\u00e3o conclu\u00edda"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Em que posi\u00e7\u00e3o voc\u00ea quer a sua barra lateral?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Clique no \u00edcone da extens\u00e3o para abrir a barra lateral."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Clique no \u00edcone do painel lateral na parte superior do navegador e escolha a visualiza\u00e7\u00e3o da barra lateral de favoritos."
+    },
     "onboarding_left": {
         "message": "esquerdo"
     },
     "onboarding_right": {
         "message": "direito"
     },
+    "onboarding_handson_done": {
+        "message": "Terminei"
+    },
     "onboarding_finish_desc": {
         "message": "Divirta-se com sua barra lateral."
-    },
-    "onboarding_finish_notice": {
-        "message": "Se voc\u00ea clica frequentemente em outras coisas no lado {1} da janela do navegador, talvez queira alterar a posi\u00e7\u00e3o vertical deste lado na qual a barra lateral pode ser aberta, a fim de evitar abri-la acidentalmente."
     },
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Geral"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Exibir e ocultar"
+    "settings_menu_sidebar_overlay": {
+        "message": "Sobreposi\u00e7\u00e3o"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Dicas de contexto"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtro"
     },
     "settings_menu_appearance": {
         "message": "Apar\u00eancia"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "\u00cdcone"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Sobreposi\u00e7\u00e3o"
+    "settings_menu_appearance_dialog": {
+        "message": "Di\u00e1logo"
     },
     "settings_menu_newtab": {
         "message": "Nova guia"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Os Favoritos mostrados em sua barra lateral s\u00e3o sincronizados e gerenciados por {browserName}. A extens\u00e3o n\u00e3o armazena ou analisa esses favoritos, somente mostra aquelas escolhidas no navegador em sua barra lateral."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Painel lateral do navegador"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Voc\u00ea pode ter sua barra lateral de favoritos permanentemente aberta enquanto estiver navegando. H\u00e1 um painel lateral fornecido pelo seu navegador. Clique no \u00edcone do painel lateral na parte superior do navegador e escolha a visualiza\u00e7\u00e3o da barra lateral de favoritos."
+    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
@@ -814,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
+    },
+    "settings_icon_action": {
+        "message": "Clique no \u00edcone da extens\u00e3o"
+    },
+    "settings_icon_action_desc": {
+        "message": "Voc\u00ea pode escolher como a barra lateral deve aparecer quando clicar no \u00edcone de extens\u00e3o localizado \u00e0 direita da barra de endere\u00e7os do navegador."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Abra a barra lateral na parte superior dos sites"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Abra a barra lateral no painel lateral fornecido pelo navegador"
     },
     "settings_link_action": {
         "message": "Abrir favoritos"
@@ -911,12 +944,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_reopen_sidebar": {
-        "message": "Reabrir a barra lateral."
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Abrir automaticamente a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
-    },
     "settings_prevent_windowed": {
         "message": "Desativar a barra lateral no modo janela"
     },
@@ -950,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Informa\u00e7\u00e3o adicional"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Aqui voc\u00ea pode alterar o comportamento da barra lateral de sobreposi\u00e7\u00e3o que se abre na parte superior dos sites."
+    },
     "settings_sidebar_position": {
         "message": "Posi\u00e7\u00e3o"
+    },
+    "settings_overlay_enabled": {
+        "message": "Ativar sobreposi\u00e7\u00e3o da barra lateral"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Se voc\u00ea deseja acessar seus favoritos apenas no painel lateral fornecido pelo navegador, pode desativar a barra lateral de sobreposi\u00e7\u00e3o."
     },
     "settings_sidebar_position_desc": {
         "message": "Permite que voc\u00ea defina se a barra lateral deve abrir no lado esquerdo ou direito da tela."
@@ -961,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Direita"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Se voc\u00ea n\u00e3o deseja que a barra lateral seja carregada em todas as p\u00e1ginas, pode configurar onde carregar a extens\u00e3o (lista branca) ou onde n\u00e3o carreg\u00e1-la (lista negra)."
     },
     "settings_filter_explanation_1": {
         "message": "Somente adicionar um padr\u00e3o de URL por linha."
@@ -979,6 +1012,9 @@
     },
     "settings_filter_visibility": {
         "message": "Carregar a barra lateral"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Se voc\u00ea n\u00e3o deseja que a barra lateral seja carregada em todas as p\u00e1ginas, pode configurar onde carregar a extens\u00e3o (lista branca) ou onde n\u00e3o carreg\u00e1-la (lista negra)."
     },
     "settings_filter_visibility_always": {
         "message": "Em todas as p\u00e1ginas"
@@ -1018,9 +1054,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar bookmarks em {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema alterado com sucesso"
     },
     "settings_presets": {
         "message": "Definir tamanhos relativos"
@@ -1184,8 +1217,11 @@
     "settings_installed_theme_info": {
         "message": "Atualmente instalado"
     },
+    "settings_theme_changed": {
+        "message": "Tema alterado com sucesso"
+    },
     "settings_newtab_desc": {
-        "message": "Infelizmente, a Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que lhe permitem acessar seus favoritos ao abrir uma nova guia de outra maneira."
+        "message": "Voc\u00ea pode substituir a p\u00e1gina de nova guia padr\u00e3o do seu navegador por uma p\u00e1gina fornecida por esta extens\u00e3o. Esta p\u00e1gina mostrar\u00e1 sua barra lateral de favoritos e pode ser configurada para aumentar sua produtividade."
     },
     "settings_newtab_override": {
         "message": "Sobrepor a p\u00e1gina nova guia"

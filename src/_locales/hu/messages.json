@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Mostan\u00e1ban hozz\u00e1adott"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Mapp\u00e1k mutat\u00e1sa"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "K\u00f6sz\u00f6nj\u00fck hogy telep\u00edtette ezt a b\u0151v\u00edtm\u00e9nyt."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Az oldals\u00e1vot t\u00f6bbf\u00e9lek\u00e9ppen is megnyithatja."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Megnyit\u00e1s a weboldalak tetej\u00e9n"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Megnyit\u00e1s az oldals\u00f3 panelen a weboldalak f\u0151 tartalma mellett"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Nem akarom ezt az \u00e1tfed\u0151 oldals\u00e1vot haszn\u00e1lni."
+    },
+    "onboarding_setup_start": {
         "message": "Be\u00e1ll\u00edt\u00e1sok elv\u00e9gz\u00e9se most"
     },
-    "onboarding_skip": {
-        "message": "Be\u00e1ll\u00edt\u00e1sok kihagy\u00e1sa"
+    "onboarding_setup_complete": {
+        "message": "Be\u00e1ll\u00edt\u00e1sok befejezve"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Hol szeretn\u00e9 haszn\u00e1lni az oldals\u00e1vot?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Kattintson a b\u0151v\u00edtm\u00e9ny ikonj\u00e1ra a megnyit\u00e1shoz"
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kattintson a b\u00f6ng\u00e9sz\u0151 tetej\u00e9n tal\u00e1lhat\u00f3 oldals\u00e1v ikonra, \u00e9s v\u00e1lassza a K\u00f6nyvjelz\u0151 oldals\u00e1v n\u00e9zetet."
+    },
     "onboarding_left": {
         "message": "bal"
     },
     "onboarding_right": {
         "message": "jobb"
     },
-    "onboarding_finish_desc": {
-        "message": "Haszn\u00e1lja \u00f6r\u00f6mmel."
+    "onboarding_handson_done": {
+        "message": "Befejeztem."
     },
-    "onboarding_finish_notice": {
-        "message": "Ha gyakran kattint az oldal {1} sz\u00e9l\u00e9n, megv\u00e1ltoztathatja hogy f\u00fcgg\u0151legesen hol ny\u00edljon meg az oldals\u00e1v, hogy elker\u00fclje a v\u00e9letlen megnyit\u00e1st."
+    "onboarding_finish_desc": {
+        "message": "\u00c9lvezze az oldals\u00e1v haszn\u00e1lat\u00e1t."
     },
     "onboarding_goto_settings": {
         "message": "M\u00e9g t\u00f6bb be\u00e1ll\u00edt\u00e1s"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "\u00c1ltal\u00e1nos"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Kapcsol\u00f3k"
+    "settings_menu_sidebar_overlay": {
+        "message": "\u00c1tfed\u00e9s"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Helyi s\u00fag\u00f3"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Sz\u0171r\u0151"
+        "message": "Eszk\u00f6ztippek"
     },
     "settings_menu_appearance": {
         "message": "Megjelen\u00e9s"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overlay"
+    "settings_menu_appearance_dialog": {
+        "message": "P\u00e1rbesz\u00e9d"
     },
     "settings_menu_newtab": {
         "message": "\u00daj f\u00fcl"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Az oldals\u00e1vban l\u00e1that\u00f3 k\u00f6nyvjelz\u0151ket a {browserName} b\u00f6ng\u00e9sz\u0151 szinkroniz\u00e1lja \u00e9s kezeli. Az oldals\u00e1v nem t\u00e1rolja vagy elemzi \u0151ket, \u00e9s csak azokat jelen\u00edti meg, amelyeket a b\u00f6ng\u00e9sz\u0151je tartalmaz."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "B\u00f6ng\u00e9sz\u0151 oldals\u00f3 panel"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "A k\u00f6nyvjelz\u0151 oldals\u00e1vj\u00e1t b\u00f6ng\u00e9sz\u00e9s k\u00f6zben \u00e1lland\u00f3an megnyithatja. A b\u00f6ng\u00e9sz\u0151je \u00e1ltal biztos\u00edtott oldals\u00f3 panelt. Kattintson a b\u00f6ng\u00e9sz\u0151je tetej\u00e9n tal\u00e1lhat\u00f3 oldals\u00f3 panel ikonra, \u00e9s v\u00e1lassza a K\u00f6nyvjelz\u0151 oldals\u00e1v n\u00e9zetet."
+    },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
     },
@@ -814,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Gyorsbillenty\u0171 be\u00e1ll\u00edt\u00e1sa"
+    },
+    "settings_icon_action": {
+        "message": "Kattintson a b\u0151v\u00edtm\u00e9ny ikonj\u00e1ra"
+    },
+    "settings_icon_action_desc": {
+        "message": "Kiv\u00e1laszthatja, hogy az oldals\u00e1v hogyan jelenjen meg, amikor a b\u00f6ng\u00e9sz\u0151 c\u00edmsor\u00e1t\u00f3l jobbra tal\u00e1lhat\u00f3 b\u0151v\u00edtm\u00e9ny ikonj\u00e1ra kattint."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Oldals\u00e1v megnyit\u00e1sa a weboldalak tetej\u00e9n"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Az oldals\u00e1v megnyit\u00e1sa a b\u00f6ng\u00e9sz\u0151 oldalpanel\u00e9n"
     },
     "settings_link_action": {
         "message": "K\u00f6nyvjelz\u0151k megnyit\u00e1sa"
@@ -911,12 +944,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Ne rejse el"
     },
-    "settings_reopen_sidebar": {
-        "message": "Oldals\u00e1v \u00fajb\u00f3li megnyit\u00e1sa"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Automatikusan megnyitja ism\u00e9t az oldals\u00e1vot, miut\u00e1n abb\u00f3l megnyitott egy k\u00f6nyvjelz\u0151t."
-    },
     "settings_prevent_windowed": {
         "message": "Oldals\u00e1v letilt\u00e1sa ablakos \u00fczemm\u00f3dban"
     },
@@ -950,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Tov\u00e1bbi inform\u00e1ci\u00f3"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Itt m\u00f3dos\u00edthatja a weboldalak tetej\u00e9n megny\u00edl\u00f3 oldals\u00e1v viselked\u00e9s\u00e9t."
+    },
     "settings_sidebar_position": {
         "message": "Oldals\u00e1v megjelen\u00e9s\u00e9nek helye"
+    },
+    "settings_overlay_enabled": {
+        "message": "Az oldals\u00e1v \u00e1tfed\u00e9s\u00e9nek enged\u00e9lyez\u00e9se"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Ha csak a b\u00f6ng\u00e9sz\u0151 \u00e1ltal biztos\u00edtott oldals\u00f3 panelen szeretn\u00e9 el\u00e9rni a k\u00f6nyvjelz\u0151it, akkor kikapcsolhatja az \u00e1tfed\u0151 oldals\u00e1vot."
     },
     "settings_sidebar_position_desc": {
         "message": "Be\u00e1ll\u00edthatja, hogy jobb vagy bal sz\u00e9len jelenjen meg az oldals\u00e1v"
@@ -961,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Jobb"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Ha nem szeretn\u00e9, hogy az oldals\u00e1v minden lapon bet\u00f6lt\u0151dj\u00f6n, akkor be\u00e1ll\u00edthat enged\u00e9lyez\u0151 list\u00e1t vagy tilt\u00f3list\u00e1t is."
     },
     "settings_filter_explanation_1": {
         "message": "Csak egy webc\u00edmet adjon hozz\u00e1 soronk\u00e9nt"
@@ -979,6 +1012,9 @@
     },
     "settings_filter_visibility": {
         "message": "Oldals\u00e1v bet\u00f6lt\u00e9se"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Ha nem szeretn\u00e9, hogy az oldals\u00e1v minden lapon bet\u00f6lt\u0151dj\u00f6n, akkor be\u00e1ll\u00edthat enged\u00e9lyez\u0151 list\u00e1t vagy tilt\u00f3list\u00e1t is."
     },
     "settings_filter_visibility_always": {
         "message": "Minden lapon"
@@ -1018,9 +1054,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Ezt a feladatot a b\u00f6ng\u00e9sz\u0151 v\u00e9gzi \u00e9s nem r\u00e9sze ennek a b\u0151v\u00edtm\u00e9nynek. A {browserName}.b\u00f6ng\u00e9sz\u0151ben val\u00f3 haszn\u00e1lat\u00e1hoz itt t\u00e1j\u00e9koz\u00f3dhat."
-    },
-    "settings_theme_changed": {
-        "message": "T\u00e9ma sikeresen megv\u00e1ltoztatva"
     },
     "settings_presets": {
         "message": "\u00c1ll\u00edtsa be a relat\u00edv m\u00e9reteket"
@@ -1184,8 +1217,11 @@
     "settings_installed_theme_info": {
         "message": "Telep\u00edtett t\u00e9ma"
     },
+    "settings_theme_changed": {
+        "message": "T\u00e9ma sikeresen megv\u00e1ltoztatva"
+    },
     "settings_newtab_desc": {
-        "message": "Sajnos a Google megsz\u0171ntette a b\u0151v\u00edtm\u00e9nyek haszn\u00e1lat\u00e1nak lehet\u0151s\u00e9g\u00e9t az alap\u00e9rtelmezett \u00faj lapon. Ez\u00e9rt lehet\u0151s\u00e9g van egy m\u00e1sik fajta m\u00f3don el\u00e9rni az k\u00f6nyvjelz\u0151ket \u00faj lap megnyit\u00e1sa eset\u00e9n."
+        "message": "A b\u00f6ng\u00e9sz\u0151 alap\u00e9rtelmezett \u00faj lapjait fel\u00fclb\u00edr\u00e1lhatja a b\u0151v\u00edtm\u00e9ny \u00e1ltal biztos\u00edtott oldallal. Ez az oldal megjelen\u00edti a k\u00f6nyvjelz\u0151 oldals\u00e1vj\u00e1t, \u00e9s \u00fagy konfigur\u00e1lhat\u00f3, hogy n\u00f6velje a termel\u00e9kenys\u00e9g\u00e9t."
     },
     "settings_newtab_override": {
         "message": "\u00daj lap megnyit\u00e1sa kompatibilis m\u00f3dban"

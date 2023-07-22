@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Aggiunti di recente"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Mostra cartelle"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "Grazie per aver installato questa estensione."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Ci sono pi\u00f9 modi per aprire la barra laterale"
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Apri sopra i siti web"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Apri nel pannello laterale a fianco del contenuto principale delle pagine web"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Non voglio usare questa barra laterale sovrapposta"
+    },
+    "onboarding_setup_start": {
         "message": "Configura adesso"
     },
-    "onboarding_skip": {
-        "message": "Salta configurazione"
+    "onboarding_setup_complete": {
+        "message": "Configurazione completata"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Dove desideri visualizzare la barra laterale?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Clicca sull'icona dell'estensione per aprire la barra laterale."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Fai click sull'icona nel pannello laterale in cima al browser e scegli la vista Barra Laterale dei Preferiti"
+    },
     "onboarding_left": {
         "message": "sinistro"
     },
     "onboarding_right": {
         "message": "destro"
     },
+    "onboarding_handson_done": {
+        "message": "Ho finito"
+    },
     "onboarding_finish_desc": {
         "message": "Buon divertimento con la tua barra laterale."
-    },
-    "onboarding_finish_notice": {
-        "message": "Se clicchi di frequenta sul {1} lato della finestra, potresti voler cambiare dove viene aperta la barra laterale, cos\u00ec da evitare di aprirla accidentalmente."
     },
     "onboarding_goto_settings": {
         "message": "Ulteriori impostazioni"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Generali"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Attivazione"
+    "settings_menu_sidebar_overlay": {
+        "message": "Maschera"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Suggerimenti"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtro"
     },
     "settings_menu_appearance": {
         "message": "Aspetto"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Icona"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Maschera"
+    "settings_menu_appearance_dialog": {
+        "message": "Finestra d'interazione"
     },
     "settings_menu_newtab": {
         "message": "Nuova scheda"
@@ -815,6 +830,15 @@
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"
     },
+    "settings_icon_action": {
+        "message": "Clicca sull'icona dell'estensione"
+    },
+    "settings_icon_action_desc": {
+        "message": "Puoi decidere come dovrebbe apparire la barra laterale quando clicchi l'icona dell'estensione che c'\u00e8 accanto alla barra degli indirizzi nel browser"
+    },
+    "settings_icon_action_overlay": {
+        "message": "Apri la barra laterale sopra al sito web"
+    },
     "settings_link_action": {
         "message": "Apri preferiti"
     },
@@ -911,12 +935,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Non nascondere mai"
     },
-    "settings_reopen_sidebar": {
-        "message": "Riapri la barra laterale"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Apre automaticamente la barra laterale dopo aver aperto un preferito dalla barra stessa."
-    },
     "settings_prevent_windowed": {
         "message": "Disattiva la barra laterale in modalit\u00e0 finestra"
     },
@@ -948,7 +966,7 @@
         "message": "Solo l'indirizzo"
     },
     "settings_tooltip_content_additional_info": {
-        "message": "informazioni addizionali"
+        "message": "informazioni aggiuntive"
     },
     "settings_sidebar_position": {
         "message": "Posizione"
@@ -961,9 +979,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Destro"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Se non vuoi che la barra laterale venga aperta in ogni pagina, puoi decidere in quali \u00e8 permesso (whitelist) e in quali \u00e8 proibito (blacklist)."
     },
     "settings_filter_explanation_1": {
         "message": "Aggiungi solo un pattern indirizzo per riga"
@@ -979,6 +994,9 @@
     },
     "settings_filter_visibility": {
         "message": "Carica barra laterale"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Se non vuoi che la barra laterale venga aperta in ogni pagina, puoi decidere in quali \u00e8 permesso (whitelist) e in quali \u00e8 proibito (blacklist)."
     },
     "settings_filter_visibility_always": {
         "message": "Su ogni pagina"
@@ -1018,9 +1036,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Questa \u00e8 una caratteristica del browser e non fa parte dell'estensione. Leggi di pi\u00f9 su come importare ed esportare i segnalibri in {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema modificato con successo"
     },
     "settings_presets": {
         "message": "Imposta dimensioni relative"
@@ -1184,8 +1199,11 @@
     "settings_installed_theme_info": {
         "message": "Attualmente installato"
     },
+    "settings_theme_changed": {
+        "message": "Tema modificato con successo"
+    },
     "settings_newtab_desc": {
-        "message": "Sfortunatamente Google ha rimosso la possibilit\u00e0 di caricare le estensioni nella pagina di default \"Nuova scheda\". Per questo motivo ho aggiunto, in maniera alternativa, delle opzioni che ti permettono di accedere ai tuoi preferiti quando apri una nuova scheda."
+        "message": "Puoi bypassare la \"Nuova Scheda\" di default, rendendola una pagina fornita da questa estensione. Questa nuova schermata mostrer\u00e0 la tua barra laterale dei preferiti e potr\u00e0 essere configurata per migliorare la tua produttivit\u00e0."
     },
     "settings_newtab_override": {
         "message": "Bypassa la pagina \"Nuova scheda\""

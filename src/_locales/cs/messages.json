@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Ned\u00e1vno p\u0159idan\u00e9"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Zobrazit slo\u017eky"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "D\u011bkujeme za instalaci tohoto roz\u0161\u00ed\u0159en\u00ed."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Postrann\u00ed panel lze otev\u0159\u00edt n\u011bkolika zp\u016fsoby."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Otev\u0159\u00edt v horn\u00ed \u010d\u00e1sti webov\u00fdch str\u00e1nek"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Otev\u0159\u00edt na bo\u010dn\u00edm panelu vedle hlavn\u00edho obsahu webov\u00fdch str\u00e1nek"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Nechci pou\u017e\u00edvat tento p\u0159ekr\u00fdvaj\u00edc\u00ed postrann\u00ed panel"
+    },
+    "onboarding_setup_start": {
         "message": "Nastavit nyn\u00ed"
     },
-    "onboarding_skip": {
-        "message": "P\u0159esko\u010dit nastaven\u00ed"
+    "onboarding_setup_complete": {
+        "message": "Nastaven\u00ed dokon\u010deno"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Kde chcete m\u00edt sv\u016fj postrann\u00ed panel?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknut\u00edm na ikonu roz\u0161\u00ed\u0159en\u00ed v horn\u00ed \u010d\u00e1sti prohl\u00ed\u017ee\u010de otev\u0159ete postrann\u00ed panel."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klikn\u011bte na ikonu postrann\u00edho panelu v horn\u00ed \u010d\u00e1sti prohl\u00ed\u017ee\u010de a vyberte zobrazen\u00ed postrann\u00edho panelu z\u00e1lo\u017eek."
+    },
     "onboarding_left": {
         "message": "vlevo"
     },
     "onboarding_right": {
         "message": "vpravo"
     },
+    "onboarding_handson_done": {
+        "message": "Hotovo"
+    },
     "onboarding_finish_desc": {
         "message": "Bavte se s bo\u010dn\u00edm panelem."
-    },
-    "onboarding_finish_notice": {
-        "message": "Pokud \u010dasto klik\u00e1te na {1} okraj okna prohl\u00ed\u017ee\u010de, lze nastavit, v jak\u00e9 \u010d\u00e1sti (vertik\u00e1ln\u011b) m\u016f\u017ee b\u00fdt postrann\u00ed panel otev\u0159en, abyste p\u0159ede\u0161li n\u00e1hodn\u00e9mu otev\u0159en\u00ed."
     },
     "onboarding_goto_settings": {
         "message": "Dal\u0161\u00ed nastaven\u00ed"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Hlavn\u00ed"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "P\u0159epnout"
+    "settings_menu_sidebar_overlay": {
+        "message": "P\u0159ekr\u00fdv\u00e1n\u00ed"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Popisek"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtr"
     },
     "settings_menu_appearance": {
         "message": "Vzhled"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikona"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "P\u0159ekr\u00fdv\u00e1n\u00ed"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Nov\u00e1 karta"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Z\u00e1lo\u017eky zobrazen\u00e9 na va\u0161em postrann\u00edm panelu jsou synchronizov\u00e1ny a spravov\u00e1ny pomoc\u00ed {browserName}. Roz\u0161\u00ed\u0159en\u00ed tyto z\u00e1lo\u017eky neukl\u00e1d\u00e1 ani neanalyzuje a na postrann\u00edm panelu zobrazuje pouze ty z va\u0161eho prohl\u00ed\u017ee\u010de."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Bo\u010dn\u00ed panel prohl\u00ed\u017ee\u010de"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Postrann\u00ed panel z\u00e1lo\u017eek m\u016f\u017eete m\u00edt p\u0159i proch\u00e1zen\u00ed trvale otev\u0159en\u00fd. K dispozici je bo\u010dn\u00ed panel poskytovan\u00fd va\u0161\u00edm prohl\u00ed\u017ee\u010dem. Klikn\u011bte na ikonu postrann\u00edho panelu v horn\u00ed \u010d\u00e1sti prohl\u00ed\u017ee\u010de a vyberte zobrazen\u00ed postrann\u00edho panelu z\u00e1lo\u017eek."
+    },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },
@@ -911,12 +932,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikdy se neschov\u00e1vej"
     },
-    "settings_reopen_sidebar": {
-        "message": "Znovu otev\u0159\u00edt bo\u010dn\u00ed li\u0161tu z\u00e1lo\u017eek"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Postrann\u00ed panel se znovu otev\u0159e po otev\u0159en\u00ed z\u00e1lo\u017eky z postrann\u00edho panelu."
-    },
     "settings_prevent_windowed": {
         "message": "Vypnout postrann\u00ed panel v re\u017eimu okna"
     },
@@ -962,9 +977,6 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
-    },
     "settings_filter_explanation_1": {
         "message": "P\u0159idejte pouze jeden vzor url na ka\u017ed\u00fd \u0159\u00e1dek."
     },
@@ -979,6 +991,9 @@
     },
     "settings_filter_visibility": {
         "message": "Na\u010dti postrann\u00ed panel"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
     },
     "settings_filter_visibility_always": {
         "message": "Na ka\u017ed\u00e9 str\u00e1nce"
@@ -1018,9 +1033,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Toto je funkce prohl\u00ed\u017ee\u010de a nen\u00ed sou\u010d\u00e1st\u00ed roz\u0161\u00ed\u0159en\u00ed. P\u0159e\u010dt\u011bte si v\u00edce o tom, jak importovat a exportovat z\u00e1lo\u017eky v prohl\u00ed\u017ee\u010di {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
     },
     "settings_presets": {
         "message": "Nastavit relativn\u00ed velikost"
@@ -1184,8 +1196,8 @@
     "settings_installed_theme_info": {
         "message": "Aktu\u00e1ln\u011b nainstalov\u00e1n"
     },
-    "settings_newtab_desc": {
-        "message": "Bohu\u017eel Google odstranil mo\u017enost na\u010d\u00edst roz\u0161\u00ed\u0159en\u00ed na v\u00fdchoz\u00ed str\u00e1nce nov\u00e9 karty. Z tohoto d\u016fvodu jsem p\u0159idal n\u011bkolik mo\u017enost\u00ed, kter\u00e9 v\u00e1m umo\u017e\u0148uj\u00ed p\u0159\u00edstup k va\u0161im z\u00e1lo\u017ek\u00e1m p\u0159i otev\u0159en\u00ed nov\u00e9 karty jin\u00fdm zp\u016fsobem."
+    "settings_theme_changed": {
+        "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
     },
     "settings_newtab_override": {
         "message": "P\u0159epsat str\u00e1nku nov\u00e9 karty"

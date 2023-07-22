@@ -12,7 +12,7 @@
         "message": "Versjon"
     },
     "extension_last_update": {
-        "message": "sist oppdatert {1}"
+        "message": "Sist oppdatert {1}"
     },
     "header_bookmarks": {
         "message": "Bokmerker"
@@ -33,7 +33,7 @@
         "message": "Ingen bokmerker samsvarer med s\u00f8ket ditt"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url kopiert"
+        "message": "URL kopiert"
     },
     "sidebar_deleted": {
         "message": "Fjernet"
@@ -42,7 +42,7 @@
         "message": "Angre"
     },
     "more_link": {
-        "message": "L\u00e6re mer"
+        "message": "L\u00e6r mer"
     },
     "contextmenu_edit_bookmark": {
         "message": "Rediger bokmerke"
@@ -151,6 +151,9 @@
     },
     "sort_label_recently_added": {
         "message": "Nylig lagt til"
+    },
+    "sort_label_url": {
+        "message": "URL"
     },
     "sort_view_as_tree": {
         "message": "Vis kataloger"
@@ -416,6 +419,9 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Holder pekeren p\u00e5 neste eller forrige oppf\u00f8ring i sidefeltet"
+    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Utf\u00f8rer et klikk p\u00e5 den aktuelle oppf\u00f8ringen"
     },
@@ -479,11 +485,23 @@
     "onboarding_headline": {
         "message": "Takk for at du installerte dette tillegget."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Det er flere m\u00e5ter \u00e5 \u00e5pne sidefeltet p\u00e5."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "\u00c5pne p\u00e5 toppen av nettsteder"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "\u00c5pne i sidepanelet ved siden av hovedinnholdet p\u00e5 nettsider"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Jeg vil ikke bruke dette overliggende sidefeltet"
+    },
+    "onboarding_setup_start": {
         "message": "Start oppsett n\u00e5"
     },
-    "onboarding_skip": {
-        "message": "Hopp over oppsett"
+    "onboarding_setup_complete": {
+        "message": "Oppsett fullf\u00f8rt"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Hvor \u00f8nsker du \u00e5 ha sidefeltet ditt?"
@@ -512,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Klikk p\u00e5 ikonet til tillegget for \u00e5 \u00e5pne sidefeltet."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klikk p\u00e5 sidepanelikonet \u00f8verst i nettleseren din, og velg sidepanelvisningen for bokmerke."
+    },
     "onboarding_left": {
         "message": "venstre"
     },
     "onboarding_right": {
         "message": "h\u00f8yre"
+    },
+    "onboarding_handson_done": {
+        "message": "Jeg er ferdig"
     },
     "onboarding_finish_desc": {
         "message": "Kos deg med ditt sidefelt."
@@ -539,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Generelt"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Skru av\/p\u00e5"
+    "settings_menu_sidebar_overlay": {
+        "message": "Overlegg"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Verkt\u00f8ytips"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Utseende"
@@ -563,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overlegg"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Ny fane"
@@ -647,6 +668,132 @@
     "settings_expert_save_error": {
         "message": "Kunne ikke lagre innstillingene. Vennligst rett p\u00e5 innspillet ditt."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfigurer oppf\u00f8rselen til sidefeltet"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Det er ulike alternativer du kan endre for \u00e5 kontrollere utvidelsen. Du kan for eksempel endre hvordan sidefeltet skal gli inn eller hvordan bokmerkene dine skal \u00e5pnes. Hvis du ikke vil at sidefeltet skal lastes inn p\u00e5 hver side, kan du ogs\u00e5 konfigurere dette ved \u00e5 bruke passende regler."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Endre utseendet p\u00e5 sidefeltet"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Du kan endre utseendet p\u00e5 sidefeltet helt for \u00e5 passe dine behov. Det finnes ulike alternativer for \u00e5 endre skriftst\u00f8rrelse, linjeavstand, farger, ikoner og mange flere. Du kan ogs\u00e5 velge fra forh\u00e5ndsdefinerte design og forh\u00e5ndsinnstilte alternativer for raskt \u00e5 f\u00e5 sidefeltet til \u00e5 se ut som du vil."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Visste du?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Neste tips"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Raskt s\u00f8k"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Hvis du \u00e5pner sidefeltet, kan du s\u00f8ke etter bokmerker ved \u00e5 bare begynne \u00e5 skrive. Du trenger ikke \u00e5 klikke p\u00e5 s\u00f8keikonet i overskriften p\u00e5 sidefeltet f\u00f8rst."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktiveringsomr\u00e5de"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Som standard kan hele kanten av nettleservinduet holdes over for \u00e5 \u00e5pne sidefeltet. Du kan gj\u00f8re aktiveringsomr\u00e5det mindre ved \u00e5 bare la sidefeltet \u00e5pnes i en del av nettleserh\u00f8yden. Du kan for eksempel endre sidefeltet til \u00e5 bare vises n\u00e5r du klikker p\u00e5 aktiveringsomr\u00e5det i nedre venstre hj\u00f8rne av nettleservinduet. Dette kan v\u00e6re nyttig for \u00e5 forhindre at sidefeltet dukker opp utilsiktet n\u00e5r du klikker p\u00e5 lenker til nettstedet."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Rask bokmerking"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Du kan dra en hvilken som helst URL rett inn i sidefeltet og slippe den p\u00e5 \u00f8nsket posisjon. Du kan til og med merke og dra den gjeldende URL-en til en nettleserfane p\u00e5 denne m\u00e5ten. Du kan ogs\u00e5 dra {1}-symbolet til venstre for adressefeltet inn i sidefeltet for \u00e5 bokmerke gjeldende side uten \u00e5 merke hele adressefeltet f\u00f8rst."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separatorer"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "En bokmerkeoppf\u00f8ring med nettadressen {1} og en tittel {2} eller {3} vil bli vist som skilletegn i sidefeltet. Du kan legge til skilletegn ved \u00e5 h\u00f8yreklikke p\u00e5 hvilken som helst mappe i sidefeltet og deretter klikke p\u00e5 {4}-knappen."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Rask URL-kopi"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "For \u00e5 kopiere nettadressen til et bokmerke i sidefeltet til utklippstavlen, kan du trykke p\u00e5 {1} n\u00e5r du holder mark\u00f8ren over en oppf\u00f8ring."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "\u00c5pne alle bokmerker"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "For \u00e5 \u00e5pne alle bokmerkene i en mappe, kan du midtklikke p\u00e5 mappen. Alternativt kan du trykke p\u00e5 {1} mens du klikker p\u00e5 en mappe med venstre museknapp."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Skjul oppf\u00f8ringer"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Du kan skjule individuelle bokmerker eller til og med mapper fra sidefeltet. Du kan h\u00f8yreklikke p\u00e5 en hvilken som helst oppf\u00f8ring i sidefeltet og deretter klikke p\u00e5 {1}-knappen i kontekstmenyen. For \u00e5 vise skjulte oppf\u00f8ringer igjen, kan du klikke p\u00e5 menyikonet i overskriften p\u00e5 sidefeltet og aktivere den tilsvarende avmerkingsboksen der."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Utvid alle undermapper"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "For raskt \u00e5 \u00e5pne en mappe med alle undermappene \u00e5pne, kan du dobbeltklikke p\u00e5 en mappe i sidefeltet."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tastatursnarveier"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Sidefeltet kan kontrolleres ved hjelp av hurtigtaster. Du kan se en liste over snarveier ved \u00e5 klikke p\u00e5 menyikonet i overskriften p\u00e5 sidefeltet og deretter klikke p\u00e5 {1}-knappen."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synkronisering"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Alle innstillingene dine i sidefeltet vil bli synkronisert mellom enhetene dine, hvis du aktiverer synkroniseringsalternativene til nettleseren din i innstillingene. Selv uten Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Sl\u00e5 opp synkroniseringsinnstillingene dine"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Utvidelsen er tilgjengelig p\u00e5 {1} forskjellige spr\u00e5k. Oversettelsene er fellesskapsbaserte og alle kan bidra ved \u00e5 oversette tekstene til utvidelsen til andre spr\u00e5k. Oversettelser vil bli godkjent og deretter lagt til utvidelsen med neste oppdatering."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Denne utvidelsen er et enmannsprosjekt, som startet som et hobbyprosjekt for personlig bruk."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Den f\u00f8rste versjonen av denne utvidelsen ble utgitt i november 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "H\u00f8yreklikk"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Du kan h\u00f8yreklikke p\u00e5 et hvilket som helst bokmerke eller mappe i sidefeltet for \u00e5 vise flere alternativer. Du kan for eksempel redigere eksisterende bokmerker eller feste oppf\u00f8ringer til toppen av sidefeltet. N\u00e5r du h\u00f8yreklikker p\u00e5 en mappe, kan du starte en bokmerkesjekk for \u00e5 identifisere \u00f8delagte eller oppdaterte bokmerke-URLer."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Del informasjon"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Du kan dele konfigurasjonen din anonymt, noe som hjelper meg med \u00e5 identifisere popul\u00e6re innstillinger og identifisere hva som skal forbedres eller endres i fremtidige utgivelser. Utvidelsen samler ikke inn personlige data eller leser bokmerker. Uten eksplisitt tillatelse deler utvidelsen heller ingen konfigurasjon."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Velg flere oppf\u00f8ringer"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Du kan velge flere bokmerker eller mapper i sidefeltet for \u00e5 \u00e5pne, slette eller til og med flytte dem med dra og slipp samtidig."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Ny Fane"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Du kan konfigurere utseendet til Ny fane-siden direkte p\u00e5 siden ved \u00e5 klikke p\u00e5 {1}-knappen i nedre hj\u00f8rne. Deretter kan du endre rutenettelementene, s\u00f8kemotoren, bakgrunnsbildet eller koblingene p\u00e5 toppen."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Personvern"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Bokmerkene som vises i sidefeltet, synkroniseres og administreres av {browserName}. Utvidelsen lagrer eller analyserer ikke disse bokmerkene, og viser bare de fra nettleseren din i sidefeltet."
+    },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Sidepanel for nettleser"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Du kan ha bokmerkets sidefelt permanent \u00e5pnet mens du surfer. Det er et sidepanel fra nettleseren din. Klikk p\u00e5 sidepanelikonet \u00f8verst i nettleseren din, og velg sidepanelvisningen for bokmerke."
+    },
     "settings_open_action": {
         "message": "\u00c5pne sidefeltet"
     },
@@ -683,8 +830,23 @@
     "settings_toggle_area_height_desc": {
         "message": "Du kan redusere h\u00f8yden til omr\u00e5det slik at sidefeltet bare \u00e5pnes n\u00e5r du flytter pekeren til den posisjonen av kanten p\u00e5 nettleservinduet."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Dra for \u00e5 flytte"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Velg tastatursnarvei"
+    },
+    "settings_icon_action": {
+        "message": "Klikk p\u00e5 utvidelsesikonet"
+    },
+    "settings_icon_action_desc": {
+        "message": "Du kan velge hvordan sidefeltet skal vises n\u00e5r du klikker p\u00e5 utvidelsesikonet som er plassert til h\u00f8yre for nettleserens adresselinje."
+    },
+    "settings_icon_action_overlay": {
+        "message": "\u00c5pne sidefeltet p\u00e5 toppen av nettsteder"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "\u00c5pne sidepanelet i nettleserens sidepanel"
     },
     "settings_link_action": {
         "message": "\u00c5pne bokmerker"
@@ -734,6 +896,9 @@
     "settings_remember_state_nothing": {
         "message": "Ingenting"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Husk \u00e5pne underkataloger"
+    },
     "settings_remember_desc": {
         "message": "Velg hva som huskes p\u00e5 tvers av sider. Hvis du velger \u00e5 huske sist \u00e5pnet bokmerke, vil det bli markert n\u00e5r du \u00e5pner sidefeltet igjen."
     },
@@ -779,11 +944,11 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Aldri skjul"
     },
-    "settings_reopen_sidebar": {
-        "message": "\u00c5pne sidefeltet p\u00e5 nytt"
+    "settings_prevent_windowed": {
+        "message": "Deaktiver sidefeltet i vindusmodus"
     },
-    "settings_reopen_sidebar_desc": {
-        "message": "\u00c5pne sidefeltet automatisk igjen etter \u00e5pning av bokmerke fra sidefeltet."
+    "settings_prevent_windowed_desc": {
+        "message": "Deaktiverer muligheten til \u00e5 \u00e5pne sidefeltet ved \u00e5 klikke p\u00e5 eller holde musepekeren over kanten av nettleseren n\u00e5r nettleseren er i vindusmodus."
     },
     "settings_tooltip_delay": {
         "message": "Verkt\u00f8ytips forsinkelse"
@@ -812,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Tilleggsinformasjon"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Her kan du endre oppf\u00f8rselen til den overliggende sidelinjen som \u00e5pnes p\u00e5 toppen av nettsteder."
+    },
     "settings_sidebar_position": {
         "message": "Posisjon"
+    },
+    "settings_overlay_enabled": {
+        "message": "Aktiver overliggende sidefelt"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Hvis du bare vil ha tilgang til bokmerkene dine i sidepanelet i nettleseren, kan du deaktivere den overliggende sidelinjen."
     },
     "settings_sidebar_position_desc": {
         "message": "Lar deg velge om sidefeltet skal \u00e5pnes fra venstre eller h\u00f8yre kan av nettleservinduet."
@@ -823,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f8yre"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Om du \u00f8nsker at sidefeltet skal lastes p\u00e5 alle sider kan du konfigurere hvor tillegget skal lastes (hviteliste) eller hvor det ikke skal lastes (svarteliste)."
     },
     "settings_filter_explanation_1": {
         "message": "Legg kun til et url-m\u00f8nster per linje"
@@ -842,6 +1013,9 @@
     "settings_filter_visibility": {
         "message": "Last sidefelt"
     },
+    "settings_filter_visibility_desc": {
+        "message": "Om du \u00f8nsker at sidefeltet skal lastes p\u00e5 alle sider kan du konfigurere hvor tillegget skal lastes (hviteliste) eller hvor det ikke skal lastes (svarteliste)."
+    },
     "settings_filter_visibility_always": {
         "message": "P\u00e5 alle sider"
     },
@@ -853,6 +1027,12 @@
     },
     "settings_filter_rules": {
         "message": "Url m\u00f8nstre"
+    },
+    "settings_import_export_headline": {
+        "message": "Import\/eksportinnstillinger"
+    },
+    "settings_import_export_notice": {
+        "message": "Utvidelsesinnstillingene synkroniseres automatisk mellom enhetene dine hvis du er logget p\u00e5 {browserName} med kontoen din. Hvis du ikke vil logge p\u00e5 eller vil dele innstillingene dine med andre personer eller enheter, kan du bruke disse import\/eksportalternativene."
     },
     "settings_import_export_desc": {
         "message": "Du kan eksportere innstillingene dine og lagre de lokalt p\u00e5 din PC. Du kan importere tidligere eksporterte filer p\u00e5 hvilken som helst PC hvor tillegget er installert."
@@ -869,11 +1049,29 @@
     "settings_import_failed": {
         "message": "Importering av konfigurasjon mislykket. Vennligst velg en gyldig fil."
     },
+    "settings_import_export_bookmarks": {
+        "message": "Importer\/eksporter bokmerker"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Dette er en nettleserfunksjon og ikke en del av utvidelsen. Les mer om hvordan du importerer og eksporterer bokmerker i {browserName}."
+    },
+    "settings_presets": {
+        "message": "Angi relative st\u00f8rrelser"
+    },
+    "settings_presets_desc": {
+        "message": "Du kan velge forh\u00e5ndsdefinerte st\u00f8rrelser for sidefeltet. Dette vil endre glidebryterne p\u00e5 denne siden som vil justere sidefeltets bredde, linjeh\u00f8yder, ikonst\u00f8rrelser og mange andre visuelle alternativer."
+    },
     "settings_color_scheme": {
         "message": "Farge-tema"
     },
     "settings_surface": {
         "message": "Overflate"
+    },
+    "settings_surface_auto": {
+        "message": "Automatisk"
+    },
+    "settings_surface_info": {
+        "message": "Tilpass overflaten p\u00e5 sidefeltet automatisk for \u00e5 matche systemet ditt (lys eller m\u00f8rkt), eller velg det eksplisitt for \u00e5 tillate ytterligere fargetilpasning."
     },
     "settings_color_scheme_desc": {
         "message": "Fargen p\u00e5 sidefeltets overskriftsomr\u00e5de, avmerkingsbokser o.l."
@@ -896,8 +1094,23 @@
     "settings_scroll_bar_width": {
         "message": "Rullefeltbredde"
     },
+    "settings_icon_background_color": {
+        "message": "Bakgrunnsfarge"
+    },
     "settings_icon_color": {
         "message": "Farge"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatisk"
+    },
+    "settings_icon_color_custom": {
+        "message": "Tilpasset"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Ikonfargen settes automatisk for \u00e5 matche fargeskjemaet til systemet ditt (lys eller m\u00f8rk). Du kan ogs\u00e5 definere din egen tilpassede farge for ikonet."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "V\u00e6r oppmerksom p\u00e5 at den automatiske fargen ikke vil fungere n\u00e5r du bruker et tilpasset {browserName}-tema."
     },
     "settings_indicator_width": {
         "message": "Bredde"
@@ -920,6 +1133,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maskefarge"
     },
+    "settings_background_transparency": {
+        "message": "Bakgrunnsgjennomsiktighet"
+    },
+    "settings_background_blur": {
+        "message": "Bakgrunnsuskarphet effekt"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Mappeikon"
     },
@@ -934,6 +1153,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Mapper skriftst\u00f8rrelse"
+    },
+    "settings_directory_arrows": {
+        "message": "Mappepiler"
     },
     "settings_bookmarks_line_height": {
         "message": "Bokmerker linjeh\u00f8yde"
@@ -959,8 +1181,47 @@
     "settings_custom_css_desc": {
         "message": "Du kan definere ditt eget stilark for \u00e5 overstyre standardstilen. Vennligst bruk dette valget hvis du har kjennskap til CSS og vet hva du driver med."
     },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Du kan velge den grunnleggende utformingen av sidefeltet. Det valgte temaet kan tilpasses med de tilgjengelige glidebryterne og fargealternativene."
+    },
+    "settings_available_themes": {
+        "message": "Tilgjengelige temaer"
+    },
+    "settings_show_themes": {
+        "message": "Vis tilgjengelige temaer"
+    },
+    "settings_theme_default": {
+        "message": "Standard tema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Dette temaet lar deg f\u00e5 tilgang til bokmerkene dine p\u00e5 en ren, moderne m\u00e5te. Fargen p\u00e5 mange av elementene kan endres ved \u00e5 endre fargeskjemaet."
+    },
+    "settings_theme_glass": {
+        "message": "Glasstema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Dette temaet gj\u00f8r bakgrunnen til sidepanelet halvgjennomsiktig og legger til en uskarp glasseffekt. Du kan justere denne effekten og gjennomsiktigheten til sidefeltet."
+    },
+    "settings_theme_focus": {
+        "message": "Fokus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Dette temaet reduserer animasjonene og arrangerer elementene tettere for forbedret produktivitet og ytelse."
+    },
+    "settings_install_theme": {
+        "message": "Installer tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "For \u00f8yeblikket installert"
+    },
+    "settings_theme_changed": {
+        "message": "Byttet tema"
+    },
     "settings_newtab_desc": {
-        "message": "Google har dessverre fjernet muligheten til \u00e5 laste tillegg p\u00e5 den standardiserte ny fane-siden. Dette er grunnen til at jeg har lagt til muligheter for \u00e5 f\u00e5 tilgang til bokmerkene dine n\u00e5r du \u00e5pner en ny fane p\u00e5 en annen m\u00e5te."
+        "message": "Du kan overstyre standardsiden for ny fane i nettleseren din med en side levert av denne utvidelsen. Denne siden viser sidefeltet for bokmerke og kan konfigureres for \u00e5 \u00f8ke produktiviteten."
     },
     "settings_newtab_override": {
         "message": "Overstyr ny fane-side"
@@ -968,11 +1229,23 @@
     "settings_newtab_override_desc": {
         "message": "Skal tillegget overstyre din n\u00e5v\u00e6rende ny fane-side med en selvvalgt eller vanlig nettside som lastes inn n\u00e5r du \u00e5pner en ny fane?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Forh\u00e5ndsvisning"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurer"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "\u00c5pne sidebaren automatisk"
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Konfigurer om du \u00f8nsker at sidebaren skal \u00e5pnes automatisk n\u00e5r du \u00e5pner en ny fane"
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Fokuser adressefeltet"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Hvis aktivert, vil adresselinjen v\u00e6re fokusert n\u00e5r du \u00e5pner en ny fane. Hvis den ikke er aktivert, vil s\u00f8keboksen p\u00e5 nettstedet v\u00e6re fokusert i stedet."
     },
     "settings_newtab_website": {
         "message": "Last nettsted"
@@ -1013,6 +1286,9 @@
     "settings_translation_help": {
         "message": "For hver oppf\u00f8ring kan du se den engelske oversettelsen, som m\u00e5 oversettes til ditt spr\u00e5k. For \u00e5 helpe til med \u00e5 identifisere hvor tekst blir benyttet og hva den er for, har hver oppf\u00f8ring et navn (f.eks {1}), som ikke skal oversettes. Vennligst ikke glem \u00e5 sende inn din oversettelse ved \u00e5 trykke p\u00e5 knappen \u00f8verst til h\u00f8yre!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Jeg \u00f8nsker \u00e5 bli varslet n\u00e5r nye spr\u00e5kvariabler legges til utvidelsen"
+    },
     "settings_translation_submit": {
         "message": "Send inn"
     },
@@ -1034,14 +1310,29 @@
     "settings_translation_required_category": {
         "message": "Obligatorisk"
     },
+    "settings_support_faq_headline": {
+        "message": "Ofte stilte sp\u00f8rsm\u00e5l"
+    },
     "settings_support_feedback_headline": {
         "message": "Tilbakemelding"
     },
     "settings_support_feedback_desc": {
-        "message": "Har du forslag til forbedringer, sp\u00f8rsm\u00e5l, oppdaget noen konfigurasjonsmuligheter som mangler, eller funnet en 'bug'? For \u00e5 kunne forbedre brukeropplevelsen med dette tillegget setter jeg stor pris p\u00e5 alle tilbakemeldinger."
+        "message": "Har du forslag til forbedringer, sp\u00f8rsm\u00e5l, oppdaget noen konfigurasjonsmuligheter som mangler, eller funnet en feil? For \u00e5 kunne forbedre brukeropplevelsen med dette tillegget setter jeg stor pris p\u00e5 alle tilbakemeldinger."
     },
     "settings_support_feedback_notice": {
         "message": "Vennligst formuler tilbakemeldingen din p\u00e5 engelsk, ellers vil det bli vanskelig \u00e5 forst\u00e5 og besvare meldingen din."
+    },
+    "settings_support_feedback_email": {
+        "message": "Liker du \u00e5 f\u00e5 svar? Vennligst oppgi en e-postadresse (valgfritt)"
+    },
+    "settings_support_feedback_screenshot": {
+        "message": "Legg ved skjermbilder"
+    },
+    "settings_support_feedback_screenshot_error_filesize": {
+        "message": "Filst\u00f8rrelsen p\u00e5 {1} er for stor (> 1 MB)"
+    },
+    "settings_support_feedback_screenshot_error_amount": {
+        "message": "Du kan bare laste opp maksimalt {1} skjermbilder"
     },
     "settings_support_feedback_send": {
         "message": "Send tilbakemelding"
@@ -1051,5 +1342,167 @@
     },
     "settings_support_feedback_send_failed": {
         "message": "Meldingen din kunne ikke sendes. Vennligst fors\u00f8k igjen."
+    },
+    "settings_permissions_desc": {
+        "message": "For \u00e5 gj\u00f8re en vekslebar sidefelt mulig i {browserName}, kreves f\u00f8lgende tillatelser og foresp\u00f8rres av utvidelsen:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Dessverre har {browserName} ingen mekanisme for \u00e5 vise innhold i nettleservinduet uten \u00e5 samhandle med gjeldende nettside."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Siden sidefeltet vises p\u00e5 toppen av den gjeldende nettsiden, kreves denne tillatelsen. Tillatelsen brukes ikke til andre form\u00e5l."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Hvis du har bekymringer ang\u00e5ende hva jeg gj\u00f8r med disse tillatelsene, kan du se kildekoden til utvidelsen p\u00e5 Github. Det er \u00e5pen kildekode og er synlig for alle.\u00e5 se."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Utvidelsen viser bokmerkene dine i sidefeltet og trenger derfor denne tillatelsen for \u00e5 f\u00e5 tilgang. Tillatelsen lar ogs\u00e5 utvidelsen legge til, redigere og fjerne bokmerker."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Del informasjon"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Dine valg har blitt lagret"
+    },
+    "premium_popup_text": {
+        "message": "Har du sjekket ut Premium enn\u00e5?"
+    },
+    "premium_restricted_text": {
+        "message": "Denne funksjonen er kun tilgjengelig med Premium"
+    },
+    "premium_desc_1": {
+        "message": "Med Premium vil du f\u00e5 tilgang til tilleggsfunksjoner og hjelpe meg med \u00e5 vedlikeholde utvidelsen."
+    },
+    "premium_desc_2": {
+        "message": "Du kan sjekke ut funksjonene inkludert i Premium nedenfor. Alle n\u00f8kkelfunksjonene til utvidelsene er gratis \u00e5 bruke og krever ikke Premium-tilgang. Du kan betale det du tror utvidelsen og arbeidet mitt er verdt for deg for \u00e5 f\u00e5 tilgang til disse funksjonene."
+    },
+    "premium_get_now": {
+        "message": "F\u00e5 Premium n\u00e5"
+    },
+    "premium_show_license_input": {
+        "message": "Jeg har allerede en Premium-lisensn\u00f8kkel"
+    },
+    "premium_already_activated": {
+        "message": "Du bruker allerede Premium"
+    },
+    "premium_activate": {
+        "message": "Aktiver Premium"
+    },
+    "premium_license_key": {
+        "message": "Lisensn\u00f8kkel"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "V\u00e6r den f\u00f8rste til \u00e5 pr\u00f8ve ut nye eksperimentelle funksjoner"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Med Premium f\u00e5r du tilgang til uutgitte funksjoner, som for tiden er under utvikling eller under testing."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Endre bredden p\u00e5 sidefeltet n\u00e5r som helst"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importer og eksporter innstillingene dine"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Tilpass siden Ny fane"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Hvis du bruker siden Ny fane i denne utvidelsen, kan du angi ditt eget bakgrunnsbilde for \u00e5 f\u00e5 det til \u00e5 se enda finere ut."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Tilpass alt med ditt eget stilark"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Hvis du er kjent med CSS, kan du endre hele utseendet til sidefeltet ved \u00e5 legge til dine egne stildefinisjoner. Dette lar deg tilpasse absolutt hva som helst."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Sjekk bokmerkene dine for \u00f8delagte koblinger eller duplikater"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Du kan h\u00f8yreklikke p\u00e5 hvilken som helst mappe i sidefeltet og utf\u00f8re en sjekk. Resultatsiden vil vise alle oppdaterte URL-er, bokmerker som ikke lenger fungerer og bokmerker med samme URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Endre temaet p\u00e5 sidefeltet"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Du kan bytte hele utformingen av sidefeltet med ett klikk ved \u00e5 installere et annet tema. De kan ogs\u00e5 tilpasses med de tilgjengelige glidebryterne og fargealternativene."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Velg en betalingsmetode nedenfor og velg \u00f8nsket bel\u00f8p du vil betale i neste trinn."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Velg en betalingsmetode"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Betal det du vil"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kreditt- eller debetkort"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Skann denne QR-koden p\u00e5 WeChat for \u00e5 fortsette."
+    },
+    "premium_pay_contact": {
+        "message": "Hvis du st\u00f8ter p\u00e5 problemer med betalingen eller har sp\u00f8rsm\u00e5l, kan du kontakte meg p\u00e5 {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Sum"
+    },
+    "premium_pay_price_info": {
+        "message": "Dette er en engangsavgift og inkluderer ogs\u00e5 alle fremtidige Premium-funksjoner."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Du kan betale det du tror utvidelsen og arbeidet mitt er verdt for deg for \u00e5 f\u00e5 tilgang til premiumfunksjonene. Du vil alltid motta alle premium-funksjoner, uavhengig av hvor mye du er villig til \u00e5 betale."
+    },
+    "premium_pay_eula": {
+        "message": "Sluttbrukerlisensavtale"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Jeg leser og godtar [a]lisensavtalen for sluttbrukere[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Avbestillingsregler"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Bekreft kj\u00f8p"
+    },
+    "premium_pay_buy": {
+        "message": "Kj\u00f8p Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verifiserer transaksjonen"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Kj\u00f8ps-ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Takk for kj\u00f8pet"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} har blitt aktivert automatisk for denne enheten. Du trenger ikke gj\u00f8re noe annet."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Hvis du vil aktivere {1} p\u00e5 en annen enhet eller etter \u00e5 ha installert utvidelsen p\u00e5 nytt, kan du skrive inn f\u00f8lgende n\u00f8kkel i Premium-innstillingene i utvidelsen:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-post"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Vennligst skriv inn e-postadressen din for \u00e5 motta lisensn\u00f8kkelen."
+    },
+    "premium_pay_info_name": {
+        "message": "Navn"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Post kode"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Betalingsmetode"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Kortnummer"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kortet utl\u00f8per"
     }
 }

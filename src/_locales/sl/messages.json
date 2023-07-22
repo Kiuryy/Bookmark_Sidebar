@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Nedavno dodano"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Poka\u017ei mape"
     },
@@ -785,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Zaznamke, prikazane v stranski vrstici, sinhronizira in upravlja {browserName}. Raz\u0161iritev teh zaznamkov ne shranjuje ali analizira in v stranski vrstici prika\u017ee samo tiste iz va\u0161ega brskalnika."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Stranska plo\u0161\u010da brskalnika"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Med brskanjem lahko imate stransko vrstico zaznamkov trajno odprto. Va\u0161 brskalnik ponuja stransko plo\u0161\u010do. Kliknite ikono stranske plo\u0161\u010de na vrhu brskalnika in izberite pogled stranske vrstice zaznamkov."
+    },
     "settings_open_action": {
         "message": "Odpri vrstico z zaznamki"
     },
@@ -826,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastavi bli\u017enjico na tipkovnici"
+    },
+    "settings_icon_action": {
+        "message": "Kliknite ikono raz\u0161iritve"
+    },
+    "settings_icon_action_desc": {
+        "message": "Izberete lahko, kako naj bo prikazana stranska vrstica, ko kliknete ikono raz\u0161iritve, ki se nahaja desno od naslovne vrstice brskalnika."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Odpri stransko vrstico na vrhu spletnih mest"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Odprite stransko vrstico v stranski plo\u0161\u010di brskalnika"
     },
     "settings_link_action": {
         "message": "Odpri zaznamke"
@@ -956,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dodatne informacije"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Tukaj lahko spremenite obna\u0161anje prekrivne stranske vrstice, ki se odpre na vrhu spletnih mest."
+    },
     "settings_sidebar_position": {
         "message": "Lokacija"
+    },
+    "settings_overlay_enabled": {
+        "message": "Omogo\u010di prekrivno stransko vrstico"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "\u010ce \u017eelite dostopati do svojih zaznamkov samo na stranski plo\u0161\u010di brskalnika, lahko deaktivirate prekrivno stransko vrstico."
     },
     "settings_sidebar_position_desc": {
         "message": "Dovoli vam nastaviti, \u010de se bo stranska vrstica odprla na levem ali desnem robu okna brskalnika."
@@ -1189,6 +1219,9 @@
     },
     "settings_theme_changed": {
         "message": "Tema uspe\u0161no spremenjena"
+    },
+    "settings_newtab_desc": {
+        "message": "Privzeto stran novega zavihka v brskalniku lahko preglasite s stranjo, ki jo ponuja ta raz\u0161iritev. Na tej strani bo prikazana stranska vrstica z zaznamki in jo je mogo\u010de konfigurirati za izbolj\u0161anje va\u0161e produktivnosti."
     },
     "settings_newtab_override": {
         "message": "Preglasi stran novega zavihka"

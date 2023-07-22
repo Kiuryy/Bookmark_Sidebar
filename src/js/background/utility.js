@@ -156,7 +156,7 @@
          * @returns {Promise}
          */
         this.openLink = async (opts) => {
-            await b.helper.viewAmount.addByEntry(opts);
+            await b.helper.viewAmount.increaseById(opts.id);
 
             if (opts.hrefName) {
                 if ($.opts.website.info[opts.hrefName]) {

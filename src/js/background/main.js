@@ -122,7 +122,8 @@
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
                 if ($.api.bookmarks["on" + eventName]) {
-                    $.api.bookmarks["on" + eventName].addListener(() => {
+                    $.api.bookmarks["on" + eventName].addListener((id) => {
+                        this.helper.viewAmount.increaseById(id, 0);
                         if (this.importRunning === false && this.preventReload === false) { // don't reload sidebar while import in running
                             this.reload({type: eventName});
                         }

@@ -76,7 +76,7 @@
                         this.helper.keyboard.init();
 
                         if (document.referrer === "") {
-                            this.helper.model.call("addViewAmount", {url: location.href});
+                            this.helper.model.call("increaseViewCounter", {url: location.href});
                         }
                     }
                 } else { // disallowed to load sidebar (blacklisted or not whitelisted)

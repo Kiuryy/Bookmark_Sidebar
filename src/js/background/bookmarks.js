@@ -66,6 +66,7 @@
                     b.helper.cache.remove({name: "htmlList"}),
                     b.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]);
+                await b.helper.viewAmount.increaseById(opts.id, 0);
             } catch (err) {
                 console.error(err);
                 ret = {error: err};
@@ -105,6 +106,7 @@
                     b.helper.cache.remove({name: "htmlList"}),
                     b.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]);
+                await b.helper.viewAmount.increaseById(ret.id, 0);
             } catch (err) {
                 console.error(err);
                 ret = {error: err};

@@ -50,7 +50,7 @@
 
             try {
                 let list = navigator.userAgentData.brands.filter(b => {
-                    return !/^NOT[^\w]/i.test(b.brand);
+                    return !/^[^a-z]*NOT[^a-z]/i.test(b.brand);
                 });
                 list = list.filter(b => { // ignore Chromium if there is at least one other option to pick from
                     return b.brand.toUpperCase() !== "CHROMIUM" || list.length === 1;

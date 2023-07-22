@@ -25,6 +25,7 @@
                 });
             } else if (type === "newWindow") {
                 await ext.helper.model.call("openLink", {
+                    id: infos.id,
                     href: infos.url,
                     newWindow: true
                 });

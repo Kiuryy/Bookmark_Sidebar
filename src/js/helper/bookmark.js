@@ -135,7 +135,6 @@
          * @returns {Promise}
          */
         this.unpinEntry = async (data) => {
-
             const entries = ext.helper.model.getData("u/pinnedEntries");
             delete entries[data.id];
 
@@ -162,11 +161,9 @@
                 }
 
                 ext.helper.utility.sortEntries(entries, sort);
-                const index = entries.findIndex((entry) => {
+                return entries.findIndex((entry) => {
                     return bookmarkId === entry.id;
                 });
-
-                return index;
             } else {
                 return -1;
             }

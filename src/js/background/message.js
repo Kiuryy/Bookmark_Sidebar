@@ -40,7 +40,7 @@
                 reloadBrowserAction: b.helper.browserAction.init,
                 clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
                 setNotWorkingReason: b.helper.browserAction.setReason,
-                addViewAmount: b.helper.viewAmount.addByUrl,
+                increaseViewCounter: b.helper.viewAmount.increaseByUrl,
                 viewAmounts: b.helper.viewAmount.getAll,
                 searchHistory: b.helper.utility.getHistoryBySearchVal,
                 lastUpdateDate: async () => b.helper.model.getData("lastUpdateDate")

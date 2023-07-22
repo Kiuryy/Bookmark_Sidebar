@@ -18,12 +18,12 @@
 
         /**
          * Determines whether a bookmark to the given url exists and if so increases the view counter,
-         * only if the tab was not previously opened or changed from the extension (these clicks are counted alreay)
+         * only if the tab was not previously opened or changed from the extension (these clicks are counted already)
          *
          * @param {object} opts
          * @returns {Promise}
          */
-        this.addByUrl = async (opts) => {
+        this.increaseByUrl = async (opts) => {
             const openedByExtension = b.helper.model.getData("openedByExtension");
 
             if (openedByExtension === null) { // page was not opened by extension -> view was not counted yet
@@ -31,7 +31,7 @@
                 if (result && result.bookmarks) {
                     for (const bookmark of result.bookmarks) {
                         if (bookmark.url === opts.url) {
-                            await this.addByEntry(bookmark);
+                            await this.increaseById(bookmark.id);
                             break;
                         }
                     }
@@ -44,17 +44,19 @@
         /**
          * Increases the Click Counter of the given bookmark
          *
-         * @param {object} bookmark
+         * @param {string} bookmarkId
+         * @param {number} increment
          */
-        this.addByEntry = async (bookmark) => {
-            if (bookmark.id) {
+        this.increaseById = async (bookmarkId, increment = 1) => {
+            bookmarkId = "" + bookmarkId;
+            if (bookmarkId) {
                 const clickCounter = await getClickCounter();
-                if (typeof clickCounter[bookmark.id] === "undefined" || typeof clickCounter[bookmark.id] !== "object") {
-                    clickCounter[bookmark.id] = {c: 0};
+                if (typeof clickCounter[bookmarkId] === "undefined" || typeof clickCounter[bookmarkId] !== "object") {
+                    clickCounter[bookmarkId] = {c: 0};
                 }
 
-                clickCounter[bookmark.id].c++;
-                clickCounter[bookmark.id].d = +new Date();
+                clickCounter[bookmarkId].c += increment;
+                clickCounter[bookmarkId].d = +new Date();
 
                 await $.api.storage.local.set({
                     clickCounter: clickCounter

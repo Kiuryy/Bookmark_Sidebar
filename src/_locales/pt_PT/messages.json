@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Obrigado por instalar esta extens\u00e3o."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Configurar agora"
-    },
-    "onboarding_skip": {
-        "message": "Saltar configura\u00e7\u00e3o"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Em que posi\u00e7\u00e3o quer a sua barra lateral?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Divirta-se com a sua barra lateral."
     },
-    "onboarding_finish_notice": {
-        "message": "Se carrega frequentemente na localiza\u00e7\u00e3o da barra lateral {1} do explorador, poder\u00e1 alterar o local onde a barra pode ser aberta para evitar apresent\u00e1-la acidentalmente."
-    },
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "Geral"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Alternar"
+    "settings_menu_sidebar_overlay": {
+        "message": "Sobreposi\u00e7\u00e3o"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Dicas de contexto"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtro"
     },
     "settings_menu_appearance": {
         "message": "Apar\u00eancia"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "\u00cdcone"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Sobreposi\u00e7\u00e3o"
     },
     "settings_menu_newtab": {
         "message": "Novo Separador"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_reopen_sidebar": {
-        "message": "Reabrir a barra lateral."
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Abrir automaticamente a barra lateral novamente, ap\u00f3s abrir um marcador a partir da barra lateral."
-    },
     "settings_prevent_windowed": {
         "message": "Desactivar o modo de janela da barra lateral"
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Direita"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Se n\u00e3o quiser carregar a barra lateral em cada p\u00e1gina, pode configurar a lista de endere\u00e7os onde \u00e9 apresentada (whitelist) e onde n\u00e3o \u00e9 (blacklist)."
-    },
     "settings_filter_explanation_1": {
         "message": "Adicione apenas um endere\u00e7o (URL) por linha"
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "Apresenta a barra lateral"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Se n\u00e3o quiser carregar a barra lateral em cada p\u00e1gina, pode configurar a lista de endere\u00e7os onde \u00e9 apresentada (whitelist) e onde n\u00e3o \u00e9 (blacklist)."
     },
     "settings_filter_visibility_always": {
         "message": "Em todas as p\u00e1ginas"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar favoritos em {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema mudado correctamente"
     },
     "settings_presets": {
         "message": "Definir tamanho relativo"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "Atualmente instalado"
     },
-    "settings_newtab_desc": {
-        "message": "Infelizmente, a Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que lhe permitem acessar seus marcadores ao abrir uma nova guia de outra maneira."
+    "settings_theme_changed": {
+        "message": "Tema mudado correctamente"
     },
     "settings_newtab_override": {
         "message": "Sobrepor a p\u00e1gina nova guia"

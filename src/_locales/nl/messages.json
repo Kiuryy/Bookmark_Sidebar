@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Bedankt voor het installeren van deze extensie."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Installeer nu"
-    },
-    "onboarding_skip": {
-        "message": "Installatie overslaan"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Waar wil je de zijbalk tonen?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Veel plezier met je zijbalk."
     },
-    "onboarding_finish_notice": {
-        "message": "Als je vaak aan de {1}zijde van de browser klikt, wil je misschien veranderen waar de zijbalk geopend wordt om te voorkomen dat je deze per ongeluk opent."
-    },
     "onboarding_goto_settings": {
         "message": "Meer instellingen"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "Algemeen"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Wissel"
+    "settings_menu_sidebar_overlay": {
+        "message": "Hulpvenster"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Helptekst"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Uiterlijk"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Icoon"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Hulpvenster"
     },
     "settings_menu_newtab": {
         "message": "Nieuw tabblad"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nooit verbergen"
     },
-    "settings_reopen_sidebar": {
-        "message": "Heropen zijbalk"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Open de zijbalk automatisch opnieuw, na het openen van een bladwijzer via de zijbalk."
-    },
     "settings_prevent_windowed": {
         "message": "Schakel de zijbalk uit wanneer het venster niet schermvullend is"
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
-    },
     "settings_filter_explanation_1": {
         "message": "Je kan maximaal \u00e9\u00e9n URL per regel toevoegen"
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "Laden zijbalk"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
     },
     "settings_filter_visibility_always": {
         "message": "Op elke pagina"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Dit is een browser functie en geen onderdeel van de extensie. Lees meer over hoe bladwijzers te importeren en exporteren in {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Thema succesvol gewijzigd"
     },
     "settings_presets": {
         "message": "Stel de relatieve grootte in"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "Ge\u00efnstalleerde thema"
     },
-    "settings_newtab_desc": {
-        "message": "Helaas heeft Google de functie om extensies te laden op een nieuw tabblad verwijderd. Om die reden heb ik enkele andere opties toegevoegd om bij je bladwijzers te komen."
+    "settings_theme_changed": {
+        "message": "Thema succesvol gewijzigd"
     },
     "settings_newtab_override": {
         "message": "Nieuw tabblad overschrijven"

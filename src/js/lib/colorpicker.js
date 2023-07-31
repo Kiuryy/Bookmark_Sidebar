@@ -2,7 +2,7 @@
  * Colorpicker.js
  *
  * Philipp König
- * https://blockbyte.de
+ * https://redeviation.com/
  */
 window.Colorpicker = (() => {
     "use strict";

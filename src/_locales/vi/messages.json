@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "C\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 c\u00e0i \u0111\u1eb7t ti\u1ec7n \u00edch"
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Thi\u1ebft l\u1eadp ngay"
-    },
-    "onboarding_skip": {
-        "message": "B\u1ecf qua thi\u1ebft l\u1eadp"
     },
     "onboarding_sidebar_position_desc": {
         "message": "B\u1ea1n mu\u1ed1n thanh d\u1ea5u trang n\u1eb1m \u1edf \u0111\u00e2u?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Ch\u00fac b\u1ea1n d\u00f9ng ti\u1ec7n \u00edch n\u00e0y vui v\u1ebb!"
     },
-    "onboarding_finish_notice": {
-        "message": "N\u1ebfu b\u1ea1n th\u01b0\u1eddng xuy\u00ean nh\u1ea5p v\u00e0o nh\u1eefng th\u1ee9 \u1edf b\u00ean {1} c\u1ee7a c\u1eeda s\u1ed5 tr\u00ecnh duy\u1ec7t, b\u1ea1n n\u00ean thay \u0111\u1ed5i v\u1ecb tr\u00ed thanh d\u1ea5u trang \u0111\u1ec3 tr\u00e1nh v\u00f4 t\u00ecnh m\u1edf n\u00f3."
-    },
     "onboarding_goto_settings": {
         "message": "C\u00e1c c\u00e0i \u0111\u1eb7t ph\u1ee5"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "C\u00e0i \u0111\u1eb7t chung"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "C\u00e1ch b\u1eadt thanh b\u00ean"
+    "settings_menu_sidebar_overlay": {
+        "message": "L\u1edbp ph\u1ee7"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Th\u00f4ng tin nhanh"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "B\u1ed9 l\u1ecdc"
     },
     "settings_menu_appearance": {
         "message": "Giao di\u1ec7n"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Bi\u1ec3u t\u01b0\u1ee3ng"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "L\u1edbp ph\u1ee7"
     },
     "settings_menu_newtab": {
         "message": "Tab m\u1edbi"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Kh\u00f4ng \u1ea9n"
     },
-    "settings_reopen_sidebar": {
-        "message": "M\u1edf l\u1ea1i \u001dthanh b\u00ean"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "T\u1ef1 \u0111\u1ed9ng m\u1edf thanh b\u00ean m\u1ed9t l\u1ea7n n\u1eefa, sau khi m\u1edf m\u1ed9t d\u1ea5u trang t\u1eeb thanh b\u00ean."
-    },
     "settings_prevent_windowed": {
         "message": "Kh\u00f4ng d\u00f9ng thanh b\u00ean khi tr\u00ecnh duy\u1ec7t \u0111ang \u1edf ch\u1ebf \u0111\u1ed9 c\u1eeda s\u1ed5."
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Ph\u1ea3i"
     },
-    "settings_filter_visibility_desc": {
-        "message": "B\u1ea1n c\u00f3 th\u1ec3 thi\u1ebft l\u1eadp c\u00e1c trang m\u00e0 \bthanh b\u00ean s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c k\u00edch ho\u1ea1t (Danh s\u00e1ch \u0111en) ho\u1eb7c s\u1ebd \u0111\u01b0\u1ee3c k\u00edch ho\u1ea1t (Danh s\u00e1ch tr\u1eafng) N\u1ebfu b\u1eadt danh s\u00e1ch tr\u1eafng, ch\u1ec9 nh\u1eefng trang \u0111\u00f3 m\u1edbi c\u00f3 thanh b\u00ean"
-    },
     "settings_filter_explanation_1": {
         "message": "Ch\u1ec9 th\u00eam 1 URL tr\u00ean 1 d\u00f2ng"
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "T\u1ea3i Sidebar"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "B\u1ea1n c\u00f3 th\u1ec3 thi\u1ebft l\u1eadp c\u00e1c trang m\u00e0 \bthanh b\u00ean s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c k\u00edch ho\u1ea1t (Danh s\u00e1ch \u0111en) ho\u1eb7c s\u1ebd \u0111\u01b0\u1ee3c k\u00edch ho\u1ea1t (Danh s\u00e1ch tr\u1eafng) N\u1ebfu b\u1eadt danh s\u00e1ch tr\u1eafng, ch\u1ec9 nh\u1eefng trang \u0111\u00f3 m\u1edbi c\u00f3 thanh b\u00ean"
     },
     "settings_filter_visibility_always": {
         "message": "Tr\u00ean t\u1ea5t c\u1ea3 c\u00e1c trang"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "\u0110\u00e2y l\u00e0 m\u1ed9t t\u00ednh n\u0103ng c\u1ee7a tr\u00ecnh duy\u1ec7t v\u00e0 kh\u00f4ng ph\u1ea3i l\u00e0 m\u1ed9t ph\u1ea7n c\u1ee7a ti\u1ec7n \u00edch m\u1edf r\u1ed9ng. \u0110\u1ecdc th\u00eam v\u1ec1 c\u00e1ch nh\u1eadp v\u00e0 xu\u1ea5t d\u1ea5u trang trong {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "\u0110\u00e3 thay \u0111\u1ed5i ch\u1ee7 \u0111\u1ec1 th\u00e0nh c\u00f4ng!"
     },
     "settings_presets": {
         "message": "\u0110\u1eb7t k\u00edch th\u01b0\u1edbc"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "\u0110\u00e3 t\u1ea3i xu\u1ed1ng"
     },
-    "settings_newtab_desc": {
-        "message": "Tr\u00ecnh duy\u1ec7t d\u1ef1a tr\u00ean n\u1ec1n t\u1ea3ng Chromium kh\u00f4ng cho ph\u00e9p t\u1ea3i ti\u1ec7n \u00edch tr\u00ean trang tab m\u1edbi m\u1eb7c \u0111\u1ecbnh. V\u00ec v\u1eady, ch\u1ee9c n\u0103ng thanh d\u1ea5u trang s\u1ebd kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng \u1edf \u0111\u00e2y. \u0110\u1ec3 tr\u00e1nh t\u00ecnh tr\u1ea1ng n\u00e0y, m\u1ed9t s\u1ed1 c\u00e0i \u0111\u1eb7t \u0111\u00e3 \u0111\u01b0\u1ee3c th\u00eam v\u00e0o \u0111\u1ec3 truy c\u1eadp thanh d\u1ea5u trang trong tab m\u1edbi."
+    "settings_theme_changed": {
+        "message": "\u0110\u00e3 thay \u0111\u1ed5i ch\u1ee7 \u0111\u1ec1 th\u00e0nh c\u00f4ng!"
     },
     "settings_newtab_override": {
         "message": "S\u1eed d\u1ee5ng trang tab m\u1edbi c\u1ee7a ti\u1ec7n \u00edch."

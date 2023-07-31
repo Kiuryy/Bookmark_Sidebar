@@ -836,6 +836,18 @@
     "settings_keyboard_shortcut_button": {
         "message": "Nastav kl\u00e1vesovou zkratku"
     },
+    "settings_icon_action": {
+        "message": "Klikn\u011bte na ikonu roz\u0161\u00ed\u0159en\u00ed"
+    },
+    "settings_icon_action_desc": {
+        "message": "M\u016f\u017eete si vybrat, jak se m\u00e1 postrann\u00ed panel zobrazit, kdy\u017e kliknete na ikonu roz\u0161\u00ed\u0159en\u00ed, kter\u00e1 se nach\u00e1z\u00ed vpravo od adresn\u00edho \u0159\u00e1dku prohl\u00ed\u017ee\u010de."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Otv\u00edrat postrann\u00ed panel p\u0159es webov\u00e9 str\u00e1nky"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Otev\u0159ete postrann\u00ed panel v postrann\u00edm panelu poskytnut\u00e9m prohl\u00ed\u017ee\u010dem"
+    },
     "settings_link_action": {
         "message": "Otev\u0159\u00edt z\u00e1lo\u017eky"
     },
@@ -942,7 +954,7 @@
         "message": "Zpo\u017ed\u011bn\u00ed n\u00e1pov\u011bdy"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Zpo\u017ed\u011bn\u00ed p\u0159edt\u00edm, ne\u017e se objev\u00ed n\u00e1pisy pro z\u00e1lo\u017eky, se zobraz\u00ed p\u0159i podr\u017een\u00ed kurzoru my\u0161\u00ed."
+        "message": "Prodleva, ne\u017e se p\u0159i najet\u00ed my\u0161\u00ed zobraz\u00ed n\u00e1pov\u011bda pro z\u00e1lo\u017eky."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Nikdy nezobrazovat n\u00e1pov\u011bdy"
@@ -965,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dopl\u0148uj\u00edc\u00ed info"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Zde m\u016f\u017eete zm\u011bnit chov\u00e1n\u00ed p\u0159ekryvn\u00e9ho postrann\u00edho panelu, kter\u00fd se otev\u00edr\u00e1 nad webov\u00fdmi str\u00e1nkami."
+    },
     "settings_sidebar_position": {
         "message": "Pozice"
+    },
+    "settings_overlay_enabled": {
+        "message": "Povolit p\u0159ekryvn\u00fd postrann\u00ed panel"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Pokud chcete ke sv\u00fdm z\u00e1lo\u017ek\u00e1m p\u0159istupovat pouze z bo\u010dn\u00edho panelu poskytnut\u00e9ho prohl\u00ed\u017ee\u010dem, m\u016f\u017eete deaktivovat p\u0159ekryvn\u00fd postrann\u00ed panel."
     },
     "settings_sidebar_position_desc": {
         "message": "Umo\u017e\u0148uje nastavit, zda se m\u00e1 bo\u010dn\u00ed li\u0161ta otev\u0159\u00edt na lev\u00e9 nebo prav\u00e9 stran\u011b obrazovky."
@@ -1026,7 +1047,7 @@
         "message": "Konfigurace byla importov\u00e1na \u00fasp\u011b\u0161n\u011b"
     },
     "settings_import_failed": {
-        "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
+        "message": "Import konfigurace se nepoda\u0159il. Zvolte pros\u00edm platn\u00fd soubor."
     },
     "settings_import_export_bookmarks": {
         "message": "Importovat \/ exportovat z\u00e1lo\u017eky"
@@ -1198,6 +1219,9 @@
     },
     "settings_theme_changed": {
         "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
+    },
+    "settings_newtab_desc": {
+        "message": "V\u00fdchoz\u00ed str\u00e1nku Nov\u00e1 karta va\u0161eho prohl\u00ed\u017ee\u010de m\u016f\u017eete nahradit str\u00e1nkou poskytovanou t\u00edmto roz\u0161\u00ed\u0159en\u00edm. Tato str\u00e1nka zobraz\u00ed postrann\u00ed panel va\u0161ich z\u00e1lo\u017eek a lze ji nakonfigurovat tak, aby zv\u00fd\u0161ila va\u0161i produktivitu."
     },
     "settings_newtab_override": {
         "message": "P\u0159epsat str\u00e1nku nov\u00e9 karty"

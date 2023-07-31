@@ -490,11 +490,11 @@
                 loader.remove();
 
                 if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
-                    // s.helper.model.call("track", {
-                    //     name: "action",
-                    //     value: {name: "feedback", value: "true"},
-                    //     always: true
-                    // });
+                    s.helper.model.call("track", {
+                        name: "action",
+                        value: {name: "feedback", value: "true"},
+                        always: true
+                    });
 
                     s.elm.textarea.feedbackMsg[0].value = "";
                     s.elm.field.feedbackEmail[0].value = "";

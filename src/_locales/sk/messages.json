@@ -473,11 +473,8 @@
     "onboarding_headline": {
         "message": "\u010eakujeme, \u017ee ste si nain\u0161talovali toto roz\u0161\u00edrenie."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Nastavi\u0165 teraz"
-    },
-    "onboarding_skip": {
-        "message": "Presko\u010di\u0165 nastavenie"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Kde chcete ma\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
@@ -515,9 +512,6 @@
     "onboarding_finish_desc": {
         "message": "Pr\u00edjemn\u00fa z\u00e1bavu."
     },
-    "onboarding_finish_notice": {
-        "message": "Ak \u010dasto klik\u00e1te na veci na {1} strane okna v\u00e1\u0161ho prehliada\u010da, mohli by ste chcie\u0165 zmeni\u0165, kde sa bo\u010dn\u00fd panel otv\u00e1ra vertik\u00e1lne aby ste predi\u0161li n\u00e1hodn\u00e9mu otvoreniu."
-    },
     "onboarding_goto_settings": {
         "message": "Viac nastaven\u00ed"
     },
@@ -536,14 +530,11 @@
     "settings_menu_sidebar_general": {
         "message": "V\u0161eobecn\u00e9"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Prep\u00ednanie"
+    "settings_menu_sidebar_overlay": {
+        "message": "Vrstva"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "N\u00e1poveda"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Vzh\u013ead"
@@ -559,9 +550,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Ikony"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Vrstva"
     },
     "settings_menu_newtab": {
         "message": "Nov\u00e1 karta"
@@ -902,12 +890,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikdy neskr\u00fdva\u0165"
     },
-    "settings_reopen_sidebar": {
-        "message": "Znovu otvori\u0165 panel"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Po otvoren\u00ed z\u00e1lo\u017eky automaticky otvor\u00ed panel znova."
-    },
     "settings_prevent_windowed": {
         "message": "Zablokova\u0165 panel v m\u00f3de okna"
     },
@@ -953,9 +935,6 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Ak nechcete panel na\u010d\u00edta\u0165 na ka\u017edej str\u00e1nke, m\u00f4\u017eete nastavi\u0165, kde m\u00e1 by\u0165 panel na\u010d\u00edtan\u00fd (whitelist) a kde nie (blacklist)."
-    },
     "settings_filter_explanation_1": {
         "message": "Pridajte iba jeden URL vzor na riadok"
     },
@@ -970,6 +949,9 @@
     },
     "settings_filter_visibility": {
         "message": "Na\u010d\u00edta\u0165 panel"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Ak nechcete panel na\u010d\u00edta\u0165 na ka\u017edej str\u00e1nke, m\u00f4\u017eete nastavi\u0165, kde m\u00e1 by\u0165 panel na\u010d\u00edtan\u00fd (whitelist) a kde nie (blacklist)."
     },
     "settings_filter_visibility_always": {
         "message": "Na ka\u017edej str\u00e1nke"
@@ -1009,9 +991,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Toto je s\u00fa\u010das\u0165 prehliada\u010da a nie roz\u0161\u00edrenia. Pre\u010d\u00edtajte si viac inform\u00e1ci\u00ed o tom, ako importova\u0165 a exportova\u0165 z\u00e1lo\u017eky v {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"
     },
     "settings_presets": {
         "message": "Nastavi\u0165 relat\u00edvne ve\u013ekosti"
@@ -1175,8 +1154,8 @@
     "settings_installed_theme_info": {
         "message": "Aktu\u00e1lne in\u0161talovan\u00e1"
     },
-    "settings_newtab_desc": {
-        "message": "Bohu\u017eia\u013e, Google odstr\u00e1nil mo\u017enos\u0165 na\u010d\u00edta\u0165 roz\u0161\u00edrenia na str\u00e1nke novej karty. Preto som pridal mo\u017enosti dovo\u013euj\u00face spr\u00edstupni\u0165 va\u0161e z\u00e1lo\u017eky na novej karte inou cestou."
+    "settings_theme_changed": {
+        "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"
     },
     "settings_newtab_override": {
         "message": "Nahradi\u0165 str\u00e1nku novej karty"

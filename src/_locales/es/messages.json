@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Gracias por instalar esta extensi\u00f3n."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Configurar ahora"
-    },
-    "onboarding_skip": {
-        "message": "Saltar configuraci\u00f3n"
     },
     "onboarding_sidebar_position_desc": {
         "message": "\u00bfD\u00f3nde quieres tener tu barra lateral?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Divi\u00e9rtete con tu barra lateral."
     },
-    "onboarding_finish_notice": {
-        "message": "Si estas cliqueando cosas en el {1} lado de la ventana del navegador, puedes cambiar el lugar donde aparece la barra lateral verticalmente para evitar abrirla accidentalmente."
-    },
     "onboarding_goto_settings": {
         "message": "M\u00e1s propiedades"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "General"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Interruptor"
+    "settings_menu_sidebar_overlay": {
+        "message": "Sobreposici\u00f3n"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Sugerencias"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtro"
     },
     "settings_menu_appearance": {
         "message": "Apariencia"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Icono"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Sobreposici\u00f3n"
     },
     "settings_menu_newtab": {
         "message": "Nueva pesta\u00f1a"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_reopen_sidebar": {
-        "message": "Reabrir la barra lateral"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Abre autom\u00e1ticamente la barra lateral nuevamente despu\u00e9s de abrir un marcador desde la barra lateral."
-    },
     "settings_prevent_windowed": {
         "message": "Desactiva la barra lateral en el modo ventana"
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Derecha"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"
-    },
     "settings_filter_explanation_1": {
         "message": "Solo a\u00f1adir un URL por l\u00ednea."
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "Cargar barra lateral"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"
     },
     "settings_filter_visibility_always": {
         "message": "En toda p\u00e1gina"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Esta es una funci\u00f3n del navegador y no forma parte de la extensi\u00f3n. Obt\u00e9n m\u00e1s informaci\u00f3n sobre c\u00f3mo importar y exportar marcadores en {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema actualizado correctamente"
     },
     "settings_presets": {
         "message": "Establecer tama\u00f1os relativos"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "Actualmente instalado"
     },
-    "settings_newtab_desc": {
-        "message": "Desafortunadamente Google elimin\u00f3 la posibilidad de cargar extensiones en la nueva pesta\u00f1a predeterminada. Debido a esto he a\u00f1adido algunas opciones que le permiten acceder a sus marcadores al abrir una nueva pesta\u00f1a de otra manera."
+    "settings_theme_changed": {
+        "message": "Tema actualizado correctamente"
     },
     "settings_newtab_override": {
         "message": "Anular p\u00e1gina de nueva pesta\u00f1a"

@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Senest tilf\u00f8jede"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Vis mapper"
     },
@@ -329,6 +332,15 @@
     "newtab_search_field_hide": {
         "message": "Skjul s\u00f8gefelt"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Foresl\u00e5 s\u00f8gninger"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Foresl\u00e5 bogm\u00e6rker"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Foresl\u00e5 bes\u00f8gte sider"
+    },
     "newtab_speech_search_listening": {
         "message": "Tal nu"
     },
@@ -473,11 +485,23 @@
     "onboarding_headline": {
         "message": "Tak fordi du installerede denne udvidelse."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Der er flere m\u00e5der at \u00e5bne din sidepanel p\u00e5."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "\u00c5bn p\u00e5 toppen af websteder"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "\u00c5bn i sidepanelet sammen med hovedindholdet p\u00e5 websider"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Jeg \u00f8nsker ikke at bruge denne overliggende sidepanel"
+    },
+    "onboarding_setup_start": {
         "message": "Ops\u00e6t nu"
     },
-    "onboarding_skip": {
-        "message": "Skip setup"
+    "onboarding_setup_complete": {
+        "message": "Ops\u00e6tning fuldf\u00f8rt"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Hvor vil du have din sidebar?"
@@ -506,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Klik p\u00e5 udvidelses-ikonet for at \u00e5bne sidebaren."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klik p\u00e5 sidepanelikonet \u00f8verst i din browser, og v\u00e6lg visningen Bogm\u00e6rke Sidepanel."
+    },
     "onboarding_left": {
         "message": "venstre"
     },
     "onboarding_right": {
         "message": "h\u00f8jre"
     },
+    "onboarding_handson_done": {
+        "message": "Jeg er f\u00e6rdig"
+    },
     "onboarding_finish_desc": {
         "message": "God forn\u00f8jelse med din sidebar."
-    },
-    "onboarding_finish_notice": {
-        "message": "Hvis du ofte klikker p\u00e5 ting i {1} side af dit browser vindue, kan du med fordel \u00e6ndre s\u00e5ledes sidebaren \u00e5bner vertikalt for at \u00e5bne den ved en fejl."
     },
     "onboarding_goto_settings": {
         "message": "Flere indstillinger"
@@ -536,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Generelt"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Toggle"
+    "settings_menu_sidebar_overlay": {
+        "message": "Overl\u00e6g"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "V\u00e6rkt\u00f8jstips"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Udseende"
@@ -560,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Overl\u00e6g"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialogboks"
     },
     "settings_menu_newtab": {
         "message": "Nyt faneblad"
@@ -686,6 +710,18 @@
     "settings_keyboard_shortcut_button": {
         "message": "Indstil tastaturgenvej"
     },
+    "settings_icon_action": {
+        "message": "Klik p\u00e5 udvidelses ikonet"
+    },
+    "settings_icon_action_desc": {
+        "message": "Du kan v\u00e6lge hvordan sidepanelet skal blive vist, n\u00e5r du trykker p\u00e5 udvidelses ikonet, hvilket er placeret til h\u00f8jre for adresse linjen."
+    },
+    "settings_icon_action_overlay": {
+        "message": "\u00c5ben sidepanelet oven p\u00e5 hjemmesider"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "\u00c5ben sidepanelet i browserens angivet sidepanel"
+    },
     "settings_link_action": {
         "message": "\u00c5bn bogm\u00e6rker"
     },
@@ -782,12 +818,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Aldrig gem"
     },
-    "settings_reopen_sidebar": {
-        "message": "\u00c5bn sidebj\u00e6lken igen"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "\u00c5bn sidebj\u00e6lken igen automatisk, efter at du har \u00e5bnet et bogm\u00e6rke inde i sidebj\u00e6lken."
-    },
     "settings_prevent_windowed": {
         "message": "Disable sidebar in window mode"
     },
@@ -821,8 +851,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Yderligere information"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Her kan du \u00e6ndre adf\u00e6rden for den overliggende sidepanel, som \u00e5bnes oven p\u00e5 websteder."
+    },
     "settings_sidebar_position": {
         "message": "Position"
+    },
+    "settings_overlay_enabled": {
+        "message": "Aktiver overliggende sidepanel"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Hvis du kun \u00f8nsker at f\u00e5 adgang til dine bogm\u00e6rker i browserens sidepanel, kan du deaktivere den overliggende sidepanel."
     },
     "settings_sidebar_position_desc": {
         "message": "Giver dig mulighed for at indstille om sidebj\u00e6lken skal \u00e5bnes i venstre eller h\u00f8jre kant af browservinduet."
@@ -832,9 +871,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f8jre"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Hvis du ikke vil have sidebj\u00e6lken indl\u00e6st p\u00e5 hver side, kan du konfigurere hvor du skal indl\u00e6se udvidelsen (hvidlisten) eller hvor ikke (sortliste)."
     },
     "settings_filter_explanation_1": {
         "message": "Tilf\u00f8j kun et webadressem\u00f8nster pr. Linje"
@@ -850,6 +886,9 @@
     },
     "settings_filter_visibility": {
         "message": "Indl\u00e6s sidebj\u00e6lke"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Hvis du ikke vil have sidebj\u00e6lken indl\u00e6st p\u00e5 hver side, kan du konfigurere hvor du skal indl\u00e6se udvidelsen (hvidlisten) eller hvor ikke (sortliste)."
     },
     "settings_filter_visibility_always": {
         "message": "P\u00e5 hver side"
@@ -889,9 +928,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Dette er en browser funktion og ikke en del af udvidedelsen. L\u00e6s mere om hvordan der importeres\/eksporteres bogm\u00e6rker i {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "\u00c6ndret tema succesfuldt"
     },
     "settings_presets": {
         "message": "Indstil relative st\u00f8rrelser"
@@ -1055,8 +1091,11 @@
     "settings_installed_theme_info": {
         "message": "Aktuelt installeret"
     },
+    "settings_theme_changed": {
+        "message": "\u00c6ndret tema succesfuldt"
+    },
     "settings_newtab_desc": {
-        "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."
+        "message": "Du kan overskrive standardsiden for ny fane i din browser med en side leveret af denne udvidelse. Denne side viser din bogm\u00e6rkesidepanel og kan konfigureres til at forbedre din produktivitet."
     },
     "settings_newtab_override": {
         "message": "Omg\u00e5 standardsiden for nye faneblade"
@@ -1156,6 +1195,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Skriv venligst din feedback p\u00e5 engelsk, ellers Det vil v\u00e6re sv\u00e6rt at forst\u00e5 og svare p\u00e5 din besked."
+    },
+    "settings_support_feedback_email": {
+        "message": "Kan du lide at f\u00e5 et svar? Angiv venligst en e-mailadresse (valgfrit)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Vedh\u00e6ft sk\u00e6rmbilleder"

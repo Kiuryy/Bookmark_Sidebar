@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Yak\u0131n zamanda eklenen"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Dizinleri g\u00f6ster"
     },
@@ -482,11 +485,23 @@
     "onboarding_headline": {
         "message": "Uzant\u0131y\u0131 y\u00fckledi\u011finiz i\u00e7in te\u015fekk\u00fcrler."
     },
-    "onboarding_setup": {
+    "onboarding_intro_desc": {
+        "message": "Kenar \u00e7ubu\u011funuzu a\u00e7man\u0131n birden fazla yolu vard\u0131r."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Web sitelerinin \u00fcst\u00fcnde a\u00e7\u0131n"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Web sayfalar\u0131n\u0131n ana i\u00e7eri\u011finin yan\u0131nda yan panelde a\u00e7\u0131n"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Bu \u00fcst \u00fcste binen kenar \u00e7ubu\u011funu kullanmak istemiyorum"
+    },
+    "onboarding_setup_start": {
         "message": "\u015eimdi Y\u00fckle"
     },
-    "onboarding_skip": {
-        "message": "Daha Sonra Y\u00fckle"
+    "onboarding_setup_complete": {
+        "message": "Kurulum tamamland\u0131"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Hangi Tarafa Y\u00fcklenmesini \u0130stersiniz ?"
@@ -515,17 +530,20 @@
     "onboarding_handson_icon_desc": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7mak i\u00e7in uzant\u0131ya t\u0131kla"
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Taray\u0131c\u0131n\u0131z\u0131n \u00fcst k\u0131sm\u0131ndaki yan panel simgesine t\u0131klay\u0131n ve Yer \u0130\u015fareti Kenar \u00c7ubu\u011fu g\u00f6r\u00fcn\u00fcm\u00fcn\u00fc se\u00e7in."
+    },
     "onboarding_left": {
         "message": "sol"
     },
     "onboarding_right": {
         "message": "sa\u011f"
     },
+    "onboarding_handson_done": {
+        "message": "Bitirdim."
+    },
     "onboarding_finish_desc": {
         "message": "Kenar \u00e7ubu\u011fuyla iyi e\u011flenceler"
-    },
-    "onboarding_finish_notice": {
-        "message": "Taray\u0131c\u0131 penceresinin {1} taraf\u0131ndaki \u015feyleri s\u0131k s\u0131k t\u0131klaman\u0131z gerekiyorsa, yanl\u0131\u015fl\u0131kla a\u00e7\u0131lmas\u0131n\u0131 \u00f6nlemek i\u00e7in kenar \u00e7ubu\u011funun a\u00e7\u0131ld\u0131\u011f\u0131nda dikey olarak konumland\u0131r\u0131ld\u0131\u011f\u0131 yeri de\u011fi\u015ftirmek isteyebilirsiniz."
     },
     "onboarding_goto_settings": {
         "message": "Daha Fazla Ayarlama Yap"
@@ -545,14 +563,11 @@
     "settings_menu_sidebar_general": {
         "message": "Genel"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Ge\u00e7i\u015f"
+    "settings_menu_sidebar_overlay": {
+        "message": "Kaplama"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Ara\u00e7 \u0130pu\u00e7lar\u0131"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtre"
     },
     "settings_menu_appearance": {
         "message": "G\u00f6r\u00fcn\u00fcm"
@@ -569,8 +584,8 @@
     "settings_menu_appearance_icon": {
         "message": "\u0130kon"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Kaplama"
+    "settings_menu_appearance_dialog": {
+        "message": "Diyalog"
     },
     "settings_menu_newtab": {
         "message": "Yeni Sekme"
@@ -773,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Kenar \u00e7ubu\u011funuzda g\u00f6r\u00fcnt\u00fclenen yer i\u015faretleri, {browserName} taraf\u0131ndan senkronize edilir ve y\u00f6netilir. Uzant\u0131, bu yer imlerini saklamaz veya analiz etmez ve yaln\u0131zca taray\u0131c\u0131n\u0131z\u0131n kenar \u00e7ubu\u011fundakilerini g\u00f6r\u00fcnt\u00fcler."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Taray\u0131c\u0131 yan paneli"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Gezinirken yer imi kenar \u00e7ubu\u011funuzun kal\u0131c\u0131 olarak a\u00e7\u0131lmas\u0131n\u0131 sa\u011flayabilirsiniz. Taray\u0131c\u0131n\u0131z taraf\u0131ndan sa\u011flanan bir yan panel vard\u0131r. Taray\u0131c\u0131n\u0131z\u0131n \u00fcst k\u0131sm\u0131ndaki yan panel simgesine t\u0131klay\u0131n ve Yer \u0130\u015fareti Kenar \u00c7ubu\u011fu g\u00f6r\u00fcn\u00fcm\u00fcn\u00fc se\u00e7in."
+    },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
     },
@@ -814,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Klavye k\u0131sayollar\u0131n\u0131 ayarla"
+    },
+    "settings_icon_action": {
+        "message": "Uzant\u0131 simgesine t\u0131klay\u0131n"
+    },
+    "settings_icon_action_desc": {
+        "message": "Taray\u0131c\u0131 adres \u00e7ubu\u011funun sa\u011f\u0131nda bulunan uzant\u0131 simgesine t\u0131klad\u0131\u011f\u0131n\u0131zda kenar \u00e7ubu\u011funun nas\u0131l g\u00f6r\u00fcnece\u011fini se\u00e7ebilirsiniz."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Web sitelerinin \u00fcst\u00fcnde kenar \u00e7ubu\u011funu a\u00e7ma"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Taray\u0131c\u0131da sa\u011flanan yan panelde kenar \u00e7ubu\u011funu a\u00e7\u0131n"
     },
     "settings_link_action": {
         "message": "Yer imlerini a\u00e7"
@@ -911,12 +944,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Asla gizleme"
     },
-    "settings_reopen_sidebar": {
-        "message": "Kenar \u00e7ubu\u011funu yeniden a\u00e7"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Kenar \u00e7ubu\u011funu otomatik olarak a\u00e7 (Kenar \u00e7ubu\u011fundan mevcut sekmede bir yer imi a\u00e7t\u0131ktan sonra)"
-    },
     "settings_prevent_windowed": {
         "message": "Pencere modunda kenar \u00e7ubu\u011funu devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
     },
@@ -950,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "ilave bilgi"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Burada, web sitelerinin \u00fcst\u00fcnde a\u00e7\u0131lan bindirmeli kenar \u00e7ubu\u011funun davran\u0131\u015f\u0131n\u0131 de\u011fi\u015ftirebilirsiniz."
+    },
     "settings_sidebar_position": {
         "message": "Pozisyon"
+    },
+    "settings_overlay_enabled": {
+        "message": "Kenar \u00e7ubu\u011funu kaplamay\u0131 etkinle\u015ftir"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Yer i\u015faretlerinize yaln\u0131zca taray\u0131c\u0131n\u0131n sa\u011flad\u0131\u011f\u0131 yan panelden eri\u015fmek istiyorsan\u0131z, \u00fcst \u00fcste binen kenar \u00e7ubu\u011funu devre d\u0131\u015f\u0131 b\u0131rakabilirsiniz."
     },
     "settings_sidebar_position_desc": {
         "message": "Kenar \u00e7ubu\u011funun ekran\u0131n solunda veya sa\u011f\u0131nda a\u00e7\u0131l\u0131p a\u00e7\u0131lmayaca\u011f\u0131n\u0131 ayarlaman\u0131z\u0131 sa\u011flar."
@@ -961,9 +997,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Sa\u011f"
-    },
-    "settings_filter_visibility_desc": {
-        "message": "Kenar \u00e7ubu\u011funun her sayfa y\u00fcklenmesinde a\u00e7\u0131lmas\u0131n\u0131 istemiyorsan beyaz liste veya kara listeden d\u00fczenleyebilirsin"
     },
     "settings_filter_explanation_1": {
         "message": "Sat\u0131r ba\u015f\u0131na bir URL deseni ekle"
@@ -979,6 +1012,9 @@
     },
     "settings_filter_visibility": {
         "message": "Kenar \u00e7ubu\u011funu y\u00fckle"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Kenar \u00e7ubu\u011funun her sayfa y\u00fcklenmesinde a\u00e7\u0131lmas\u0131n\u0131 istemiyorsan beyaz liste veya kara listeden d\u00fczenleyebilirsin"
     },
     "settings_filter_visibility_always": {
         "message": "Her sayfada"
@@ -1018,9 +1054,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Bu bir taray\u0131c\u0131 \u00f6zelli\u011fidir ve uzant\u0131n\u0131n bir par\u00e7as\u0131 de\u011fildir. Yer i\u015faretlerini {browserName} i\u00e7inde nas\u0131l i\u00e7e ve d\u0131\u015fa aktaraca\u011f\u0131n\u0131z hakk\u0131nda daha fazla bilgi edinin."
-    },
-    "settings_theme_changed": {
-        "message": "Tema de\u011fi\u015fiklikleri ba\u015far\u0131l\u0131"
     },
     "settings_presets": {
         "message": "G\u00f6receli boyutlar\u0131 ayarla"
@@ -1184,8 +1217,11 @@
     "settings_installed_theme_info": {
         "message": "\u015eu anda y\u00fckl\u00fc olan"
     },
+    "settings_theme_changed": {
+        "message": "Tema de\u011fi\u015fiklikleri ba\u015far\u0131l\u0131"
+    },
     "settings_newtab_desc": {
-        "message": "Maalesef Google, varsay\u0131lan yeni sekme sayfas\u0131nda uzant\u0131lar\u0131 y\u00fckleme olas\u0131l\u0131\u011f\u0131n\u0131 kald\u0131rd\u0131. Bu nedenle, ba\u015fka bir \u015fekilde yeni bir sekme a\u00e7arken yer imlerine eri\u015fmenize izin veren baz\u0131 se\u00e7enekler ekledim."
+        "message": "Taray\u0131c\u0131n\u0131z\u0131n varsay\u0131lan yeni sekme sayfas\u0131n\u0131 bu uzant\u0131 taraf\u0131ndan sa\u011flanan bir sayfa ile ge\u00e7ersiz k\u0131labilirsiniz. Bu sayfa yer imi kenar \u00e7ubu\u011funuzu g\u00f6sterecek ve verimlili\u011finizi art\u0131rmak i\u00e7in yap\u0131land\u0131r\u0131labilecektir."
     },
     "settings_newtab_override": {
         "message": "Yeni sekme sayfas\u0131n\u0131 ge\u00e7ersiz k\u0131l"

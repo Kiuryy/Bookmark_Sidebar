@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Dzi\u0119kuj\u0119 ci za zainstalowanie tego rozszerzenia."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Skonfiguruj teraz"
-    },
-    "onboarding_skip": {
-        "message": "Pomi\u0144 konfiguracj\u0119"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Gdzie chcesz, aby znajdowa\u0142a si\u0119 boczna lista?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Baw si\u0119 dobrze u\u017cywaj\u0105c tego rozszerzenia."
     },
-    "onboarding_finish_notice": {
-        "message": "Je\u015bli cz\u0119sto klikasz elementy po stronie {1} okna przegl\u0105darki, mo\u017cesz chcie\u0107 zmieni\u0107 widok pionowego otwierania paska bocznego, aby unikn\u0105\u0107 jego przypadkowego otwarcia."
-    },
     "onboarding_goto_settings": {
         "message": "Wi\u0119cej ustawie\u0144"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "Og\u00f3lny"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Wysuwanie"
+    "settings_menu_sidebar_overlay": {
+        "message": "Okno"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Etykieta"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtr"
     },
     "settings_menu_appearance": {
         "message": "Wygl\u0105d"
@@ -569,8 +560,8 @@
     "settings_menu_appearance_icon": {
         "message": "Ikona"
     },
-    "settings_menu_appearance_overlay": {
-        "message": "Okno"
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Nowa karta"
@@ -911,12 +902,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nigdy nie chowaj."
     },
-    "settings_reopen_sidebar": {
-        "message": "Otw\u00f3rz ponownie boczn\u0105 list\u0119"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Automatycznie otw\u00f3rz boczn\u0105 list\u0119 po ka\u017cdym otwarciu zak\u0142adki za jej pomoc\u0105."
-    },
     "settings_prevent_windowed": {
         "message": "Wy\u0142\u0105cz pasek boczny w trybie okna"
     },
@@ -962,9 +947,6 @@
     "settings_sidebar_position_right": {
         "message": "Prawa"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."
-    },
     "settings_filter_explanation_1": {
         "message": "Dodaj tylko jeden adres w linii."
     },
@@ -979,6 +961,9 @@
     },
     "settings_filter_visibility": {
         "message": "Za\u0142aduj panel boczny"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."
     },
     "settings_filter_visibility_always": {
         "message": "Na ka\u017cdej stronie"
@@ -1018,9 +1003,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Funkcja przegl\u0105darki a nie rozszerzenia. O imporcie i eksporcie mo\u017cesz przeczyta\u0107 wi\u0119cej w {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Pomy\u015blnie zmieniono motyw"
     },
     "settings_presets": {
         "message": "Ustaw relatywne rozmiary"
@@ -1184,8 +1166,8 @@
     "settings_installed_theme_info": {
         "message": "Zainstalowany\/e"
     },
-    "settings_newtab_desc": {
-        "message": "Niestety Google usun\u0105\u0142 mo\u017cliwo\u015b\u0107 \u0142adowania rozszerze\u0144 na domy\u015blnej stronie nowej karty. Z tego powodu doda\u0142em kilka opcji, kt\u00f3re pozwalaj\u0105 uzyska\u0107 w inny spos\u00f3b dost\u0119p do twoich zak\u0142adek, kiedy otwierasz now\u0105 kart\u0119."
+    "settings_theme_changed": {
+        "message": "Pomy\u015blnie zmieniono motyw"
     },
     "settings_newtab_override": {
         "message": "Zast\u0105p stron\u0119 nowej karty"

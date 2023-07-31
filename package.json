@@ -18,12 +18,12 @@
   "devDependencies": {
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "glob-concat": "^1.0.3",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
     "sass": "^1.64.1",
-    "npm-check-updates": "^16.10.16",
+    "npm-check-updates": "^16.10.17",
     "read-file": "^0.2.0",
     "terser": "^5.19.2",
     "zip-dir": "^2.0.0"

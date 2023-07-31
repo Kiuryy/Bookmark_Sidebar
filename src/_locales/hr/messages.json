@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Hvala vam \u0161to ste instalirali ovo pro\u0161irenje."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Postavi sada"
-    },
-    "onboarding_skip": {
-        "message": "Presko\u010di postavljanje"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Gdje \u017eelite imati bo\u010dnu traku oznaka?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "U\u017eivajte u kori\u0161tenju svoje bo\u010dne trake oznaka."
     },
-    "onboarding_finish_notice": {
-        "message": "Ako \u010desto klikate na {1} strani prozora preglednika, mo\u017eda \u0107ete htjeti promijeniti mjesto gdje se bo\u010dna traka oznaka mo\u017ee otvoriti okomito kako biste izbjegli slu\u010dajno otvaranje."
-    },
     "onboarding_goto_settings": {
         "message": "Vi\u0161e postavki"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "Op\u0107enito"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Prijelaz"
+    "settings_menu_sidebar_overlay": {
+        "message": "Prekrivanje"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Opis"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Izgled"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Ikona"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Prekrivanje"
     },
     "settings_menu_newtab": {
         "message": "Nova kartica"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikad ne sakrij"
     },
-    "settings_reopen_sidebar": {
-        "message": "Ponovno otvori bo\u010dnu traku oznaka"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Automatski otvorite bo\u010dnu traku oznaka ponovo, nakon \u0161to otvorite oznaku s bo\u010dne trake oznaka."
-    },
     "settings_prevent_windowed": {
         "message": "Onemogu\u0107i bo\u010dnu traku oznaka u na\u010dinu prozora"
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Desno"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Ako ne \u017eelite da se bo\u010dna traka oznaka u\u010dita na svakoj stranici, mo\u017eete konfigurirati na kojoj \u0107e se u\u010ditati pro\u0161irenje (bijela lista) ili na kojoj se ne\u0107e (crna lista)."
-    },
     "settings_filter_explanation_1": {
         "message": "Dodaj samo jedan URL uzorak po retku"
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "U\u010ditaj bo\u010dnu traku oznaka"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Ako ne \u017eelite da se bo\u010dna traka oznaka u\u010dita na svakoj stranici, mo\u017eete konfigurirati na kojoj \u0107e se u\u010ditati pro\u0161irenje (bijela lista) ili na kojoj se ne\u0107e (crna lista)."
     },
     "settings_filter_visibility_always": {
         "message": "Na svakoj stranici"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Ovo je zna\u010dajka preglednika i nije dio pro\u0161irenja. Pro\u010ditajte vi\u0161e kako uvesti i izvesti oznake u {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema je uspje\u0161no promijenjena"
     },
     "settings_presets": {
         "message": "Postavi relativne veli\u010dine"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "Trenutno instalirana"
     },
-    "settings_newtab_desc": {
-        "message": "Preglednici na temelju Chrome ne u\u010ditavaju pro\u0161irenja na zadanoj novoj kartici. Zbog toga bo\u010dna traka oznaka tamo ne radi. Kako bih se suo\u010dio sa problemom, dodao sam neke mogu\u0107nosti koje omogu\u0107uju pristup oznakama prilikom otvaranja nove kartice na drugi na\u010din."
+    "settings_theme_changed": {
+        "message": "Tema je uspje\u0161no promijenjena"
     },
     "settings_newtab_override": {
         "message": "Nadja\u010daj stranicu novu kartice"

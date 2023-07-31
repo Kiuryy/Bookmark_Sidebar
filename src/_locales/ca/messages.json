@@ -482,11 +482,8 @@
     "onboarding_headline": {
         "message": "Gr\u00e0cies per instal\u00b7lar aquesta extensi\u00f3."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Configurar ara"
-    },
-    "onboarding_skip": {
-        "message": "Saltar configuraci\u00f3"
     },
     "onboarding_sidebar_position_desc": {
         "message": "On vols tenir la teva barra lateral?"
@@ -524,9 +521,6 @@
     "onboarding_finish_desc": {
         "message": "Diverteix-te amb la teva barra lateral."
     },
-    "onboarding_finish_notice": {
-        "message": "Si aquestes clicant coses en el {1} costat de la finestra del navegador, pots canviar el lloc on apareix la barra lateral verticalment per a evitar obrir-la accidentalment."
-    },
     "onboarding_goto_settings": {
         "message": "M\u00e9s propietats"
     },
@@ -545,14 +539,11 @@
     "settings_menu_sidebar_general": {
         "message": "General"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Interruptor"
+    "settings_menu_sidebar_overlay": {
+        "message": "Superposici\u00f3"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Suggeriments"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtre"
     },
     "settings_menu_appearance": {
         "message": "Aparen\u00e7a"
@@ -568,9 +559,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Icona"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Superposici\u00f3"
     },
     "settings_menu_newtab": {
         "message": "Nova pestanya"
@@ -911,12 +899,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Mai ocultar"
     },
-    "settings_reopen_sidebar": {
-        "message": "Reobrir la barra lateral"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Obre autom\u00e0ticament la barra lateral novament despr\u00e9s d'obrir un marcador des de la barra lateral."
-    },
     "settings_prevent_windowed": {
         "message": "Desactiva la barra lateral en la manera finestra"
     },
@@ -962,9 +944,6 @@
     "settings_sidebar_position_right": {
         "message": "Dreta"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Si no vols que la barra lateral es carregui en cada p\u00e0gina, pots configurar on carregar l'extensi\u00f3 (Llista blanca) i on no (Llista negra)"
-    },
     "settings_filter_explanation_1": {
         "message": "Nom\u00e9s afegir un URL per l\u00ednia"
     },
@@ -979,6 +958,9 @@
     },
     "settings_filter_visibility": {
         "message": "Carregar barra lateral"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Si no vols que la barra lateral es carregui en cada p\u00e0gina, pots configurar on carregar l'extensi\u00f3 (Llista blanca) i on no (Llista negra)"
     },
     "settings_filter_visibility_always": {
         "message": "En tota p\u00e0gina"
@@ -1018,9 +1000,6 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Aquesta \u00e9s una funci\u00f3 del navegador i no forma part de l'extensi\u00f3. Obtingues m\u00e9s informaci\u00f3 sobre com importar i exportar marcadors en {browserName}."
-    },
-    "settings_theme_changed": {
-        "message": "Tema actualitzat correctament"
     },
     "settings_presets": {
         "message": "Estableix mides relatives"
@@ -1184,8 +1163,8 @@
     "settings_installed_theme_info": {
         "message": "Instal\u00b7lat actualment"
     },
-    "settings_newtab_desc": {
-        "message": "Els navegadors basats en crom no permeten carregar extensions a la p\u00e0gina de pestanya nova per defecte. Per aix\u00f2, la caracter\u00edstica de la barra lateral no funciona. Per evitar aquest problema, es van afegir algunes opcions que us permetran accedir a les vostres adreces d'inter\u00e8s en obrir una pestanya nova d'una altra manera."
+    "settings_theme_changed": {
+        "message": "Tema actualitzat correctament"
     },
     "settings_newtab_override": {
         "message": "Substitueix la p\u00e0gina de la pestanya nova"

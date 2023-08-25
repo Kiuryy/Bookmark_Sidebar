@@ -313,13 +313,7 @@
                 timeout: 30000,
                 body: formData
             });
-
-            if (resp.ok) {
-                const body = await resp.json();
-                return body.success;
-            } else {
-                return false;
-            }
+            return resp.ok;
         };
     };
 

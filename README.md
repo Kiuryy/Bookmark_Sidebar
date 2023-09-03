@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/badge/dynamic/json?label=Version&color=6494f4&cacheSeconds=86400&query=%24.version&url=https%3A%2F%2Fextensions.redeviation.com%2Fajax%2Finfo%2Fbs)](https://github.com/Kiuryy/Bookmark_Sidebar/releases)
 [![Chrome Web Store](https://img.shields.io/badge/dynamic/json?label=Users&color=ff8aaf&cacheSeconds=86400&query=%24.users&url=https%3A%2F%2Fextensions.redeviation.com%2Fajax%2Finfo%2Fbs)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)
 [![Chrome Web Store](https://img.shields.io/badge/dynamic/json?label=Rating&color=37d102&cacheSeconds=86400&query=%24.rating_avg&url=https%3A%2F%2Fextensions.redeviation.com%2Fajax%2Finfo%2Fbs)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)
-[![License: GPL v3](https://img.shields.io/badge/License-MS--RSL-lightgray.svg)](https://referencesource.microsoft.com/license.html)
+[![License: MS-RSL](https://img.shields.io/badge/License-MS--RSL-lightgray.svg)](https://referencesource.microsoft.com/license.html)
 
 ---
 

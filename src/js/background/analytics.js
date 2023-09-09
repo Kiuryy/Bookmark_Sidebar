@@ -313,7 +313,7 @@
                 timeout: 30000,
                 body: formData
             });
-            return resp.ok;
+            return !resp || resp.status < 500;
         };
     };
 

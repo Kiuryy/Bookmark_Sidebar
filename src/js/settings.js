@@ -16,6 +16,7 @@
             content: $("body > section#wrapper > main"),
             header: $("body > header"),
             headline: $("body > header > h1"),
+            videos: $("body video[data-src]"),
             advanced: {
                 toggle: $("div.advanced > h3"),
                 container: $("div.advanced > div")
@@ -38,7 +39,7 @@
             sidebar: {
                 previewVideos: $("div.tab[data-name='sidebar'] div.preview video"),
                 previewVideoOverlay: $("div.tab[data-name='sidebar'] div.preview div.video[data-type='overlay']"),
-                overlayContent:$("div.tab[data-name='sidebar'] > div[data-name='overlay']"),
+                overlayContent: $("div.tab[data-name='sidebar'] > div[data-name='overlay']"),
                 toggleArea: $("div.tab[data-name='sidebar'] div.toggleArea"),
                 rememberOpenStatesSubDirectories: $("div.tab[data-name='sidebar'] div.rememberOpenStatesSubDirectories"),
                 filterOptions: $("div.tab[data-name='sidebar'] div.filterOptions")
@@ -153,6 +154,20 @@
                 this.helper.expert.init(),
                 this.helper.importExport.init(),
             ]);
+
+            this.elm.videos.forEach((_self) => {
+                const video = $(_self);
+                const src = video.attr($.attr.src);
+                this.helper.model.call("parsedUrl", {
+                    href: src
+                }).then((parsedSrc) => {
+                    video.removeAttr($.attr.src);
+                    $("<source/>")
+                        .attr("src", parsedSrc)
+                        .attr("type", "video/mp4")
+                        .appendTo(video);
+                });
+            });
 
             // initialise events and remove loading mask
             initEvents();

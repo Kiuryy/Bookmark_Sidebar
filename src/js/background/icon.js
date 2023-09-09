@@ -56,7 +56,7 @@
 
             $.api.action.setTitle({title: lang.vars.header_bookmarks.message});
 
-            if ($.isDev && info.devModeIconBadge) { // add badge for the dev version
+            if ($.isDev && !$.opts.demoMode && info.devModeIconBadge) { // add badge for the dev version
                 $.api.action.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
                 $.api.action.setBadgeText({text: " "});
             } else {

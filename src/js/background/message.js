@@ -43,6 +43,7 @@
                 increaseViewCounter: b.helper.viewAmount.increaseByUrl,
                 viewAmounts: b.helper.viewAmount.getAll,
                 searchHistory: b.helper.utility.getHistoryBySearchVal,
+                parsedUrl: async (opts) => b.helper.utility.getParsedUrl(opts.href),
                 lastUpdateDate: async () => b.helper.model.getData("lastUpdateDate")
             };
 

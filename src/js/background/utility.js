@@ -141,11 +141,9 @@
             if (!url) {
                 return url;
             }
-
             if ($.opts.urlAliases[$.browserName] && $.opts.urlAliases[$.browserName][url]) {
                 url = $.opts.urlAliases[$.browserName][url];
             }
-
             return url;
         };
 

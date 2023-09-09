@@ -247,7 +247,7 @@
                 tab: [["&#8593;"], ["&#8595;"], ["tab"]],
                 enter: [["enter"]],
                 shift_enter: [["shift", "enter"]],
-                ctrl_c: [[navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl", "c"]],
+                ctrl_c: [[$.ua().os === "macOS" ? "cmd" : "ctrl", "c"]],
                 del: [["del"]],
                 esc: [["esc"]]
             };

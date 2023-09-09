@@ -304,7 +304,9 @@
                 "chrome://newtab/": "edge://newtab/",
                 "chrome://bookmarks": "edge://favorites",
                 "chrome://extensions/shortcuts": "edge://extensions/shortcuts",
-                "chrome://settings/syncSetup": "edge://settings/profiles/sync"
+                "chrome://settings/syncSetup": "edge://settings/profiles/sync",
+                "https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4": "https://extensions.redeviation.com/img/illustration/edge/video_sidepanel.mp4",
+                "https://extensions.redeviation.com/img/illustration/video_overlay.mp4": "https://extensions.redeviation.com/img/illustration/edge/video_overlay.mp4"
             },
             Opera: {
                 "chrome://newtab/": "chrome://startpageshared/",

@@ -16,6 +16,7 @@
         this.elm = {
             body: $("body"),
             title: $("head > title"),
+            videos: $("body video[data-src]"),
             sidebar: {
                 left: $("div#sidebar"),
                 right: null
@@ -54,6 +55,20 @@
             initOpenActionEvents();
             initHandsOnEvents();
             initFinishedEvents();
+
+            this.elm.videos.forEach((_self) => {
+                const video = $(_self);
+                const src = video.attr($.attr.src);
+                this.helper.model.call("parsedUrl", {
+                    href: src
+                }).then((parsedSrc) => {
+                    video.removeAttr($.attr.src);
+                    $("<source/>")
+                        .attr("src", parsedSrc)
+                        .attr("type", "video/mp4")
+                        .appendTo(video);
+                });
+            });
 
             await $.delay(500); // finish loading
             this.elm.body.removeClass($.cl.initLoading);

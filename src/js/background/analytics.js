@@ -34,20 +34,16 @@
         };
 
         const intervalCallback = async () => {
-            const storageData = await $.api.storage.local.get(["analytics_stack"]);
-            const stack = storageData.analytics_stack || [];
-
-            if (stack.length > 0) {
-                try {
-                    const success = await sendStackToServer(stack);
-                    if (success) {
-                        await $.api.storage.local.set({analytics_stack: []});
-                    } else {
-                        console.error("Failed to send analytics data");
-                    }
-                } catch (e) {
-                    console.error("Error while sending analytics data", e);
+            try {
+                const success = await sendStackToServer();
+                if (success) {
+                    await clearStack();
+                } else {
+                    console.error("Failed to send analytics data");
+                    await clearStackIfTooLarge();
                 }
+            } catch (e) {
+                console.error("Error while sending analytics data", e);
             }
         };
 
@@ -76,7 +72,15 @@
                 await b.helper.model.setData("lastTrackDate", today);
                 await b.helper.model.init(); // re-init model to see, if the lastTrackDate is really saved or whether it's gone when fetching the date freshly from the sync storage
 
-                if (lastTrackDate && b.helper.model.getData("lastTrackDate")) { // don't proceed when lastTrackDate is empty or the variable stored in the sync storage is empty -> prevent double tracking of users, where saving the lastTrackDate fails
+                if (lastTrackDate && b.helper.model.getData("lastTrackDate") === today) { // don't proceed when lastTrackDate is empty or the variable stored in the sync storage is empty -> prevent double tracking of users, where saving the lastTrackDate fails
+                    const stack = await getStack();
+                    if (stack.find((s) => s.type === "version")) {
+                        console.error("Drop stack as it still has data from the day before");
+                        await clearStack();
+                    } else {
+                        await clearStackIfTooLarge();
+                    }
+
                     const shareInfo = b.helper.model.getShareInfo();
                     let shareState = "not_set";
 
@@ -240,9 +244,6 @@
          * @param {boolean} ignoreUserPreference
          */
         const addToStack = async (type, value, ignoreUserPreference = false) => {
-            const storageData = await $.api.storage.local.get(["analytics_stack"]);
-            const stack = storageData.analytics_stack || [];
-
             let allowed = true;
             if (ignoreUserPreference === false) {
                 const shareInfo = b.helper.model.getShareInfo();
@@ -264,6 +265,7 @@
                     obj.value = "" + value;
                 }
 
+                const stack = await getStack();
                 stack.push(obj);
                 await $.api.storage.local.set({analytics_stack: stack});
             }
@@ -290,12 +292,48 @@
         };
 
         /**
-         * Sends the stack to the server and flushes its stored values
+         * Clears the stack if it grew a certain amount of entries without being flushed yet,
+         * The limit depends on what the user agreed to share, since this influences the potential stack size
          *
-         * @param {Array} stack
+         * @returns {Promise<void>}
+         */
+        const clearStackIfTooLarge = async () => {
+            const shareInfo = b.helper.model.getShareInfo();
+            const stack = await getStack();
+
+            let maxStackSize = 30;
+            if (shareInfo.activity === true) {
+                maxStackSize = 50;
+            }
+            if (shareInfo.config === true) {
+                maxStackSize = 300;
+            }
+            if (stack.length > maxStackSize) {
+                console.error("Drop stack as it grew too big already");
+                await clearStack();
+            }
+        };
+
+        const getStack = async () => {
+            const storageData = await $.api.storage.local.get(["analytics_stack"]);
+            return storageData.analytics_stack || [];
+        };
+
+        const clearStack = async () => {
+            await $.api.storage.local.set({analytics_stack: []});
+        };
+
+        /**
+         * Sends the stack to the server
+         *
          * @returns {Promise<boolean>}
          */
-        const sendStackToServer = async (stack) => {
+        const sendStackToServer = async () => {
+            const stack = await getStack();
+            if (stack.length <= 0) {
+                return true;
+            }
+
             const formData = new FormData();
             formData.append("stack", JSON.stringify(stack));
             formData.append("uid", generateHash(stack));

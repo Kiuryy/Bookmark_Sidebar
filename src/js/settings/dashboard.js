@@ -28,69 +28,69 @@
                     img: "https://extensions.redeviation.com/img/tips-tricks/activation_area.png",
                     action: {label: "settings_toggle_area", dest: "#sidebar_overlay"}
                 },
-                // i18n: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/i18n.png",
-                //     action: {label: "more_link", dest: "#language_translate"},
-                //     i18nReplaces: [await getLanguageAmount()]
-                // },
-                // separators: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/separators.png",
-                //     i18nReplaces: ["<i>about:blank</i>", "<i>------</i>", "<i>--- Example ---</i>", "<span></span>"]
-                // },
-                // about: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/about.png",
-                //     action: {label: "more_link", dest: "#infos_aboutme"}
-                // },
-                // right_click: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/right_click.png"
-                // },
-                // quick_bookmarking: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/quick_bookmarking.png",
-                //     i18nReplaces: ["<span></span>"]
-                // },
-                // hide_entries: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/hide_entries.png",
-                //     i18nReplaces: ["<span></span>"]
-                // },
-                // quick_url_copy: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/quick_url_copy.png",
-                //     i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>+<i>c</i>"]
-                // },
-                // open_all_bookmarks: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/open_all_bookmarks.png",
-                //     i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>"]
-                // },
-                // version: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/version.png",
-                //     headline: "settings_tips_tricks_facts"
-                // },
-                // keyboard_shortcuts: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/keyboard_shortcuts.png",
-                //     i18nReplaces: ["<span></span>"]
-                // },
-                // expand_all_subfolders: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/expand_all_subfolders.png",
-                // },
-                // quick_search: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/quick_search.png",
-                // },
-                // share_data: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/share_data.png",
-                //     action: {label: "more_link", dest: "#infos_permissions"}
-                // },
-                // multiselect: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/multiselect.png"
-                // },
-                // newtab: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/newtab.png",
-                //     action: {label: "newtab_title", dest: $.api.runtime.getURL("html/newtab.html")},
-                //     condition: s.helper.model.getData("n/override"),
-                //     i18nReplaces: ["<span></span>"]
-                // },
-                // privacy: {
-                //     img: "https://extensions.redeviation.com/img/tips-tricks/privacy.png",
-                //     action: {label: "more_link", dest: $.opts.website.info.privacyPolicy}
-                // },
+                i18n: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/i18n.png",
+                    action: {label: "more_link", dest: "#language_translate"},
+                    i18nReplaces: [await getLanguageAmount()]
+                },
+                separators: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/separators.png",
+                    i18nReplaces: ["<i>about:blank</i>", "<i>------</i>", "<i>--- Example ---</i>", "<span></span>"]
+                },
+                about: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/about.png",
+                    action: {label: "more_link", dest: "#infos_aboutme"}
+                },
+                right_click: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/right_click.png"
+                },
+                quick_bookmarking: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_bookmarking.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                hide_entries: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/hide_entries.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                quick_url_copy: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_url_copy.png",
+                    i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>+<i>c</i>"]
+                },
+                open_all_bookmarks: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/open_all_bookmarks.png",
+                    i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>"]
+                },
+                version: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/version.png",
+                    headline: "settings_tips_tricks_facts"
+                },
+                keyboard_shortcuts: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/keyboard_shortcuts.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                expand_all_subfolders: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/expand_all_subfolders.png",
+                },
+                quick_search: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_search.png",
+                },
+                share_data: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/share_data.png",
+                    action: {label: "more_link", dest: "#infos_permissions"}
+                },
+                multiselect: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/multiselect.png"
+                },
+                newtab: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/newtab.png",
+                    action: {label: "newtab_title", dest: $.api.runtime.getURL("html/newtab.html")},
+                    condition: s.helper.model.getData("n/override"),
+                    i18nReplaces: ["<span></span>"]
+                },
+                privacy: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/privacy.png",
+                    action: {label: "more_link", dest: $.opts.website.info.privacyPolicy}
+                },
             };
 
             let idx = 0;

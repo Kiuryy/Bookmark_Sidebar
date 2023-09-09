@@ -204,6 +204,18 @@
                         "b/iconAction": value === "icon" ? "overlay" : "sidepanel",
                         "b/overlayEnabled": true
                     });
+
+                    if ($.browserName === "Edge") { // New design of Edge has a border around the browser content, which makes it hard to click the outermost pixel
+                        await this.helper.model.setData({
+                            "b/toggleArea": {
+                                width: 20,
+                                widthWindowed: 20,
+                                height: 100,
+                                top: 0
+                            }
+                        });
+                    }
+
                     this.helper.model.call("reloadBrowserAction");
                     await gotoNextSlide();
                 }

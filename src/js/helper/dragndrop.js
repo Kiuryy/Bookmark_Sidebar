@@ -118,11 +118,26 @@
                         const url = e.dataTransfer.getData("URL");
                         let title = e.dataTransfer.getData("text/plain");
 
-                        if (location.href === url) {
+                        let urlFromTabsAPI = null;
+                        let titleFromTabsAPI = null;
+                        try {
+                            if ($.api.tabs) {
+                                const tabs = await $.api.tabs.query({active: true, currentWindow: true});
+                                if (tabs && tabs[0]) {
+                                    urlFromTabsAPI = tabs[0].url || "";
+                                    titleFromTabsAPI = tabs[0].title || "";
+                                }
+                            }
+                        } catch (err) {
+                            console.error(err);
+                        }
+
+                        if (urlFromTabsAPI && urlFromTabsAPI === url) {
+                            title = titleFromTabsAPI || "";
+                        } else if (location.href === url) {
                             title = document.title || "";
                         } else if (title === url) {
                             const html = e.dataTransfer.getData("text/html");
-
                             if (html && html.length > 0) {
                                 title = $("<div></div>").html(html).text();
                             } else {

@@ -428,9 +428,10 @@
                 $(e.currentTarget).addClass($.cl.hover);
             }).on("mouseleave", (e) => {
                 $(e.currentTarget).removeClass($.cl.hover);
-            }).on("click", (e) => {
+            }).on("click", async (e) => {
                 e.preventDefault();
-                const type = $(e.currentTarget).attr($.attr.type);
+                const elm = $(e.currentTarget);
+                const type = elm.attr($.attr.type);
                 const list = $("<ul></ul>").attr($.attr.type, type).appendTo(elements.modal);
 
                 let titleValue = "";
@@ -439,6 +440,17 @@
                 if (type === "bookmark") { // default bookmark values -> current page information
                     titleValue = document.title || "";
                     urlValue = location.href;
+                    try {
+                        if ($.api.tabs) {
+                            const tabs = await $.api.tabs.query({active: true, currentWindow: true});
+                            if (tabs && tabs[0]) {
+                                titleValue = tabs[0].title || "";
+                                urlValue = tabs[0].url || "";
+                            }
+                        }
+                    } catch (err) {
+                        console.error(err);
+                    }
                 }
 
                 if (data && data.values) { // fill fields with given values
@@ -446,7 +458,7 @@
                     urlValue = (data.values.url || "").trim();
                 }
 
-                list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
+                list.append("<li><h2>" + elm.attr("title") + "</h2></li>");
 
                 if (type === "separator") {
                     list.append("<li><span>" + ext.helper.i18n.get("overlay_separator_title_desc") + "</span></li>");
@@ -477,11 +489,10 @@
                 menu.addClass($.cl.hidden);
                 menu.children("a").removeClass($.cl.hover);
 
-                $.delay(data && data.values ? 0 : 100).then(() => {
-                    list.addClass($.cl.visible);
-                    list.find("input")[0].focus();
-                    submit.addClass($.cl.visible);
-                });
+                await $.delay(data && data.values ? 0 : 100);
+                list.addClass($.cl.visible);
+                list.find("input")[0].focus();
+                submit.addClass($.cl.visible);
             });
 
             if (data.overlayType && links[data.overlayType]) { // skip selection of what to create

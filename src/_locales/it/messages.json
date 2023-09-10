@@ -788,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "I segnalibri visualizzati nella barra laterale sono sincronizzati e gestiti da {browserName}. L'estensione non memorizza o analizza questi segnalibri e mostra solo quelli del tuo browser nella barra laterale."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Pannello laterale del browser"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Puoi tenere la barra laterale sempre aperta mentre navighi: il browser prevede un pannello laterale dedicato. Clicca l'icona del pannello laterale in alto nel browser e seleziona la vista preferiti nel menu a discesa."
+    },
     "settings_open_action": {
         "message": "Apri la barra laterale"
     },
@@ -838,6 +844,9 @@
     },
     "settings_icon_action_overlay": {
         "message": "Apri la barra laterale sopra al sito web"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Apri la barra laterale nel pannello dedicato del browser"
     },
     "settings_link_action": {
         "message": "Apri preferiti"
@@ -968,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "informazioni aggiuntive"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Qui \u00e8 possibile modificare il comportamento della barra laterale quando questa viene aperta sopra al sito web."
+    },
     "settings_sidebar_position": {
         "message": "Posizione"
+    },
+    "settings_overlay_enabled": {
+        "message": "Abilita la visualizzazione della barra laterale"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Se desideri accedere ai preferiti dal pannello dedicato del browser, puoi disattivare la barra laterale."
     },
     "settings_sidebar_position_desc": {
         "message": "Ti permette di scegliere se aprire la barra laterale sul lato destro o sinistro dello schermo."

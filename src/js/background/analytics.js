@@ -72,7 +72,7 @@
                 await b.helper.model.setData("lastTrackDate", today);
                 await b.helper.model.init(); // re-init model to see, if the lastTrackDate is really saved or whether it's gone when fetching the date freshly from the sync storage
 
-                if (lastTrackDate && b.helper.model.getData("lastTrackDate") === today) { // don't proceed when lastTrackDate is empty or the variable stored in the sync storage is empty -> prevent double tracking of users, where saving the lastTrackDate fails
+                if (lastTrackDate && +b.helper.model.getData("lastTrackDate") === today) { // don't proceed when lastTrackDate is empty or the variable stored in the sync storage is empty -> prevent double tracking of users, where saving the lastTrackDate fails
                     const stack = await getStack();
                     if (stack.find((s) => s.type === "version")) {
                         console.error("Drop stack as it still has data from the day before");

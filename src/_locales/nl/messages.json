@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Recent toegevoegd"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Toon mappen"
     },
@@ -482,8 +485,20 @@
     "onboarding_headline": {
         "message": "Bedankt voor het installeren van deze extensie."
     },
+    "onboarding_intro_desc": {
+        "message": "Er zijn meerdere manieren om de zijbalk te openen."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Boven op de websites"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Ik wil de overliggende zijbalk niet gebruiken"
+    },
     "onboarding_setup_start": {
         "message": "Installeer nu"
+    },
+    "onboarding_setup_complete": {
+        "message": "Installatie voltooid"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Waar wil je de zijbalk tonen?"
@@ -517,6 +532,9 @@
     },
     "onboarding_right": {
         "message": "rechter"
+    },
+    "onboarding_handson_done": {
+        "message": "Ik ben klaar"
     },
     "onboarding_finish_desc": {
         "message": "Veel plezier met je zijbalk."

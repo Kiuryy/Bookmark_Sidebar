@@ -152,11 +152,14 @@
     "sort_label_recently_added": {
         "message": "Ostatnio dodane"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Poka\u017c foldery"
     },
     "sort_most_used_per_month": {
-        "message": "W tym miesi\u0105cu"
+        "message": "Miesi\u0119cznie"
     },
     "overlay_bookmark_title": {
         "message": "Tytu\u0142"
@@ -482,8 +485,23 @@
     "onboarding_headline": {
         "message": "Dzi\u0119kuj\u0119 ci za zainstalowanie tego rozszerzenia."
     },
+    "onboarding_intro_desc": {
+        "message": "Pasek boczny mo\u017cna otworzy\u0107 na wiele sposob\u00f3w."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Otwieranie ponad witryn\u0105"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Otw\u00f3rz w panelu bocznym obok tre\u015bci stron internetowych"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Nie chc\u0119 u\u017cywa\u0107 nak\u0142adaj\u0105cego si\u0119 paska bocznego"
+    },
     "onboarding_setup_start": {
         "message": "Skonfiguruj teraz"
+    },
+    "onboarding_setup_complete": {
+        "message": "Konfiguracja uko\u0144czona"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Gdzie chcesz, aby znajdowa\u0142a si\u0119 boczna lista?"
@@ -512,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknij na ikon\u0119 rozszerzenia, aby otworzy\u0107 boczn\u0105 list\u0119."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kliknij ikon\u0119 panelu bocznego w g\u00f3rnej cz\u0119\u015bci przegl\u0105darki i wybierz widok Pasek boczny zak\u0142adek."
+    },
     "onboarding_left": {
         "message": "lewa"
     },
     "onboarding_right": {
         "message": "prawa"
+    },
+    "onboarding_handson_done": {
+        "message": "Sko\u0144czy\u0142em"
     },
     "onboarding_finish_desc": {
         "message": "Baw si\u0119 dobrze u\u017cywaj\u0105c tego rozszerzenia."
@@ -764,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Zak\u0142adki wy\u015bwietlane na pasku bocznym s\u0105 synchronizowane i zarz\u0105dzane przez {browserName}. Rozszerzenie nie przechowuje ani nie analizuje tych zak\u0142adek, a na pasku bocznym wy\u015bwietla tylko te z Twojej przegl\u0105darki."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Panel boczny przedl\u0105darki"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Pasek boczny zak\u0142adek mo\u017ce by\u0107 stale otwarty podczas przegl\u0105dania. Przegl\u0105darka udost\u0119pnia panel boczny. Kliknij ikon\u0119 panelu bocznego w g\u00f3rnej cz\u0119\u015bci przegl\u0105darki i wybierz widok Pasek boczny zak\u0142adek."
+    },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
     },
@@ -805,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Ustaw skr\u00f3t klawiaturowy"
+    },
+    "settings_icon_action": {
+        "message": "Kliknij na ikon\u0119 rozszerzenia"
+    },
+    "settings_icon_action_desc": {
+        "message": "Mo\u017cesz wybra\u0107 spos\u00f3b wy\u015bwietlania paska bocznego po klikni\u0119ciu ikony rozszerzenia, kt\u00f3ra znajduje si\u0119 po prawej stronie paska adresu przegl\u0105darki."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Otwarty pasek boczny na g\u00f3rze stron internetowych"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Otw\u00f3rz pasek boczny w panelu bocznym przegl\u0105darki"
     },
     "settings_link_action": {
         "message": "Otw\u00f3rz zak\u0142adki"
@@ -935,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dodatkowe informacje"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Tutaj mo\u017cesz zmieni\u0107 zachowanie nak\u0142adaj\u0105cego si\u0119 paska bocznego, kt\u00f3ry otwiera si\u0119 na g\u00f3rze stron internetowych."
+    },
     "settings_sidebar_position": {
         "message": "Strona"
+    },
+    "settings_overlay_enabled": {
+        "message": "W\u0142\u0105cz nak\u0142adaj\u0105cy si\u0119 pasek boczny"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Je\u015bli chcesz mie\u0107 dost\u0119p do zak\u0142adek tylko w panelu bocznym przegl\u0105darki, mo\u017cesz wy\u0142\u0105czy\u0107 nak\u0142adany pasek boczny."
     },
     "settings_sidebar_position_desc": {
         "message": "Pozwala wybra\u0107, czy boczna lista ma by\u0107 otwierana po lewej, czy po lewej stronie."
@@ -1168,6 +1219,9 @@
     },
     "settings_theme_changed": {
         "message": "Pomy\u015blnie zmieniono motyw"
+    },
+    "settings_newtab_desc": {
+        "message": "Mo\u017cesz zast\u0105pi\u0107 domy\u015bln\u0105 stron\u0119 nowej karty przegl\u0105darki stron\u0105 udost\u0119pnian\u0105 przez to rozszerzenie. Strona ta wy\u015bwietla pasek boczny zak\u0142adek i mo\u017ce by\u0107 skonfigurowana w celu zwi\u0119kszenia produktywno\u015bci."
     },
     "settings_newtab_override": {
         "message": "Zast\u0105p stron\u0119 nowej karty"

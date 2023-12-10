@@ -328,29 +328,21 @@
     };
 
     /**
-     * Updates the mininum Chrome version in the manifest.json to the current version - 5
+     * Updates the mininum Chrome version in the manifest.json to the current version - 10
      *
      * @returns {Promise}
      */
     const updateMinimumChromeVersion = () => {
         return Func.measureTime(async (resolve) => {
-            const content = await Func.getRemoteContent("https://omahaproxy.appspot.com/all.json");
+            const content = await Func.getRemoteContent("https://versionhistory.googleapis.com/v1/chrome/platforms/win64/channels/stable/versions");
             const result = JSON.parse(content);
-            const platform = result.find((r) => r.os === "win64");
-            let currentVersion = null;
-
-            for (const info of platform.versions) {
-                if (info.channel === "stable") {
-                    currentVersion = +info.version.replace(/(\d+)\..*$/, "$1");
-                    break;
-                }
-            }
+            const currentVersion = +result.versions[0].version.replace(/(\d+)\..*$/, "$1");
 
             if (!currentVersion) {
                 console.error("Could not determine current Chrome version");
                 process.exit(1);
             } else {
-                const minVersion = Math.max(114, currentVersion - 5); // @TODO remove the hard requirement of Chromium for the mv3 sidepanel API
+                const minVersion = Math.max(114, currentVersion - 10); // @TODO remove the hard requirement of Chromium for the mv3 sidepanel API
 
                 await Func.replace({ // update the min version in the manifest
                     [path.src + "manifest.json"]: path.src + "manifest.json"

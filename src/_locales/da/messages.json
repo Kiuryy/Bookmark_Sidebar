@@ -668,6 +668,78 @@
     "settings_expert_save_error": {
         "message": "Kunne ikke gemme ops\u00e6tningen. Ret venligst din indtastning."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfigur\u00e9r opf\u00f8rslen af din side bar"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Der er forskellige muligheder, du kan \u00e6ndre for at styre udvidelsen. Du kan for eksempel \u00e6ndre, hvordan sidebj\u00e6lken skal glide ind, eller hvordan dine bogm\u00e6rker skal \u00e5bnes. Hvis du ikke \u00f8nsker, at sidebj\u00e6lken skal indl\u00e6ses p\u00e5 hver side, kan du ogs\u00e5 konfigurere dette ved at bruge passende regler."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "\u00c6ndre udseende af din side bar"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Du kan \u00e6ndre udseendet af sidebj\u00e6lken helt, s\u00e5 den passer til dine behov. Der er forskellige muligheder for at \u00e6ndre skriftst\u00f8rrelse, linjeafstand, farver, ikoner og mange flere. Du kan ogs\u00e5 v\u00e6lge mellem foruddefinerede designs og forudindstillede muligheder for hurtigt at f\u00e5 sidebj\u00e6lken til at se ud, som du \u00f8nsker."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Vidste du?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "N\u00e6ste tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Hurtigs\u00f8gning"
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktiveringsomr\u00e5de"
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Hurtig bogm\u00e6rkning"
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separatorer"
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Hurtig URL kopi"
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "\u00c5ben alle bogm\u00e6rker"
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Skjul poster"
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Udvid all underfoldere"
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tastaturgenveje"
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synkronisering"
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Tjek dine systemindstillinger"
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Denne udvidelse er et enmands-projekt, som startede som et hobbyprojekt til eget brug."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "F\u00f8rst version of denne udvidelse blev udgivet november 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "H\u00f8jreklik"
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Del information"
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "V\u00e6lg flere poster"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Ny Fane"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privatliv"
+    },
     "settings_open_action": {
         "message": "\u00c5bn sidebj\u00e6lke"
     },

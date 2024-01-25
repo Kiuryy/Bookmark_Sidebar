@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Nedavno dodano"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Prika\u017ei mape spremanja"
     },
@@ -482,8 +485,23 @@
     "onboarding_headline": {
         "message": "Hvala vam \u0161to ste instalirali ovo pro\u0161irenje."
     },
+    "onboarding_intro_desc": {
+        "message": "Ima vi\u0161e na\u010dina da otvorite bo\u010dnu traku"
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Otvori povrh web stranica"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Otvori u bo\u010dnoj traci uz glavni sadr\u017eaj web stranica"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Ne \u017eelim koristiti bo\u010dnu traku koja se preklapa"
+    },
     "onboarding_setup_start": {
         "message": "Postavi sada"
+    },
+    "onboarding_setup_complete": {
+        "message": "Zavr\u0161eno postavljanje"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Gdje \u017eelite imati bo\u010dnu traku oznaka?"
@@ -512,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknite ikonu pro\u0161irenja da biste otvorili bo\u010dnu traku oznaka."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kliknite na ikonu bo\u010dne trake na vrhu preglednika i odaberite prikaz bo\u010dne trake."
+    },
     "onboarding_left": {
         "message": "lijevo"
     },
     "onboarding_right": {
         "message": "desno"
+    },
+    "onboarding_handson_done": {
+        "message": "Gotov sam"
     },
     "onboarding_finish_desc": {
         "message": "U\u017eivajte u kori\u0161tenju svoje bo\u010dne trake oznaka."
@@ -559,6 +583,9 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Ikona"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Dialog"
     },
     "settings_menu_newtab": {
         "message": "Nova kartica"
@@ -761,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Oznake prikazane na va\u0161oj bo\u010dnoj traci oznaka sinkronizira i njima upravlja {browserName}. Pro\u0161irenje ne pohranjuje ili analizira ove oznake, a na bo\u010dnoj traci oznaka prikazuje samo one va\u0161eg preglednika."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Bo\u010dna traka preglednika"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Bo\u010dna traka oznaka mo\u017ee biti trajno otvorena dok pregledavate. Va\u0161 preglednik nudi bo\u010dnu plo\u010du. Kliknite na ikonu bo\u010dne plo\u010de na vrhu preglednika i odaberite prikaz bo\u010dne trake oznaka."
+    },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku"
     },
@@ -802,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Postavi pre\u010dac tipkovnicom"
+    },
+    "settings_icon_action": {
+        "message": "Kliknite na ikonu ekstenzije"
+    },
+    "settings_icon_action_desc": {
+        "message": "Mo\u017eete odabrati kako \u0107e se bo\u010dna traka prikazati kada kliknete na ikonu pro\u0161irenja koja se nalazi desno od adresne trake preglednika."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Otvori bo\u010dnu traku povrh web stranice"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Otvorite bo\u010dnu traku na bo\u010dnoj traki koju vam nudi preglednik"
     },
     "settings_link_action": {
         "message": "Otvori oznake"
@@ -932,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dodatne informacije"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Ovdje mo\u017eete promijeniti pona\u0161anje preklapaju\u0107e bo\u010dne trake koja se otvara povrh web stranica."
+    },
     "settings_sidebar_position": {
         "message": "Polo\u017eaj"
+    },
+    "settings_overlay_enabled": {
+        "message": "Omogu\u0107i prikaz bo\u010dne trake povrh web stranice"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Ako samo \u017eelite pristupiti svojim oznakama na bo\u010dnoj plo\u010di preglednika, mo\u017eete deaktivirati bo\u010dnu traku koja se preklapa."
     },
     "settings_sidebar_position_desc": {
         "message": "Omogu\u0107uje vam da odredite treba li se bo\u010dna traka oznaka otvoriti na lijevom ili desnom rubu prozora preglednika."
@@ -1165,6 +1219,9 @@
     },
     "settings_theme_changed": {
         "message": "Tema je uspje\u0161no promijenjena"
+    },
+    "settings_newtab_desc": {
+        "message": "Mo\u017eete poni\u0161titi zadanu stranicu nove kartice u pregledniku sa stranicom koju nudi ovo pro\u0161irenje. Ova \u0107e stranica prikazati bo\u010dnu traku s oznakama i mo\u017ee se konfigurirati za pove\u0107anje va\u0161e produktivnosti."
     },
     "settings_newtab_override": {
         "message": "Nadja\u010daj stranicu novu kartice"

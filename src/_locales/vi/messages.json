@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "M\u1edbi th\u00eam g\u1ea7n \u0111\u00e2y"
     },
+    "sort_label_url": {
+        "message": "Li\u00ean k\u1ebft"
+    },
     "sort_view_as_tree": {
         "message": "Hi\u1ec7n c\u00e1c th\u01b0 m\u1ee5c"
     },

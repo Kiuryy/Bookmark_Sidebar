@@ -63,7 +63,7 @@
         "message": "\u0218terge separatorul"
     },
     "contextmenu_infos": {
-        "message": "informa\u021bii"
+        "message": "Informa\u021bii"
     },
     "contextmenu_new_tab": {
         "message": "Deschide un tab nou"
@@ -122,11 +122,14 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Scurt\u0103turi tastatur\u0103"
     },
+    "contextmenu_select_entries": {
+        "message": "Selectare intr\u0103ri multiple"
+    },
     "contextmenu_select_bookmark": {
         "message": "Selecteaza semn de carte"
     },
     "contextmenu_deselect_bookmark": {
-        "message": "deselecteaza semn de carte"
+        "message": "Deselecteaza semn de carte"
     },
     "contextmenu_select_dir": {
         "message": "Selecteaza director"
@@ -177,28 +180,31 @@
         "message": "\u0218terge"
     },
     "overlay_update": {
-        "message": "Updateaz\u0103"
+        "message": "Actualizeaz\u0103"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Sigur vrei s\u0103 deschizi toate semnele de carte {1}, incluz\u00e2nd cele din subdirectoarele directorului selectat?"
     },
     "overlay_open_children": {
         "message": "Deschide-le pe toate"
     },
     "overlay_confirm_open_children": {
-        "message": "Chiar dori\u021bi s\u0103 deschide\u021bi toate {1} marcajele subordonate ?"
+        "message": "Chiar dori\u021bi s\u0103 deschide\u021bi toate {1} semnele de carte subordonate ?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Ascunde din bara lateral\u0103"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Chiar dori\u021bi s\u0103 ascunde\u021bi acest marcaj din bara lateral\u0103?"
+        "message": "Sigur dori\u021bi s\u0103 ascunde\u021bi acest marcaj din bara lateral\u0103?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Chiar dori\u021bi s\u0103 \u0219terge\u021bi acest director din bara lateral\u0103? Toate marcajele subordonate vor fi ascunse de asemenea."
+        "message": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi acest director din bara lateral\u0103? Toate marcajele subordonate vor fi ascunse de asemenea."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Chiar dori\u021bi s\u0103 \u0219terge\u021bi acest marcaj ?"
+        "message": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi acest marcaj ?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Chiar dori\u021bi s\u0103 \u0219terge\u021bi acest director? Toate marcajele subordonate vor fi \u0219terse de asemenea."
+        "message": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi acest director? Toate marcajele subordonate vor fi \u0219terse de asemenea."
     },
     "overlay_label_bookmark": {
         "message": "Marcaj"
@@ -244,6 +250,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Directoare"
+    },
+    "overlay_delete_selected": {
+        "message": "\u0218terge\u021bi intr\u0103rile selectate"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Chiar dori\u021bi s\u0103 \u0219terge\u021bi intr\u0103rile selectate? De asemenea, vor fi \u0219terse toate marcajele subdosarelor din folderele selectate."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Schimbat"
@@ -458,11 +470,8 @@
     "onboarding_headline": {
         "message": "V\u0103 mul\u021bumim pentru instalarea acestei extensii."
     },
-    "onboarding_setup": {
+    "onboarding_setup_start": {
         "message": "Configura\u021bi acum"
-    },
-    "onboarding_skip": {
-        "message": "S\u0103ri\u021bi configurarea"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Unde dori\u021bi s\u0103 ave\u021bi bara lateral\u0103?"
@@ -500,9 +509,6 @@
     "onboarding_finish_desc": {
         "message": "Distra\u021bi-v\u0103 cu bara lateral\u0103."
     },
-    "onboarding_finish_notice": {
-        "message": "Dac\u0103 clic-ui\u021bi des \u00een partea din {1} a ferestrei exploratorului, poate dori\u021bi s\u0103 schimba\u021bi deschiderea ferestrei de marcaje pe vertical\u0103 pentru a evita deschideri accidentale."
-    },
     "onboarding_goto_settings": {
         "message": "Mai multe set\u0103ri"
     },
@@ -518,14 +524,11 @@
     "settings_menu_sidebar_general": {
         "message": "General"
     },
-    "settings_menu_sidebar_toggle": {
-        "message": "Comutare"
+    "settings_menu_sidebar_overlay": {
+        "message": "Suprapunere"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Sfaturi pentru ajutor"
-    },
-    "settings_menu_sidebar_filter": {
-        "message": "Filtru"
     },
     "settings_menu_appearance": {
         "message": "Aspect"
@@ -541,9 +544,6 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Iconi\u021b\u0103"
-    },
-    "settings_menu_appearance_overlay": {
-        "message": "Suprapunere"
     },
     "settings_menu_newtab": {
         "message": "Tab nou"
@@ -764,12 +764,6 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nu ascunde niciodat\u0103"
     },
-    "settings_reopen_sidebar": {
-        "message": "Redeschide bara lateral\u0103"
-    },
-    "settings_reopen_sidebar_desc": {
-        "message": "Deschide automat din nou bara lateral\u0103, dup\u0103 deschiderea unui marcaj din cadrul b\u0103rii laterale."
-    },
     "settings_prevent_windowed": {
         "message": "Dezactiveaz\u0103 bara de marcaje \u00een modul fereastr\u0103"
     },
@@ -815,9 +809,6 @@
     "settings_sidebar_position_right": {
         "message": "Dreapta"
     },
-    "settings_filter_visibility_desc": {
-        "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
-    },
     "settings_filter_explanation_1": {
         "message": "Ad\u0103uga\u021bi numai un singur model URL pe linie"
     },
@@ -832,6 +823,9 @@
     },
     "settings_filter_visibility": {
         "message": "\u00cenc\u0103rca\u021bi bara lateral\u0103"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
     },
     "settings_filter_visibility_always": {
         "message": "Pe fiecare pagin\u0103"
@@ -862,9 +856,6 @@
     },
     "settings_import_failed": {
         "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
-    },
-    "settings_theme_changed": {
-        "message": "Tema schimbat\u0103 cu succes"
     },
     "settings_presets": {
         "message": "Seteaz\u0103 dimensiuni corespunz\u0103toare"
@@ -1013,8 +1004,8 @@
     "settings_installed_theme_info": {
         "message": "Instalat \u00een prezent"
     },
-    "settings_newtab_desc": {
-        "message": "Din p\u0103cate, Google a eliminat posibilitatea de a \u00eenc\u0103rca extensii \u00een pagina implicit\u0103 a unui tab nou . Din acest motiv am ad\u0103ugat c\u00e2teva op\u021biuni care v\u0103 permit s\u0103 accesa\u021bi marcajele dvs. atunci c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103 \u00eentr-un alt mod."
+    "settings_theme_changed": {
+        "message": "Tema schimbat\u0103 cu succes"
     },
     "settings_newtab_override": {
         "message": "Suprascrie pagina de tab nou"

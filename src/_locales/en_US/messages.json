@@ -1127,6 +1127,9 @@
     "settings_sidebar_width": {
         "message": "Width"
     },
+    "settings_sidebar_width_desc": {
+        "message": "The width of the sidebar when overlapping the currently visited website. This option does not have an effect when using the sidebar in the browser provided side panel."
+    },
     "settings_header_height": {
         "message": "Header height"
     },

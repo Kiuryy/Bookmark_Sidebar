@@ -468,7 +468,7 @@
         "message": "Wie viele Lesezeichen haben die Nutzer im Durchschnitt?"
     },
     "contribute_share_activity_example_2": {
-        "message": "Welche Plattformen verwenden die Nutzer (Windows, Max, Linux, ...)?"
+        "message": "Welche Plattformen verwenden die Nutzer (Windows, Mac, Linux, ...)?"
     },
     "contribute_share_activity_example_3": {
         "message": "Verwenden die Nutzer die Suche?"
@@ -780,7 +780,7 @@
         "message": "Neuer Tab"
     },
     "settings_tips_tricks_newtab_desc": {
-        "message": "Du kannst die Darstellung der New-Tab-Seite direkt auf der Seite anpassen, indem du auf das {1} Symbol in der unteren Ecke klickst. Anschlie\u00dfend lassen sich die Gitter-Elemente, die Suchmaschine, das Hintergrundbilder und die Links oben bearbeiten."
+        "message": "Du kannst die Darstellung der New-Tab-Seite direkt auf der Seite anpassen, indem du auf das {1} Symbol in der unteren Ecke klickst. Anschlie\u00dfend lassen sich die Gitter-Elemente, die Suchmaschine, das Hintergrundbild und die Links oben bearbeiten."
     },
     "settings_tips_tricks_privacy": {
         "message": "Datenschutz"
@@ -1126,6 +1126,9 @@
     },
     "settings_sidebar_width": {
         "message": "Breite"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "Die Breite der Sidebar wenn sie die aktuell ge\u00f6ffnete Webseite \u00fcberdeckt. Diese Einstellung hat keine Auswirkung wenn die Sidebar in der Seitenleiste, die dein Browser bereitstellt, ge\u00f6ffnet wird."
     },
     "settings_header_height": {
         "message": "H\u00f6he der Kopfzeile"

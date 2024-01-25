@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Adicionados recentemente"
     },
+    "sort_label_url": {
+        "message": "URL"
+    },
     "sort_view_as_tree": {
         "message": "Mostrar pastas"
     },
@@ -482,8 +485,23 @@
     "onboarding_headline": {
         "message": "Obrigado por instalar esta extens\u00e3o."
     },
+    "onboarding_intro_desc": {
+        "message": "Existem v\u00e1rias formas de abrir a sua barra lateral."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Abrir e sobrepor acima dos s\u00edtios web"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Abrir no painel lateral ao lado do conte\u00fado principal das p\u00e1ginas Web"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "N\u00e3o quero utilizar esta barra lateral sobreposta"
+    },
     "onboarding_setup_start": {
         "message": "Configurar agora"
+    },
+    "onboarding_setup_complete": {
+        "message": "Configura\u00e7\u00e3o conclu\u00edda"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Em que posi\u00e7\u00e3o quer a sua barra lateral?"
@@ -512,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Clique no \u00edcone da extens\u00e3o para abrir a barra lateral."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Clique no \u00edcone do painel lateral na parte superior do browser e selecione a vista da barra lateral dos marcadores."
+    },
     "onboarding_left": {
         "message": "esquerdo"
     },
     "onboarding_right": {
         "message": "direito"
+    },
+    "onboarding_handson_done": {
+        "message": "J\u00e1 terminei"
     },
     "onboarding_finish_desc": {
         "message": "Divirta-se com a sua barra lateral."
@@ -559,6 +583,9 @@
     },
     "settings_menu_appearance_icon": {
         "message": "\u00cdcone"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Di\u00e1logo"
     },
     "settings_menu_newtab": {
         "message": "Novo Separador"
@@ -761,6 +788,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Os favoritos exibidos em sua barra lateral s\u00e3o sincronizados e gerenciados por {browserName}. A extens\u00e3o n\u00e3o armazena ou analisa esses favoritos, e apenas exibe os do seu navegador na barra lateral."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Painel lateral do navegador"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Pode ter a barra lateral de favoritos permanentemente aberta enquanto navega. Existe um painel lateral fornecido pelo seu browser. Clique no \u00edcone do painel lateral na parte superior do seu browser e selecione a vista da barra lateral de favoritos."
+    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
@@ -802,6 +835,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
+    },
+    "settings_icon_action": {
+        "message": "Clique no \u00edcone da extens\u00e3o"
+    },
+    "settings_icon_action_desc": {
+        "message": "Pode escolher a forma como a barra lateral deve aparecer quando clica no \u00edcone da extens\u00e3o que se encontra \u00e0 direita da barra de endere\u00e7os do browser."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Abrir a barra lateral e sobrepor acima dos s\u00edtios web"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Abrir a barra lateral no painel lateral fornecido pelo browser"
     },
     "settings_link_action": {
         "message": "Abrir marcadores"
@@ -932,8 +977,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Informa\u00e7\u00e3o adicional"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Aqui pode alterar o comportamento da barra lateral sobreposta que se abre no topo dos s\u00edtios web."
+    },
     "settings_sidebar_position": {
         "message": "Posi\u00e7\u00e3o"
+    },
+    "settings_overlay_enabled": {
+        "message": "Ativar a barra lateral sobreposta"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Se pretender aceder aos seus marcadores apenas no painel lateral fornecido pelo browser, pode desativar a barra lateral sobreposta."
     },
     "settings_sidebar_position_desc": {
         "message": "Defina se a barra lateral deve abrir na margem esquerda ou direita do ecr\u00e3."
@@ -1165,6 +1219,9 @@
     },
     "settings_theme_changed": {
         "message": "Tema mudado correctamente"
+    },
+    "settings_newtab_desc": {
+        "message": "Pode substituir a p\u00e1gina de novo separador predefinida do seu browser por uma p\u00e1gina fornecida por esta extens\u00e3o. Esta p\u00e1gina mostrar\u00e1 a barra lateral dos seus favoritos e pode ser configurada para aumentar a sua produtividade."
     },
     "settings_newtab_override": {
         "message": "Sobrepor a p\u00e1gina nova guia"

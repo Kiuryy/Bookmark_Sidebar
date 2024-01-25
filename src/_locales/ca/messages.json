@@ -117,13 +117,13 @@
         "message": "Tornar a dalt des de dalt"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Gestor de l'adre\u00e7a d'inter\u00e8s"
+        "message": "Gestor de marcadors"
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Dreceres de teclat"
     },
     "contextmenu_select_entries": {
-        "message": "Selecciona m\u00faltiples entradas"
+        "message": "Selecciona v\u00e0ries entrades"
     },
     "contextmenu_select_bookmark": {
         "message": "Seleccionar marcador"
@@ -151,6 +151,9 @@
     },
     "sort_label_recently_added": {
         "message": "Afegits recentment"
+    },
+    "sort_label_url": {
+        "message": "URL"
     },
     "sort_view_as_tree": {
         "message": "Mostrar directoris"
@@ -485,6 +488,9 @@
     "onboarding_setup_start": {
         "message": "Configurar ara"
     },
+    "onboarding_setup_complete": {
+        "message": "Configuraci\u00f3 acabada"
+    },
     "onboarding_sidebar_position_desc": {
         "message": "On vols tenir la teva barra lateral?"
     },
@@ -560,11 +566,14 @@
     "settings_menu_appearance_icon": {
         "message": "Icona"
     },
+    "settings_menu_appearance_dialog": {
+        "message": "Di\u00e0leg"
+    },
     "settings_menu_newtab": {
         "message": "Nova pestanya"
     },
     "settings_menu_language": {
-        "message": "Llenguatge"
+        "message": "Idioma"
     },
     "settings_menu_language_general": {
         "message": "General"
@@ -789,13 +798,13 @@
         "message": "Ample"
     },
     "settings_toggle_area_width_windowed": {
-        "message": "Ample (Manera Finestra)"
+        "message": "Ample (Mode Finestra)"
     },
     "settings_toggle_area_height": {
         "message": "Altura"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Pot reduir l'altura de l'\u00e0rea, per la qual cosa la barra lateral nom\u00e9s s'obrir\u00e0 quan mogui el cursor a aquesta ubicaci\u00f3 de la vora de la finestra del seu navegador."
+        "message": "Pots reduir l'altura de l'\u00e0rea de manera que la barra lateral nom\u00e9s s'obri quan mogui el cursor a aquesta ubicaci\u00f3 de la vora de la finestra del seu navegador."
     },
     "settings_toggle_area_drag_desc": {
         "message": "Arrossega per a moure"
@@ -807,7 +816,7 @@
         "message": "Obrir marcadors"
     },
     "settings_link_action_desc": {
-        "message": "En fer clic amb el bot\u00f3 esquerre del ratol\u00ed en un marcador aquest s'obrir\u00e0 en la pestanya actual o en una pestanya nova."
+        "message": "Clica un marcador amb el bot\u00f3 esquerre del ratol\u00ed i s'obrir\u00e0 a la pestanya actual o en una pestanya nova."
     },
     "settings_link_action_current_tab": {
         "message": "Pestanya actual"
@@ -984,10 +993,10 @@
         "message": "Pot exportar la configuraci\u00f3 de la seva extensi\u00f3 i guardar-la de manera local en la seva computadora. Pot importar l'arxiu exportat pr\u00e8viament en qualsevol computadora, on est\u00e0 instal\u00b7lada l'extensi\u00f3."
     },
     "settings_export": {
-        "message": "Exportar els ajustos"
+        "message": "Exportar la Configuraci\u00f3"
     },
     "settings_import": {
-        "message": "Importar els ajustos"
+        "message": "Importar la Configuraci\u00f3"
     },
     "settings_import_saved": {
         "message": "Configuraci\u00f3 importada amb \u00e8xit"
@@ -1165,6 +1174,9 @@
     },
     "settings_theme_changed": {
         "message": "Tema actualitzat correctament"
+    },
+    "settings_newtab_desc": {
+        "message": "Pots sobreescriure la p\u00e0gina nova per defecte del teu navegador amb una p\u00e0gina generada per aquesta extensi\u00f3. La p\u00e0gina nova mostrar\u00e0 la barra lateral de marcadors i la pots configurar per millorar la teva productivitat."
     },
     "settings_newtab_override": {
         "message": "Substitueix la p\u00e0gina de la pestanya nova"

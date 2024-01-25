@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "\u0627\u062e\u06cc\u0631\u0627 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f\u0647"
     },
+    "sort_label_url": {
+        "message": "\u062a\u0631\u062a\u06cc\u0628"
+    },
     "sort_view_as_tree": {
         "message": "\u0646\u0645\u0627\u06cc\u0634 \u067e\u0648\u0634\u0647 \u0647\u0627"
     },

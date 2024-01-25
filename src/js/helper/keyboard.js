@@ -106,6 +106,8 @@
                         ext.helper.dragndrop.cancel();
                     } else if (isContextmenuOpen) { // close contextmenu
                         ext.helper.contextmenu.close();
+                    } else if (ext.helper.search.isResultsVisible()) { // close search
+                        ext.helper.search.clearSearch();
                     } else { // close sidebar
                         ext.helper.toggle.closeSidebar();
                     }

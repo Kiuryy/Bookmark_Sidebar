@@ -303,6 +303,15 @@
                     active: true
                 });
             });
+
+            s.elm.buttons.sidepanelSettings.on("click", (e) => {
+                e.preventDefault();
+                s.helper.model.call("openLink", {
+                    href: "chrome://settings/appearance#:~:text=Side%20panel",
+                    newTab: true,
+                    active: true
+                });
+            });
         };
 
         /**

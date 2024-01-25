@@ -569,6 +569,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Overlay"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Side Panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
     },
@@ -1105,6 +1108,15 @@
     },
     "settings_close_on_tab_change_desc": {
         "message": "Close the sidebar when clicking on another browser tab"
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Here you can change the behaviour of the sidebar which is displayed in the side panel alongside the main content of webpages."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configure whether the browser side panel should open on the left or right side."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configure side panel"
     },
     "settings_presets": {
         "message": "Set relative sizes"

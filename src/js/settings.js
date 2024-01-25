@@ -25,6 +25,7 @@
                 save: $("body > header > menu > li > button.save"),
                 restore: $("body > header > menu > li > button.restore"),
                 keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
+                sidepanelSettings: $("div.tab[data-name='sidebar'] a.sidepanelSettings"),
                 toggleAreaGoto: $("body a.gotoToggleArea"),
                 "import": $("body a.import"),
                 "export": $("body a.export")

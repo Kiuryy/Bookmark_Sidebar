@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Overlay"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Seitenleiste"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
     },
@@ -1054,6 +1057,15 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Dies ist eine Browserfunktion und nicht Teil der Erweiterung. Erfahre mehr dar\u00fcber, wie du Lesezeichen im {browserName} importieren und exportieren kannst."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Hier kannst du das Verhalten der Lesezeichenleiste, die in der Seitenleiste des Browsers neben dem Seiteninhalt angezeigt wird, anpassen."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Konfiguriere, ob die Browser-Seitenleiste auf der linken oder rechten Seite angezeigt werden soll."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Seitenleiste konfigurieren"
     },
     "settings_presets": {
         "message": "Relative Gr\u00f6\u00dfen"

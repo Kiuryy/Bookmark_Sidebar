@@ -16,20 +16,30 @@
         this.removeEntry = async (id) => {
             const data = ext.helper.entry.getDataById(id);
 
-            if (data && data.url) { // delete without confirm dialog, but offer a undo option
+            if (data && data.url) { // delete without confirm dialog, but offer an undo option
                 const box = ext.helper.list.getActiveBookmarkBox();
                 const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                 entry.data("restore", data);
 
+                let countdown = 8;
                 const mask = $("<span></span>")
                     .addClass($.cl.sidebar.removeMask)
                     .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
-                    .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
+                    .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + " (" + (countdown + 1) + ")</span>")
                     .appendTo(entry);
+
+                const undoButton = mask.children("span");
+                const interval = setInterval(() => {
+                    if (countdown < 0 || undoButton.length() === 0) {
+                        clearInterval(interval);
+                        entry.remove();
+                    }
+                    undoButton.text(ext.helper.i18n.get("sidebar_undo_deletion") + " (" + countdown + ")");
+                    countdown -= 1;
+                }, 1000);
 
                 $.delay(100).then(() => {
                     entry.addClass($.cl.sidebar.removed);
-
                     if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
                         mask.children("em").remove();
                     }

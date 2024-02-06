@@ -23,7 +23,7 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
     "sass": "^1.70.0",
-    "npm-check-updates": "^16.14.12",
+    "npm-check-updates": "^16.14.14",
     "read-file": "^0.2.0",
     "terser": "^5.27.0",
     "zip-dir": "^2.0.0"

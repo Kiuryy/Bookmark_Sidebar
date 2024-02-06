@@ -7,6 +7,8 @@
         let searchEngine = {};
         let searchEngineList = {};
         let searchAlreadyFocussed = false;
+        let searchSuggestionNextKeys = [];
+        let searchSuggestionPrevKeys = [];
 
         const searchSuggestion = {
             queries: true,
@@ -80,6 +82,9 @@
         this.init = async () => {
             initSearchEngineList();
             initEvents();
+
+            searchSuggestionNextKeys = n.helper.model.getData("n/searchSuggestionNextKeys");
+            searchSuggestionPrevKeys = n.helper.model.getData("n/searchSuggestionPrevKeys");
 
             this.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             this.setVisibility(n.helper.model.getData("n/searchField"));
@@ -424,11 +429,11 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
+                if (searchSuggestionNextKeys.includes(e.key) && !e.shiftKey) {
                     selectSuggestion("next");
-                } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
+                } else if (searchSuggestionPrevKeys.includes(e.key)) {
                     selectSuggestion("prev");
-                } else if (e.key !== "Enter") {
+                } else if (!["Enter", "Shift", "Control", "Meta", "Alt"].includes(e.key)) {
                     const val = e.currentTarget.value.trim();
                     n.elm.search.field.data("typedVal", val);
 

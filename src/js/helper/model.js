@@ -200,7 +200,9 @@
                 customGridLinks: [],
                 topLinks: [],
                 topLinksPosition: "right",
-                website: ""
+                website: "",
+                searchSuggestionNextKeys: ["ArrowDown", "Tab"],
+                searchSuggestionPrevKeys: ["ArrowUp", "Tab"]
             }
         };
 

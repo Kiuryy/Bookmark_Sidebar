@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Fen\u00eatre d'info"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Barre Lat\u00e9rale"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Infobulle"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "C'est une fonctionnalit\u00e9 du navigateur et non pas une partie de l'extension. Lisez en plus sur comment importer\/exporter des favoris sur {browserName}"
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Ici, vous pouvez modifier le comportement de la barre lat\u00e9rale qui s'affiche dans le panneau lat\u00e9ral \u00e0 c\u00f4t\u00e9 du contenu principal des pages Web."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configurer si la barre lat\u00e9rale de votre navigateur doit s'ouvrir \u00e0 gauche ou \u00e0 droite."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configurer la barre lat\u00e9rale"
+    },
     "settings_presets": {
         "message": "Param\u00e9trer les tailles par d\u00e9faut"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Largeur"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "La largeur de la barre lat\u00e9rale lorsqu'elle chevauche le site Web actuellement visit\u00e9. Cette option n'a aucun effet lors de l'utilisation de la barre lat\u00e9rale dans le panneau lat\u00e9ral fourni par le navigateur."
     },
     "settings_header_height": {
         "message": "Hauteur de l'ent\u00eate"

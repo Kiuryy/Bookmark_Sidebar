@@ -480,13 +480,28 @@
         "message": "T\u1ea7n su\u1ea5t d\u1ecdn d\u1eb9p d\u1ea5u trang"
     },
     "onboarding_title": {
-        "message": "Thi\u1ebft l\u1eadp"
+        "message": "C\u00e0i \u0111\u1eb7t"
     },
     "onboarding_headline": {
         "message": "C\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 c\u00e0i \u0111\u1eb7t ti\u1ec7n \u00edch"
     },
+    "onboarding_intro_desc": {
+        "message": "C\u00f3 nhi\u1ec1u c\u00e1ch \u0111\u1ec3 m\u1edf Thanh d\u1ea5u trang c\u1ee7a b\u1ea1n."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "M\u1edf ngay tr\u00ean trang web."
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "M\u1edf Thanh d\u1ea5u trang ngay b\u00ean c\u1ea1nh n\u1ed9i dung trang web."
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "T\u00f4i kh\u00f4ng mu\u1ed1n s\u1eed d\u1ee5ng t\u00ednh n\u0103ng hi\u1ec3n th\u1ecb n\u00e0y"
+    },
     "onboarding_setup_start": {
-        "message": "Thi\u1ebft l\u1eadp ngay"
+        "message": "C\u00e0i \u0111\u1eb7t ngay"
+    },
+    "onboarding_setup_complete": {
+        "message": "C\u00e0i \u0111\u1eb7t th\u00e0nh c\u00f4ng"
     },
     "onboarding_sidebar_position_desc": {
         "message": "B\u1ea1n mu\u1ed1n thanh d\u1ea5u trang n\u1eb1m \u1edf \u0111\u00e2u?"
@@ -504,7 +519,7 @@
         "message": "T\u1ed1i"
     },
     "onboarding_handson_desc": {
-        "message": "Gi\u1edd b\u1ea1n c\u00f3 th\u1ec3 th\u1eed cho ch\u00ednh b\u1ea1n!"
+        "message": "B\u1ea1n c\u00f3 th\u1ec3 th\u1eed ngay!"
     },
     "onboarding_handson_mouse_desc_1": {
         "message": "H\u00e3y di chuy\u1ec3n con tr\u1ecf chu\u1ed9t \u0111\u1ebfn c\u1ea1nh {1} c\u1ee7a m\u00e0n h\u00ecnh."
@@ -515,20 +530,26 @@
     "onboarding_handson_icon_desc": {
         "message": "Nh\u1ea5n chu\u1ed9t v\u00e0o bi\u1ec3u t\u01b0\u1ee3ng c\u1ee7a ti\u1ec7n \u00edch \u0111\u1ec3 m\u1edf thanh d\u1ea5u trang"
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Nh\u1ea5p chu\u1ed9t v\u00e0o bi\u1ec3u t\u01b0\u1ee3ng thanh d\u1ea5u trang t\u1ea1i ph\u00eda tr\u00ean tr\u00ecnh duy\u1ec7t v\u00e0 ch\u1ecdn ti\u1ec7n \u00edch Bookmark Sidebar."
+    },
     "onboarding_left": {
         "message": "tr\u00e1i"
     },
     "onboarding_right": {
         "message": "ph\u1ea3i"
     },
+    "onboarding_handson_done": {
+        "message": "\u0110\u00e3 ho\u00e0n t\u1ea5t"
+    },
     "onboarding_finish_desc": {
         "message": "Ch\u00fac b\u1ea1n d\u00f9ng ti\u1ec7n \u00edch n\u00e0y vui v\u1ebb!"
     },
     "onboarding_goto_settings": {
-        "message": "C\u00e1c c\u00e0i \u0111\u1eb7t ph\u1ee5"
+        "message": "C\u00e0i \u0111\u1eb7t kh\u00e1c"
     },
     "onboarding_goto_appearance": {
-        "message": "Thi\u1ebft l\u1eadp hi\u1ec3n th\u1ecb"
+        "message": "C\u00e0i \u0111\u1eb7t hi\u1ec3n th\u1ecb"
     },
     "settings_title": {
         "message": "C\u00e0i \u0111\u1eb7t"
@@ -545,11 +566,14 @@
     "settings_menu_sidebar_overlay": {
         "message": "L\u1edbp ph\u1ee7"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Side Panel"
+    },
     "settings_menu_sidebar_tooltip": {
-        "message": "Th\u00f4ng tin nhanh"
+        "message": "Ch\u00fa th\u00edch"
     },
     "settings_menu_appearance": {
-        "message": "Giao di\u1ec7n"
+        "message": "Hi\u1ec3n th\u1ecb"
     },
     "settings_menu_appearance_general": {
         "message": "C\u00e0i \u0111\u1eb7t chung"
@@ -558,13 +582,16 @@
         "message": "Thanh b\u00ean"
     },
     "settings_menu_appearance_indicator": {
-        "message": "D\u1ea5u \bhi\u1ec7u"
+        "message": "D\u1ea5u hi\u1ec7u"
     },
     "settings_menu_appearance_icon": {
         "message": "Bi\u1ec3u t\u01b0\u1ee3ng"
     },
+    "settings_menu_appearance_dialog": {
+        "message": "H\u1ed9p tho\u1ea1i"
+    },
     "settings_menu_newtab": {
-        "message": "Tab m\u1edbi"
+        "message": "Th\u1ebb m\u1edbi"
     },
     "settings_menu_language": {
         "message": "Ng\u00f4n ng\u1eef"
@@ -585,7 +612,7 @@
         "message": "V\u1ec1 t\u00e1c gi\u1ea3"
     },
     "settings_menu_infos_permissions": {
-        "message": "Quy\u1ec1n l\u1ee3i"
+        "message": "Quy\u1ec1n"
     },
     "settings_menu_infos_privacy": {
         "message": "B\u1ea3o m\u1eadt"
@@ -603,7 +630,7 @@
         "message": "Nh\u1eadp\/Xu\u1ea5t"
     },
     "settings_menu_expert": {
-        "message": "C\u00e0i \u0111\u1eb7t chuy\u00ean gia"
+        "message": "C\u00e0i \u0111\u1eb7t chuy\u00ean bi\u1ec7t"
     },
     "settings_save": {
         "message": "L\u01b0u thay \u0111\u1ed5i"
@@ -612,22 +639,22 @@
         "message": "Thay \u0111\u1ed5i \u0111\u00e3 \u0111\u01b0\u1ee3c l\u01b0u"
     },
     "settings_restore": {
-        "message": "Quay l\u1ea1i ban \u0111\u1ea7u"
+        "message": "Kh\u00f4i ph\u1ee5c m\u1eb7c \u0111\u1ecbnh"
     },
     "settings_restore_confirm": {
-        "message": "B\u1ea1n c\u00f3 mu\u1ed1n quay l\u1ea1i ban \u0111\u1ea7u?"
+        "message": "B\u1ea1n mu\u1ed1n kh\u00f4i ph\u1ee5c m\u1eb7c \u0111\u1ecbnh?"
     },
     "settings_restored_message": {
         "message": "\u0110\u00e3 kh\u00f4i ph\u1ee5c c\u00e0i \u0111\u1eb7t"
     },
     "settings_advanced": {
-        "message": "Thi\u1ebft l\u1eadp n\u00e2ng cao"
+        "message": "C\u00e0i \u0111\u1eb7t n\u00e2ng cao"
     },
     "settings_not_synced": {
-        "message": "Thi\u1ebft l\u1eadp n\u00e0y s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 gi\u1eefa c\u00e1c thi\u1ebft b\u1ecb"
+        "message": "C\u00e0i \u0111\u1eb7t n\u00e0y s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 gi\u1eefa c\u00e1c thi\u1ebft b\u1ecb"
     },
     "settings_premium_activated": {
-        "message": "K\u00edch ho\u1ea1t \u001dPremium th\u00e0nh c\u00f4ng"
+        "message": "K\u00edch ho\u1ea1t Premium th\u00e0nh c\u00f4ng"
     },
     "settings_premium_invalid_key": {
         "message": "Kh\u00f4ng th\u1ec3 k\u00edch ho\u1ea1t. H\u00e3y nh\u1eadp m\u00e3 k\u00edch ho\u1ea1t h\u1ee3p l\u1ec7"
@@ -636,10 +663,10 @@
         "message": "T\u00ecm ki\u1ebfm c\u00e0i \u0111\u1eb7t"
     },
     "settings_expert_settings_desc": {
-        "message": "B\u1eb1ng c\u00e1c t\u00f9y ch\u1ecdn n\u00e2ng cao, b\u1ea1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i t\u1ea5t c\u1ea3 thi\u1ebft l\u1eadp c\u1ee7a ti\u1ec7n \u00edch n\u00e0y, k\u1ec3 c\u1ea3 nh\u1eefng c\u00e1i b\u1ea1n kh\u00f4ng th\u1ec3 thay \u0111\u1ed5i b\u1eb1ng h\u1ed9p \u0111\u00e1nh d\u1ea5u th\u00f4ng th\u01b0\u1eddng hay thanh k\u00e9o c\u1ee7a trang c\u00e0i \u0111\u1eb7t."
+        "message": "B\u1eb1ng c\u00e1c t\u00f9y ch\u1ecdn chuy\u00ean bi\u1ec7t, b\u1ea1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i t\u1ea5t c\u1ea3 c\u00e0i \u0111\u1eb7t c\u1ee7a ti\u1ec7n \u00edch n\u00e0y, k\u1ec3 c\u1ea3 nh\u1eefng c\u00e1i b\u1ea1n kh\u00f4ng th\u1ec3 thay \u0111\u1ed5i b\u1eb1ng h\u1ed9p \u0111\u00e1nh d\u1ea5u th\u00f4ng th\u01b0\u1eddng hay thanh k\u00e9o c\u1ee7a trang c\u00e0i \u0111\u1eb7t."
     },
     "settings_expert_settings_notice": {
-        "message": "Xin h\u00e3y ch\u1ec9 thay \u0111\u1ed5i c\u00e0i \u0111\u1eb7t \u1edf \u0111\u00e2y, n\u1ebfu b\u1ea1n bi\u1ebft m\u00ecnh \u0111ang l\u00e0m g\u00ec. Thi\u1ebft l\u1eadp sai c\u00f3 th\u1ec3 d\u1eabn \u0111\u1ebfn h\u00e0nh vi kh\u00f4ng \u0111\u00e1ng c\u00f3 c\u1ee7a ti\u1ec7n \u00edch. N\u1ebfu c\u00f3 g\u00ec \u0111\u00f3 h\u01b0 h\u1ecfng, b\u1ea1n c\u00f3 th\u1ec3 reset v\u1ec1 c\u00e1c c\u00e0i \u0111\u1eb7t m\u1eb7c \u0111\u1ecbnh."
+        "message": "Xin h\u00e3y ch\u1ec9 thay \u0111\u1ed5i c\u00e0i \u0111\u1eb7t \u1edf \u0111\u00e2y, n\u1ebfu b\u1ea1n bi\u1ebft m\u00ecnh \u0111ang l\u00e0m g\u00ec. Thi\u1ebft l\u1eadp sai c\u00f3 th\u1ec3 d\u1eabn \u0111\u1ebfn c\u00e1c ho\u1ea1t \u0111\u1ed9ng kh\u00f4ng mong mu\u1ed1n c\u1ee7a ti\u1ec7n \u00edch. N\u1ebfu c\u00f3 g\u00ec \u0111\u00f3 h\u01b0 h\u1ecfng, b\u1ea1n c\u00f3 th\u1ec3 kh\u00f4i ph\u1ee5c v\u1ec1 c\u00e1c c\u00e0i \u0111\u1eb7t m\u1eb7c \u0111\u1ecbnh."
     },
     "settings_expert_save_error": {
         "message": "Kh\u00f4ng th\u1ec3 l\u01b0u c\u00e0i \u0111\u1eb7t. H\u00e3y ch\u1ec9nh s\u1eeda nh\u1eefng th\u00f4ng s\u1ed1 cho ph\u00f9 h\u1ee3p."

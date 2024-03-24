@@ -1059,7 +1059,7 @@
         "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
     },
     "settings_sidebar_sidepanel_intro": {
-        "message": "Here you can change the behaviour of the sidebar which is displayed in the side panel alongside the main content of webpages."
+        "message": "Here you can change the behavior of the sidebar which is displayed in the side panel alongside the main content of webpages."
     },
     "settings_sidebar_position_sidepanel": {
         "message": "Configure whether the browser side panel should open on the left or right side."

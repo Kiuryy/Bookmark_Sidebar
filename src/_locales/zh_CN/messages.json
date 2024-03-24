@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "\u9762\u677f"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "\u4fa7\u8fb9\u680f"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "\u63d0\u793a"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "\u8fd9\u662f\u6d4f\u89c8\u5668\u529f\u80fd\uff0c\u4e0d\u662f\u6269\u5c55\u7684\u4e00\u90e8\u5206\u3002\u9605\u8bfb\u6709\u5173\u5982\u4f55\u5728{browserName}\u4e2d\u5bfc\u5165\u548c\u5bfc\u51fa\u4e66\u7b7e\u7684\u66f4\u591a\u4fe1\u606f\u3002"
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "\u5728\u8fd9\u91cc\uff0c\u60a8\u53ef\u4ee5\u66f4\u6539\u4fa7\u8fb9\u680f\u7684\u884c\u4e3a\uff0c\u4fa7\u8fb9\u680f\u4e0e\u7f51\u9875\u7684\u4e3b\u8981\u5185\u5bb9\u4e00\u8d77\u663e\u793a\u5728\u4fa7\u8fb9\u9762\u677f\u4e0a\u3002"
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "\u914d\u7f6e\u6d4f\u89c8\u5668\u4fa7\u8fb9\u680f\u5728\u5de6\u4fa7\u6216\u53f3\u4fa7\u6253\u5f00\u3002"
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "\u914d\u7f6e\u4fa7\u8fb9\u680f"
+    },
     "settings_presets": {
         "message": "\u8bbe\u7f6e\u76f8\u5bf9\u5927\u5c0f"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "\u5bbd"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u4fa7\u8fb9\u680f\u4e0e\u5f53\u524d\u8bbf\u95ee\u7f51\u7ad9\u91cd\u53e0\u65f6\u7684\u5bbd\u5ea6\u3002\u5728\u6d4f\u89c8\u5668\u63d0\u4f9b\u7684\u4fa7\u8fb9\u680f\u4e2d\u4f7f\u7528\u4fa7\u8fb9\u680f\u65f6\uff0c\u8be5\u9009\u9879\u4e0d\u8d77\u4f5c\u7528\u3002"
     },
     "settings_header_height": {
         "message": "\u9ad8"

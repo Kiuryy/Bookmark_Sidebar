@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Sobreposici\u00f3n"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Panel Lateral"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Sugerencias"
     },

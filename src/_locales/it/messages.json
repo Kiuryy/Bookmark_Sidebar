@@ -3,22 +3,22 @@
         "message": "Barra Segnalibri"
     },
     "extension_name_short": {
-        "message": "Preferiti"
+        "message": "Segnalibri"
     },
     "extension_desc": {
-        "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi Segnalibri sul lato sinistro dello schermo."
+        "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi segnalibri sul bordo della finestra del browser."
     },
     "extension_version": {
         "message": "Versione"
     },
     "extension_last_update": {
-        "message": "Ultimo aggiornamento {1}"
+        "message": "Ultimo aggiornamento il {1}"
     },
     "header_bookmarks": {
-        "message": "Preferiti"
+        "message": "Segnalibri"
     },
     "header_bookmarks_single": {
-        "message": "Preferito"
+        "message": "Segnalibro"
     },
     "header_selected_entries": {
         "message": "selezionato"
@@ -27,10 +27,10 @@
         "message": "Elementi"
     },
     "sidebar_search_placeholder": {
-        "message": "Cerca preferito"
+        "message": "Cerca segnalibro"
     },
     "sidebar_search_no_results": {
-        "message": "Nessun preferito corrisponde alla tua ricerca"
+        "message": "Nessun segnalibro corrisponde alla tua ricerca"
     },
     "sidebar_copied_to_clipboard": {
         "message": "Indirizzo copiato"
@@ -45,7 +45,7 @@
         "message": "Per saperne di pi\u00f9"
     },
     "contextmenu_edit_bookmark": {
-        "message": "Modifica preferito"
+        "message": "Modifica segnalibro"
     },
     "contextmenu_edit_dir": {
         "message": "Modifica cartella"
@@ -54,7 +54,7 @@
         "message": "Modifica separatore"
     },
     "contextmenu_delete_bookmark": {
-        "message": "Elimina preferito"
+        "message": "Elimina segnalibro"
     },
     "contextmenu_delete_dir": {
         "message": "Elimina cartella"
@@ -84,7 +84,7 @@
         "message": "Aggiungi segnalibro"
     },
     "contextmenu_add": {
-        "message": "Aggiungi nuova voce"
+        "message": "Aggiungi voce"
     },
     "contextmenu_check_bookmarks": {
         "message": "Controlla i segnalibri"
@@ -93,13 +93,13 @@
         "message": "Mostra voci nascoste"
     },
     "contextmenu_close_all_directories": {
-        "message": "Chiudi tutte le cartelle"
+        "message": "Comprimi tutte le cartelle"
     },
     "contextmenu_reload_sidebar": {
-        "message": "Ricarica barra laterale"
+        "message": "Aggiorna la barra laterale"
     },
     "contextmenu_open_children": {
-        "message": "Apri tutti i preferiti nella cartella"
+        "message": "Apri i segnalibri"
     },
     "contextmenu_hide_from_sidebar": {
         "message": "Nascondi dalla barra laterale"
@@ -117,7 +117,7 @@
         "message": "Sblocca dall'alto"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Gestione Preferiti"
+        "message": "Gestore dei Segnalibri"
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Scorciatoie di tastiera"
@@ -126,10 +126,10 @@
         "message": "Seleziona pi\u00f9 voci"
     },
     "contextmenu_select_bookmark": {
-        "message": "Seleziona preferito"
+        "message": "Seleziona segnalibro"
     },
     "contextmenu_deselect_bookmark": {
-        "message": "Deseleziona preferito"
+        "message": "Deseleziona segnalibro"
     },
     "contextmenu_select_dir": {
         "message": "Seleziona cartella"
@@ -138,7 +138,7 @@
         "message": "Deseleziona cartella"
     },
     "sort_label_custom": {
-        "message": "Manuale"
+        "message": "Definito dall'utente"
     },
     "sort_label_alphabetical": {
         "message": "Alfabetico"
@@ -168,7 +168,7 @@
         "message": "Indirizzo"
     },
     "overlay_bookmark_additional_info": {
-        "message": "informazioni addizionali"
+        "message": "Informazioni aggiuntive"
     },
     "overlay_cancel": {
         "message": "Annulla"
@@ -192,25 +192,25 @@
         "message": "Apri tutti"
     },
     "overlay_confirm_open_children": {
-        "message": "Vuoi davvero aprire tutti i {1} preferiti contenuti nella cartella?"
+        "message": "Vuoi davvero aprire tutti i {1} segnalibri contenuti nella cartella?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Nascondi dalla barra laterale"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Vuoi davvero nascondere questo preferito dalla barra laterale?"
+        "message": "Vuoi davvero nascondere questo segnalibro dalla barra laterale?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Vuoi davvero nascondere questa cartella dalla barra laterale? Saranno nascosti anche tutti i preferiti in essa contenuti."
+        "message": "Vuoi davvero nascondere questa cartella dalla barra laterale? Saranno nascosti anche tutti i segnalibri in essa contenuti."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Vuoi davvero eliminare questo preferito?"
+        "message": "Vuoi davvero eliminare questo segnalibro?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Vuoi davvero eliminare questa cartella? Saranno rimossi anche tutti i preferiti in essa contenuti."
+        "message": "Vuoi davvero eliminare questa cartella? Saranno rimossi anche tutti i segnalibri in essa contenuti."
     },
     "overlay_label_bookmark": {
-        "message": "Preferito"
+        "message": "Segnalibro"
     },
     "overlay_label_dir": {
         "message": "Cartella"
@@ -222,10 +222,10 @@
         "message": "Posizione"
     },
     "overlay_add_position_prepend": {
-        "message": "Anteporre alla cartella"
+        "message": "Aggiungi all'inizio della cartella"
     },
     "overlay_add_position_append": {
-        "message": "Aggiungere alla cartella"
+        "message": "Aggiungi alla fine della cartella"
     },
     "overlay_separator_title_desc": {
         "message": "Puoi facoltativamente inserire un titolo per il separatore. Sar\u00e0 visualizzato sulla parte superiore della linea di separazione e pu\u00f2 aiutarti a organizzare la tua lista di segnalibri."
@@ -249,7 +249,7 @@
         "message": "Elementi"
     },
     "overlay_dir_children_bookmarks": {
-        "message": "Preferiti"
+        "message": "Segnalibri"
     },
     "overlay_dir_children_dirs": {
         "message": "Cartelle"
@@ -273,7 +273,7 @@
         "message": "Cartelle vuote"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Sto controllando gli indirizzi dei preferiti"
+        "message": "Sto controllando gli indirizzi dei segnalibri"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Aggiorna selezionati"
@@ -282,16 +282,16 @@
         "message": "Rimuovi selezionati"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Tutti gli indirizzi dei preferiti sono OK"
+        "message": "Tutti gli indirizzi dei segnalibri sono validi"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Non ci sono indirizzi modificati"
+        "message": "Non sono presenti indirizzi di segnalibri modificati"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "Non ci sono indirizzi sbagliati"
+        "message": "Non sono presenti indirizzi di segnalibri non funzionanti"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Non ci sono indirizzi duplicati"
+        "message": "Non sono presenti indirizzi di segnalibri duplicati"
     },
     "overlay_check_bookmarks_no_results_empty": {
         "message": "Non sono presenti cartelle senza segnalibri"
@@ -303,10 +303,10 @@
         "message": "Pagine migliori"
     },
     "newtab_grid_links_recently_used": {
-        "message": "Preferiti usati di recente"
+        "message": "Segnalibri usati di recente"
     },
     "newtab_grid_links_most_used": {
-        "message": "Preferiti pi\u00f9 usati"
+        "message": "Segnalibri pi\u00f9 usati"
     },
     "newtab_grid_links_custom": {
         "message": "Definito dall'utente"
@@ -336,7 +336,7 @@
         "message": "Suggerisci ricerche"
     },
     "newtab_search_suggest_bookmarks": {
-        "message": "Suggerisci preferiti"
+        "message": "Suggerisci segnalibri"
     },
     "newtab_search_suggest_history": {
         "message": "Suggerisci pagine visitate"
@@ -393,10 +393,10 @@
         "message": "Servizio non disponibile"
     },
     "status_feedback_unavailable_desc": {
-        "message": "Il servizio di feedback non \u00e8 al momento disponibile. Se vuoi lasciare un commento, puoi inviarmi un'email."
+        "message": "Il servizio di feedback non \u00e8 al momento disponibile. Se vuoi lasciare un commento, per favore mandami un'email."
     },
     "status_translation_unavailable_desc": {
-        "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
+        "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Per favore riprova pi\u00f9 tardi."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -456,7 +456,7 @@
         "message": "Condividi attivit\u00e0."
     },
     "contribute_share_activity_desc1": {
-        "message": "Puoi condividere il modo in cui usi la barra laterale in maniera anonima, ci\u00f2 mi aiuter\u00e0 a capire come viene usata dagli utenti. Informazioni sui tuoi preferiti o sulla cronologia dei siti visitati [b]non[\/b] saranno raccolte."
+        "message": "Puoi condividere il modo in cui usi la barra laterale in maniera anonima, ci\u00f2 mi aiuter\u00e0 a capire come viene usata dagli utenti. Informazioni sui tuoi segnalibri o sulla cronologia dei siti visitati [b]non[\/b] saranno raccolte."
     },
     "contribute_share_activity_desc2": {
         "message": "Queste informazioni mi sono molto utili al fine di identificare problemi nell'usabilit\u00e0 o a capire quali caratteristiche vengono usate poco dagli utenti."
@@ -471,7 +471,7 @@
         "message": "Qual'\u00e8 la piattaforma usata dagli utenti (Windows, Mac, Linux, ...)?"
     },
     "contribute_share_activity_example_3": {
-        "message": "Gli utenti usano la ricerca?"
+        "message": "Viene utilizzata la funzione di ricerca?"
     },
     "contribute_share_activity_example_4": {
         "message": "Gli utenti cambiano l'ordinamento dei segnalibri?"
@@ -531,7 +531,7 @@
         "message": "Clicca sull'icona dell'estensione per aprire la barra laterale."
     },
     "onboarding_handson_sidepanel_desc": {
-        "message": "Fai click sull'icona nel pannello laterale in cima al browser e scegli la vista Barra Laterale dei Preferiti"
+        "message": "Fai click sull'icona nel pannello laterale in cima al browser e scegli la vista Barra Laterale dei Segnalibri"
     },
     "onboarding_left": {
         "message": "sinistro"
@@ -565,6 +565,9 @@
     },
     "settings_menu_sidebar_overlay": {
         "message": "Maschera"
+    },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Pannello laterale"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Suggerimenti"
@@ -606,7 +609,7 @@
         "message": "Informazioni"
     },
     "settings_menu_infos_aboutme": {
-        "message": "Riguardo a me"
+        "message": "Riguardo me"
     },
     "settings_menu_infos_permissions": {
         "message": "Permessi"
@@ -633,7 +636,7 @@
         "message": "Salva le modifiche"
     },
     "settings_saved_message": {
-        "message": "Modifiche salvate correttamente"
+        "message": "Modifiche salvate con successo"
     },
     "settings_restore": {
         "message": "Ripristina le impostazioni predefinite"
@@ -654,7 +657,7 @@
         "message": "La versione Premium \u00e8 stata attivata con successo"
     },
     "settings_premium_invalid_key": {
-        "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una licenza valida"
+        "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una chiave di licenza valida"
     },
     "settings_search_placeholder": {
         "message": "Cerca la configurazione"
@@ -663,13 +666,13 @@
         "message": "Le impostazioni avanzate ti consentono di configurare tutti i flag di configurazione dell'estensione, anche quelli che non puoi modificare utilizzando le normali caselle di controllo o slider della pagina delle impostazioni."
     },
     "settings_expert_settings_notice": {
-        "message": "Si prega di cambiare i valori qui solo se sai cosa stai facendo! Le configurazioni errate possono causare un comportamento imprevisto dell'estensione. Se qualcosa non funziona in modo corretto, \u00e8 possibile ripristinare la configurazione predefinita."
+        "message": "Si prega di cambiare i valori qui solo se sai cosa stai facendo! Le configurazioni errate possono causare un comportamento imprevisto dell'estensione. Se qualcosa non funziona in modo corretto, \u00e8 comunque possibile ripristinare la configurazione predefinita."
     },
     "settings_expert_save_error": {
         "message": "Impossibile salvare le impostazioni. Per favore correggi il tuo inserimento."
     },
     "settings_dashboard_sidebar_options": {
-        "message": "Configurare il comportamento della barra laterale"
+        "message": "Configura il comportamento della barra laterale"
     },
     "settings_dashboard_sidebar_options_desc": {
         "message": "Ci sono varie opzioni che puoi cambiare per controllare l'estensione. Per esempio, puoi cambiare il modo in cui la barra laterale dovrebbe scorrere o come i segnalibri dovrebbero essere aperti. Se non vuoi che la barra laterale sia caricata per ogni pagina, puoi configurare anche questo usando le giuste regole."
@@ -696,49 +699,49 @@
         "message": "Area di attivazione"
     },
     "settings_tips_tricks_activation_area_desc": {
-        "message": "Come impostazione predefinita, puoi passare sull'intera area del bordo del browser per aprire la barra laterale. Puoi rendere l'area di attivazione pi\u00f9 piccola facendo in modo che la barra laterale si apra solo passando su una porzione dell'altezza del browser. Per esempio, puoi cambiare facendo in modo che la barra laterale si mostri quando fai click sull'area di attivazione nell'angolo in basso a sinistra della finestra del browser. Questo pu\u00f2 essere utile per prevenire che la barra laterale si mostri inavvertitamente quando selezioni dei collegamenti in un sito web."
+        "message": "Come impostazione predefinita, \u00e8 possibile passare il mouse sull'intero bordo della finestra del browser per aprire la barra laterale. Puoi rendere l'area di attivazione pi\u00f9 piccola facendo in modo che la barra laterale si apra solo passando su una porzione dell'altezza del browser. Per esempio, puoi modificare la barra laterale in modo che venga visualizzata solo quando fai clic sull'area di attivazione nell'angolo in basso a sinistra della finestra del browser. Questo pu\u00f2 essere utile per prevenire che la barra laterale appaia inavvertitamente quando selezioni dei collegamenti in un sito web."
     },
     "settings_tips_tricks_quick_bookmarking": {
         "message": "Segnalibri veloci"
     },
     "settings_tips_tricks_quick_bookmarking_desc": {
-        "message": "Puoi trascinare qualsiasi URL direttamente nella barra laterale e rilasciarlo nella posizione desiderata. Puoi anche contrassegnare e trascinare l'URL corrente di una scheda del browser in questo modo. Puoi anche trascinare il simbolo {1} a sinistra della barra degli indirizzi nella barra laterale per aggiungere la pagina corrente ai preferiti senza contrassegnare prima l'intera barra degli indirizzi."
+        "message": "Puoi trascinare qualsiasi URL direttamente nella barra laterale e rilasciarlo nella posizione desiderata. Puoi anche contrassegnare e trascinare l'URL corrente di una scheda del browser in questo modo. Puoi anche trascinare il simbolo {1} a sinistra della barra degli indirizzi nella barra laterale per aggiungere la pagina corrente ai segnalibri senza contrassegnare prima l'intera barra degli indirizzi."
     },
     "settings_tips_tricks_separators": {
         "message": "Separatori"
     },
     "settings_tips_tricks_separators_desc": {
-        "message": "Una voce dei preferiti con l'URL {1} e un titolo {2} o {3} verr\u00e0 visualizzata come separatore nella barra laterale. \u00c8 possibile aggiungere separatori clickando con il pulsante destro del mouse su qualsiasi cartella nella barra laterale e quindi clickando sul pulsante {4}."
+        "message": "Una voce dei segnalibri con l'URL {1} e un titolo {2} o {3} verr\u00e0 visualizzata come separatore nella barra laterale. \u00c8 possibile aggiungere separatori cliccando con il pulsante destro del mouse su qualsiasi cartella nella barra laterale e quindi cliccando sul pulsante {4}."
     },
     "settings_tips_tricks_quick_url_copy": {
         "message": "Copia rapida dell'URL"
     },
     "settings_tips_tricks_quick_url_copy_desc": {
-        "message": "Per copiare l'URL di un preferito nella barra laterale negli appunti, puoi premere {1} quando passi il mouse su una voce."
+        "message": "Per copiare l'URL di un segnalibro nella barra laterale negli appunti, puoi premere {1} quando passi il mouse su una voce."
     },
     "settings_tips_tricks_open_all_bookmarks": {
-        "message": "Apri tutti i preferiti"
+        "message": "Apri tutti i segnalibri"
     },
     "settings_tips_tricks_open_all_bookmarks_desc": {
-        "message": "Per aprire tutti i preferiti in una cartella, puoi clickare con il pulsante centrale sulla cartella. In alternativa puoi premere {1} mentre clicki su una cartella con il pulsante sinistro del mouse."
+        "message": "Per aprire tutti i segnalibri in una cartella, puoi cliccare con il pulsante centrale sulla cartella. In alternativa puoi premere {1} mentre clicchi su una cartella con il pulsante sinistro del mouse."
     },
     "settings_tips_tricks_hide_entries": {
         "message": "Nascondi elementi"
     },
     "settings_tips_tricks_hide_entries_desc": {
-        "message": "Puoi nascondere singoli segnalibri o persino cartelle dalla barra laterale. Puoi clickare con il pulsante destro del mouse su qualsiasi voce nella barra laterale e quindi clickare sul pulsante {1} nel menu contestuale. Per visualizzare nuovamente le voci nascoste, puoi clickare sull'icona del menu nell'intestazione della barra laterale e abilitare l\u00ec la casella di controllo corrispondente."
+        "message": "Puoi nascondere singoli segnalibri o persino cartelle dalla barra laterale. Puoi cliccare con il pulsante destro del mouse su qualsiasi voce nella barra laterale e quindi cliccare sul pulsante {1} nel menu contestuale. Per visualizzare nuovamente le voci nascoste, puoi cliccare sull'icona del menu nell'intestazione della barra laterale e abilitare l\u00ec la casella di controllo corrispondente."
     },
     "settings_tips_tricks_expand_all_subfolders": {
         "message": "Espandi tutte le sottocartelle"
     },
     "settings_tips_tricks_expand_all_subfolders_desc": {
-        "message": "Per aprire rapidamente una cartella con tutte le sue sottocartelle aperte, puoi fare doppio click su una cartella nella barra laterale."
+        "message": "Per aprire rapidamente una cartella con tutte le sue sottocartelle aperte, puoi fare doppio clic su una cartella nella barra laterale."
     },
     "settings_tips_tricks_keyboard_shortcuts": {
         "message": "Scorciatoie da tastiera"
     },
     "settings_tips_tricks_keyboard_shortcuts_desc": {
-        "message": "La barra laterale pu\u00f2 essere controllata utilizzando le scorciatoie da tastiera. Puoi dare un'occhiata a un elenco di scorciatoie clickando sull'icona del menu nell'intestazione della barra laterale e quindi sul pulsante {1}."
+        "message": "La barra laterale pu\u00f2 essere controllata utilizzando le scorciatoie da tastiera. Puoi dare un'occhiata a un elenco di scorciatoie cliccando sull'icona del menu nell'intestazione della barra laterale e quindi sul pulsante {1}."
     },
     "settings_tips_tricks_synchronization": {
         "message": "Sincronizzazione"
@@ -762,7 +765,7 @@
         "message": "Tasto destro"
     },
     "settings_tips_tricks_right_click_desc": {
-        "message": "Puoi clickare con il tasto destro su qualsiasi segnalibro o cartella nella barra laterale per rivelare opzioni aggiuntive. Ad esempio, puoi modificare i segnalibri esistenti o appuntare le voci nella parte superiore della barra laterale. Quando si clicka con il pulsante destro del mouse su una cartella, \u00e8 possibile avviare un controllo dei segnalibri per identificare gli URL dei segnalibri danneggiati o aggiornati."
+        "message": "Puoi cliccare con il tasto destro su qualsiasi segnalibro o cartella nella barra laterale per visualizzare opzioni aggiuntive. Ad esempio, puoi modificare i segnalibri esistenti o appuntare le voci nella parte superiore della barra laterale. Quando clicchi con il pulsante destro del mouse su una cartella, \u00e8 possibile avviare un controllo dei segnalibri per identificare gli URL dei segnalibri danneggiati o aggiornati."
     },
     "settings_tips_tricks_share_data": {
         "message": "Condividi informazioni"
@@ -780,7 +783,7 @@
         "message": "Nuova scheda"
     },
     "settings_tips_tricks_newtab_desc": {
-        "message": "\u00c8 possibile configurare l'aspetto della pagina Nuova scheda direttamente sulla pagina facendo clic sul pulsante {1} nell'angolo inferiore. Quindi puoi modificare gli elementi della griglia, il motore di ricerca, l'immagine di sfondo o i collegamenti in alto."
+        "message": "Puoi configurare l'aspetto della pagina Nuova Scheda direttamente sulla pagina facendo clic sul pulsante {1} nell'angolo inferiore. Quindi puoi modificare gli elementi della griglia, il motore di ricerca, l'immagine di sfondo o i collegamenti in alto."
     },
     "settings_tips_tricks_privacy": {
         "message": "Privacy"
@@ -792,13 +795,13 @@
         "message": "Pannello laterale del browser"
     },
     "settings_tips_tricks_sidepanel_desc": {
-        "message": "Puoi tenere la barra laterale sempre aperta mentre navighi: il browser prevede un pannello laterale dedicato. Clicca l'icona del pannello laterale in alto nel browser e seleziona la vista preferiti nel menu a discesa."
+        "message": "Puoi tenere la barra laterale sempre aperta mentre navighi: il browser prevede un pannello laterale dedicato. Clicca l'icona del pannello laterale nella parte superiore nel browser e seleziona la visualizzazione della barra laterale dei segnalibri."
     },
     "settings_open_action": {
         "message": "Apri la barra laterale"
     },
     "settings_open_action_desc": {
-        "message": "Apri la barra laterale con un click (pulsante destro o sinistro) del mouse o passando col cursore sul bordo della finestra del browser. Oppure puoi scegliere di aprire la barra laterale esclusivamente con un click sull'icona dell'estensione nella barra dei menu di {browserName}."
+        "message": "Apri la barra laterale con un clic o spostando il puntatore del mouse sul bordo sinistro o destro della finestra del browser. In alternativa puoi modificarlo per aprirlo solo se si fa clic sull'icona dell'estensione."
     },
     "settings_open_action_leftclick": {
         "message": "Premi il pulsante sinistro del mouse"
@@ -828,7 +831,7 @@
         "message": "Altezza"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Puoi ridurre l'altezza dell'area, in modo che la barra laterale si apra solo quando sposti il cursore in quella zona del bordo della finestra."
+        "message": "Puoi ridurre l'altezza dell'area attive, in modo che la barra laterale si apra solo quando sposti il cursore in quella zona del bordo della finestra del browser."
     },
     "settings_toggle_area_drag_desc": {
         "message": "Trascina per spostare"
@@ -849,10 +852,10 @@
         "message": "Apri la barra laterale nel pannello dedicato del browser"
     },
     "settings_link_action": {
-        "message": "Apri preferiti"
+        "message": "Apri segnalibri"
     },
     "settings_link_action_desc": {
-        "message": "Cliccando con il tasto sinistro del mouse, il preferito verr\u00e0 aperto nella scheda corrente o in una nuova scheda."
+        "message": "Cliccando con il tasto sinistro del mouse, il segnalibro verr\u00e0 aperto nella scheda corrente o in una nuova scheda."
     },
     "settings_link_action_current_tab": {
         "message": "Scheda corrente"
@@ -864,7 +867,7 @@
         "message": "Ritardo attivazione"
     },
     "settings_open_delay_desc": {
-        "message": "Aggiunge un ritardo personalizzabile prima dell'apertura della barra laterale al passaggio del cursore o al click del mouse."
+        "message": "Aggiunge un ritardo personalizzabile prima dell'apertura della barra laterale al passaggio del cursore o al clic del mouse."
     },
     "settings_prevent_pagescroll": {
         "message": "Previeni lo scorrimento della pagina"
@@ -876,7 +879,7 @@
         "message": "Mostra solo la cartella selezionata"
     },
     "settings_dir_accordion_desc": {
-        "message": "Chiude tutte le cartelle ad eccezione di quella selezionata."
+        "message": "Comprime tutte le cartelle ad eccezione di quella selezionata."
     },
     "settings_remember_state": {
         "message": "Ricorda"
@@ -885,7 +888,7 @@
         "message": "Posizione di scorrimento e cartelle aperte"
     },
     "settings_remember_state_all": {
-        "message": "Posizione di scorrimento, cartelle aperte e ultimo preferito aperto"
+        "message": "Posizione di scorrimento, cartelle aperte e ultimo segnalibro aperto"
     },
     "settings_remember_state_open_states": {
         "message": "Cartelle aperte"
@@ -900,13 +903,13 @@
         "message": "Ricorda le sottodirectory aperte"
     },
     "settings_remember_desc": {
-        "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
+        "message": "Scegli cosa ricordare durante il cambio pagina. Se scegli di ricordare l'ultimo segnalibro aperto, rimarr\u00e0 evidenziato all'apertura successiva della barra laterale."
     },
     "settings_new_tab": {
         "message": "Nuova scheda"
     },
     "settings_new_tab_desc": {
-        "message": "Apri i preferiti in una nuova scheda in primo piano o secondo piano"
+        "message": "Apri i segnalibri in una nuova scheda in primo piano o secondo piano"
     },
     "settings_new_tab_foreground": {
         "message": "Apri in primo piano"
@@ -939,7 +942,7 @@
         "message": "Nascondi barra di scorrimento"
     },
     "settings_scroll_bar_hide_desc": {
-        "message": "Il numero di secondi necessari per far nascondere la barra di scorrimento. Scorrere i preferiti far\u00e0 apparire nuovamente la barra."
+        "message": "Il numero di secondi necessari per far nascondere la barra di scorrimento. Scorrere i segnalibri far\u00e0 apparire nuovamente la barra."
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Non nascondere mai"
@@ -954,7 +957,7 @@
         "message": "Ritardo descrizione"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Il tempo necessario per la comparsa della finestra descrittiva dei preferiti al passaggio del mouse."
+        "message": "Il tempo necessario per la comparsa della finestra descrittiva dei segnalibri al passaggio del mouse."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Non mostrare mai la descrizione"
@@ -987,7 +990,7 @@
         "message": "Abilita la visualizzazione della barra laterale"
     },
     "settings_overlay_enabled_desc": {
-        "message": "Se desideri accedere ai preferiti dal pannello dedicato del browser, puoi disattivare la barra laterale."
+        "message": "Se desideri accedere ai segnalibri dal pannello dedicato del browser, puoi disattivare la barra laterale."
     },
     "settings_sidebar_position_desc": {
         "message": "Ti permette di scegliere se aprire la barra laterale sul lato destro o sinistro dello schermo."
@@ -1002,7 +1005,7 @@
         "message": "Aggiungi solo un pattern indirizzo per riga"
     },
     "settings_filter_explanation_2": {
-        "message": "Usa * raggruppare ogni carattere (ad esempio: example.com\/* raggruppa ogni carattere sotto example.com)."
+        "message": "Usa * per abbinare qualsiasi carattere (ad esempio: example.com\/* raggruppa ogni carattere sotto example.com)."
     },
     "settings_filter_explanation_3": {
         "message": "Se non includi nessun * in una regola, solo l'indirizzo esatto verr\u00e0 considerato (ad esempio: \"example.com\" non verr\u00e0 raggruppato assieme a \"example.com\/about.html\")."
@@ -1038,10 +1041,10 @@
         "message": "Puoi esportare le impostazioni dell'estensione e salvare in locale sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."
     },
     "settings_export": {
-        "message": "Esporta Impostazioni"
+        "message": "Esporta impostazioni"
     },
     "settings_import": {
-        "message": "Importa Impostazioni"
+        "message": "Importa impostazioni"
     },
     "settings_import_saved": {
         "message": "Impostazioni importate con successo"
@@ -1054,6 +1057,15 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Questa \u00e8 una caratteristica del browser e non fa parte dell'estensione. Leggi di pi\u00f9 su come importare ed esportare i segnalibri in {browserName}."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Qui puoi modificare il comportamento della barra laterale che viene visualizzata nel pannello laterale accanto al contenuto principale delle pagine web."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configura se il pannello laterale del browser deve aprirsi sul lato sinistro o destro."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configura il pannello laterale"
     },
     "settings_presets": {
         "message": "Imposta dimensioni relative"
@@ -1077,7 +1089,7 @@
         "message": "Il colore dell'intestazione della barra laterale, riquadri di spunta, ecc."
     },
     "settings_text_color": {
-        "message": "Colore testo"
+        "message": "Colore del testo"
     },
     "settings_hover_color": {
         "message": "Colore al passaggio del mouse"
@@ -1110,7 +1122,7 @@
         "message": "Il colore dell'icona sar\u00e0 impostato automaticamente per corrispondere allo schema colori del vostro sistema (luminoso o scuro). Potete anche definire un colore personalizzato per l'icona"
     },
     "settings_icon_color_desc_2": {
-        "message": "Considerate che l'impostazione automatica non funziona quando si usa un tema personalizzato per {browserName}."
+        "message": "Tieni presente che l'impostazione automatica non funziona quando si usa un tema personalizzato per {browserName}."
     },
     "settings_indicator_width": {
         "message": "Larghezza"
@@ -1127,6 +1139,9 @@
     "settings_sidebar_width": {
         "message": "Larghezza"
     },
+    "settings_sidebar_width_desc": {
+        "message": "La larghezza della barra laterale quando si sovrappone al sito Web attualmente visitato. Questa opzione non ha effetto quando si utilizza la barra laterale nel pannello laterale fornito dal browser."
+    },
     "settings_header_height": {
         "message": "Altezza dell'intestazione"
     },
@@ -1137,7 +1152,7 @@
         "message": "Trasparenza dello sfondo"
     },
     "settings_background_blur": {
-        "message": "effetto sfocatura dello sfondo"
+        "message": "Effetto sfocatura dello sfondo"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Icona delle cartelle"
@@ -1146,25 +1161,25 @@
         "message": "Colore dell'icona delle cartelle"
     },
     "settings_bookmarks_font_size": {
-        "message": "Dimensione del font dei preferiti"
+        "message": "Dimensione del font dei segnalibri"
     },
     "settings_bookmarks_icon_size": {
-        "message": "Dimensione dell'icona dei preferiti"
+        "message": "Dimensione dell'icona dei segnalibri"
     },
     "settings_directories_icon_size": {
         "message": "Dimensione dell'icona delle cartelle"
     },
     "settings_directory_arrows": {
-        "message": "Frecce delle directory"
+        "message": "Frecce delle cartelle"
     },
     "settings_bookmarks_line_height": {
-        "message": "Altezza della riga dei preferiti"
+        "message": "Altezza della riga dei segnalibri"
     },
     "settings_bookmarks_horizontal_padding": {
         "message": "Spazio tra gli elementi orizzontali"
     },
     "settings_bookmarks_dir_indentation": {
-        "message": "Indentazione delle cartelle"
+        "message": "Rientro delle cartelle"
     },
     "settings_tooltip_font_size": {
         "message": "Grandezza del font dei consigli"
@@ -1176,16 +1191,16 @@
         "message": "Forma"
     },
     "settings_custom_css": {
-        "message": "Foglio di style personalizzato"
+        "message": "Foglio di stile personalizzato"
     },
     "settings_custom_css_desc": {
-        "message": "Puoi impostare il tuo file di stile in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
+        "message": "Puoi impostare il tuo foglio di stile in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
     },
     "settings_theme": {
         "message": "Tema"
     },
     "settings_themes_notice": {
-        "message": "Puoi scegliere il design base del barra laterale. Il tema selezionato pu\u00f2 essere personalizzato con i cursori disponibili e le opzioni cromatiche."
+        "message": "Puoi scegliere il design base del barra laterale. Il tema selezionato pu\u00f2 essere personalizzato con i cursori disponibili e le opzioni di colore."
     },
     "settings_available_themes": {
         "message": "Temi disponibili"
@@ -1197,7 +1212,7 @@
         "message": "Tema predefinito"
     },
     "settings_theme_default_desc": {
-        "message": "Questo tema ti consente di accedere ai tuoi preferiti in una maniera pulita e moderna. Molti elementi sono colorati con schema cromatico configurabile."
+        "message": "Questo tema ti consente di accedere ai tuoi segnalibri in una maniera pulita e moderna. Molti elementi sono colorati con schema cromatico configurabile."
     },
     "settings_theme_glass": {
         "message": "Tema vetro"
@@ -1206,7 +1221,7 @@
         "message": "Questo tema rende lo sfondo della barra laterale semi-trasparente e aggiunge un efetto vetro sfocato. Puoi regolare questo effetto e l'intensit\u00e0 della trasparenza della barra laterale."
     },
     "settings_theme_focus": {
-        "message": "Focus tema"
+        "message": "Tema centrale"
     },
     "settings_theme_focus_desc": {
         "message": "Questo tema riduce le animazioni e dispone gli elementi pi\u00f9 densi per migliorare la produttivit\u00e0 e le prestazioni."
@@ -1221,7 +1236,7 @@
         "message": "Tema modificato con successo"
     },
     "settings_newtab_desc": {
-        "message": "Puoi bypassare la \"Nuova Scheda\" di default, rendendola una pagina fornita da questa estensione. Questa nuova schermata mostrer\u00e0 la tua barra laterale dei preferiti e potr\u00e0 essere configurata per migliorare la tua produttivit\u00e0."
+        "message": "Puoi bypassare la \"Nuova Scheda\" di default, rendendola una pagina fornita da questa estensione. Questa nuova schermata mostrer\u00e0 la tua barra laterale dei segnalibri e potr\u00e0 essere configurata per migliorare la tua produttivit\u00e0."
     },
     "settings_newtab_override": {
         "message": "Bypassa la pagina \"Nuova scheda\""
@@ -1380,7 +1395,7 @@
         "message": "Ottieni ora la versione Premium"
     },
     "premium_show_license_input": {
-        "message": "Gi\u00e0 ho la versione Premium"
+        "message": "Ho gi\u00e0 la versione Premium"
     },
     "premium_already_activated": {
         "message": "Stai gi\u00e0 usando la versione Premium"
@@ -1416,13 +1431,13 @@
         "message": "Se conosci CSS, puoi cambiare completamente la grafica della barra laterale aggiungendo le tue definizioni di stile. Questo ti permette di personalizzare praticamente ogni aspetto dell'estensione."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "Controlla i preferiti alla ricerca di link non funzionanti o duplicati"
+        "message": "Controlla i segnalibri alla ricerca di link non funzionanti o duplicati"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Puoi cliccare con il tasto destro del mouse su ogni cartella della tua barra laterale e fare un controllo. La pagina dei risultati mostrer\u00e0 tutti gli URL aggiornati, i preferiti che non funzionano pi\u00f9 e quelli con lo stesso URL."
+        "message": "Puoi cliccare con il tasto destro del mouse su ogni cartella della tua barra laterale e fare un controllo. La pagina dei risultati mostrer\u00e0 tutti gli URL aggiornati, i segnalibri che non funzionano pi\u00f9 e quelli con lo stesso URL."
     },
     "premium_feature_themes_headline": {
-        "message": "Cambia il tema della sidebar"
+        "message": "Cambia il tema della tua barra laterale"
     },
     "premium_feature_themes_desc": {
         "message": "Puoi scambiare l'intero design della barra laterale con un clic installando un altro tema. Possono anche essere personalizzati con i cursori disponibili e le opzioni di colore."
@@ -1461,7 +1476,7 @@
         "message": "Ho letto e accetto l'[a]Accordo della Licenza per l'Utente[\/a]"
     },
     "premium_pay_cancellation_policy": {
-        "message": "Policy di cancellazione"
+        "message": "Politica di cancellazione"
     },
     "premium_pay_confirm_headline": {
         "message": "Confermare l'acquisto"

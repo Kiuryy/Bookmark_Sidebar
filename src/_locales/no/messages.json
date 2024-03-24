@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Overlegg"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Sidepanel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Verkt\u00f8ytips"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Dette er en nettleserfunksjon og ikke en del av utvidelsen. Les mer om hvordan du importerer og eksporterer bokmerker i {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Her kan du endre virkem\u00e5ten til sidefeltet som vises i sidepanelet ved siden av hovedinnholdet p\u00e5 nettsider."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Konfigurer om nettleserens sidepanel skal \u00e5pnes p\u00e5 venstre eller h\u00f8yre side."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Konfigurer sidepanelet"
+    },
     "settings_presets": {
         "message": "Angi relative st\u00f8rrelser"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Bredde"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "Bredden p\u00e5 sidefeltet n\u00e5r den overlapper det bes\u00f8kte nettstedet. Dette alternativet har ingen effekt n\u00e5r du bruker sidefeltet i nettleserens sidepanel."
     },
     "settings_header_height": {
         "message": "Overskriftsomr\u00e5dets h\u00f8yde"

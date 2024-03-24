@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "P\u0159ekr\u00fdv\u00e1n\u00ed"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Postrann\u00ed panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Popisek"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Toto je funkce prohl\u00ed\u017ee\u010de a nen\u00ed sou\u010d\u00e1st\u00ed roz\u0161\u00ed\u0159en\u00ed. P\u0159e\u010dt\u011bte si v\u00edce o tom, jak importovat a exportovat z\u00e1lo\u017eky v prohl\u00ed\u017ee\u010di {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Zde m\u016f\u017eete zm\u011bnit chov\u00e1n\u00ed postrann\u00edho panelu, kter\u00fd se zobrazuje v bo\u010dn\u00edm panelu vedle hlavn\u00edho obsahu webov\u00fdch str\u00e1nek."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Nastavte, zda se m\u00e1 bo\u010dn\u00ed panel prohl\u00ed\u017ee\u010de otev\u00edrat na lev\u00e9 nebo na prav\u00e9 stran\u011b."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Nastaven\u00ed postrann\u00edho panelu"
+    },
     "settings_presets": {
         "message": "Nastavit relativn\u00ed velikost"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "\u0160\u00ed\u0159ka"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u0160\u00ed\u0159ka postrann\u00edho panelu p\u0159i p\u0159ekryt\u00ed aktu\u00e1ln\u011b nav\u0161t\u011bvovan\u00e9ho webu. Tato mo\u017enost nem\u00e1 vliv p\u0159i pou\u017eit\u00ed postrann\u00edho panelu v postrann\u00edm panelu poskytnut\u00e9m prohl\u00ed\u017ee\u010dem."
     },
     "settings_header_height": {
         "message": "V\u00fd\u0161ka hlavi\u010dky"

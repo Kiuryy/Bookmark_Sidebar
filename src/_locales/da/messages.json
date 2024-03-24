@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Overl\u00e6g"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Side Panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "V\u00e6rkt\u00f8jstips"
     },
@@ -689,6 +692,9 @@
     "settings_tips_tricks_quick_search": {
         "message": "Hurtigs\u00f8gning"
     },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Hvis du \u00e5bner sidebaren, kan du s\u00f8ge efter bogm\u00e6rker bare ved at skrive. Der er ingen grund til at klikke p\u00e5 s\u00f8ge ikonet i toppen af sidebaren f\u00f8rst."
+    },
     "settings_tips_tricks_activation_area": {
         "message": "Aktiveringsomr\u00e5de"
     },
@@ -703,6 +709,9 @@
     },
     "settings_tips_tricks_open_all_bookmarks": {
         "message": "\u00c5ben alle bogm\u00e6rker"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "For at \u00e5bne alle bogm\u00e6rkerne i folderen, kan du mellem klikke p\u00e5 folderen. Alternativt kan du trykke {1} imens du klikker p\u00e5 folderen med h\u00f8jre side af musen"
     },
     "settings_tips_tricks_hide_entries": {
         "message": "Skjul poster"

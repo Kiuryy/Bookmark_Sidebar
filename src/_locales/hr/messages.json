@@ -558,13 +558,16 @@
         "message": "Pregled"
     },
     "settings_menu_sidebar": {
-        "message": "Bo\u010dna traka oznaka"
+        "message": "Bo\u010dna traka"
     },
     "settings_menu_sidebar_general": {
         "message": "Op\u0107enito"
     },
     "settings_menu_sidebar_overlay": {
         "message": "Prekrivanje"
+    },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Bo\u010dni Panel"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Opis"
@@ -576,7 +579,7 @@
         "message": "Op\u0107enito"
     },
     "settings_menu_appearance_sidebar": {
-        "message": "Bo\u010dna traka oznaka"
+        "message": "Bo\u010dna traka"
     },
     "settings_menu_appearance_indicator": {
         "message": "Pokazatelj"
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Ovo je zna\u010dajka preglednika i nije dio pro\u0161irenja. Pro\u010ditajte vi\u0161e kako uvesti i izvesti oznake u {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Ovdje mo\u017eete promijeniti pona\u0161anje bo\u010dne trake koja se prikazuje na bo\u010dnom panelu uz glavni sadr\u017eaj web stranica."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Izaberite ho\u0107e li se bo\u010dni panel preglednika otvoriti s lijeve ili desne strane."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Podesite bo\u010dni panel"
+    },
     "settings_presets": {
         "message": "Postavi relativne veli\u010dine"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "\u0160irina"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u0160irina bo\u010dne trake kada preklapa trenutno posje\u0107enu web stranicu. Ova opcija nema u\u010dinka kada koristite bo\u010dnu traku na bo\u010dnom panelu preglednika."
     },
     "settings_header_height": {
         "message": "Visina zaglavlja"

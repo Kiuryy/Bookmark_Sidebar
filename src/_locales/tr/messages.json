@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Kaplama"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Yan Panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Ara\u00e7 \u0130pu\u00e7lar\u0131"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Bu bir taray\u0131c\u0131 \u00f6zelli\u011fidir ve uzant\u0131n\u0131n bir par\u00e7as\u0131 de\u011fildir. Yer i\u015faretlerini {browserName} i\u00e7inde nas\u0131l i\u00e7e ve d\u0131\u015fa aktaraca\u011f\u0131n\u0131z hakk\u0131nda daha fazla bilgi edinin."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Web sayfalar\u0131n\u0131n ana i\u00e7eri\u011finin yan\u0131nda yan panelde g\u00f6r\u00fcnt\u00fclenen kenar \u00e7ubu\u011funun davran\u0131\u015f\u0131n\u0131 de\u011fi\u015ftirebilirsiniz."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Taray\u0131c\u0131 yan panelinin sol tarafta m\u0131 yoksa sa\u011f tarafta m\u0131 a\u00e7\u0131laca\u011f\u0131n\u0131 yap\u0131land\u0131r\u0131n."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Yan paneli yap\u0131land\u0131r"
+    },
     "settings_presets": {
         "message": "G\u00f6receli boyutlar\u0131 ayarla"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Geni\u015flik"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u015eu anda ziyaret edilen web sitesiyle \u00f6rt\u00fc\u015ft\u00fc\u011f\u00fcnde kenar \u00e7ubu\u011funun geni\u015fli\u011fi. Bu se\u00e7ene\u011fin, taray\u0131c\u0131n\u0131n sa\u011flad\u0131\u011f\u0131 yan paneldeki kenar \u00e7ubu\u011funu kullan\u0131rken bir etkisi yoktur."
     },
     "settings_header_height": {
         "message": "Ba\u015fl\u0131k y\u00fcksekli\u011fi"

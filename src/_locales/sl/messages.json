@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Overlay"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Stranska plo\u0161\u010da"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Namigi"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "To je funkcija brskalnika in ni del raz\u0161iritve. Preberite ve\u010d o tem, kako uvoziti in izvoziti zaznamke v {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Tukaj lahko spremenite vedenje stranske vrstice, ki je prikazana na stranski plo\u0161\u010di poleg glavne vsebine spletnih strani."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Konfigurirajte, ali naj se stranska plo\u0161\u010da brskalnika odpre na levi ali desni strani."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Konfigurirajte stransko plo\u0161\u010do"
+    },
     "settings_presets": {
         "message": "Nastavi relativne velikosti"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "\u0160irina"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u0160irina stranske vrstice pri prekrivanju trenutno obiskanega spletnega mesta. Ta mo\u017enost nima u\u010dinka pri uporabi stranske vrstice na stranski plo\u0161\u010di brskalnika."
     },
     "settings_header_height": {
         "message": "Vi\u0161ina glave"

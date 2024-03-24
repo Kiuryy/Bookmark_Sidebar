@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Okno"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Panel boczny"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Etykieta"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Funkcja przegl\u0105darki a nie rozszerzenia. O imporcie i eksporcie mo\u017cesz przeczyta\u0107 wi\u0119cej w {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Tutaj mo\u017cesz zmieni\u0107 zachowanie paska bocznego, kt\u00f3ry jest wy\u015bwietlany w panelu bocznym obok g\u0142\u00f3wnej zawarto\u015bci stron internetowych."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Skonfiguruj, czy panel boczny przegl\u0105darki ma si\u0119 otwiera\u0107 po lewej czy po prawej stronie."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Konfiguracja panelu bocznego"
+    },
     "settings_presets": {
         "message": "Ustaw relatywne rozmiary"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Szeroko\u015b\u0107"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "Szeroko\u015b\u0107 paska bocznego po na\u0142o\u017ceniu na aktualnie odwiedzan\u0105 stron\u0119. Ta opcja nie ma wp\u0142ywu na korzystanie z paska bocznego w panelu bocznym przegl\u0105darki."
     },
     "settings_header_height": {
         "message": "Wysoko\u015b\u0107 nag\u0142\u00f3wka"

@@ -23,9 +23,9 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
     "sass": "^1.72.0",
-    "npm-check-updates": "^16.14.17",
+    "npm-check-updates": "^16.14.18",
     "read-file": "^0.2.0",
-    "terser": "^5.29.2",
+    "terser": "^5.30.0",
     "zip-dir": "^2.0.0"
   }
 }

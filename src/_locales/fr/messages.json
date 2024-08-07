@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "S\u00e9lectionnez un moyen de paiement ci-dessous et choisissez le montant que vous d\u00e9sirez payer \u00e0 l'\u00e9tape suivante."
     },
-    "premium_pay_select_payment_method": {
-        "message": "S\u00e9lectionnez un moyen de paiement"
-    },
     "premium_pay_what_you_want": {
         "message": "Payez ce que vous voulez"
-    },
-    "premium_pay_creditcard": {
-        "message": "Carte de d\u00e9bit ou de cr\u00e9dit"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Scannez ce QR code sur WeChat pour continuer"
     },
     "premium_pay_contact": {
         "message": "En cas de probl\u00e8me avec votre paiement, ou pour toute question suppl\u00e9mentaire, n'h\u00e9sitez pas \u00e0 me contacter : {1}"
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Nom"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Code postal"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "M\u00e9thode de paiement"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Num\u00e9ro de carte"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Date d'expiration"
     }
 }

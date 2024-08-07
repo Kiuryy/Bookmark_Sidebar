@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Nedavno dodati"
     },
+    "sort_label_url": {
+        "message": "Link"
+    },
     "sort_view_as_tree": {
         "message": "Prika\u017ei direktorijume"
     },
@@ -482,8 +485,23 @@
     "onboarding_headline": {
         "message": "Hvala na instalaciji ovog pro\u0161irenja (ekstenzije)"
     },
+    "onboarding_intro_desc": {
+        "message": "Postoji vise na\u010dina da otvorite bo\u0107nu stranicu"
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Otvorite preko sajta"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Otvorite uporedno sa gravnim kontentom website stranice"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Ne zelim da koristim stranicu koja prelazi preko"
+    },
     "onboarding_setup_start": {
         "message": "Podesi sada"
+    },
+    "onboarding_setup_complete": {
+        "message": "Pode\u0161avanja su zavr\u0161ena"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Gde \u017eeli\u0161 da dr\u017ei\u0161 bo\u010dnu traku?"
@@ -512,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Klikni na ikonu pro\u0161irenja (ekstenzije) da otvori\u0161 bo\u010dnu traku."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kliknite na ikonu bo\u010dne stranice na vrhu va\u0161eg pregleda\u010da i izaberite prikaz bo\u010dne trake sa obele\u017eiva\u010dima."
+    },
     "onboarding_left": {
         "message": "levo"
     },
     "onboarding_right": {
         "message": "desno"
+    },
+    "onboarding_handson_done": {
+        "message": "Ja sam zavr\u0161io"
     },
     "onboarding_finish_desc": {
         "message": "Zabavi se sa tvojom bo\u010dnom trakom."
@@ -542,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Prikaz preko"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Bo\u010dna stranica"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Kratka obja\u0161njenja"
     },
@@ -559,6 +586,9 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Ikona"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Okvir"
     },
     "settings_menu_newtab": {
         "message": "Novi tab"
@@ -636,10 +666,10 @@
         "message": "Pomocu naprednih postavki, mozete da promenite svaku od ponudjenih konfiguracija ekstenzije, ukljucujuci i prethodno nedostupna potvrdna polja i klizace, pomocu kojih menjate zeljene konfiguracije."
     },
     "settings_expert_settings_notice": {
-        "message": "Molimo promenite vrijednosti ovdje iskljucivo ako znate sta radite. Neispravne konfiguracije mogu prouzrokovati smetnje u radu ekstenzije. Ukoliko primetite smetnje u radu, mozete se vratiti na zadanu konfiguraciju."
+        "message": "Molimo promenite vrednosti ovdje iskljucivo ako znate \u0161ta radite. Neispravne konfiguracije mogu prouzrokovati smetnje u radu ekstenzije. Ukoliko primetite smetnje u radu, mo\u017eete se vratiti na zadanu konfiguraciju."
     },
     "settings_expert_save_error": {
-        "message": "Neuspjesno pohranjivanje postavki. Molimo da ispravite unos."
+        "message": "Neuspee\u0161no \u010duvanje postavki. Molimo da ispravite unos."
     },
     "settings_dashboard_sidebar_options": {
         "message": "Konfiguri\u0161ite pona\u0161anje bo\u010dne trake"
@@ -761,6 +791,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Obele\u017eiva\u010di prikazani na va\u0161oj bo\u010dnoj traci su sinhronizovani i njima upravlja {browserName}. Ekstenzija ne \u010duva niti analizira ove obele\u017eiva\u010de, vec\u0301 samo prikazuje one iz va\u0161eg pretra\u017eiva\u010da na bo\u010dnoj traci."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Bo\u010dna strana pregleda\u010da"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Mo\u017eete trajno imati otvorenu bo\u010dnu stranicu sa obele\u017eiva\u010dima dok pretra\u017eujete. Pregleda\u010d nudi bo\u010dnu stranicu. Kliknite na ikonu bo\u010dne trake na vrhu pregleda\u010da i izaberite prikaz bo\u010dne trake sa obele\u017eiva\u010dima."
+    },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku."
     },
@@ -802,6 +838,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Podesi skra\u0107enicu tastaturom"
+    },
+    "settings_icon_action": {
+        "message": "Kliknite na ikonu ekstenzije"
+    },
+    "settings_icon_action_desc": {
+        "message": "Mo\u017eete izabrati kako \u0107e se bo\u010dna stranica prikazivati kada kliknete na ikonu ekstenzije koja se nalazi desno od adresne trake pregleda\u010da."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Otvorite bo\u010dnu stranicu preko web stranica."
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Otvorite bo\u010dnu stranicu u bo\u010dnoj strani pregleda\u010da."
     },
     "settings_link_action": {
         "message": "Otvori obele\u017eiva\u010de"
@@ -932,8 +980,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dodatne informacije"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Ovde mo\u017eete promeniti pona\u0161anje preklapaju\u0107e bo\u010dne stranice koja se otvara preko web stranica."
+    },
     "settings_sidebar_position": {
         "message": "Pozicija"
+    },
+    "settings_overlay_enabled": {
+        "message": "Omogu\u0107ite preklapaju\u0107u bo\u010dnu stranicu"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Ako \u017eelite da pristupate obele\u017eiva\u010dima samo u bo\u010dnoj stranicu koju nudi pregleda\u010d, mo\u017eete deaktivirati preklapaju\u0107u bo\u010dnu stranicu."
     },
     "settings_sidebar_position_desc": {
         "message": "Defini\u0161e da li bi bo\u010dna traka trebala da se otvori na levoj ili na desnoj strani prozora pretra\u017eiva\u010da."
@@ -1000,6 +1057,15 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Ovo je funkcija pretra\u017eiva\u010da i nije deo dodatka. Pro\u010ditajte vi\u0161e o tome kako da uvezete i izvezete na {browserName}."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Ovde mo\u017eete promeniti pona\u0161anje bo\u010dne stranice koja se prikazuje u bo\u010dnoj stranici zajedno sa glavnim sadr\u017eajem web stranica."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Podesite da li \u0107e se bo\u010dna stranica pregleda\u010da otvarati na levoj ili desnoj strani."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Podesite bo\u010dnu stranicu."
     },
     "settings_presets": {
         "message": "Odredi relativnu velicinu"
@@ -1072,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Sirina"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u0160irina bo\u010dne stranice kada prekriva trenutno pose\u0107enu web stranicu. Ova opcija nema efekta kada se bo\u010dna strainca koristi u bo\u010dnoj strani pregleda\u010da."
     },
     "settings_header_height": {
         "message": "Visina hedera"
@@ -1165,6 +1234,9 @@
     },
     "settings_theme_changed": {
         "message": "Tema uspe\u0161no promenjena"
+    },
+    "settings_newtab_desc": {
+        "message": "Mo\u017eete zameniti podrazumevanu stranicu nove kartice va\u0161eg pretra\u017eiva\u010da sa stranicom koju obezbe\u0111uje ovo pro\u0161irenje. Ova stranica c\u0301e prikazati va\u0161u bo\u010dnu traku sa obele\u017eiva\u010dima i mo\u017ee se konfigurisati da pobolj\u0161a va\u0161u produktivnost."
     },
     "settings_newtab_override": {
         "message": "Zameni stranicu nove kartice"
@@ -1373,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Izaberite na\u010din pla\u0107anja i izaberite \u017eeljeni iznos koji \u017eelite da platite u slede\u0107em koraku."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Odaberite nacin placanja"
-    },
     "premium_pay_what_you_want": {
         "message": "Platite koliko zelite"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditna ili debitna kartica"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Skenirajte ovaj QR kod pomocu WeChat aplikacije kako biste nastavili"
     },
     "premium_pay_contact": {
         "message": "Ukoliko imate neki problem sa placanjem ili imate bilo kakva pitanja, molim Vas da me kontaktirate na {1}."
@@ -1435,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Ime"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Po\u0161tanski broj"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Na\u010din pla\u0107anja"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Broj kartice"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kartica isti\u010de"
     }
 }

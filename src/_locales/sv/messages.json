@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "\u00d6vert\u00e4ckning"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Sidopanel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Inforuta"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Detta \u00e4r en webbl\u00e4sarfunktion och ing\u00e5r inte i till\u00e4gget. L\u00e4s mer om hur du importerar och exporterar bokm\u00e4rken i {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "H\u00e4r kan du \u00e4ndra beteendet f\u00f6r sidof\u00e4ltet som visas i sidopanelen vid sidan av huvudinneh\u00e5llet p\u00e5 webbsidor."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Ange om webbl\u00e4sarens sidopanel ska \u00f6ppnas p\u00e5 h\u00f6ger eller v\u00e4nster sida."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Anpassa sidopanelen."
+    },
     "settings_presets": {
         "message": "Best\u00e4m relativ storlek"
     },
@@ -1127,8 +1139,11 @@
     "settings_sidebar_width": {
         "message": "Bredd"
     },
+    "settings_sidebar_width_desc": {
+        "message": "Bredden p\u00e5 sidof\u00e4ltet n\u00e4r den \u00f6verlappar den aktuella webbplatsen. Det h\u00e4r alternativet har ingen effekt n\u00e4r du anv\u00e4nder sidof\u00e4ltet i webbl\u00e4sarens sidopanel."
+    },
     "settings_header_height": {
-        "message": "Huvudh\u00f6jd"
+        "message": "Rubrik h\u00f6jd"
     },
     "settings_sidebar_mask_color": {
         "message": "Maskeringsf\u00e4rg"
@@ -1155,7 +1170,7 @@
         "message": "Storlek p\u00e5 mappikon"
     },
     "settings_directory_arrows": {
-        "message": "Mapppilar"
+        "message": "Mapp pilar"
     },
     "settings_bookmarks_line_height": {
         "message": "Bokm\u00e4rkets radh\u00f6jd"
@@ -1164,7 +1179,7 @@
         "message": "Bokm\u00e4rkets horisontala distans"
     },
     "settings_bookmarks_dir_indentation": {
-        "message": "Mappindentation"
+        "message": "Mapp indentering"
     },
     "settings_tooltip_font_size": {
         "message": "Verktygstips typsnittsstorlek"
@@ -1430,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "V\u00e4lj en betalningsmetod nedan och v\u00e4lj \u00f6nskat belopp du vill betala i n\u00e4sta steg."
     },
-    "premium_pay_select_payment_method": {
-        "message": "V\u00e4lj en betalningsmetod"
-    },
     "premium_pay_what_you_want": {
         "message": "Betala vad du vill"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kredit- eller betalkort"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Skanna den h\u00e4r QR-koden p\u00e5 WeChat f\u00f6r att forts\u00e4tta."
     },
     "premium_pay_contact": {
         "message": "Om du st\u00f6ter p\u00e5 problem med din betalning eller har n\u00e5gra fr\u00e5gor, v\u00e4nligen kontakta mig p\u00e5 {1}."
@@ -1492,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Namn"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Postnummer"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Betalningsmetod"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Kortnummer"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kortet g\u00e5r ut"
     }
 }

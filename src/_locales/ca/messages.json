@@ -1385,17 +1385,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Seleccioneu un m\u00e8tode de pagament a continuaci\u00f3 i trieu l'import que voleu pagar al pas seg\u00fcent."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Seleccioneu una forma de pagament"
-    },
     "premium_pay_what_you_want": {
         "message": "Paga el que vulguis"
-    },
-    "premium_pay_creditcard": {
-        "message": "Targeta de cr\u00e8dit o d\u00e8bit"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Escaneja aquest codi QR a WeChat per continuar."
     },
     "premium_pay_contact": {
         "message": "Si teniu cap problema amb el pagament o teniu cap pregunta, poseu-vos en contacte amb mi a {1}."
@@ -1447,17 +1438,5 @@
     },
     "premium_pay_info_name": {
         "message": "Nom"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Codi postal"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "M\u00e8tode de pagament"
-    },
-    "premium_pay_info_card_number": {
-        "message": "N\u00famero de targeta"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "La targeta caduca"
     }
 }

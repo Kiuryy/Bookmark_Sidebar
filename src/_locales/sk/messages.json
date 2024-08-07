@@ -152,6 +152,9 @@
     "sort_label_recently_added": {
         "message": "Naposledy pridan\u00e9"
     },
+    "sort_label_url": {
+        "message": "Adresa URL"
+    },
     "sort_view_as_tree": {
         "message": "Uk\u00e1za\u0165 adres\u00e1re"
     },
@@ -329,6 +332,15 @@
     "newtab_search_field_hide": {
         "message": "Skry\u0165 vyh\u013ead\u00e1vacie pole"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Navrhova\u0165 ot\u00e1zky"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Navrhnite z\u00e1lo\u017eky"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Navrhnite nav\u0161t\u00edven\u00e9 str\u00e1nky"
+    },
     "newtab_speech_search_listening": {
         "message": "Hovorte teraz"
     },
@@ -473,8 +485,23 @@
     "onboarding_headline": {
         "message": "\u010eakujeme, \u017ee ste si nain\u0161talovali toto roz\u0161\u00edrenie."
     },
+    "onboarding_intro_desc": {
+        "message": "Existuje nieko\u013eko sp\u00f4sobov, ako otvori\u0165 bo\u010dn\u00fd panel."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Otvori\u0165 v hornej \u010dasti webov\u00fdch str\u00e1nok"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Otvori\u0165 na bo\u010dnom paneli ved\u013ea hlavn\u00e9ho obsahu webov\u00fdch str\u00e1nok"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "Nechcem pou\u017ei\u0165 tento prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel"
+    },
     "onboarding_setup_start": {
         "message": "Nastavi\u0165 teraz"
+    },
+    "onboarding_setup_complete": {
+        "message": "Nastavenie dokon\u010den\u00e9"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Kde chcete ma\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
@@ -503,11 +530,17 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknite na ikonu roz\u0161\u00edrenia pre otvorenie bo\u010dn\u00e9ho panela."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Kliknite na ikonu bo\u010dn\u00e9ho panela v hornej \u010dasti prehliada\u010da a vyberte zobrazenie bo\u010dn\u00e9ho panela so z\u00e1lo\u017ekami."
+    },
     "onboarding_left": {
         "message": "\u013eav\u00fd\/\u00e1"
     },
     "onboarding_right": {
         "message": "prav\u00fd\/\u00e1"
+    },
+    "onboarding_handson_done": {
+        "message": "som hotov\u00fd"
     },
     "onboarding_finish_desc": {
         "message": "Pr\u00edjemn\u00fa z\u00e1bavu."
@@ -533,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Vrstva"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Bo\u010dn\u00fd panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "N\u00e1poveda"
     },
@@ -550,6 +586,9 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Ikony"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Dial\u00f3gov\u00e9 okno"
     },
     "settings_menu_newtab": {
         "message": "Nov\u00e1 karta"
@@ -752,6 +791,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "Z\u00e1lo\u017eky zobrazen\u00e9 na bo\u010dnom paneli s\u00fa synchronizovan\u00e9 a spravovan\u00e9 prehliada\u010dom {browserName}. Toto roz\u0161\u00edrenie tieto z\u00e1lo\u017eky neuklad\u00e1 ani neanalyzuje, na bo\u010dnom paneli zobrazuje iba tie, ktor\u00e9 pou\u017e\u00edva v\u00e1\u0161 prehliada\u010d."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Bo\u010dn\u00fd panel prehliada\u010da"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Po\u010das prehliadania m\u00f4\u017eete ma\u0165 natrvalo otvoren\u00fd bo\u010dn\u00fd panel so z\u00e1lo\u017ekami. V\u00e1\u0161 prehliada\u010d poskytuje bo\u010dn\u00fd panel. Kliknite na ikonu bo\u010dn\u00e9ho panela v hornej \u010dasti prehliada\u010da a vyberte zobrazenie bo\u010dn\u00e9ho panela so z\u00e1lo\u017ekami."
+    },
     "settings_open_action": {
         "message": "Otvorenie bo\u010dnej li\u0161ty"
     },
@@ -793,6 +838,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastavi\u0165 kl\u00e1vesov\u00fa skratku"
+    },
+    "settings_icon_action": {
+        "message": "Kliknite na ikonu roz\u0161\u00edrenia"
+    },
+    "settings_icon_action_desc": {
+        "message": "M\u00f4\u017eete si vybra\u0165, ako sa m\u00e1 bo\u010dn\u00fd panel zobrazi\u0165, ke\u010f kliknete na ikonu roz\u0161\u00edrenia, ktor\u00e1 sa nach\u00e1dza napravo od panela s adresou prehliada\u010da."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Otvorte bo\u010dn\u00fd panel v hornej \u010dasti webov\u00fdch str\u00e1nok"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Otvorte bo\u010dn\u00fd panel na bo\u010dnom paneli poskytnutom prehliada\u010dom"
     },
     "settings_link_action": {
         "message": "Otvori\u0165 z\u00e1lo\u017eky"
@@ -923,8 +980,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Dodato\u010dn\u00e9 inform\u00e1cie"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Tu m\u00f4\u017eete zmeni\u0165 spr\u00e1vanie prekr\u00fdvaj\u00faceho bo\u010dn\u00e9ho panela, ktor\u00fd sa otv\u00e1ra nad webov\u00fdmi str\u00e1nkami."
+    },
     "settings_sidebar_position": {
         "message": "Poz\u00edcia"
+    },
+    "settings_overlay_enabled": {
+        "message": "Povoli\u0165 prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Ak chcete k svojim z\u00e1lo\u017ek\u00e1m pristupova\u0165 iba na bo\u010dnom paneli prehliada\u010da, m\u00f4\u017eete deaktivova\u0165 prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel."
     },
     "settings_sidebar_position_desc": {
         "message": "Dovo\u013euje nastavi\u0165 \u010di sa bude panel otv\u00edra\u0165 vpravo alebo v\u013eavo."
@@ -991,6 +1057,15 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Toto je s\u00fa\u010das\u0165 prehliada\u010da a nie roz\u0161\u00edrenia. Pre\u010d\u00edtajte si viac inform\u00e1ci\u00ed o tom, ako importova\u0165 a exportova\u0165 z\u00e1lo\u017eky v {browserName}."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Tu m\u00f4\u017eete zmeni\u0165 spr\u00e1vanie bo\u010dn\u00e9ho panela, ktor\u00fd sa zobrazuje na bo\u010dnom paneli ved\u013ea hlavn\u00e9ho obsahu webov\u00fdch str\u00e1nok."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Nakonfigurujte, \u010di sa m\u00e1 bo\u010dn\u00fd panel prehliada\u010da otv\u00e1ra\u0165 na \u013eavej alebo pravej strane."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Nakonfigurujte bo\u010dn\u00fd panel"
     },
     "settings_presets": {
         "message": "Nastavi\u0165 relat\u00edvne ve\u013ekosti"
@@ -1063,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "\u0160\u00edrka"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "\u0160\u00edrka bo\u010dn\u00e9ho panela pri prekryt\u00ed aktu\u00e1lne nav\u0161t\u00edvenej webovej str\u00e1nky. T\u00e1to mo\u017enos\u0165 nem\u00e1 vplyv pri pou\u017eit\u00ed bo\u010dn\u00e9ho panela na bo\u010dnom paneli poskytnutom prehliada\u010dom."
     },
     "settings_header_height": {
         "message": "V\u00fd\u0161ka hlavi\u010dky"
@@ -1156,6 +1234,9 @@
     },
     "settings_theme_changed": {
         "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"
+    },
+    "settings_newtab_desc": {
+        "message": "Predvolen\u00fa str\u00e1nku na novej karte svojho prehliada\u010da m\u00f4\u017eete prep\u00edsa\u0165 str\u00e1nkou poskytovanou t\u00fdmto roz\u0161\u00edren\u00edm. Na tejto str\u00e1nke sa zobraz\u00ed bo\u010dn\u00fd panel so z\u00e1lo\u017ekami a mo\u017eno ju nakonfigurova\u0165 tak, aby zv\u00fd\u0161ila va\u0161u produktivitu."
     },
     "settings_newtab_override": {
         "message": "Nahradi\u0165 str\u00e1nku novej karty"
@@ -1255,6 +1336,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Pros\u00edm, po\u0161lite mi svoj dotaz v angli\u010dtnie, inak bude pre m\u0148a ve\u013emi n\u00e1ro\u010dn\u00e9 porozumie\u0165 va\u0161ej spr\u00e1ve."
+    },
+    "settings_support_feedback_email": {
+        "message": "Chcete dosta\u0165 odpove\u010f? Zadajte e-mailov\u00fa adresu (volite\u013en\u00e9)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei\u0165 screenshot"
@@ -1361,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Vyberte sp\u00f4sob platby ni\u017e\u0161ie a v nasleduj\u00facom kroku vyberte po\u017eadovan\u00fa sumu, ktor\u00fa chcete zaplati\u0165."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Vyberte sp\u00f4sob platby"
-    },
     "premium_pay_what_you_want": {
         "message": "Zapla\u0165te, ko\u013eko chcete"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditn\u00e1 alebo debetn\u00e1 karta"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Pokra\u010dujte skenovan\u00edm tohto QR k\u00f3du na WeChat."
     },
     "premium_pay_contact": {
         "message": "Ak m\u00e1te nejak\u00e9 probl\u00e9my s platbou alebo m\u00e1te nejak\u00e9 ot\u00e1zky, kontaktujte ma na adrese {1}."
@@ -1423,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Meno"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "PS\u010c"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Met\u00f3da platby"
-    },
-    "premium_pay_info_card_number": {
-        "message": "\u010c\u00edslo karty"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Platnos\u0165 karty vypr\u0161\u00ed"
     }
 }

@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Velg en betalingsmetode nedenfor og velg \u00f8nsket bel\u00f8p du vil betale i neste trinn."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Velg en betalingsmetode"
-    },
     "premium_pay_what_you_want": {
         "message": "Betal det du vil"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditt- eller debetkort"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Skann denne QR-koden p\u00e5 WeChat for \u00e5 fortsette."
     },
     "premium_pay_contact": {
         "message": "Hvis du st\u00f8ter p\u00e5 problemer med betalingen eller har sp\u00f8rsm\u00e5l, kan du kontakte meg p\u00e5 {1}."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Navn"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Post kode"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Betalingsmetode"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Kortnummer"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kortet utl\u00f8per"
     }
 }

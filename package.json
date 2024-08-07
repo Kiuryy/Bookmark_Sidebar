@@ -1,6 +1,6 @@
 {
   "name": "bookmark_sidebar",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "license": "MS-RSL",
   "author": "Philipp Koenig",
   "homepage": "https://extensions.redeviation.com/",
@@ -18,14 +18,14 @@
   "devDependencies": {
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
-    "eslint": "^8.57.0",
+    "eslint": "^9.8.0",
     "glob-concat": "^1.0.3",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
-    "sass": "^1.72.0",
-    "npm-check-updates": "^16.14.18",
+    "sass": "^1.77.8",
+    "npm-check-updates": "^17.0.3",
     "read-file": "^0.2.0",
-    "terser": "^5.30.0",
+    "terser": "^5.31.4",
     "zip-dir": "^2.0.0"
   }
 }

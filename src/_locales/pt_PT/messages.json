@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Sobreposi\u00e7\u00e3o"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Painel Lateral"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Dicas de contexto"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar favoritos em {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Aqui voc\u00ea pode alterar o comportamento da barra lateral que \u00e9 exibida no painel lateral ao lado do conte\u00fado principal das p\u00e1ginas da web."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configure se o painel lateral do navegador deve abrir no lado esquerdo ou direito"
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configurar painel lateral"
+    },
     "settings_presets": {
         "message": "Definir tamanho relativo"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Largura"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "A largura da barra lateral ao sobrepor o site atualmente visitado. Esta op\u00e7\u00e3o n\u00e3o tem efeito ao usar a barra lateral no painel lateral fornecido pelo navegador."
     },
     "settings_header_height": {
         "message": "Altura do cabe\u00e7alho"
@@ -1430,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Selecione um m\u00e9todo de pagamento abaixo e escolha o montante desejado a pagar no pr\u00f3ximo passo."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Selecione um m\u00e9todo de pagamento"
-    },
     "premium_pay_what_you_want": {
         "message": "Pague o que quiser"
-    },
-    "premium_pay_creditcard": {
-        "message": "Cart\u00e3o de cr\u00e9dito ou d\u00e9bito"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Digitalize este c\u00f3digo QR no WeChat para prosseguir."
     },
     "premium_pay_contact": {
         "message": "Se voc\u00ea tiver algum problema com o seu pagamento ou se tiver alguma d\u00favida, entre em contato comigo em {1}."
@@ -1492,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Nome"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "C\u00f3digo postal"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "M\u00e9todo de pagamento"
-    },
-    "premium_pay_info_card_number": {
-        "message": "N\u00famero de cart\u00e3o"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Cart\u00e3o expira"
     }
 }

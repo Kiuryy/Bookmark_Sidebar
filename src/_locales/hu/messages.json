@@ -566,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "\u00c1tfed\u00e9s"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Oldals\u00f3 panel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Eszk\u00f6ztippek"
     },
@@ -1055,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Ezt a feladatot a b\u00f6ng\u00e9sz\u0151 v\u00e9gzi \u00e9s nem r\u00e9sze ennek a b\u0151v\u00edtm\u00e9nynek. A {browserName}.b\u00f6ng\u00e9sz\u0151ben val\u00f3 haszn\u00e1lat\u00e1hoz itt t\u00e1j\u00e9koz\u00f3dhat."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Itt v\u00e1ltoztathatja meg az oldals\u00e1v viselked\u00e9s\u00e9t, ami az oldals\u00f3 panelen jelenik meg a weblapok tartalma mellett."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "\u00c1ll\u00edtsa be, hogy a b\u00f6ng\u00e9sz\u0151 oldals\u00f3 panelje bal vagy jobb oldalon jelenjen meg."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Oldals\u00f3 panel be\u00e1ll\u00edt\u00e1sa"
+    },
     "settings_presets": {
         "message": "\u00c1ll\u00edtsa be a relat\u00edv m\u00e9reteket"
     },
@@ -1126,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Sz\u00e9less\u00e9g"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "A jelenleg megtekintett weboldal felett \u00e1tfed\u00e9ssel megjelen\u00edtett oldals\u00e1v sz\u00e9less\u00e9ge. Ennek a be\u00e1ll\u00edt\u00e1snak nincs hat\u00e1sa, amikor az oldals\u00e1v a b\u00f6ng\u00e9sz\u0151 oldals\u00f3 panelj\u00e9ben jelenik meg."
     },
     "settings_header_height": {
         "message": "Fejl\u00e9c magass\u00e1ga"
@@ -1430,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "V\u00e1lassza ki a fizet\u00e9si m\u00f3dot al\u00e1bb \u00e9s a k\u00f6vetkez\u0151 l\u00e9p\u00e9sben \u00edrja be a fizetni k\u00edv\u00e1nt \u00f6sszeget."
     },
-    "premium_pay_select_payment_method": {
-        "message": "V\u00e1lasszon fizet\u00e9si m\u00f3dot"
-    },
     "premium_pay_what_you_want": {
         "message": "Fizessen amennyit akar"
-    },
-    "premium_pay_creditcard": {
-        "message": "Hitel vagy bet\u00e9ti k\u00e1rty\u00e1val"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "A folytat\u00e1shoz olvassa le ezt a QR-k\u00f3dot a WeChat programban."
     },
     "premium_pay_contact": {
         "message": "Ha b\u00e1rmilyen probl\u00e9m\u00e1ja van a fizet\u00e9ssel kapcsolatban, vagy b\u00e1rmilyen k\u00e9rd\u00e9se van, k\u00e9rj\u00fck, l\u00e9pjen velem kapcsolatba a k\u00f6vetkez\u0151 c\u00edmen: {1}."
@@ -1492,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "N\u00e9v"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Ir\u00e1ny\u00edt\u00f3sz\u00e1m"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Fizet\u00e9si m\u00f3d"
-    },
-    "premium_pay_info_card_number": {
-        "message": "K\u00e1rtyasz\u00e1m"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "A k\u00e1rtya \u00e9rv\u00e9nyess\u00e9ge"
     }
 }

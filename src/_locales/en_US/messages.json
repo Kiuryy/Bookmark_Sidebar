@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Select a payment method below and choose the desired amount you want to pay in the next step."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Select a payment method"
-    },
     "premium_pay_what_you_want": {
         "message": "Pay what you want"
-    },
-    "premium_pay_creditcard": {
-        "message": "Credit or debit card"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Scan this QR code on WeChat to proceed."
     },
     "premium_pay_contact": {
         "message": "If you are encountering any issues with your payment or have any questions, please contact me at {1}."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Name"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Zip code"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Payment method"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Card number"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Card expires"
     }
 }

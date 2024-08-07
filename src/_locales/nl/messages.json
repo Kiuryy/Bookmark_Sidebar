@@ -491,14 +491,17 @@
     "onboarding_intro_sidebar_overlay_desc": {
         "message": "Boven op de websites"
     },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Open in de zijbalk samen met de voornamelijke inhoud van webpagina's"
+    },
     "onboarding_sidebar_overlay_disable": {
         "message": "Ik wil de overliggende zijbalk niet gebruiken"
     },
     "onboarding_setup_start": {
-        "message": "Installeer nu"
+        "message": "installeer nu"
     },
     "onboarding_setup_complete": {
-        "message": "Installatie voltooid"
+        "message": "installatie voltooid"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Waar wil je de zijbalk tonen?"
@@ -527,11 +530,14 @@
     "onboarding_handson_icon_desc": {
         "message": "Klik op het icoon van de extensie om de zijbalk te openen."
     },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Klik op het zijbalk icoon bovenaan je browser en kies de weergave van de bladwijzer zijbalk."
+    },
     "onboarding_left": {
-        "message": "linker"
+        "message": "links"
     },
     "onboarding_right": {
-        "message": "rechter"
+        "message": "rechts"
     },
     "onboarding_handson_done": {
         "message": "Ik ben klaar"
@@ -560,6 +566,9 @@
     "settings_menu_sidebar_overlay": {
         "message": "Hulpvenster"
     },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Zijpaneel"
+    },
     "settings_menu_sidebar_tooltip": {
         "message": "Helptekst"
     },
@@ -577,6 +586,9 @@
     },
     "settings_menu_appearance_icon": {
         "message": "Icoon"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Dialoog"
     },
     "settings_menu_newtab": {
         "message": "Nieuw tabblad"
@@ -779,6 +791,12 @@
     "settings_tips_tricks_privacy_desc": {
         "message": "De bladwijzers die in uw zijbalk worden weergegeven, worden gesynchroniseerd en beheerd door {browserName}. De extensie bewaart of analyseert deze bladwijzers niet en geeft alleen die van uw browser weer in de zijbalk."
     },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Browser zijbalk"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Je kan je bladwijzer zijbalk permanent geopend hebben terwijl je aan het browsen bent. Er is een zijpaneel voorzien door je browser. Klik op het zijbalk icoon bovenaan je browser en kies de bladwijzer zijbalk weergave."
+    },
     "settings_open_action": {
         "message": "Open de zijbalk"
     },
@@ -820,6 +838,18 @@
     },
     "settings_keyboard_shortcut_button": {
         "message": "Een sneltoets instellen"
+    },
+    "settings_icon_action": {
+        "message": "Klik op het extensie icoon"
+    },
+    "settings_icon_action_desc": {
+        "message": "You kunt kiezen hoe de zijbalk verschijnt als je op het extensie icoon klikt die zich rechts van de adresbalk bevindt."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Open de zijbalk over websites heen"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Op de zijbalk in het standaard zijpaneel van de browser"
     },
     "settings_link_action": {
         "message": "Open bladwijzers"
@@ -950,8 +980,17 @@
     "settings_tooltip_content_additional_info": {
         "message": "Meer informatie"
     },
+    "settings_sidebar_overlay_intro": {
+        "message": "Hier kun je het gedrag aanpassen van de overliggende zijbalk die over de website heen opent."
+    },
     "settings_sidebar_position": {
         "message": "Positie"
+    },
+    "settings_overlay_enabled": {
+        "message": "Schakel overliggende zijbalk in"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Wanneer je alleen toegang wilt tot je favorieten in het standaard zijpaneel van de browser, kun je de overliggende zijbalk uitschakelen."
     },
     "settings_sidebar_position_desc": {
         "message": "Hiermee kan je instellen of de zijbalk moet openen aan de linker- of rechterkant van het browservenster."
@@ -1018,6 +1057,15 @@
     },
     "settings_import_export_bookmarks_desc": {
         "message": "Dit is een browser functie en geen onderdeel van de extensie. Lees meer over hoe bladwijzers te importeren en exporteren in {browserName}."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Hier kun je het gedrag aanpassen van de zijbalk die wordt weergegeven in het zijpaneel naast de inhoud van de geopende website"
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configureer of het browser zijpaneel aan de linker- of rechterkant moet openen."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configureer zijpaneel"
     },
     "settings_presets": {
         "message": "Stel de relatieve grootte in"
@@ -1091,6 +1139,9 @@
     "settings_sidebar_width": {
         "message": "Breedte"
     },
+    "settings_sidebar_width_desc": {
+        "message": "De breedte van de zijbalk als deze de huidige geopende website overlapt. Deze optie heeft geen effect als de standaard zijbalk van de browser gebruikt wordt."
+    },
     "settings_header_height": {
         "message": "Hoofding hoogte"
     },
@@ -1101,7 +1152,7 @@
         "message": "Achtergrond transparantie"
     },
     "settings_background_blur": {
-        "message": "Achtergrond wazig effect"
+        "message": "Achtergrond wazig-effect"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Mapicoon"
@@ -1183,6 +1234,9 @@
     },
     "settings_theme_changed": {
         "message": "Thema succesvol gewijzigd"
+    },
+    "settings_newtab_desc": {
+        "message": "Je kan je de standaard nieuwe pagina tablad van je browser overschrijven met een pagina voorzien door deze extensie. Deze pagina zal je bladwijzer zijbalk laten zien en kan geconfigureerd worden om je productiviteit te optimaliseren."
     },
     "settings_newtab_override": {
         "message": "Nieuw tabblad overschrijven"
@@ -1391,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Selecteer hieronder een betaalmethode en kies in de volgende stap het gewenste bedrag dat je wilt betalen."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Kies een betaalmethode"
-    },
     "premium_pay_what_you_want": {
         "message": "Betaal wat jijzelf wilt"
-    },
-    "premium_pay_creditcard": {
-        "message": "Credit- of debetkaart"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Scan deze QR-code met WeChat om verder te gaan."
     },
     "premium_pay_contact": {
         "message": "Als je problemen zou ondervinden met je betaling of als je vragen hebt, contacteer me dan op {1}."
@@ -1453,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Naam"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Postcode"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Betalingsmethode"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Kaartnummer"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kaart vervalt"
     }
 }

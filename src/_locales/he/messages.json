@@ -1373,17 +1373,8 @@
     "premium_pay_intro_payment_method": {
         "message": "\u05d1\u05d7\u05e8 \u05d0\u05de\u05e6\u05e2\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd \u05dc\u05de\u05d8\u05d4 \u05d5\u05d1\u05d7\u05e8 \u05d0\u05ea \u05d4\u05e1\u05db\u05d5\u05dd \u05d4\u05e8\u05e6\u05d5\u05d9 \u05e9\u05ea\u05e8\u05e6\u05d4 \u05dc\u05e9\u05dc\u05dd \u05d1\u05e9\u05dc\u05d1 \u05d4\u05d1\u05d0."
     },
-    "premium_pay_select_payment_method": {
-        "message": "\u05d1\u05d7\u05e8 \u05d0\u05d5\u05e4\u05df \u05ea\u05e9\u05dc\u05d5\u05dd"
-    },
     "premium_pay_what_you_want": {
         "message": "\u05e9\u05dc\u05dd \u05db\u05de\u05d4 \u05e9\u05ea\u05e8\u05e6\u05d4"
-    },
-    "premium_pay_creditcard": {
-        "message": "\u05db\u05e8\u05d8\u05d9\u05e1 \u05d0\u05e9\u05e8\u05d0\u05d9 \u05dc\u05d7\u05d9\u05d5\u05d1"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "\u05e1\u05e8\u05d5\u05e7 \u05e7\u05d5\u05d3 QR \u05d1\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d9\u05ea WeChat \u05db\u05d3\u05d9 \u05dc\u05d4\u05de\u05e9\u05d9\u05da"
     },
     "premium_pay_contact": {
         "message": "\u05d0\u05dd \u05d0\u05ea\u05d4 \u05e0\u05ea\u05e7\u05dc \u05d1\u05d1\u05e2\u05d9\u05d4 \u05d1\u05ea\u05e9\u05dc\u05d5\u05dd \u05d0\u05d5 \u05e8\u05d5\u05e6\u05d4 \u05dc\u05e9\u05d0\u05d5\u05dc \u05e9\u05d0\u05dc\u05d4, \u05d0\u05e0\u05d0 \u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8 {1}."
@@ -1435,17 +1426,5 @@
     },
     "premium_pay_info_name": {
         "message": "\u05e9\u05dd"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "\u05de\u05d9\u05e7\u05d5\u05d3"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "\u05d0\u05de\u05e6\u05e2\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd"
-    },
-    "premium_pay_info_card_number": {
-        "message": "\u05de\u05e1\u05e4\u05e8 \u05db\u05e8\u05d8\u05d9\u05e1"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "\u05ea\u05d5\u05e7\u05e3 \u05d4\u05db\u05e8\u05d8\u05d9\u05e1"
     }
 }

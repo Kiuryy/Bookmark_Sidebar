@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "A\u015fa\u011f\u0131dan bir \u00f6deme y\u00f6ntemi se\u00e7in ve bir sonraki ad\u0131mda \u00f6demek istedi\u011finiz tutar\u0131 se\u00e7in."
     },
-    "premium_pay_select_payment_method": {
-        "message": "\u00d6deme Y\u00f6ntemini Se\u00e7in"
-    },
     "premium_pay_what_you_want": {
         "message": "\u0130stedi\u011fin kadar \u00f6de"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kredi veya banka kart\u0131"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Devam etmek i\u00e7in WeChat'ta bu QR kodunu taray\u0131n."
     },
     "premium_pay_contact": {
         "message": "\u00d6demenizle ilgili herhangi bir sorunla kar\u015f\u0131la\u015f\u0131rsan\u0131z ya da herhangi bir sorunuz olursa l\u00fctfen benimle \u015furadan {1} ileti\u015fime ge\u00e7in."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "\u0130sim"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Posta Kodu"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "\u00d6deme Y\u00f6ntemi"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Kart Numaras\u0131"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kart Son Kullanma Tarihi"
     }
 }

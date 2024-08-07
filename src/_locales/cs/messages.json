@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Vyber metodu pro placen\u00ed a d\u00e1le vyber po\u017eadovan\u00e9 mno\u017estv\u00ed, kter\u00e9 chce\u0161 zaplatit v dal\u0161\u00edm kroku."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Zvolte platebn\u00ed metodu"
-    },
     "premium_pay_what_you_want": {
         "message": "Pla\u0165te jak chcete"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditn\u00ed nebo debetn\u00ed karta"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Skenujte QR kod na WeChat pro pokra\u010dov\u00e1n\u00ed"
     },
     "premium_pay_contact": {
         "message": "Pokud se setk\u00e1te s pot\u00ed\u017eemi b\u011bhem platby, nebo pokud m\u00e1te n\u011bjak\u00e9 ot\u00e1zky, kontaktujte m\u011b pros\u00edm na {1}."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Jm\u00e9no"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Sm\u011brovac\u00ed \u010d\u00edslo"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Platebn\u00ed metoda"
-    },
-    "premium_pay_info_card_number": {
-        "message": "\u010c\u00edslo karty"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Expirace karty"
     }
 }

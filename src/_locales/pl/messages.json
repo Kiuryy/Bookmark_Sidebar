@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Wybierz poni\u017cej metod\u0119 p\u0142atno\u015bci i wybierz \u017c\u0105dan\u0105 kwot\u0119, kt\u00f3r\u0105 chcesz zap\u0142aci\u0107 w nast\u0119pnym kroku."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Wybierz metod\u0119 p\u0142atno\u015bci"
-    },
     "premium_pay_what_you_want": {
         "message": "Zap\u0142a\u0107 ile chcesz"
-    },
-    "premium_pay_creditcard": {
-        "message": "Karta kredytowa lub debetowa"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Zeskanuj ten kod QR w serwisie WeChat, aby kontynuowa\u0107."
     },
     "premium_pay_contact": {
         "message": "Je\u015bli napotkasz jakiekolwiek problemy z p\u0142atno\u015bci\u0105 lub masz jakie\u015b pytania, skontaktuj si\u0119 ze mn\u0105 pod adresem {1}."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Imi\u0119"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Kod pocztowy"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Metoda p\u0142atno\u015bci"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Numer karty"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Data wyga\u015bni\u0119cia karty"
     }
 }

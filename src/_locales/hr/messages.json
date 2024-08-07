@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "U nastavku odaberite na\u010din pla\u0107anja i u sljede\u0107em koraku odaberite \u017eeljeni iznos koji \u017eelite platiti."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Odaberi na\u010din pla\u0107anja"
-    },
     "premium_pay_what_you_want": {
         "message": "Platite \u0161to \u017eelite"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditna ili debitna kartica"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Skenirajte ovaj QR k\u00f4d na WeChat-u da biste nastavili."
     },
     "premium_pay_contact": {
         "message": "Ako nai\u0111ete na bilo kakve probleme s va\u0161im pla\u0107anjem ili imate bilo kakva pitanja, kontaktirajte me na {1}."
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Ime"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Po\u0161tanski broj"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Na\u010din pla\u0107anja"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Broj kartice"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Kartica istje\u010de"
     }
 }

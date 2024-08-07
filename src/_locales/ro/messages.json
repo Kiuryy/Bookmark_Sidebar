@@ -1202,17 +1202,8 @@
     "premium_feature_themes_desc": {
         "message": "Po\u021bi s\u0103 schimbi toat\u0103 schi\u021ba a barei laterale cu un singur clic pentru a instala \u00eenc\u0103 o tem\u0103. Acestea pot fi personalizate cu sliderds-urile \u0219i op\u021biunile de culori disponibile."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Alege\u021bi o metod\u0103 de plat\u0103"
-    },
     "premium_pay_what_you_want": {
         "message": "Pl\u0103ti\u021bi c\u00e2t dori\u021bi"
-    },
-    "premium_pay_creditcard": {
-        "message": "Card de credit sau debit"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Scana\u021bi cod QR sau WeChat pentru a continua."
     },
     "premium_pay_contact": {
         "message": "Dac\u0103 \u00eent\u00e2mpina\u021bi orice probleme cu plata sau ave\u021bi orice \u00eentrebare, v\u0103 rog s\u0103 m\u0103 contacta\u021bi la {1}."
@@ -1264,17 +1255,5 @@
     },
     "premium_pay_info_name": {
         "message": "Nume"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "Cod po\u0219tal"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "Metod\u0103 de plat\u0103"
-    },
-    "premium_pay_info_card_number": {
-        "message": "Num\u0103r Card"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Cardul expir\u0103 \u00een"
     }
 }

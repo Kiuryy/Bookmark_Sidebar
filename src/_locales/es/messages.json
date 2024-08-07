@@ -1058,6 +1058,15 @@
     "settings_import_export_bookmarks_desc": {
         "message": "Esta es una funci\u00f3n del navegador y no forma parte de la extensi\u00f3n. Obt\u00e9n m\u00e1s informaci\u00f3n sobre c\u00f3mo importar y exportar marcadores en {browserName}."
     },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Aqu\u00ed puede cambiar el comportamiento de la barra lateral que se muestra en el panel lateral junto al contenido principal de las p\u00e1ginas web."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configure si el panel lateral del navegador debe abrirse en el lado izquierdo o derecho."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configurar panel lateral"
+    },
     "settings_presets": {
         "message": "Establecer tama\u00f1os relativos"
     },
@@ -1129,6 +1138,9 @@
     },
     "settings_sidebar_width": {
         "message": "Ancho"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "Ancho de la barra lateral cuando se superpone al sitio web actual. Esta opci\u00f3n no tiene efecto cuando se utiliza la barra lateral en el panel lateral del navegador."
     },
     "settings_header_height": {
         "message": "Altura de cabecera"
@@ -1433,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "Seleccione un m\u00e9todo de pago a continuaci\u00f3n y elija la cantidad que desea pagar en el siguiente paso."
     },
-    "premium_pay_select_payment_method": {
-        "message": "Seleccione un m\u00e9todo de pago"
-    },
     "premium_pay_what_you_want": {
         "message": "Paga lo que quieras"
-    },
-    "premium_pay_creditcard": {
-        "message": "Tarjeta de cr\u00e9dito o d\u00e9bito"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "Escanee este c\u00f3digo QR en WeChat para continuar."
     },
     "premium_pay_contact": {
         "message": "Si tienes alg\u00fan problema con el pago o tienes alguna pregunta, ponte en contacto conmigo en {1}."
@@ -1495,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "Nombre"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "C\u00f3digo postal"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "M\u00e9todo de pago"
-    },
-    "premium_pay_info_card_number": {
-        "message": "N\u00famero de la tarjeta"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "Caducidad de la tarjeta"
     }
 }

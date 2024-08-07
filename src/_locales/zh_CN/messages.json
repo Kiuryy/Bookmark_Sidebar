@@ -840,7 +840,7 @@
         "message": "\u8bbe\u7f6e\u952e\u76d8\u5feb\u6377\u952e"
     },
     "settings_icon_action": {
-        "message": "\u70b9\u51fb\u62d3\u5c55\u56fe\u6807"
+        "message": "\u70b9\u51fb\u6269\u5c55\u56fe\u6807"
     },
     "settings_icon_action_desc": {
         "message": "\u60a8\u53ef\u4ee5\u901a\u8fc7\u70b9\u51fb\u6d4f\u89c8\u5668\u5730\u5740\u680f\u53f3\u4fa7\u7684\u6269\u5c55\u56fe\u6807\u6765\u9009\u62e9\u4fa7\u8fb9\u680f\u5982\u4f55\u663e\u793a\u3002"
@@ -1005,13 +1005,13 @@
         "message": "\u6bcf\u884c\u53ea\u80fd\u6dfb\u52a0\u4e00\u4e2a\u7f51\u5740\u3002"
     },
     "settings_filter_explanation_2": {
-        "message": "\u4f7f\u7528 *\u6765\u4ee3\u66ff\u4efb\u4f55\u5b57\u7b26\u3002\uff08\u4f8b\u5982 example.com\/* \u8868\u793a\u6240\u6709\u5728example.com\u4e0b\u7684\u9875\u9762\uff09"
+        "message": "\u4f7f\u7528 *\u6765\u4ee3\u66ff\u4efb\u4f55\u5b57\u7b26\uff08\u4f8b\u5982 example.com\/* \u8868\u793a\u6240\u6709\u5728example.com\u4e0b\u7684\u9875\u9762\uff09\u3002"
     },
     "settings_filter_explanation_3": {
-        "message": "\u5728\u89c4\u5219\u91cc\u5982\u679c\u4e0d\u6dfb\u52a0\u4efb\u4f55*\uff0c\u89c4\u5219\u4ec5\u9002\u7528\u4e8e\u5f53\u524d\u7f51\u5740\u3002\uff08\u4f8b\u5982 \u5305\u542b\u4e86example.com \u7684\u89c4\u5219\u4e0d\u4f1a\u9002\u7528\u4e8e example.com\/about.html\uff09"
+        "message": "\u5728\u89c4\u5219\u91cc\u5982\u679c\u4e0d\u6dfb\u52a0\u4efb\u4f55*\uff0c\u89c4\u5219\u4ec5\u9002\u7528\u4e8e\u5f53\u524d\u7f51\u5740\uff08\u4f8b\u5982\u5305\u542b\u4e86example.com \u7684\u89c4\u5219\u4e0d\u4f1a\u9002\u7528\u4e8e example.com\/about.html\uff09\u3002"
     },
     "settings_filter_explanation_4": {
-        "message": "\u65e0\u9700\u8f93\u5165\u534f\u8bae\uff08http:\/\/\uff09"
+        "message": "\u65e0\u9700\u8f93\u5165\u534f\u8bae\uff08http:\/\/\uff09\u3002"
     },
     "settings_filter_visibility": {
         "message": "\u52a0\u8f7d\u4fa7\u8fb9\u680f"
@@ -1380,7 +1380,7 @@
         "message": "\u5df2\u6210\u529f\u4fdd\u5b58\u60a8\u7684\u9996\u9009\u9879"
     },
     "premium_popup_text": {
-        "message": "\u60a8\u67e5\u6536\u60a8\u7684\u9ad8\u7ea7\u8d26\u53f7\u4e86\u4e48"
+        "message": "\u60a8\u68c0\u67e5\u8fc7\u60a8\u7684\u9ad8\u7ea7\u8d26\u53f7\u4e86\u4e48\uff1f"
     },
     "premium_restricted_text": {
         "message": "\u5f00\u901a\u9ad8\u7ea7\u8d26\u53f7\u4ee5\u4f7f\u7528\u6b64\u529f\u80fd"
@@ -1445,17 +1445,8 @@
     "premium_pay_intro_payment_method": {
         "message": "\u8bf7\u5728\u4e0b\u65b9\u9009\u62e9\u4ed8\u6b3e\u65b9\u5f0f, \u7136\u540e\u5728\u4e0b\u4e00\u6b65\u9009\u62e9\u4f60\u60f3\u8981\u4ed8\u6b3e\u7684\u91d1\u989d\u3002"
     },
-    "premium_pay_select_payment_method": {
-        "message": "\u9009\u62e9\u652f\u4ed8\u65b9\u5f0f"
-    },
     "premium_pay_what_you_want": {
         "message": "\u4f60\u60f3\u8981\u7684\u652f\u4ed8"
-    },
-    "premium_pay_creditcard": {
-        "message": "\u4fe1\u7528\u5361\u6216\u501f\u8bb0\u5361"
-    },
-    "premium_pay_wechat_desc": {
-        "message": "\u5728\u5fae\u4fe1\u4e0a\u626b\u63cf\u8fd9\u4e2a\u4e8c\u7ef4\u7801\u7ee7\u7eed\u3002"
     },
     "premium_pay_contact": {
         "message": "\u5982\u679c\u60a8\u5728\u4ed8\u6b3e\u65b9\u9762\u9047\u5230\u4efb\u4f55\u95ee\u9898\u6216\u6709\u4efb\u4f55\u7591\u95ee\uff0c\u8bf7\u901a\u8fc7{1}\u4e0e\u6211\u8054\u7cfb\u3002"
@@ -1507,17 +1498,5 @@
     },
     "premium_pay_info_name": {
         "message": "\u540d\u79f0"
-    },
-    "premium_pay_info_zipcode": {
-        "message": "\u90ae\u653f\u7f16\u7801"
-    },
-    "premium_pay_info_payment_method": {
-        "message": "\u652f\u4ed8\u65b9\u5f0f"
-    },
-    "premium_pay_info_card_number": {
-        "message": "\u5361\u53f7"
-    },
-    "premium_pay_info_card_expires": {
-        "message": "\u5361\u7247\u5230\u671f\u65e5"
     }
 }

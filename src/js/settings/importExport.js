@@ -128,7 +128,20 @@
          * @returns {Promise}
          */
         const initExport = async () => {
+            $(document).on($.opts.events.pageChanged, (e) => {
+                if (e.detail.path && e.detail.path[0] === "export") {
+                    updateExportDataHref();
+                }
+            });
+            updateExportDataHref();
+        };
+
+        /**
+         * Set a data:text/json href to the export button with the current configuration
+         */
+        const updateExportDataHref = () => {
             const config = JSON.stringify(this.getExportConfig(), null, 2);
+            console.log("LOAD")
             s.elm.buttons["export"].attr({
                 href: "data:text/json;charset=utf-8," + encodeURIComponent(config),
                 download: getExportFilename()

@@ -252,6 +252,7 @@
          * @param {jsu} wrapper
          * @param {jsu} link
          * @param {jsu} label
+         * @param {string} deleteBehaviour
          */
         const showLinkEditTooltip = (wrapper, link, label, deleteBehaviour = "empty") => {
             $("div." + $.cl.newtab.editLinkTooltip).remove();

@@ -186,6 +186,10 @@
                         .data("href", page.url)
                         .appendTo(entry);
 
+                    if (typeof page.visible !== "undefined" && page.visible === false) {
+                        entry.addClass("hidden");
+                    }
+
                     $("<span></span>").text(page.title).appendTo(entryLink);
 
                     const favicon = await n.helper.model.call("favicon", {url: page.url}); // retrieve favicon of url
@@ -264,12 +268,14 @@
             const amount = getAmount();
             const pages = n.helper.model.getData("n/customGridLinks");
 
-            for (let i = 0; i < amount.total; i++) {
-                if (pages[i] && pages[i].title && pages[i].url) {
-                    list.push(pages[i]);
-                } else {
-                    list.push({title: "", url: ""});
+            const total = Math.max(amount.total, pages ? pages.length : 0);
+            for (let i = 0; i < total; i++) {
+                let linkInfo = pages && pages[i] ? {...pages[i]} : {};
+                if (!linkInfo.title || !linkInfo.url) {
+                    linkInfo = {title: "", url: ""};
                 }
+                linkInfo.visible = amount.total > i;
+                list.push(linkInfo);
             }
 
             return list;

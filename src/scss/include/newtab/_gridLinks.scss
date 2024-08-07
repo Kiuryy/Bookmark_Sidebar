@@ -26,6 +26,10 @@ div#gridLinks {
       font-weight: $__fontWeightMedium;
       padding: 17px 0;
 
+      &.hidden {
+        display: none;
+      }
+
       > a {
         display: block;
         margin: 0 auto;

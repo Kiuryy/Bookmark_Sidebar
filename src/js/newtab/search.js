@@ -31,12 +31,26 @@
                 favicon: "https://www.bing.com/favicon.ico",
                 sorting: 20
             },
+            yahoo: {
+                name: "Yahoo",
+                url: "https://search.yahoo.com/",
+                queryUrl: "https://search.yahoo.com/search?p={1}",
+                favicon: "https://search.yahoo.com/favicon.ico",
+                sorting: 30
+            },
+            duckduckgo: {
+                name: "DuckDuckGo",
+                url: "https://duckduckgo.com/",
+                queryUrl: "https://duckduckgo.com/?q={1}",
+                favicon: "https://duckduckgo.com/favicon.ico",
+                sorting: 40
+            },
             yandex: {
                 name: "Yandex",
                 url: "https://yandex.com/",
                 queryUrl: "https://yandex.com/search/?text={1}",
                 favicon: "https://yandex.com/favicon.ico",
-                sorting: 30,
+                sorting: 50,
                 lang: {
                     ru: {
                         name: "Яндекс",
@@ -62,7 +76,7 @@
                 url: "https://www.baidu.com/",
                 queryUrl: "https://www.baidu.com/s?wd={1}",
                 favicon: "https://www.baidu.com/favicon.ico",
-                sorting: 40,
+                sorting: 60,
                 lang: {
                     "zh-CN": {
                         name: "百度",
@@ -71,7 +85,7 @@
                 }
             },
             custom: {
-                sorting: 50
+                sorting: 70
             }
         };
 

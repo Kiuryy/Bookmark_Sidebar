@@ -298,6 +298,17 @@
                         } else { // in this layer is no next element -> go one layer higher
                             i++;
                         }
+                    } else if (elm.parents("." + $.cl.sidebar.entryPinned).length() > 0) { // no higher layer anymore + we are at the end if the pinned entries
+                        const box = ext.helper.list.getActiveBookmarkBox();
+                        const entries = box.find("> ul li > a");
+
+                        if (box.children("ul." + $.cl.sidebar.hideRoot).length() > 0) {
+                            ret = entries.eq(1);
+                        } else {
+                            ret = entries.eq(0);
+                        }
+
+                        found = true;
                     } else { // no higher layer anymore -> end of the list
                         found = true;
                     }
@@ -327,8 +338,10 @@
             } else { // go to the prev entry in a higher layer
                 const parentEntry = elm.parents("li").eq(0);
 
-                if (parentEntry.length() > 0) { // there is a higher layer
+                if (parentEntry.length() > 0 && parentEntry.parent("ul." + $.cl.sidebar.hideRoot).length() === 0) { // there is a higher layer
                     ret = parentEntry.children("a");
+                } else if (!ext.elm.pinnedBox.hasClass($.cl.hidden) && elm.parents("." + $.cl.sidebar.entryPinned).length() === 0) { // no higher layer anymore + we are at the beginning of the regular list
+                    ret = ext.elm.pinnedBox.find("ul > li > a").eq(-1);
                 }
             }
 

@@ -11,21 +11,15 @@
   "scripts": {
     "init": "npm install && npm install -g npm-check-updates && npm rebuild node-sass",
     "update": "ncu -u --packageFile package.json && npm install",
-    "release": "node build.js",
-    "updateAndRelease": "npm run update && npm run release",
-    "scss": "sass src/scss:src/css"
+    "build:chrome": "./build.sh --mode=build --target=chrome",
+    "build:firefox": "./build.sh --mode=build --target=firefox",
+    "release": "./build.sh --mode=release --target=chrome,firefox"
   },
   "devDependencies": {
-    "concat": "^1.0.3",
-    "create-file": "^1.0.1",
-    "eslint": "^9.8.0",
-    "glob-concat": "^1.0.3",
-    "html-minifier": "^4.0.0",
-    "jsonminify": "^0.4.2",
+    "eslint": "^9.9.0",
+    "html-minifier-terser": "^7.2.0",
     "sass": "^1.77.8",
     "npm-check-updates": "^17.0.6",
-    "read-file": "^0.2.0",
-    "terser": "^5.31.5",
-    "zip-dir": "^2.0.0"
+    "terser": "^5.31.6"
   }
 }

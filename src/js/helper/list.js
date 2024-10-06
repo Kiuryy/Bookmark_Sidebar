@@ -663,50 +663,45 @@
          * @param {boolean} instant
          * @returns {Promise}
          */
-        const expandCollapseDir = (elm, list, open, instant) => {
-            return new Promise((resolve) => {
-                list.css("height", list[0].scrollHeight + "px");
+        const expandCollapseDir = async (elm, list, open, instant) => {
+            await $.delay(50);
+            list.css("height", list[0].scrollHeight + "px");
 
-                if (open === false) { // parameter false -> close list
-                    $.delay(50).then(() => {
-                        list.css("height", 0);
+            if (open === false) { // parameter false -> close list
+                await $.delay(50);
+                list.css("height", 0);
+            }
+
+            if (ext.refreshRun === true) { // restore open states of child nodes
+                this.restoreOpenStates(list, true);
+            } else {
+                const openStates = ext.helper.model.getData("u/openStates");
+                openStates[elm.attr($.attr.id)] = open;
+
+                if (open === false && ext.helper.model.getData("b/rememberOpenStatesSubDirectories") === false) { // open sub directories should not be remembered
+                    closeAllChildDirs(elm, openStates);
+                } else if (ext.helper.search.isResultsVisible() === false) {
+                    ext.helper.model.setData({
+                        "u/openStates": openStates
                     });
                 }
+            }
 
-                if (ext.refreshRun === true) { // restore open states of child nodes
-                    this.restoreOpenStates(list, true);
-                } else {
-                    const openStates = ext.helper.model.getData("u/openStates");
-                    openStates[elm.attr($.attr.id)] = open;
-
-                    if (open === false && ext.helper.model.getData("b/rememberOpenStatesSubDirectories") === false) { // open sub directories should not be remembered
-                        closeAllChildDirs(elm, openStates);
-                    } else if (ext.helper.search.isResultsVisible() === false) {
-                        ext.helper.model.setData({
-                            "u/openStates": openStates
-                        });
+            await $.delay(instant ? 20 : dirOpenDuration); // unset changes in css, so opening of children in child list works properly
+            if (open === false) {
+                elm.removeClass($.cl.sidebar.dirOpened);
+            } else {
+                elm.addClass($.cl.sidebar.dirOpened);
+                if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
+                    const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
+                    const scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox[visibleBox]);
+                    if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
+                        ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox[visibleBox], elm[0].offsetTop, 300);
                     }
                 }
-
-                $.delay(instant ? 20 : dirOpenDuration).then(() => { // unset changes in css, so opening of children in child list works properly
-                    if (open === false) {
-                        elm.removeClass($.cl.sidebar.dirOpened);
-                    } else {
-                        elm.addClass($.cl.sidebar.dirOpened);
-                        if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
-                            const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
-                            const scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox[visibleBox]);
-                            if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
-                                ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox[visibleBox], elm[0].offsetTop, 300);
-                            }
-                        }
-                    }
-                    list.css("height", "");
-                    elm.removeClass($.cl.sidebar.dirAnimated);
-
-                    resolve();
-                });
-            });
+            }
+            list.css("height", "");
+            elm.removeClass($.cl.sidebar.dirAnimated);
         };
 
         /**

@@ -127,7 +127,7 @@
                 dndCreationDialog: false,
                 closeOnTabChange: true,
                 openChildrenWarnLimit: 10,
-                dirOpenDuration: 0.4,
+                dirOpenDuration: 0.35,
                 scrollBarHide: 1.5,
                 openDelay: 0,
                 closeTimeout: 1,

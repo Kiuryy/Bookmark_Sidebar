@@ -366,7 +366,7 @@
         "message": "Hintergrundbild hochladen"
     },
     "newtab_fallback_headline_general": {
-        "message": "Die Sidebar wurde von etwas blockiert"
+        "message": "Die Sidebar wurde von Etwas blockiert"
     },
     "newtab_fallback_headline_webstore": {
         "message": "Die Sidebar kann im {browserName} Webstore nicht verwendet werden"
@@ -375,7 +375,7 @@
         "message": "Die Sidebar kann auf Erweiterungsseiten nicht verwendet werden"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Die Sidebar kann auf der Standard-New-Tab-Seite nicht verwendet werden"
+        "message": "Die Sidebar kann auf der Standard New-Tab-Seite nicht verwendet werden"
     },
     "newtab_fallback_headline_system": {
         "message": "Die Sidebar kann auf {browserName}-Systemseiten nicht verwendet werden"
@@ -1254,19 +1254,19 @@
         "message": "Sidebar automatisch \u00f6ffnen"
     },
     "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden ob die Sidebar automatisch ge\u00f6ffnet werden soll."
+        "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden, ob die Sidebar automatisch ge\u00f6ffnet werden soll."
     },
     "settings_newtab_focus_omnibox": {
         "message": "Adressleiste fokussieren"
     },
     "settings_newtab_focus_omnibox_desc": {
-        "message": "Wenn aktiviert, wird die Adressleiste fokussiert, wenn ein neuer Tab ge\u00f6ffnet wird. Ansonsten wird das Suchfeld auf der Webseite fokussiert."
+        "message": "Bei Aktivierung wird die Adressleiste fokussiert, wenn ein neuer Tab ge\u00f6ffnet wird. Ansonsten wird das Suchfeld auf der Webseite fokussiert."
     },
     "settings_newtab_website": {
         "message": "Webseite laden"
     },
     "settings_newtab_website_desc": {
-        "message": "Anstatt die angepasste New-Tab-Seite zu \u00f6ffnen, kann stattdessen eine Webseite geladen werden."
+        "message": "Anstatt die angepasste New-Tab-Seite zu \u00f6ffnen, kann auch eine beliebige Webseite geladen werden."
     },
     "settings_language": {
         "message": "Sprache"
@@ -1332,7 +1332,7 @@
         "message": "Feedback"
     },
     "settings_support_feedback_desc": {
-        "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern bin ich f\u00fcr jedes Feedback dankbar."
+        "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern, bin ich f\u00fcr jedes Feedback dankbar."
     },
     "settings_support_feedback_notice": {
         "message": "Du kannst die Nachricht gerne auf Deutsch schreiben."
@@ -1380,7 +1380,7 @@
         "message": "Deine Einstellung wurde erfolgreich gespeichert"
     },
     "premium_popup_text": {
-        "message": "Hast du dir schon die Premium-Funktionen angeschaut?"
+        "message": "Hast Du dir schon die Premium-Funktionen angeschaut?"
     },
     "premium_restricted_text": {
         "message": "Diese Funktion ist nur mit Premium verf\u00fcgbar"
@@ -1410,7 +1410,7 @@
         "message": "Sei der Erste, der neue experimentelle Funktionen ausprobieren kann"
     },
     "premium_feature_early_access_desc": {
-        "message": "Mit Premium bekommst du Zugriff auf bisher unver\u00f6ffentliche Funktionen, die aktuell in der Entwicklung sind, oder sich gerade in der Testphase befinden."
+        "message": "Mit Premium bekommst du Zugriff auf bisher unver\u00f6ffentlichte Funktionen, die aktuell noch in der Entwicklung sind oder sich gerade in der Testphase befinden."
     },
     "premium_feature_sidebar_width_headline": {
         "message": "Passe die Breite deiner Sidebar jederzeit an"
@@ -1422,7 +1422,7 @@
         "message": "Passe deine New-Tab-Seite an"
     },
     "premium_feature_custom_background_desc": {
-        "message": "Wenn du die New-Tab-Seite der Erweiterung verwendest, kannst du dein eigenes Hintergrundbild festlegen um die Seite noch h\u00fcbscher zu gestalten."
+        "message": "Wenn Du die New-Tab-Seite der Erweiterung verwendest, kannst Du dein eigenes Hintergrundbild festlegen, um die Seite noch h\u00fcbscher zu gestalten."
     },
     "premium_feature_custom_css_headline": {
         "message": "Passe alles an ... Mit deinem eigenen Stylesheet"
@@ -1434,7 +1434,7 @@
         "message": "\u00dcberpr\u00fcfe deine Lesezeichen auf kaputte oder doppelte Links"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten URLs, Lesezeichen die nicht mehr funktionieren und Eintr\u00e4ge mit doppelten URLs auf."
+        "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten URLs, nicht mehr funktionierende Lesezeichen und Eintr\u00e4ge mit doppelten URLs auf."
     },
     "premium_feature_themes_headline": {
         "message": "\u00c4ndere das Design deiner Sidebar"
@@ -1443,13 +1443,13 @@
         "message": "Du kannst das gesamte Aussehen der Sidebar mit einem Klick \u00e4ndern, in dem du ein anderes Design installierst. Die Designs k\u00f6nnen auch mit den vorhandenen Reglern und Farboptionen angepasst werden."
     },
     "premium_pay_intro_payment_method": {
-        "message": "Klicke unten eine Zahlungsart an und w\u00e4hle den Betrag, den du bezahlen m\u00f6chtest, im n\u00e4chsten Schritt aus."
+        "message": "Klicke unten eine Zahlungsart an und w\u00e4hle den Betrag, den Du bezahlen m\u00f6chtest, im n\u00e4chsten Schritt aus."
     },
     "premium_pay_what_you_want": {
-        "message": "Bezahl so viel du willst"
+        "message": "Zahl, so viel du willst"
     },
     "premium_pay_contact": {
-        "message": "Wenn du irgendwelche Schwierigkeiten mit der Bezahlung, oder Fragen hast, kannst du mich gerne unter {1} kontaktieren."
+        "message": "Wenn Du irgendwelche Schwierigkeiten mit der Bezahlung oder Fragen hast, kannst Du mich gerne unter {1} kontaktieren."
     },
     "premium_pay_price_total": {
         "message": "Insgesamt"
@@ -1458,7 +1458,7 @@
         "message": "Dies ist eine einmalige Zahlung und beinhaltet alle zuk\u00fcnftigen Premium-Funktionen."
     },
     "premium_pay_price_pay_what_you_want": {
-        "message": "Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf die Premium-Funktionen zu erhalten. Du erh\u00e4ltst alle Premium-Funktionen, egal wie viel du bereit bist auszugeben."
+        "message": "Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf die Premium-Funktionen zu erhalten. Du erh\u00e4ltst alle Premium-Funktionen, egal wie viel Du bereit bist auszugeben."
     },
     "premium_pay_eula": {
         "message": "Endbenutzer-Lizenzvereinbarung"
@@ -1488,7 +1488,7 @@
         "message": "{1} wurde auf diesem Ger\u00e4t automatisch aktiviert. Du musst nichts weiter tun."
     },
     "premium_pay_license_key_desc": {
-        "message": "Wenn du {1} auf einem anderen Ger\u00e4t aktivieren willst, oder nach einer Neuinstallation, kannst du den folgenden Aktivierungscode in den Einstellungen der Erweiterung eingeben:"
+        "message": "Wenn Du {1} auf einem anderen Ger\u00e4t oder nach einer Neuinstallation installieren willst, kannst Du den folgenden Aktivierungscode in den Einstellungen der Erweiterung eingeben:"
     },
     "premium_pay_info_email": {
         "message": "E-Mail"

@@ -442,15 +442,11 @@
             const config = this.helper.model.getData(["a/theme", "a/surface", "a/highContrast"]);
             this.elm.iframe = $(`<${rootElement} id="${$.opts.ids.page.iframe}"></${rootElement}>`)
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
-                .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
                 .attr($.attr.theme, config.theme)
                 .appendTo("body");
 
             this.elm.iframeBody = this.elm.iframeDocument.find("body");
-
-            this.elm.iframeBody
-                .attr($.attr.theme, config.theme)
-                .attr("aria-hidden", "true");
+            this.elm.iframeBody.attr($.attr.theme, config.theme);
 
             this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\"></section>").appendTo(this.elm.iframeBody);
             if (pageType === "sidepanel") {

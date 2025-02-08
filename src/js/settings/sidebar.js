@@ -84,9 +84,9 @@
 
             if (conf.behaviour.visibility === "blacklist" || conf.behaviour.visibility === "whitelist") {
                 const rules = s.elm.textarea.visibilityFilter[0].value;
-                conf.behaviour[conf.behaviour.visibility] = rules.split(/\n+/);
+                conf.behaviour[conf.behaviour.visibility] = rules.split(/\n+/).filter(rule => rule.trim() !== "");
 
-                if (conf.behaviour[conf.behaviour.visibility][0] === "") {
+                if (conf.behaviour[conf.behaviour.visibility].length === 0) {
                     conf.behaviour.visibility = "always";
                 }
             }

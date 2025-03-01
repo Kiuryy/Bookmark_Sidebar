@@ -16,7 +16,7 @@
          * @returns {Promise}
          */
         this.openUrl = async (infos, type = "default", active = true) => {
-            ext.helper.model.setData({"u/lastOpened": infos.id});
+            const promiseLastOpened = ext.helper.model.setData({"u/lastOpened": infos.id});
 
             if (type === "incognito") {
                 await ext.helper.model.call("openLink", {
@@ -30,6 +30,15 @@
                     newWindow: true
                 });
             } else {
+                if (ext.helper.utility.getPageType() === "sidepanel") {
+                    Promise.all([
+                        promiseLastOpened,
+                        $.delay(600)
+                    ]).then(() => {
+                        ext.helper.toggle.markLastUsed(true);
+                    });
+                }
+
                 const newtab = type === "newTab";
                 if (infos.url.startsWith("javascript:") && newtab === false) {
                     location.href = infos.url;

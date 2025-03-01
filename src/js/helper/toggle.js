@@ -173,15 +173,19 @@
         /**
          * Marks the last used bookmark in the list if the according configuration is set
          */
-        this.markLastUsed = () => {
+        this.markLastUsed = (fromBookmarkClick = false) => {
             const data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
 
             if (data.rememberState === "all" && data.lastOpened) { // mark last opened bookmark if there is one and user set so in the options
+                ext.elm.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
                 const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + data.lastOpened + "']");
 
                 if (entry && entry.length() > 0) {
                     entry.addClass($.cl.sidebar.mark);
-                    ext.helper.model.setData({"u/lastOpened": null});
+
+                    if (!fromBookmarkClick) {
+                        ext.helper.model.setData({"u/lastOpened": null});
+                    }
                 }
             }
         };

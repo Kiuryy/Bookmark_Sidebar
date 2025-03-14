@@ -90,12 +90,10 @@
 
             if (response && typeof response.valid !== "undefined") {
                 if (!response.valid) {
-                    // eslint-disable-next-line no-console
                     console.error("License key check: Invalid key", licenseKey, response);
                 }
                 return {valid: response.valid};
             } else {
-                // eslint-disable-next-line no-console
                 console.error("License key check: Invalid response", licenseKey, response);
                 return {valid: null};
             }

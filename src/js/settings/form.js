@@ -185,8 +185,12 @@
                 });
 
                 fontList.forEach((font) => {
-                    if (s.elm.select[opts.name].children("option[value='" + font.fontId.replace(/\'/g, "\\27") + "']").length() === 0) {
-                        $("<option></option>").attr("value", font.fontId).text(font.displayName).appendTo(s.elm.select[opts.name]);
+                    try {
+                        if (s.elm.select[opts.name].children("option[value='" + font.fontId.replace(/'/g, "\\27") + "']").length() === 0) {
+                            $("<option></option>").attr("value", font.fontId).text(font.displayName).appendTo(s.elm.select[opts.name]);
+                        }
+                    } catch (err) {
+                        console.error("Error adding font", font, err);
                     }
                 });
             });

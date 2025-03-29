@@ -52,7 +52,7 @@
       ]
     }
   ],
-  "incognito": "split",
+  "incognito": "spanning",
   "options_ui": {
     "page": "html/settings.html",
     "open_in_tab": true
@@ -75,7 +75,6 @@
     "contextMenus",
     "scripting",
     "unlimitedStorage",
-    "fontSettings",
     "sidePanel"
   ],
   "optional_permissions": [

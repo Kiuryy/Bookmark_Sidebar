@@ -177,6 +177,11 @@
          * @returns {Promise}
          */
         initField.font = async (opts) => {
+            if (!$.api.fontSettings) { // e.g. firefox
+                $(opts.elm).remove();
+                return;
+            }
+
             s.elm.select[opts.name] = $("<select></select>").insertAfter(opts.label);
             $.api.fontSettings.getFontList((fontList) => {
                 fontList.unshift({

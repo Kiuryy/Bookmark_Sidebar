@@ -55,13 +55,6 @@
             });
 
             $.api.action.setTitle({title: lang.vars.header_bookmarks.message});
-
-            if ($.isDev && !$.opts.demoMode && info.devModeIconBadge) { // add badge for the dev version
-                $.api.action.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
-                $.api.action.setBadgeText({text: " "});
-            } else {
-                $.api.action.setBadgeText({text: ""});
-            }
         };
 
         /**
@@ -72,17 +65,12 @@
         const getInfo = async () => {
             const ret = {
                 name: "bookmark",
-                color: "auto",
-                devModeIconBadge: true
+                color: "auto"
             };
 
             const config = await $.api.storage.sync.get(["appearance"]);
 
             if (config && config.appearance && config.appearance.styles) {
-                if (typeof config.appearance.devModeIconBadge !== "undefined") {
-                    ret.devModeIconBadge = config.appearance.devModeIconBadge;
-                }
-
                 if (config.appearance.styles) {
                     if (config.appearance.styles.iconShape) {
                         ret.name = config.appearance.styles.iconShape;

@@ -373,13 +373,17 @@
             });
 
             const loadJs = (i = 0) => {
-                const js = $.opts.manifest.content_scripts[0].js[i];
+                let js = $.opts.manifest.content_scripts[0].js[i];
 
                 if (typeof js !== "undefined") {
                     const script = document.createElement("script");
                     document.head.appendChild(script);
                     script.onload = () => loadJs(i + 1);
-                    script.src = "/" + js;
+                    if (!js.includes("://")) {
+                        js = "/" + js;
+                    }
+                    script.src = js;
+                    $(script).attr($.attr.type, "script_sidebar");
                 }
             };
 

@@ -37,6 +37,12 @@
             const uid = Math.random().toString(36).substring(2, 14);
 
             $.api.contextMenus.create({
+                id: "bsSettings_" + uid,
+                title: lang.vars.settings_title.message,
+                contexts: ["action"]
+            });
+
+            $.api.contextMenus.create({
                 id: "bsChangelog_" + uid,
                 title: lang.vars.settings_menu_infos_changelog.message,
                 contexts: ["action"]
@@ -49,7 +55,12 @@
             });
 
             $.api.contextMenus.onClicked.addListener((obj) => {
-                if (obj.menuItemId === "bsChangelog_" + uid) {
+                if (obj.menuItemId === "bsSettings_" + uid) {
+                    b.helper.utility.openLink({
+                        href: $.api.runtime.getURL("html/settings.html"),
+                        newTab: true
+                    });
+                } else if (obj.menuItemId === "bsChangelog_" + uid) {
                     b.helper.utility.openLink({
                         hrefName: "changelog",
                         newTab: true,

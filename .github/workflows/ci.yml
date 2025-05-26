@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - run: |
+        npm install -g sass
+        npm install -g terser
+    - run: |
+        bash -x -e build.sh

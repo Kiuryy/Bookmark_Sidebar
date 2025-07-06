@@ -97,7 +97,7 @@
                     const ua = $.ua();
                     await addToStack("browser", ua.browser);
                     await addToStack("os", ua.os);
-                    await addToStack("version", $.opts.manifest.version_name);
+                    await addToStack("version", $.opts.manifest.version_name || $.opts.manifest.version);
                     await addToStack("language", b.helper.language.getLanguage());
                     await addToStack("shareInfo", shareState);
                     await addToStack("runtimeId", $.api.runtime.id);

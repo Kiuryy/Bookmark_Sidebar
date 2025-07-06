@@ -466,7 +466,7 @@
                         data: {
                             email: emailText,
                             msg: messageText,
-                            version: $.opts.manifest.version_name,
+                            version: $.opts.manifest.version_name || $.opts.manifest.version,
                             lastUpdate: await s.helper.model.call("lastUpdateDate"),
                             ua: navigator.userAgent,
                             browser: $.ua().browser,

@@ -1,6 +1,6 @@
 {
   "name": "bookmark_sidebar",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "license": "MS-RSL",
   "author": "Philipp Koenig",
   "homepage": "https://extensions.redeviation.com/",
@@ -16,10 +16,10 @@
     "release": "./build.sh --mode=release --target=chrome,firefox"
   },
   "devDependencies": {
-    "eslint": "^9.22.0",
+    "eslint": "^9.29.0",
     "html-minifier-terser": "^7.2.0",
-    "sass": "^1.85.1",
-    "npm-check-updates": "^17.1.15",
-    "terser": "^5.39.0"
+    "sass": "^1.89.2",
+    "npm-check-updates": "^18.0.1",
+    "terser": "^5.43.1"
   }
 }

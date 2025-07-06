@@ -100,6 +100,9 @@ terser src/js/lib/jsu.js src/js/opts.js src/js/sidepanel.js "${terser_sidepanel_
 # onboarding
 terser src/js/lib/jsu.js src/js/opts.js src/js/helper/i18n.js src/js/helper/font.js src/js/helper/stylesheet.js src/js/helper/template.js src/js/helper/utility.js src/js/helper/model.js src/js/onboarding.js "${terser_onboarding_options[@]:-${terser_options[@]}}" --output dist/js/onboarding.js
 
+# tmp upgrade TODO REMOVE
+terser src/js/lib/jsu.js src/js/opts.js src/js/helper/i18n.js src/js/helper/font.js src/js/helper/stylesheet.js src/js/helper/template.js src/js/helper/utility.js src/js/helper/model.js src/js/tmp_upgrade.js "${terser_options[@]}" --output dist/js/tmp_upgrade.js
+
 # settings
 terser src/js/lib/jsu.js src/js/lib/colorpicker.js src/js/opts.js src/js/helper/i18n.js src/js/helper/font.js src/js/helper/stylesheet.js src/js/helper/template.js src/js/helper/utility.js src/js/helper/model.js src/js/helper/checkbox.js "${settings_js[@]}" src/js/settings.js "${terser_settings_options[@]:-${terser_options[@]}}" --output dist/js/settings.js
 

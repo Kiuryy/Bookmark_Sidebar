@@ -329,8 +329,22 @@
                 $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
-            select.on("input change", (e) => {
-                n.helper.gridLinks.setType(e.currentTarget.value);
+            select.on("change", (e) => {
+                const gridType = e.currentTarget.value;
+                if (gridType === "topPages") {
+                    $.api.permissions.request({ // request additional permission
+                        permissions: ["topSites"]
+                    }, (granted) => {
+                        if (granted) { // not granted -> no overriding
+                            n.helper.gridLinks.setType(gridType)
+                        } else {
+                            select[0].value = currentType;
+                            n.helper.gridLinks.setType(currentType);
+                        }
+                    });
+                } else {
+                    n.helper.gridLinks.setType(gridType);
+                }
             });
         };
 
@@ -547,7 +561,20 @@
                 }
 
                 checkbox.children("input[type='checkbox']").on("change", (e) => {
-                    n.helper.search.setSearchSuggestion(name, e.currentTarget.checked);
+                    const value = e.currentTarget.checked;
+                    if (value && name === "history") {
+                        $.api.permissions.request({ // request additional permission
+                            permissions: ["history"]
+                        }, (granted) => {
+                            if (granted) { // not granted -> no overriding
+                                n.helper.search.setSearchSuggestion(name, value);
+                            } else {
+                                checkbox.trigger("click");
+                            }
+                        });
+                    } else {
+                        n.helper.search.setSearchSuggestion(name, value);
+                    }
                 });
             });
 

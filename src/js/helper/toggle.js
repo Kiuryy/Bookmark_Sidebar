@@ -92,8 +92,7 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen)
-                || pageType === "sidepanel") {
+            if (((pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen) || pageType === "sidepanel") {
                 this.openSidebar();
             }
 
@@ -389,7 +388,7 @@
             const maskColor = styles.sidebarMaskColor || null;
 
             return !(
-                ((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && newtabAutoOpen)
+                ((pageType === "newtab_replacement" || pageType === "newtab_fallback") && newtabAutoOpen)
                 || pageType === "sidepanel"
                 || pageType === "onboarding"
                 || maskColor === "transparent"

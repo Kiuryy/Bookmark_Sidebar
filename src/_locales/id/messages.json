@@ -284,7 +284,7 @@
     "newtab_title": {
         "message": "Tab Baru"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Halaman teratas"
     },
     "newtab_grid_links_recently_used": {

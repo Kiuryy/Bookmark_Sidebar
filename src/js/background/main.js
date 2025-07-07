@@ -14,7 +14,6 @@
          */
         this.reload = async (opts) => {
             await Promise.all([
-                this.helper.newtab.updateConfig(),
                 this.helper.cache.remove({name: "htmlList"}),
                 this.helper.cache.remove({name: "htmlPinnedEntries"})
             ]);
@@ -43,7 +42,6 @@
         this.reinitialize = async (opts = {}) => {
             this.reinitialized = +new Date();
 
-            await this.helper.newtab.updateConfig();
             await this.helper.language.init();
             await this.helper.cache.remove({name: "htmlList"});
             await this.helper.cache.remove({name: "htmlPinnedEntries"});
@@ -107,8 +105,6 @@
 
             $.api.runtime.setUninstallURL($.opts.website.info[$.isDev ? "landing" : "uninstall"]);
 
-            $.api.tabs.onCreated.addListener(this.helper.newtab.onTabCreated);
-
             $.api.action.onClicked.addListener(this.helper.browserAction.toggleSidebar);
 
             if ($.api.bookmarks.onImportBegan && $.api.bookmarks.onImportEnded) {
@@ -153,7 +149,6 @@
                 language: new $.LanguageHelper(this),
                 upgrade: new $.UpgradeHelper(this),
                 viewAmount: new $.ViewAmountHelper(this),
-                newtab: new $.NewtabHelper(this),
                 message: new $.MessageHelper(this),
                 icon: new $.IconHelper(this),
                 browserAction: new $.BrowserActionHelper(this),
@@ -234,7 +229,6 @@
             await this.helper.analytics.init();
             await this.helper.icon.init();
             await this.helper.browserAction.init();
-            await this.helper.newtab.init();
             await this.helper.message.init();
             await this.helper.upgrade.init();
 

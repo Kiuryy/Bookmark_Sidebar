@@ -296,7 +296,7 @@
     "newtab_title": {
         "message": "Tab nou"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Pagini de top"
     },
     "newtab_grid_links_recently_used": {

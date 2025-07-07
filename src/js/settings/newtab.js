@@ -3,8 +3,6 @@
 
     $.NewtabHelper = function (s) {
 
-        let overrideCheckboxInited = false;
-        let overrideWithWebsite = false;
         const faviconInputs = [];
         const faviconPadding = {regular: 18, transparent: 10};
         const updateFaviconPreviewState = {running: false, awaitUpdate: false};
@@ -18,22 +16,9 @@
             initEvents();
             initFaviconOptions();
 
-            ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
+            ["autoOpen"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
-                    if (field === "override") { // only enable override checkbox if the user granted permissions
-                        $.api.permissions.contains({
-                            permissions: ["tabs", "topSites"] // don't check the "history" permission, since in legacy versions of the extension this permission wasn't necessary
-                        }, (result) => {
-                            if (result) {
-                                s.elm.checkbox[field].trigger("click");
-                            }
-                            overrideCheckboxInited = true;
-                        });
-                    } else {
-                        s.elm.checkbox[field].trigger("click");
-                    }
-                } else if (field === "override") {
-                    overrideCheckboxInited = true;
+                    s.elm.checkbox[field].trigger("click");
                 }
                 s.elm.checkbox[field].children("input").trigger("change");
             });
@@ -45,15 +30,9 @@
             });
 
             ["faviconShape"].forEach((field) => {
-                const value = s.helper.model.getData("n/" + field);
-                s.elm.radio[field][0].value = value;
+                s.elm.radio[field][0].value = s.helper.model.getData("n/" + field);
                 s.elm.radio[field].trigger("change");
                 faviconInputs.push(s.elm.radio[field][0]);
-            });
-
-            ["website"].forEach((field) => {
-                s.elm.field[field][0].value = s.helper.model.getData("n/" + field);
-                overrideWithWebsite = s.elm.field[field][0].value.length > 0;
             });
         };
 
@@ -67,7 +46,7 @@
                 $.api.storage.sync.get(["newtab"], (obj) => {
                     const config = obj.newtab || {};
 
-                    ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
+                    ["autoOpen"].forEach((field) => {
                         config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
                     });
 
@@ -80,14 +59,6 @@
                     ["faviconShape"].forEach((field) => {
                         config[field] = s.elm.radio[field][0].value;
                     });
-
-                    ["website"].forEach((field) => {
-                        config[field] = s.elm.field[field][0].value.trim();
-                    });
-
-                    if (config.website && config.website.length && config.website.search(/^[\w-]+:\/\//) !== 0) { // prepend http if no protocol specified
-                        config.website = "http://" + config.website;
-                    }
 
                     $.api.storage.sync.set({newtab: config}, resolve);
                 });
@@ -111,44 +82,9 @@
          * Initialises the eventhandlers
          */
         const initEvents = () => {
-            s.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
-                let override = s.helper.checkbox.isChecked(s.elm.checkbox.override);
-                const hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.hideable);
-
-                if (override) {
-                    if (overrideCheckboxInited === true) {
-                        $.api.permissions.request({ // request additional permissions in order to override the new tab page
-                            permissions: ["tabs", "topSites", "history"]
-                        }, (granted) => {
-                            if (!granted) { // not granted -> no overriding
-                                s.elm.checkbox.override.trigger("click");
-                                override = false;
-                            }
-
-                            if (override) {
-                                hideableBoxes.removeClass($.cl.hidden);
-                                showHideButtons();
-                            } else {
-                                hideableBoxes.addClass($.cl.hidden);
-                                s.elm.newtab.buttons.addClass($.cl.hidden);
-                            }
-                        });
-                    } else {
-                        hideableBoxes.removeClass($.cl.hidden);
-                        showHideButtons();
-                    }
-                } else {
-                    hideableBoxes.addClass($.cl.hidden);
-                    s.elm.newtab.buttons.addClass($.cl.hidden);
-                }
-            });
-
             s.elm.newtab.content.find("input, select").on("change input", async (e) => {
                 if (faviconInputs.indexOf(e.currentTarget) > -1) { // updated one of the favicon options -> update preview as well
                     await updateFaviconPreview();
-                } else if (s.elm.field.website[0] === e.currentTarget) {
-                    overrideWithWebsite = s.elm.field.website[0].value.length > 0;
-                    await showHideButtons();
                 }
             });
 
@@ -163,19 +99,7 @@
         };
 
         /**
-         * Shows the buttons to open the preview or edit mode of the custom new tab page in case newtabOverride = true and the user did not enter an URL as new tab replacement
-         */
-        const showHideButtons = async () => {
-            if (overrideWithWebsite) {
-                s.elm.newtab.buttons.addClass($.cl.hidden);
-            } else {
-                s.elm.newtab.buttons.removeClass($.cl.hidden);
-                await updateFaviconPreview();
-            }
-        };
-
-        /**
-         * Updates the favicon preview,
+         * Updates the favicon preview
          * this method does need a bit to finish. If you call the method while a previous call is still running, it will terminate immediately, but set updateFaviconPreviewState.awaitUpdate=true, so the method will call itself after finishing the first run
          */
         const updateFaviconPreview = async () => {

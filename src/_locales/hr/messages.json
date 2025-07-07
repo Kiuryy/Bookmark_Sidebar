@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Nova kartica"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Najposje\u0107enije stranice"
     },
     "newtab_grid_links_recently_used": {

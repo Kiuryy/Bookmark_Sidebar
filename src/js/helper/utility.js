@@ -341,7 +341,6 @@
                 newtab_fallback: [$.api.runtime.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
                 newtab_replacement: [$.api.runtime.getURL("html/newtab.html")],
                 sidepanel: [$.api.runtime.getURL("html/sidepanel.html")],
-                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
                 onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],
                 chrome: ["chrome://", "edge://"],

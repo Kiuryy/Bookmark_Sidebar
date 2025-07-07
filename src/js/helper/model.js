@@ -185,7 +185,7 @@
                 focusOmnibox: false,
                 searchSuggestQueries: true,
                 searchSuggestBookmarks: true,
-                searchSuggestHistory: true,
+                searchSuggestHistory: false,
                 searchField: "show",
                 searchEngine: "google",
                 searchEngineCustom: {
@@ -193,7 +193,7 @@
                     homepage: "",
                     queryUrl: ""
                 },
-                gridType: "topPages",
+                gridType: "recentlyUsed",
                 gridMaxCols: 4,
                 gridMaxRows: 2,
                 customGridLinks: [],

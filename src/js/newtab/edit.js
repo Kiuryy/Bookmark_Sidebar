@@ -90,7 +90,6 @@
          * @returns {Promise}
          */
         const saveChanges = async () => {
-
             const loadStartTime = +new Date();
             const loader = n.helper.template.loading().appendTo(n.elm.body);
             n.elm.body.addClass($.cl.loading);
@@ -103,6 +102,7 @@
             const searchSuggestBookmarks = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestBookmarks']"));
             const searchSuggestHistory = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestHistory']"));
 
+            const autoOpen = n.helper.checkbox.isChecked(n.elm.body.find("[" + $.attr.name + "='sidebarConfig']"));
             const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
 
             const data = {
@@ -113,6 +113,7 @@
                 "n/searchSuggestBookmarks": searchSuggestBookmarks,
                 "n/searchSuggestHistory": searchSuggestHistory,
                 "n/gridType": gridType,
+                "n/autoOpen": autoOpen,
                 "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
                 "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
             };
@@ -213,7 +214,7 @@
                 .addClass($.cl.newtab.infoBar)
                 .append("<a class='" + $.cl.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
-                .appendTo(n.elm.body);
+                .appendTo(n.elm.content);
 
             const uploadWrapper = $("<div></div>").addClass($.cl.newtab.upload).appendTo(menu);
 
@@ -233,6 +234,7 @@
             initSearchConfig();
             initGridSize();
             initGridType();
+            initSidebarConfig();
             initCustomGrid();
             initTopLinks();
 
@@ -310,6 +312,23 @@
                     }
                 }
             });
+        };
+
+        /**
+         * Initialises the checkbox for the sidebar config
+         */
+        const initSidebarConfig = () => {
+            const sidebarConfigWrapper = $("<div></div>").attr($.attr.name, "sidebarConfig").appendTo("menu." + $.cl.newtab.infoBar);
+
+            const checkbox = n.helper.checkbox.get(n.elm.body, {
+                [$.attr.name]: "autoOpen"
+            }, "checkbox").appendTo(sidebarConfigWrapper);
+
+            $("<span></span>").html(n.helper.i18n.get("newtab_sidebar_auto_open")).insertAfter(checkbox);
+
+            if (n.helper.model.getData("n/autoOpen")) {
+                checkbox.trigger("click");
+            }
         };
 
         /**

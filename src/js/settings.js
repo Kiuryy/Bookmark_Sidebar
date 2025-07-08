@@ -57,7 +57,9 @@
             },
             newtab: {
                 content: $("div.tab[data-name='newtab']"),
-                buttons: $("div.tab[data-name='newtab'] p.buttons"),
+                buttons: $("div.tab[data-name='newtab'] div.buttons"),
+                extensionRecommendations: $("div.tab[data-name='newtab'] section.extensionRecommendations"),
+                url: $("div.tab[data-name='newtab'] div.url"),
                 faviconShapeWrapper: $("div.faviconOptions div.iconShapeWrapper"),
                 faviconPreview: $("div.faviconOptions > aside > canvas")
             },

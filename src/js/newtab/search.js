@@ -155,7 +155,7 @@
          */
         this.focusSearch = () => {
             if (n.elm.search.wrapper.hasClass($.cl.hidden) === false) { // Search field is visible
-                if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
+                if (searchAlreadyFocussed === false) { // first time the search field gets focussed -> prefill with already typed keyboard inputs
                     searchAlreadyFocussed = true;
                     n.elm.search.field[0].value = (window.cachedKeys || []).join("");
                 }

@@ -3,23 +3,86 @@ body[data-type^='newtab'] {
 
   > section#wrapper > main {
 
-    p.buttons {
+    div.intro {
+      @include mask("settings/icon-newtab", $textColorLight, 48px);
+      padding: 16px 20px 24px 100px;
 
-      &.hidden {
-        display: none;
+      &::before {
+        width: 96px;
+        height: 75px;
+        pointer-events: none;
       }
+
+      p {
+        line-height: 170%;
+        font-size: 120%;
+
+        &.large {
+          font-size: 170%;
+          font-weight: $__fontWeightNormal;
+          margin-bottom: 25px;
+        }
+
+        &.recommendationDisclaimer {
+          font-size: 90%;
+          color: $textColorLight;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    section.extensionRecommendations {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 20px 0 10px;
+      gap: 14px;
+
+      > a {
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px 20px 10px 16px;
+        gap: 16px;
+        font-weight: $__fontWeightSemiBold;
+        background: rgba(0, 0, 0, 0.05);
+        transition: background 0.2s;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        > img {
+          width: 40px;
+        }
+      }
+    }
+
+    div.url {
+      display: inline-block;
+      font-size: 100%;
+      letter-spacing: 1px;
+      user-select: text;
+      height: 36px;
+      margin: 10px 0 0 0;
+      padding: 7px 10px;
+      background: $textColor;
+      color: $textColorInverted;
+    }
+
+    div.buttons {
+      margin-top: 5px;
 
       > a.button {
         background: $mainColor2;
-        padding: 10px 15px 10px 38px;
-        margin: 20px 0 0 0;
+        font-size: 90%;
+        padding: 6px 15px 7px 36px;
 
         + a.button {
-          margin-left: 10px;
+          margin-left: 8px;
         }
 
         &[data-name='preview'] {
-          @include mask('icon-search', $textColorInverted, 22px);
+          @include mask('icon-search', $textColorInverted, 20px);
 
           &::before {
             left: 2px;
@@ -28,7 +91,7 @@ body[data-type^='newtab'] {
         }
 
         &[data-name='styling'] {
-          @include mask('settings/icon-theme', $textColorInverted, 18px);
+          @include mask('settings/icon-theme', $textColorInverted, 16px);
 
           &::before {
             left: 5px;
@@ -48,6 +111,11 @@ body[data-type^='newtab'] {
 
       > h2 {
         grid-column: 1/-1;
+      }
+
+      > p {
+        grid-column: 1/-1;
+        margin-bottom: 30px;
       }
 
       > div {

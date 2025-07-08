@@ -365,6 +365,9 @@
     "newtab_upload_background": {
         "message": "Hintergrundbild hochladen"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Sidebar \u00f6ffnen, wenn Seite geladen wird"
+    },
     "newtab_fallback_headline_general": {
         "message": "Die Sidebar wurde von Etwas blockiert"
     },
@@ -385,9 +388,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Wir haben stattdessen einen neuen Tab mit der Sidebar ge\u00f6ffnet."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Diese Seite immer anzeigen, wenn ein neuer Tab ge\u00f6ffnet wird"
     },
     "status_service_unavailable_headline": {
         "message": "Dienst nicht erreichbar"
@@ -1235,38 +1235,44 @@
     "settings_theme_changed": {
         "message": "Das Design wurde erfolgreich ge\u00e4ndert"
     },
-    "settings_newtab_desc": {
-        "message": "Du kannst die Standard-New-Tab-Seite deines Browsers mit einer Seite \u00fcberschreiben, die von dieser Erweiterung bereitgestellt wird. Diese Seite enth\u00e4lt deine Lesezeichenleiste und kann nach Belieben konfiguriert werden."
+    "settings_newtab_intro": {
+        "message": "M\u00f6chtest Du die Sidebar in neuen Tabs automatisch \u00f6ffnen?"
     },
-    "settings_newtab_override": {
-        "message": "New-Tab-Seite \u00fcberschreiben"
+    "settings_newtab_install_extension": {
+        "message": "Installiere eine Erweiterung wie eine dieser, um die neuen Tab zu \u00e4ndern:"
     },
-    "settings_newtab_override_desc": {
-        "message": "Soll die Erweiterung die aktuelle New-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Ich bin nicht mit diesen Erweiterungen verbunden und bekomme kein Geld f\u00fcr die Empfehlung."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Mit diesen Erweiterungen kannst du eine eigene URL festlegen, die aufgerufen wird, wenn du einen neuen Browser-Tab \u00f6ffnest. Gib nach der Installation diese URL in den Einstellungen der Erweiterung ein:"
     },
     "settings_newtab_override_preview": {
         "message": "Vorschau"
     },
-    "settings_newtab_override_configure": {
-        "message": "Konfigurieren"
+    "settings_newtab_override_customise": {
+        "message": "Diese Seite anpassen"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Sidebar automatisch \u00f6ffnen"
+    "settings_newtab_favicon_desc": {
+        "message": "Du kannst das Tab-Symbol (Favicon) f\u00fcr die New-Tab-Seite \u00e4ndern. So erkennst du sie leichter zwischen deinen offenen Tabs."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden, ob die Sidebar automatisch ge\u00f6ffnet werden soll."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Deine Lesezeichen-Sidebar wurde gerade aktualisiert."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Adressleiste fokussieren"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Aktion erforderlich!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Bei Aktivierung wird die Adressleiste fokussiert, wenn ein neuer Tab ge\u00f6ffnet wird. Ansonsten wird das Suchfeld auf der Webseite fokussiert."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Wegen einer Richtlinien\u00e4nderung von Google musste die bisherige Funktion zum \u00dcberschreiben der New-Tab-Seite entfernt werden, da sie nicht mehr den Entwickler-Richtlinien entspricht."
     },
-    "settings_newtab_website": {
-        "message": "Webseite laden"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Dadurch ist deine aktuelle Einstellung zur Anpassung der New-Tab-Seite betroffen."
     },
-    "settings_newtab_website_desc": {
-        "message": "Anstatt die angepasste New-Tab-Seite zu \u00f6ffnen, kann auch eine beliebige Webseite geladen werden."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Um das gewohnte Verhalten wiederherzustellen, richte bitte die neue L\u00f6sung in den Einstellungen der Erweiterung ein."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Einstellungen \u00f6ffnen"
     },
     "settings_language": {
         "message": "Sprache"

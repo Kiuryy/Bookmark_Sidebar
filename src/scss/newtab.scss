@@ -56,6 +56,10 @@ body {
     left: calc(50% - 18px);
     z-index: 99;
   }
+
+  section#content.small ~ svg.loading {
+    left: calc(50% - 18px + #{$__sidebarWidth} / 2);
+  }
 }
 
 section#content {
@@ -96,6 +100,10 @@ body[data-pos='right'] {
 
   section#content.small {
     margin-left: 0;
+
+    ~ svg.loading {
+      left: calc(50% - 18px - #{$__sidebarWidth} / 2);
+    }
   }
 }
 

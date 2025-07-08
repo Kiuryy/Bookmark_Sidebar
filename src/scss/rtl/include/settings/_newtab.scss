@@ -5,7 +5,23 @@ html[dir='rtl'] {
 
     > section#wrapper > main {
 
-      p.buttons {
+      div.intro {
+        padding-right: 100px;
+        padding-left: 20px;
+
+        &::before {
+          left: unset;
+          right: 0;
+          transform: scaleX(-1);
+        }
+      }
+
+      section.extensionRecommendations > a {
+        padding-left: 20px;
+        padding-right: 16px;
+      }
+
+      div.buttons {
 
         > a.button {
           padding-right: 38px;

@@ -3,6 +3,39 @@
 
     $.NewtabHelper = function (s) {
 
+        const recommendedExtensions = [
+            {
+                name: "Custom New Tab",
+                url: {
+                    Chrome: "https://chrome.google.com/webstore/detail/lfjnnkckddkopjfgmbcpdiolnmfobflj",
+                    Edge: "https://microsoftedge.microsoft.com/addons/detail/mhbdgafkbjagobahdhphkahiejfmchpb"
+                },
+                icon: "Custom-New-Tab.png"
+            },
+            {
+                name: "New Tab Redirect",
+                url: {
+                    Chrome: "https://chrome.google.com/webstore/detail/icpgjfneehieebagbmdbhnlpiopdcmna",
+                    Edge: "https://microsoftedge.microsoft.com/addons/detail/gjlfnhchoeaikgkpcahljapmloehmldb"
+                },
+                icon: "New-Tab-Redirect.png"
+            },
+            {
+                name: "Custom New Tab URL",
+                url: {
+                    Chrome: "https://chromewebstore.google.com/detail/mmjbdbjnoablegbkcklggeknkfcjkjia"
+                },
+                icon: "Custom-New-Tab-URL.png"
+            },
+            {
+                name: "Custom New Tab URL",
+                url: {
+                    Edge: "https://microsoftedge.microsoft.com/addons/detail/oeibmbobgpgnbnlbaffdgebpeepfbnhi"
+                },
+                icon: "Custom-New-Tab-URL-2.png"
+            }
+        ];
+
         const faviconInputs = [];
         const faviconPadding = {regular: 18, transparent: 10};
         const updateFaviconPreviewState = {running: false, awaitUpdate: false};
@@ -14,25 +47,21 @@
          */
         this.init = async () => {
             initEvents();
+            initExtensionRecommendations($.browserName);
             initFaviconOptions();
 
-            ["autoOpen"].forEach((field) => {
-                if (s.helper.model.getData("n/" + field) === true) {
-                    s.elm.checkbox[field].trigger("click");
-                }
-                s.elm.checkbox[field].children("input").trigger("change");
-            });
+            s.elm.newtab.url.text($.api.runtime.getURL("html/newtab.html"));
 
             ["faviconBackground", "faviconColor"].forEach((field) => {
+                faviconInputs.push(s.elm.color[field][0]);
                 const value = s.helper.model.getData("n/" + field);
                 s.helper.form.changeColorValue(s.elm.color[field], value);
-                faviconInputs.push(s.elm.color[field][0]);
             });
 
             ["faviconShape"].forEach((field) => {
+                faviconInputs.push(s.elm.radio[field][0]);
                 s.elm.radio[field][0].value = s.helper.model.getData("n/" + field);
                 s.elm.radio[field].trigger("change");
-                faviconInputs.push(s.elm.radio[field][0]);
             });
         };
 
@@ -45,10 +74,6 @@
             return new Promise((resolve) => {
                 $.api.storage.sync.get(["newtab"], (obj) => {
                     const config = obj.newtab || {};
-
-                    ["autoOpen"].forEach((field) => {
-                        config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
-                    });
 
                     ["faviconBackground", "faviconColor"].forEach((field) => {
                         const colorValue = s.helper.form.getColorValue(field, s.elm.color[field][0].value);
@@ -63,6 +88,26 @@
                     $.api.storage.sync.set({newtab: config}, resolve);
                 });
             });
+        };
+
+        const initExtensionRecommendations = (browserName) => {
+            for (const extension of recommendedExtensions) {
+                if (!extension.url[browserName]) {
+                    continue;
+                }
+
+                $("<a></a>")
+                    .text(extension.name)
+                    .attr("href", extension.url[browserName])
+                    .attr("target", "_blank")
+                    .prepend("<img src='" + $.api.runtime.getURL("img/external/" + extension.icon) + "' />")
+                    .appendTo(s.elm.newtab.extensionRecommendations);
+            }
+
+            // There are no suggestions for the users' browser -> show Chrome suggestions instead
+            if (s.elm.newtab.extensionRecommendations.children().length === 0 && browserName !== "Chrome") {
+                initExtensionRecommendations("Chrome");
+            }
         };
 
         const initFaviconOptions = () => {

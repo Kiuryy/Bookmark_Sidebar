@@ -135,6 +135,15 @@ menu.infoBar {
       margin: 2px 0 0 10px;
     }
   }
+
+  > div[data-name='sidebarConfig'] {
+    position: absolute;
+    left: 20px;
+    top: -54px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
 }
 
 div.editLinkTooltip {
@@ -246,6 +255,11 @@ body[data-pos='right'] {
         }
       }
     }
+
+    > div[data-name='sidebarConfig'] {
+      right: 20px;
+      left: unset;
+    }
   }
 }
 
@@ -299,7 +313,7 @@ body.edit {
   }
 
   section#content {
-    height: calc(100vh - 60px);
+    height: 100vh;
 
     > nav {
 

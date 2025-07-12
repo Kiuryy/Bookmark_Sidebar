@@ -355,7 +355,7 @@
                         permissions: ["topSites"]
                     }, (granted) => {
                         if (granted) { // not granted -> no overriding
-                            n.helper.gridLinks.setType(gridType)
+                            n.helper.gridLinks.setType(gridType);
                         } else {
                             select[0].value = currentType;
                             n.helper.gridLinks.setType(currentType);

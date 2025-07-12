@@ -17,10 +17,6 @@
 
                 initDescription(typeParam);
                 initEvents(typeParam);
-
-                if ((typeParam === "new_tab" || typeParam === "fallback") && n.helper.model.getData("n/override") === false) {
-                    initSetAsDefaultSwitch();
-                }
             }
         };
 
@@ -42,47 +38,6 @@
                 }
 
                 $.api.tabs.create({url: $.api.runtime.getURL("html/settings.html#support_error_" + suggestionType)});
-            });
-        };
-
-        /**
-         * Initialises the switch for setting the new tab page as default
-         */
-        const initSetAsDefaultSwitch = () => {
-            const wrapper = $("<div></div>").appendTo(n.elm.fallbackInfo);
-            const checkbox = n.helper.checkbox.get(n.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
-            $("<span></span>").html(n.helper.i18n.get("newtab_fallback_set_as_new_tab")).insertAfter(checkbox);
-
-            checkbox.children("input[type='checkbox']").on("change", (e) => {
-                if (e.currentTarget.checked) {
-                    $.api.permissions.request({ // request additional permissions in order to override the new tab page
-                        permissions: ["tabs", "topSites", "history"]
-                    }, (granted) => {
-                        if (granted) {
-                            setAsNewtab(true);
-                        } else { // not granted -> no overriding
-                            checkbox.trigger("click");
-                        }
-                    });
-                } else {
-                    setAsNewtab(false);
-                }
-            });
-        };
-
-        /**
-         * Enables or disables the new tab overriding
-         *
-         * @param {boolean} val
-         */
-        const setAsNewtab = (val) => {
-            $.api.storage.sync.get(["newtab"], (obj) => {
-                const config = obj.newtab || {};
-                config.override = val;
-                $.api.storage.sync.set({newtab: config}, () => {
-                    n.enabledSetAsNewtab = true;
-                    n.helper.model.call("reinitialize");
-                });
             });
         };
 

@@ -90,7 +90,6 @@
          * @returns {Promise}
          */
         const saveChanges = async () => {
-
             const loadStartTime = +new Date();
             const loader = n.helper.template.loading().appendTo(n.elm.body);
             n.elm.body.addClass($.cl.loading);
@@ -103,6 +102,7 @@
             const searchSuggestBookmarks = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestBookmarks']"));
             const searchSuggestHistory = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestHistory']"));
 
+            const autoOpen = n.helper.checkbox.isChecked(n.elm.body.find("[" + $.attr.name + "='sidebarConfig']"));
             const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
 
             const data = {
@@ -113,6 +113,7 @@
                 "n/searchSuggestBookmarks": searchSuggestBookmarks,
                 "n/searchSuggestHistory": searchSuggestHistory,
                 "n/gridType": gridType,
+                "n/autoOpen": autoOpen,
                 "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
                 "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
             };
@@ -213,7 +214,7 @@
                 .addClass($.cl.newtab.infoBar)
                 .append("<a class='" + $.cl.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
-                .appendTo(n.elm.body);
+                .appendTo(n.elm.content);
 
             const uploadWrapper = $("<div></div>").addClass($.cl.newtab.upload).appendTo(menu);
 
@@ -233,6 +234,7 @@
             initSearchConfig();
             initGridSize();
             initGridType();
+            initSidebarConfig();
             initCustomGrid();
             initTopLinks();
 
@@ -313,6 +315,23 @@
         };
 
         /**
+         * Initialises the checkbox for the sidebar config
+         */
+        const initSidebarConfig = () => {
+            const sidebarConfigWrapper = $("<div></div>").attr($.attr.name, "sidebarConfig").appendTo("menu." + $.cl.newtab.infoBar);
+
+            const checkbox = n.helper.checkbox.get(n.elm.body, {
+                [$.attr.name]: "autoOpen"
+            }, "checkbox").appendTo(sidebarConfigWrapper);
+
+            $("<span></span>").html(n.helper.i18n.get("newtab_sidebar_auto_open")).insertAfter(checkbox);
+
+            if (n.helper.model.getData("n/autoOpen")) {
+                checkbox.trigger("click");
+            }
+        };
+
+        /**
          * Initialises the dropdown for the top pages types
          */
         const initGridType = () => {
@@ -329,8 +348,22 @@
                 $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
-            select.on("input change", (e) => {
-                n.helper.gridLinks.setType(e.currentTarget.value);
+            select.on("change", (e) => {
+                const gridType = e.currentTarget.value;
+                if (gridType === "topPages") {
+                    $.api.permissions.request({ // request additional permission
+                        permissions: ["topSites"]
+                    }, (granted) => {
+                        if (granted) { // not granted -> no overriding
+                            n.helper.gridLinks.setType(gridType);
+                        } else {
+                            select[0].value = currentType;
+                            n.helper.gridLinks.setType(currentType);
+                        }
+                    });
+                } else {
+                    n.helper.gridLinks.setType(gridType);
+                }
             });
         };
 
@@ -547,7 +580,20 @@
                 }
 
                 checkbox.children("input[type='checkbox']").on("change", (e) => {
-                    n.helper.search.setSearchSuggestion(name, e.currentTarget.checked);
+                    const value = e.currentTarget.checked;
+                    if (value && name === "history") {
+                        $.api.permissions.request({ // request additional permission
+                            permissions: ["history"]
+                        }, (granted) => {
+                            if (granted) { // not granted -> no overriding
+                                n.helper.search.setSearchSuggestion(name, value);
+                            } else {
+                                checkbox.trigger("click");
+                            }
+                        });
+                    } else {
+                        n.helper.search.setSearchSuggestion(name, value);
+                    }
                 });
             });
 

@@ -302,7 +302,7 @@
     "newtab_title": {
         "message": "New Tab"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Top pages"
     },
     "newtab_grid_links_recently_used": {
@@ -368,6 +368,9 @@
     "newtab_upload_background": {
         "message": "Upload background image"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Expand sidebar when page loads"
+    },
     "newtab_fallback_headline_general": {
         "message": "Something has blocked the sidebar"
     },
@@ -388,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "We have opened a new tab with the sidebar for you instead."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Always show this page when opening a new tab"
     },
     "status_service_unavailable_headline": {
         "message": "Service unavailable"
@@ -1286,38 +1286,44 @@
     "settings_theme_changed": {
         "message": "Changed theme successfully"
     },
-    "settings_newtab_desc": {
-        "message": "You can override the default new tab page of your browser with a page provided by this extension. This page will show your bookmark sidebar and can be configured to enhance your productivity."
+    "settings_newtab_intro": {
+        "message": "Want to open your bookmarks sidebar automatically in new tabs?"
     },
-    "settings_newtab_override": {
-        "message": "Override new tab page"
+    "settings_newtab_install_extension": {
+        "message": "Install a New Tab Override extension like one of these:"
     },
-    "settings_newtab_override_desc": {
-        "message": "Should the extension override your current new tab page with either 1) a custom made page or 2) a website page which should be loaded when opening a new tab?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "I\u2019m not affiliated with these extensions and don\u2019t receive any compensation for recommending them."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "These extensions let you set a custom URL for new tabs. After installing, enter the following URL in the extension\u2019s settings:"
     },
     "settings_newtab_override_preview": {
         "message": "Preview"
     },
-    "settings_newtab_override_configure": {
-        "message": "Configure"
+    "settings_newtab_override_customise": {
+        "message": "Customise this page"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Open sidebar automatically"
+    "settings_newtab_favicon_desc": {
+        "message": "You can customise the tab icon (favicon) for the new tab page. This lets you easily recognise it among your open tabs."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Configure whether the sidebar should be opened automatically when opening a new tab."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Your Bookmark Sidebar just got updated."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Focus address bar"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Action Required!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "If enabled, the address bar will be focused when opening a new tab. If not enabled, the search box of the website will be focused instead."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Due to a policy enforcement by Google, the previous New Tab Override functionality had to be removed as it no longer complies with their developer guidelines."
     },
-    "settings_newtab_website": {
-        "message": "Load website"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "As a result, your current configuration that overrides the New Tab page is affected."
     },
-    "settings_newtab_website_desc": {
-        "message": "Instead of opening the new tab replacement, you can specify an alternative website page to load."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "To restore the expected behavior, please configure the updated solution available in the extension\u2019s settings."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Open Settings"
     },
     "settings_language": {
         "message": "Language"

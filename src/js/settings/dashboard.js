@@ -248,7 +248,7 @@
         const initFooter = async () => {
             // Version
             s.elm.dashboard.footerVersion
-                .html(s.helper.i18n.get("extension_version") + " " + "<span>" + $.opts.manifest.version_name + "</span>")
+                .html(s.helper.i18n.get("extension_version") + " " + "<span>" + ($.opts.manifest.version_name || $.opts.manifest.version) + "</span>")
                 .on("click", (e) => {
                     e.preventDefault();
                     s.helper.model.call("openLink", {

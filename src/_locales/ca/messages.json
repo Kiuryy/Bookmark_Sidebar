@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Nova Pestanya"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "P\u00e0gines de dalt"
     },
     "newtab_grid_links_recently_used": {

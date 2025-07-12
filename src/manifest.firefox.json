@@ -45,6 +45,7 @@
         "css/overlay.css",
         "css/content.css",
         "css/themes/*",
+        "html/newtab.html",
         "img/*"
       ],
       "matches": [

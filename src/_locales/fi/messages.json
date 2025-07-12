@@ -296,7 +296,7 @@
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Parhaat verkkosivustot"
     },
     "newtab_grid_links_recently_used": {

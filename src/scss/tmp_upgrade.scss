@@ -1,0 +1,83 @@
+@import "include/vars";
+@import "include/mixins";
+//
+$__colorScheme: $textColorInverted;
+$__textColor: $textColor;
+@import "include/loading";
+@import "include/generals";
+
+body {
+  background: $mainColor2;
+  height: 100vh;
+  overflow: hidden;
+
+  > svg.loading {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+  }
+}
+
+section#content {
+  @extend %hidden;
+  position: relative;
+  background: $contentBackground;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 150px auto 50px;
+  padding: 50px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 64px;
+    height: 64px;
+    background: img('icon/icon.png') no-repeat center / 100%;
+  }
+
+  > h2 {
+    font-size: 160%;
+    font-weight: 200;
+  }
+
+  > strong {
+    display: block;
+    margin: 20px 0 30px;
+    font-size: 200%;
+    font-weight: 400;
+    color: $colorError;
+  }
+
+  > p {
+    font-size: 110%;
+    line-height: 130%;
+
+    + p {
+      margin-top: 15px;
+    }
+  }
+
+  > a {
+    display: inline-block;
+    background: $mainColor2;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    color: $textColorInverted;
+    font-size: 120%;
+    font-weight: 300;
+    text-decoration: none;
+    margin: 30px 0 0;
+    padding: 9px 18px;
+    border-radius: 25px;
+    white-space: nowrap;
+  }
+
+  &.visible {
+    @extend %visible;
+  }
+}

@@ -12,10 +12,14 @@
         const colWidth = 145;
         const rowHeight = 121;
 
+        /**
+         * Key: will be saved in the storage
+         * Value: Label in newtab_grid_links_XXX
+         */
         const types = {
-            topPages: "default",
-            mostUsed: "most_used",
             recentlyUsed: "recently_used",
+            mostUsed: "most_used",
+            topPages: "top_pages",
             custom: "custom",
             hidden: "hidden"
         };
@@ -248,8 +252,6 @@
 
                             if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
                                 return list.slice(0, amount.total);
-                            } else {
-                                return [];
                             }
                         }
                     }

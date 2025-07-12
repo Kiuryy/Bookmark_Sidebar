@@ -65,7 +65,7 @@
                 this.helper.fallback.init(),
                 this.helper.edit.init(),
                 initEvents(),
-                $.delay(500),
+                $.delay(300),
             ]);
 
             loader.remove();

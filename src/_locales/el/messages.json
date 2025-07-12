@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "\u039d\u03ad\u03b1 \u03ba\u03b1\u03c1\u03c4\u03ad\u03bb\u03b1"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "\u039a\u03bf\u03c1\u03c5\u03c6\u03b1\u03af\u03b5\u03c2 \u03c3\u03b5\u03bb\u03af\u03b4\u03b5\u03c2"
     },
     "newtab_grid_links_recently_used": {

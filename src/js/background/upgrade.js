@@ -54,6 +54,24 @@
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
+            // Show upgrade info due to the changed new tab override options
+            try {
+                const oldVersionNumber = parseFloat(versionPartsOld[0] + "." + versionPartsOld[1]);
+                const newVersionNumber = parseFloat(versionPartsNew[0] + "." + versionPartsNew[1]);
+
+                if (!isNaN(oldVersionNumber) && !isNaN(newVersionNumber) && oldVersionNumber < 2.5 && newVersionNumber >= 2.5) {
+                    const obj = await $.api.storage.sync.get(["newtab"]);
+                    if (obj && obj.newtab && (obj.newtab.override === true || obj.newtab.override === "true")) {
+                        b.helper.utility.openLink({
+                            href: $.api.runtime.getURL("html/tmp_upgrade.html"),
+                            newTab: true
+                        });
+                    }
+                }
+            } catch (e) {
+                // Silently handle any errors in version parsing or comparison
+            }
+
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 await updateOptions("upgrade");
             }
@@ -142,27 +160,9 @@
                 delete obj.newtab.topPagesMaxRows;
                 delete obj.newtab.shortcutsPosition;
                 delete obj.newtab.shortcuts;
-
-                const installationDate = b.helper.model.getData("installationDate");
-                if (installationDate && installationDate < +new Date("2023-06-12")) {
-                    // Brave is currently unable to work properly with the sidePanel API and crashes.
-                    let isBrave = false;
-                    try {
-                        isBrave = navigator.userAgentData.brands.map((b) => b.brand).includes("Brave");
-                    } catch (e) {
-                        //
-                    }
-
-                    if (!obj.behaviour.iconAction || isBrave || !$.api.sidePanel) {
-                        obj.behaviour.iconAction = "overlay";
-                        if ($.api.sidePanel) {
-                            $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: false});
-                        }
-                    }
-                    if (typeof obj.behaviour.refocusWebsite === "undefined") {
-                        obj.behaviour.refocusWebsite = true;
-                    }
-                }
+                delete obj.newtab.override;
+                delete obj.newtab.focusOmnibox;
+                delete obj.newtab.website;
 
                 if (obj.appearance.styles && obj.appearance.styles.fontFamily && obj.appearance.styles.fontFamily.toUpperCase() === "DEFAULT") {
                     const existingFontFamily = obj.appearance.styles.fontFamily.toUpperCase();

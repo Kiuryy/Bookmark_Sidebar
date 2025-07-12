@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Nuova Scheda"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Pagine migliori"
     },
     "newtab_grid_links_recently_used": {

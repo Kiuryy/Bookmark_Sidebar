@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Yeni sekme"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "En iyi sayfalar"
     },
     "newtab_grid_links_recently_used": {

@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Novi tab"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Top stranice"
     },
     "newtab_grid_links_recently_used": {

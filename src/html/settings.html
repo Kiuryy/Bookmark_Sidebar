@@ -614,39 +614,26 @@
         #
         -->
         <div class="tab" data-name="newtab" data-save="settings_save" data-restore="true">
-            <div class="contentBox noticeBox">
-                <p data-i18n="settings_newtab_desc"></p>
-            </div>
 
-            <div class="boxWrapper">
-                <div class="box">
-                    <div class="formElement" data-type="checkbox" data-name="override"
-                         data-i18n="settings_newtab_override"></div>
+            <div class="contentBox intro">
+                <p class="large" data-i18n="settings_newtab_intro"></p>
+                <p data-i18n="settings_newtab_install_extension"></p>
 
-                    <p class="buttons">
-                        <a class="button" data-name="preview" data-i18n="settings_newtab_override_preview"></a>
-                        <a class="button" data-name="styling" data-i18n="settings_newtab_override_configure"></a>
-                    </p>
-                </div>
+                <section class="extensionRecommendations"></section>
+                <p class="recommendationDisclaimer" data-i18n="settings_newtab_extension_disclaimer"></p>
 
-                <div class="box hideable">
-                    <div class="formElement" data-type="text" data-name="website" data-placeholder="https://example.com"
-                         data-i18n="settings_newtab_website"></div>
-                </div>
+                <p data-i18n="settings_newtab_extension_desc"></p>
 
-                <div class="box hideable">
-                    <div class="formElement" data-type="checkbox" data-name="autoOpen"
-                         data-i18n="settings_newtab_sidebar_auto_open"></div>
-                </div>
-
-                <div class="box hideable">
-                    <div class="formElement" data-type="checkbox" data-name="focusOmnibox"
-                         data-i18n="settings_newtab_focus_omnibox"></div>
+                <div class="url"></div>
+                <div class="buttons">
+                    <a class="button" data-name="preview" data-i18n="settings_newtab_override_preview"></a>
+                    <a class="button" data-name="styling" data-i18n="settings_newtab_override_customise"></a>
                 </div>
             </div>
 
-            <div class="contentBox faviconOptions hideable">
+            <div class="contentBox faviconOptions">
                 <h2 data-i18n="settings_menu_appearance_icon"></h2>
+                <p data-i18n="settings_newtab_favicon_desc"></p>
                 <div>
                     <div class="iconShapeWrapper">
                         <div class="formElement" data-type="radio" data-name="faviconShape"

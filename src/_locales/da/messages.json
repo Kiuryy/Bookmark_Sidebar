@@ -299,7 +299,7 @@
     "newtab_title": {
         "message": "Ny fane"
     },
-    "newtab_grid_links_default": {
+    "newtab_grid_links_top_pages": {
         "message": "Mest viste"
     },
     "newtab_grid_links_recently_used": {

@@ -97,7 +97,7 @@
                     const ua = $.ua();
                     await addToStack("browser", ua.browser);
                     await addToStack("os", ua.os);
-                    await addToStack("version", $.opts.manifest.version_name);
+                    await addToStack("version", $.opts.manifest.version_name || $.opts.manifest.version);
                     await addToStack("language", b.helper.language.getLanguage());
                     await addToStack("shareInfo", shareState);
                     await addToStack("runtimeId", $.api.runtime.id);
@@ -180,7 +180,7 @@
                         }
 
                         if (
-                            (baseName === "newtab" && attr === "website") || // don't track the exact website, just true or false
+                            (baseName === "newtab" && attr === "website") || // don't track the exact website, just true or false TODO REMOVE, since this option no longer exists
                             (baseName === "utility" && attr === "customCss") || // only track whether the user uses a custom css or not
                             (baseName === "utility" && attr === "newtabBackground") // only track whether the user set a wallpaper as new tab background or not
                         ) {

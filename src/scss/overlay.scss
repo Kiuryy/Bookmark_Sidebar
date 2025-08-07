@@ -349,13 +349,23 @@ div.modal {
       @include maskImage('icon-info');
     }
 
+    > a[data-type='bookmark-manager'] {
+      display: inline-block;
+      margin: -15px 30px 0;
+      font-size: 80%;
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
     > ul.breadcrumb {
+      display: flex;
+      justify-content: flex-end;
       font-size: 80%;
       margin: 0 30px 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-      float: right;
 
       &::after {
         content: "";
@@ -366,7 +376,7 @@ div.modal {
       &::before {
         content: "";
         position: absolute;
-        left: 0;
+        left: 30px;
         width: 60px;
         height: 24px;
         background: linear-gradient(to right, $contentBackground 0%, transparent 100%);

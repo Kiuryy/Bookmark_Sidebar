@@ -188,6 +188,9 @@
     "overlay_update": {
         "message": "Update"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Show in Bookmark Manager"
+    },
     "overlay_confirm_open_selected": {
         "message": "Do you really want to open all {1} bookmarks, including the sub-folder bookmarks of the selected folders?"
     },
@@ -654,7 +657,7 @@
         "message": "Advanced settings"
     },
     "settings_not_synced": {
-        "message": "Will not be synchronized across your devices."
+        "message": "Will not be synchronised across your devices."
     },
     "settings_premium_activated": {
         "message": "Premium has been activated successfully"
@@ -684,7 +687,7 @@
         "message": "Change the appearance of your sidebar"
     },
     "settings_dashboard_appearance_options_desc": {
-        "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colors, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
+        "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colours, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
     },
     "settings_tips_tricks_facts": {
         "message": "Did you know?"
@@ -747,10 +750,10 @@
         "message": "The sidebar can be controlled using keyboard shortcuts. You can have a look at a list of shortcuts by clicking the menu icon in the header of the sidebar and then click on the {1} button."
     },
     "settings_tips_tricks_synchronization": {
-        "message": "Synchronization"
+        "message": "Synchronisation"
     },
     "settings_tips_tricks_synchronization_desc": {
-        "message": "All your settings of the sidebar will be synchronized between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
+        "message": "All your settings of the sidebar will be synchronised between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
     },
     "settings_tips_tricks_synchronization_action": {
         "message": "Look up your sync settings"
@@ -792,7 +795,7 @@
         "message": "Privacy"
     },
     "settings_tips_tricks_privacy_desc": {
-        "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only displays the ones of your browser in the sidebar."
+        "message": "The bookmarks displayed in your sidebar are synchronised and managed by {browserName}. The extension does not store or analyse these bookmarks, and only displays the ones of your browser in the sidebar."
     },
     "settings_tips_tricks_sidepanel": {
         "message": "Browser side panel"
@@ -838,6 +841,42 @@
     },
     "settings_toggle_area_drag_desc": {
         "message": "Drag to move"
+    },
+    "settings_trigger_area_width": {
+        "message": "Trigger width"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Trigger width in window mode"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear when the browser is not fullscreen or has reduced width (window mode)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Trigger height"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "The height of the screen edge area where the configured mouse action triggers the sidebar to appear. Reducing it can help avoid accidental sidebar activation during normal site interaction."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "If your mouse enters the configured screen edge area, an indicator bar appears. You can customise its appearance below, or set the width to zero to disable it."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Indicator width"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Width of the visible indicator bar. Can differ from the trigger width."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Indicator colour"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Indicator icon size"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Indicator icon colour"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"
@@ -1080,7 +1119,7 @@
         "message": "Import\/Export Settings"
     },
     "settings_import_export_notice": {
-        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
+        "message": "The extension settings are synchronised automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
     },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
@@ -1134,7 +1173,7 @@
         "message": "Automatical"
     },
     "settings_surface_info": {
-        "message": "Adapt the surface of the sidebar automatically to match your system (light or dark) or choose it explicitly to allow further color customization."
+        "message": "Adapt the surface of the sidebar automatically to match your system (light or dark) or choose it explicitly to allow further colour customisation."
     },
     "settings_color_scheme_desc": {
         "message": "The colour of the sidebar header, checkboxes, etc."
@@ -1251,7 +1290,7 @@
         "message": "Theme"
     },
     "settings_themes_notice": {
-        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and colour options."
+        "message": "You can choose the basic design of the sidebar. The selected theme can be customised with the available sliders and colour options."
     },
     "settings_available_themes": {
         "message": "Available Themes"
@@ -1494,16 +1533,16 @@
         "message": "Import and export your settings"
     },
     "premium_feature_custom_background_headline": {
-        "message": "Customize your New Tab page"
+        "message": "Customise your New Tab page"
     },
     "premium_feature_custom_background_desc": {
         "message": "If you are using the New Tab page of this extension you can set your own background image to make it look even nicer."
     },
     "premium_feature_custom_css_headline": {
-        "message": "Customize everything with your own Stylesheet"
+        "message": "Customise everything with your own Stylesheet"
     },
     "premium_feature_custom_css_desc": {
-        "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customize absolutely anything."
+        "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customise absolutely anything."
     },
     "premium_feature_linkchecker_headline": {
         "message": "Check your bookmarks for broken links or duplicates"
@@ -1515,7 +1554,7 @@
         "message": "Change the theme of your sidebar"
     },
     "premium_feature_themes_desc": {
-        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and colour options."
+        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customised with the available sliders and colour options."
     },
     "premium_pay_intro_payment_method": {
         "message": "Select a payment method below and choose the desired amount you want to pay in the next step."

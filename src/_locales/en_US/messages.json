@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Update"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Show in Bookmark Manager"
+    },
     "overlay_confirm_open_selected": {
         "message": "Do you really want to open all {1} bookmarks, including the sub-folder bookmarks of the selected folders?"
     },
@@ -835,6 +838,42 @@
     },
     "settings_toggle_area_drag_desc": {
         "message": "Drag to move"
+    },
+    "settings_trigger_area_width": {
+        "message": "Trigger width"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Trigger width in window mode"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear when the browser is not fullscreen or has reduced width (window mode)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Trigger height"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "The height of the screen edge area where the configured mouse action triggers the sidebar to appear. Reducing it can help avoid accidental sidebar activation during normal site interaction."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "The height of the screen edge area where the configured mouse action triggers the sidebar to appear. Reducing it can help avoid accidental sidebar activation during normal site interaction."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Indicator width"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Width of the visible indicator bar. Can differ from the trigger width."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Indicator color"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Indicator icon size"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Indicator icon color"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"

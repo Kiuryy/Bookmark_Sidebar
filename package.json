@@ -16,10 +16,10 @@
     "release": "./build.sh --mode=release --target=chrome,firefox"
   },
   "devDependencies": {
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "html-minifier-terser": "^7.2.0",
-    "sass": "^1.89.2",
-    "npm-check-updates": "^18.0.1",
+    "sass": "^1.90.0",
+    "npm-check-updates": "^18.0.2",
     "terser": "^5.43.1"
   }
 }

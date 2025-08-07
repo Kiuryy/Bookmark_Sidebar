@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Aktualisieren"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Im Lesezeichenmanager anzeigen"
+    },
     "overlay_confirm_open_selected": {
         "message": "M\u00f6chtest du wirklich alle {1} Lesezeichen, inklusive der untergeordneten Lesezeichen der ausgew\u00e4hlten Ordner, \u00f6ffnen?"
     },
@@ -836,6 +839,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Ziehen zum Bewegen"
     },
+    "settings_trigger_area_width": {
+        "message": "Ausl\u00f6sebreite"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "Die Breite am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Ausl\u00f6sebreite im Fenstermodus"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "Die Breite am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet, wenn der Browser nicht im Vollbildmodus ist oder eine reduzierte Breite hat (Fenstermodus)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Ausl\u00f6seh\u00f6he"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Die H\u00f6he am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet. Eine geringere H\u00f6he kann helfen, unbeabsichtigte Aktivierungen der Sidebar bei normaler Nutzung der Website zu vermeiden."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Wenn sich die Maus in den konfigurierten Bildschirmrandbereich befindet, erscheint eine Indikatorleiste. Du kannst das Aussehen dieser Leiste anpassen oder die Breite auf Null setzen, um sie zu deaktivieren."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Indikatorbreite"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Breite der sichtbaren Indikatorleiste. Kann von der Ausl\u00f6sebreite abweichen."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Indikatorfarbe"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Indikator-Symbolgr\u00f6\u00dfe"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Indikator-Symbolfarbe"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Tastenkombination einrichten"
     },
@@ -1266,7 +1305,7 @@
         "message": "Wegen einer Richtlinien\u00e4nderung von Google musste die bisherige Funktion zum \u00dcberschreiben der New-Tab-Seite entfernt werden, da sie nicht mehr den Entwickler-Richtlinien entspricht."
     },
     "newtab_tmp_upgrade_desc2": {
-        "message": "Dadurch ist deine aktuelle Einstellung zur Anpassung der New-Tab-Seite betroffen."
+        "message": "Da du das \u00dcberschreiben der New-Tab-Seite aktiviert hast, bist du von dieser \u00c4nderung betroffen."
     },
     "newtab_tmp_upgrade_desc3": {
         "message": "Um das gewohnte Verhalten wiederherzustellen, richte bitte die neue L\u00f6sung in den Einstellungen der Erweiterung ein."

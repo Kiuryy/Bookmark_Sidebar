@@ -510,6 +510,21 @@
         const handleInfosHtml = (data) => {
             appendPreviewLink(data, true);
 
+            const bookmarkManagerId = data.isDir ? data.id : data.parentId;
+            const bookmarkManagerLink = $("<a></a>")
+                .text(ext.helper.i18n.get("overlay_show_in_bookmark_manager"))
+                .attr($.attr.type, "bookmark-manager")
+                .appendTo(elements.modal);
+            bookmarkManagerLink.on("click", (e) => {
+                e.preventDefault();
+                ext.helper.model.call("openLink", {
+                    href: "chrome://bookmarks",
+                    params: {id: bookmarkManagerId},
+                    newTab: true,
+                    active: true
+                });
+            });
+
             const parentInfos = ext.helper.entry.getParentsById(data.id);
 
             if (parentInfos.length > 0) {

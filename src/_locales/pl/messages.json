@@ -365,6 +365,9 @@
     "newtab_upload_background": {
         "message": "Prze\u015blij obraz t\u0142a"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Rozwi\u0144 pasek boczny po za\u0142adowaniu strony"
+    },
     "newtab_fallback_headline_general": {
         "message": "Co\u015b zablokowa\u0142o boczn\u0105 list\u0119"
     },
@@ -385,9 +388,6 @@
     },
     "newtab_fallback_desc": {
         "message": "W zamian otworzono now\u0105 zak\u0142adk\u0119 wraz z boczn\u0105 list\u0105"
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Zawsze otw\u00f3rz t\u0119 stron\u0119 kiedy otwierana jest nowa zak\u0142adka"
     },
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
@@ -1235,38 +1235,44 @@
     "settings_theme_changed": {
         "message": "Pomy\u015blnie zmieniono motyw"
     },
-    "settings_newtab_desc": {
-        "message": "Mo\u017cesz zast\u0105pi\u0107 domy\u015bln\u0105 stron\u0119 nowej karty przegl\u0105darki stron\u0105 udost\u0119pnian\u0105 przez to rozszerzenie. Strona ta wy\u015bwietla pasek boczny zak\u0142adek i mo\u017ce by\u0107 skonfigurowana w celu zwi\u0119kszenia produktywno\u015bci."
+    "settings_newtab_intro": {
+        "message": "Chcesz, aby pasek boczny zak\u0142adek otwiera\u0142 si\u0119 automatycznie w nowych kartach?"
     },
-    "settings_newtab_override": {
-        "message": "Zast\u0105p stron\u0119 nowej karty"
+    "settings_newtab_install_extension": {
+        "message": "Zainstaluj rozszerzenie New Tab Override, takie jak jedno z poni\u017cszych:"
     },
-    "settings_newtab_override_desc": {
-        "message": "Czy rozszerzenie powinno zast\u0105pi\u0107 obecn\u0105 stron\u0119 nowej karty swoj\u0105 w\u0142asn\u0105 zast\u0119pcz\u0105 stron\u0105, czy stron\u0105 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana po otwarciu nowej karty?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Nie jestem zwi\u0105zany z tymi rozszerzeniami i nie otrzymuj\u0119 \u017cadnego wynagrodzenia za ich polecanie."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Te rozszerzenia pozwalaj\u0105 ustawi\u0107 w\u0142asny adres URL dla nowych kart. Po zainstalowaniu wprowad\u017a nast\u0119puj\u0105cy adres URL w ustawieniach rozszerzenia:"
     },
     "settings_newtab_override_preview": {
         "message": "Podgl\u0105d"
     },
-    "settings_newtab_override_configure": {
-        "message": "Konfiguracja"
+    "settings_newtab_override_customise": {
+        "message": "Dostosuj t\u0119 stron\u0119"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Otw\u00f3rz boczn\u0105 list\u0119 automatycznie"
+    "settings_newtab_favicon_desc": {
+        "message": "Mo\u017cesz dostosowa\u0107 ikon\u0119 karty (favicon) dla strony nowej karty. Dzi\u0119ki temu \u0142atwo j\u0105 rozpoznasz w\u015br\u00f3d otwartych kart."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Ustaw, czy boczna lista ma by\u0107 otwierana automatycznie po otwarciu nowej karty."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Tw\u00f3j pasek zak\u0142adek w\u0142a\u015bnie zosta\u0142 zaktualizowany."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Aktywuj pasek adresu"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Wymagane dzia\u0142anie!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Je\u017celi to ustawienie b\u0119dzie w\u0142\u0105czone to po otwarciu nowej karty aktywnym elementem b\u0119dzie pasek adresu, w przeciwnym razie b\u0119dzie nim pole wyszukiwarki na stronie"
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Ze wzgl\u0119du na egzekwowanie zasad przez Google, poprzednia funkcja pomijania nowej karty musia\u0142a zosta\u0107 usuni\u0119ta, poniewa\u017c nie by\u0142a ju\u017c zgodna z wytycznymi programist\u00f3w."
     },
-    "settings_newtab_website": {
-        "message": "Za\u0142aduj stron\u0119 internetow\u0105"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "W rezultacie Twoja bie\u017c\u0105ca konfiguracja, kt\u00f3ra zast\u0119puje stron\u0119 Nowa karta, ulegnie zmianie."
     },
-    "settings_newtab_website_desc": {
-        "message": "Zamiast otwierania zast\u0119pczej nowej karty, mo\u017cesz ustawi\u0107 stron\u0119 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana w zamian."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Aby przywr\u00f3ci\u0107 oczekiwane zachowanie, skonfiguruj zaktualizowane rozwi\u0105zanie dost\u0119pne w ustawieniach rozszerzenia."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Otw\u00f3rz ustawienia"
     },
     "settings_language": {
         "message": "J\u0119zyk"

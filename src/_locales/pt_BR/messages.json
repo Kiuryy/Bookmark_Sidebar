@@ -365,6 +365,9 @@
     "newtab_upload_background": {
         "message": "Carregar a imagem de fundo"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Expandir a barra lateral quando a p\u00e1gina carregar"
+    },
     "newtab_fallback_headline_general": {
         "message": "Algo bloqueou a barra lateral"
     },
@@ -385,9 +388,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Abrimos uma nova guia com a barra lateral para voc\u00ea."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Sempre mostrar esta p\u00e1gina ao abrir uma nova guia"
     },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"
@@ -836,6 +836,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Arraste para mover"
     },
+    "settings_trigger_area_width": {
+        "message": "Largura para ativar"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "A largura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Largura de ativa\u00e7\u00e3o no modo janela"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "A largura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral, quando o navegador n\u00e3o est\u00e1 em tela cheia ou est\u00e1 com largura reduzida (modo janela)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Altura para ativar"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "A altura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral. Reduzir essa altura pode ajudar a evitar a ativa\u00e7\u00e3o acidental da barra lateral durante a navega\u00e7\u00e3o normal no site."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Se o seu mouse entrar na \u00e1rea configurada da borda da tela, uma barra indicadora aparecer\u00e1. Voc\u00ea pode personalizar sua apar\u00eancia abaixo ou definir a largura como zero para desativ\u00e1-la."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Largura do indicador"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Largura da barra indicadora vis\u00edvel. Pode ser diferente da largura do gatilho."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Cor do indicador"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Tamanho do \u00edcone do indicador"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Cor do \u00edcone do indicador"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
     },
@@ -1235,38 +1271,44 @@
     "settings_theme_changed": {
         "message": "Tema alterado com sucesso"
     },
-    "settings_newtab_desc": {
-        "message": "Voc\u00ea pode substituir a p\u00e1gina de nova guia padr\u00e3o do seu navegador por uma p\u00e1gina fornecida por esta extens\u00e3o. Esta p\u00e1gina mostrar\u00e1 sua barra lateral de favoritos e pode ser configurada para aumentar sua produtividade."
+    "settings_newtab_intro": {
+        "message": "Deseja abrir sua barra lateral de favoritos automaticamente em novas abas?"
     },
-    "settings_newtab_override": {
-        "message": "Sobrepor a p\u00e1gina nova guia"
+    "settings_newtab_install_extension": {
+        "message": "Instalar uma nova extens\u00e3o de substitui\u00e7\u00e3o da nova aba como uma destas:"
     },
-    "settings_newtab_override_desc": {
-        "message": "A extens\u00e3o deve substituir sua p\u00e1gina nova guia atual com uma p\u00e1gina personalizada ou um site que deve ser carregado ao abrir uma nova guia?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "N\u00e3o tenho qualquer afilia\u00e7\u00e3o com essas extens\u00f5es e n\u00e3o recebo nenhuma compensa\u00e7\u00e3o por recomend\u00e1-las."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Essas extens\u00f5es permitem que voc\u00ea defina uma URL personalizada para novas abas. Ap\u00f3s a instala\u00e7\u00e3o, insira a seguinte URL nas configura\u00e7\u00f5es da extens\u00e3o:"
     },
     "settings_newtab_override_preview": {
-        "message": "Preview"
+        "message": "Previsualiza\u00e7\u00e3o"
     },
-    "settings_newtab_override_configure": {
-        "message": "Configurar"
+    "settings_newtab_override_customise": {
+        "message": "Personalize est\u00e1 p\u00e1gina"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Abrir a barra lateral automaticamente"
+    "settings_newtab_favicon_desc": {
+        "message": "Voc\u00ea \u00b4pode personalizar o icone de Aba (favicon) para uma nova aba. Isso permite que voc\u00ea a reconhe\u00e7a facilmente entre as suas abas abertas."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Configurar se a barra lateral deve ser aberta automaticamente quando uma nova guia for aberta."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Sua Barra Lateral de Favoritos acabou de ser atualizada."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Focar a barra de endere\u00e7o"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Ac\u00e3o requerida!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Se habilitado, ao abrir uma nova guia a barra de endere\u00e7o estar\u00e1 focada. Se estiver desabilitado, em vez da barra de endere\u00e7o, a caixa de pesquisa do site estar\u00e1 focada ."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Devido a uma pol\u00edtica de aplica\u00e7\u00e3o do Google, a funcionalidade anterior de substitui\u00e7\u00e3o da nova aba teve que ser removida, pois n\u00e3o est\u00e1 mais em conformidade com as diretrizes para desenvolvedores."
     },
-    "settings_newtab_website": {
-        "message": "Carregar site"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Como um resultado, sua configura\u00e7\u00e3o atual que substitui a p\u00e1gina de Nova Aba foi afetada."
     },
-    "settings_newtab_website_desc": {
-        "message": "Em vez de abrir a substitui\u00e7\u00e3o da nova guia, voc\u00ea pode configurar um site para ser carregado no lugar."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Para restaurar o comportamento esperado, configure a solu\u00e7\u00e3o atualizada nas configura\u00e7\u00f5es da extens\u00e3o."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Abrir configura\u00e7\u00f5es"
     },
     "settings_language": {
         "message": "Idioma"

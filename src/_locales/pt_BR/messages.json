@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Atualizar"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Mostrar no Gerenciador de Favoritos"
+    },
     "overlay_confirm_open_selected": {
         "message": "Voc\u00ea realmente deseja abrir todos {1} favoritos, incluindo favoritos em subpastas das pastas selecionadas?"
     },

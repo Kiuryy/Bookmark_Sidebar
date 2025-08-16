@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Aggiorna"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Mostra in Gestione Segnalibri"
+    },
     "overlay_confirm_open_selected": {
         "message": "Vuoi davvero aprire tutti i {1} segnalibri, inclusi i segnalibri delle sottocartelle delle cartelle selezionate?"
     },
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "Carica l'immagine da utilizzare come sfondo"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Espandi la barra laterale quando la pagina viene caricata"
+    },
     "newtab_fallback_headline_general": {
         "message": "Qualcosa ha bloccato la barra laterale"
     },
@@ -385,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Abbiamo invece aperto una nuova scheda con la barra laterale."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Mostra sempre questa pagina quando apri una nuova scheda"
     },
     "status_service_unavailable_headline": {
         "message": "Servizio non disponibile"
@@ -836,6 +839,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Trascina per spostare"
     },
+    "settings_trigger_area_width": {
+        "message": "Larghezza di attivazione"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "Larghezza dell'area del bordo dello schermo in cui l'azione del mouse attiva la visualizzazione della barra laterale."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Larghezza diattivazione in modalit\u00e0 finestra"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "Larghezza dell'area del bordo dello schermo in cui l'azione del mouse attiva la visualizzazione della barra laterale quando il browser non \u00e8 a schermo intero o ha una larghezza ridotta (modalit\u00e0 finestra)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Altezza di attivazione"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Altezza dell'area del bordo dello schermo in cui l'azione del mouse attiva la visualizzazione della barra laterale. Riducendola, \u00e8 possibile evitare l'attivazione accidentale della barra laterale durante la normale interazione con il sito."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Se il mouse entra nell'area configurata del bordo dello schermo, viene visualizzata una barra indicatrice. \u00c8 possibile personalizzarne l'aspetto qui sotto o impostarne la larghezza su zero per disattivarla."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Larghezza dell'indicatore"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Larghezza della barra indicatrice visibile. Pu\u00f2 differire dalla larghezza di attivazione"
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Colore dell'indicatore"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Dimensione dell'icona dell'indicatore"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Colore dell'icona dell'indicatore"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"
     },
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Tema modificato con successo"
     },
-    "settings_newtab_desc": {
-        "message": "Puoi bypassare la \"Nuova Scheda\" di default, rendendola una pagina fornita da questa estensione. Questa nuova schermata mostrer\u00e0 la tua barra laterale dei segnalibri e potr\u00e0 essere configurata per migliorare la tua produttivit\u00e0."
+    "settings_newtab_intro": {
+        "message": "Vuoi aprire automaticamente la barra laterale dei segnalibri in nuove schede?"
     },
-    "settings_newtab_override": {
-        "message": "Bypassa la pagina \"Nuova scheda\""
+    "settings_newtab_install_extension": {
+        "message": "Installa un'estensione New Tab Override come una di queste:"
     },
-    "settings_newtab_override_desc": {
-        "message": "Permetti all'estensione di bypassare la pagina \"Nuova scheda\" con una personalizzata o con un sito a scelta che verr\u00e0 visualizzato quando si apre una nuova scheda."
+    "settings_newtab_extension_disclaimer": {
+        "message": "Non sono affiliato a queste estensioni e non ricevo alcun compenso per averle consigliate."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Queste estensioni consentono di impostare un URL personalizzato per le nuove schede. Dopo l'installazione, inserisci il seguente URL nelle impostazioni dell'estensione:"
     },
     "settings_newtab_override_preview": {
         "message": "Anteprima"
     },
-    "settings_newtab_override_configure": {
-        "message": "Configura"
+    "settings_newtab_override_customise": {
+        "message": "Personalizza questa pagina"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Apri automaticamente la barra laterale"
+    "settings_newtab_favicon_desc": {
+        "message": "Puoi personalizzare l'icona della scheda (favicon) per la pagina della nuova scheda. Questo ti permetter\u00e0 di riconoscerla facilmente tra le tue schede aperte."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Scegli se aprire automaticamente la barra laterale quando viene aperta una nuova scheda."
+    "newtab_tmp_upgrade_headline": {
+        "message": "La barra laterale dei segnalibri \u00e8 stata appena aggiornata."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Focus barra degli indirizzi"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Azione richiesta!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Se abilitato, verr\u00e0 evidenziata la barra degli indirizzi all'apertura di una scheda, viceversa sar\u00e0 focalizzata la casella di ricerca del sito Web."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "A causa dell'applicazione di una norma da parte di Google, la precedente funzionalit\u00e0 New Tab Override ha dovuto essere rimossa poich\u00e9 non era pi\u00f9 conforme alle linee guida per gli sviluppatori."
     },
-    "settings_newtab_website": {
-        "message": "Carica sito web"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Di conseguenza, la configurazione corrente che sostituisce la pagina Nuova scheda verr\u00e0 modificata."
     },
-    "settings_newtab_website_desc": {
-        "message": "Scegli di caricare un sito web invece della pagina \"Nuova scheda\" personalizzata."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Per ripristinare il comportamento previsto, configura la soluzione aggiornata disponibile nelle impostazioni dell'estensione."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Apri Impostazioni"
     },
     "settings_language": {
         "message": "Lingua"

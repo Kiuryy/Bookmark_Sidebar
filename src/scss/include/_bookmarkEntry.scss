@@ -6,7 +6,6 @@
   padding: 0 $__bookmarksHorizontalPadding;
   white-space: nowrap;
   cursor: pointer;
-  content-visibility: auto;
   transition: background 0.3s, color 0.3s;
 
   &.hover:not(.separator) {

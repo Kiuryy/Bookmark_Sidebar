@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Aktualizovat"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Zobrazit ve Spr\u00e1vci z\u00e1lo\u017eek"
+    },
     "overlay_confirm_open_selected": {
         "message": "Opravdu chcete otev\u0159\u00edt v\u0161echny {1} z\u00e1lo\u017eky, v\u010detn\u011b z\u00e1lo\u017eek v podslo\u017ek\u00e1ch ve vybran\u00fdch slo\u017ek\u00e1ch?"
     },
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "Nahr\u00e1t obr\u00e1zek pozad\u00ed"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Rozbalit postrann\u00ed panel p\u0159i na\u010dten\u00ed str\u00e1nky"
+    },
     "newtab_fallback_headline_general": {
         "message": "Postrann\u00ed panel je blokov\u00e1n"
     },
@@ -385,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "M\u00edsto toho jsme otev\u0159eli novou kartu s postrann\u00edm panelem"
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "V\u017edy zobraz tuto str\u00e1nku p\u0159i otev\u0159en\u00ed nov\u00e9ho okna"
     },
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
@@ -836,6 +839,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Ta\u017een\u00edm p\u0159esunout"
     },
+    "settings_trigger_area_width": {
+        "message": "\u0160\u00ed\u0159ka spou\u0161t\u011b"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "\u0160\u00ed\u0159ka oblasti okraje obrazovky, kde nakonfigurovan\u00e1 akce my\u0161i spust\u00ed zobrazen\u00ed postrann\u00edho panelu."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "\u0160\u00ed\u0159ka spou\u0161t\u011b\u010de v re\u017eimu okna"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "\u0160\u00ed\u0159ka oblasti okraje obrazovky, kde nakonfigurovan\u00e1 akce my\u0161i spou\u0161t\u00ed zobrazen\u00ed postrann\u00edho panelu, kdy\u017e prohl\u00ed\u017ee\u010d nen\u00ed v re\u017eimu cel\u00e9 obrazovky nebo m\u00e1 zmen\u0161enou \u0161\u00ed\u0159ku (re\u017eim okna)."
+    },
+    "settings_trigger_area_height": {
+        "message": "V\u00fd\u0161ka spou\u0161t\u011b"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "V\u00fd\u0161ka oblasti okraje obrazovky, kde nakonfigurovan\u00e1 akce my\u0161i spou\u0161t\u00ed zobrazen\u00ed postrann\u00edho panelu. Jej\u00edm sn\u00ed\u017een\u00edm lze zabr\u00e1nit n\u00e1hodn\u00e9 aktivaci postrann\u00edho panelu b\u011bhem b\u011b\u017en\u00e9 interakce s webem."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Pokud my\u0161 vstoup\u00ed do nakonfigurovan\u00e9 oblasti okraje obrazovky, zobraz\u00ed se indik\u00e1tor. Jeho vzhled si m\u016f\u017eete p\u0159izp\u016fsobit n\u00ed\u017ee nebo jej deaktivovat nastaven\u00edm \u0161\u00ed\u0159ky na nulu."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "\u0160\u00ed\u0159ka indik\u00e1toru"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "\u0160\u00ed\u0159ka viditeln\u00e9ho indik\u00e1toru. M\u016f\u017ee se li\u0161it od \u0161\u00ed\u0159ky spou\u0161t\u011b."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Barva indik\u00e1toru"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Velikost ikony indik\u00e1toru"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Barva ikony indik\u00e1toru"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Nastav kl\u00e1vesovou zkratku"
     },
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
     },
-    "settings_newtab_desc": {
-        "message": "V\u00fdchoz\u00ed str\u00e1nku Nov\u00e1 karta va\u0161eho prohl\u00ed\u017ee\u010de m\u016f\u017eete nahradit str\u00e1nkou poskytovanou t\u00edmto roz\u0161\u00ed\u0159en\u00edm. Tato str\u00e1nka zobraz\u00ed postrann\u00ed panel va\u0161ich z\u00e1lo\u017eek a lze ji nakonfigurovat tak, aby zv\u00fd\u0161ila va\u0161i produktivitu."
+    "settings_newtab_intro": {
+        "message": "Chcete, aby se postrann\u00ed panel z\u00e1lo\u017eek automaticky otev\u00edral v nov\u00fdch kart\u00e1ch?"
     },
-    "settings_newtab_override": {
-        "message": "P\u0159epsat str\u00e1nku nov\u00e9 karty"
+    "settings_newtab_install_extension": {
+        "message": "Nainstalujte roz\u0161\u00ed\u0159en\u00ed New Tab Override, jako je jedno z t\u011bchto:"
     },
-    "settings_newtab_override_desc": {
-        "message": "M\u00e1te-li roz\u0161\u00ed\u0159en\u00ed p\u0159ekr\u00fdt svou aktu\u00e1ln\u00ed str\u00e1nku s nov\u00fdmi kartami bu\u010f s vlastn\u00edm proveden\u00edm, nebo s webovou str\u00e1nkou, kterou je t\u0159eba na\u010d\u00edst p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Nejsem s t\u011bmito roz\u0161\u00ed\u0159en\u00edmi spojen a za jejich doporu\u010dov\u00e1n\u00ed nedost\u00e1v\u00e1m \u017e\u00e1dnou odm\u011bnu."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Tato roz\u0161\u00ed\u0159en\u00ed umo\u017e\u0148uj\u00ed nastavit vlastn\u00ed URL adresu pro nov\u00e9 karty. Po instalaci zadejte do nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed n\u00e1sleduj\u00edc\u00ed URL adresu:"
     },
     "settings_newtab_override_preview": {
         "message": "N\u00e1hled"
     },
-    "settings_newtab_override_configure": {
-        "message": "Konfigurovat"
+    "settings_newtab_override_customise": {
+        "message": "P\u0159izp\u016fsobte si tuto str\u00e1nku"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Otev\u0159ete postrann\u00ed panel automaticky"
+    "settings_newtab_favicon_desc": {
+        "message": "Ikonu karty (favicon) pro novou str\u00e1nku karty si m\u016f\u017eete p\u0159izp\u016fsobit. D\u00edky tomu ji mezi otev\u0159en\u00fdmi kartami snadno rozezn\u00e1te."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Nastavte, zda se m\u00e1 bo\u010dn\u00ed panel otev\u0159\u00edt automaticky p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty."
+    "newtab_tmp_upgrade_headline": {
+        "message": "V\u00e1\u0161 postrann\u00ed panel se z\u00e1lo\u017ekami byl pr\u00e1v\u011b aktualizov\u00e1n."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "P\u0159esu\u0148 fokus na adresn\u00ed \u0159\u00e1dek"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Je vy\u017eadov\u00e1na akce!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Pokud je povoleno, fokus bude p\u0159esunut na adresn\u00ed \u0159\u00e1dek p\u0159i otev\u0159en\u00ed nov\u00e9 karty. Jestli\u017ee ne, bude fokus p\u0159esunut do vyhled\u00e1vac\u00edho pole."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Kv\u016fli vynucov\u00e1n\u00ed z\u00e1sad spole\u010dnost\u00ed Google musela b\u00fdt p\u0159edchoz\u00ed funkce p\u0159eps\u00e1n\u00ed nov\u00e9 karty odstran\u011bna, proto\u017ee ji\u017e nespl\u0148uje pokyny pro v\u00fdvoj\u00e1\u0159e."
     },
-    "settings_newtab_website": {
-        "message": "Na\u010d\u00edst webovou str\u00e1nku"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "V d\u016fsledku toho je ovlivn\u011bna va\u0161e aktu\u00e1ln\u00ed konfigurace, kter\u00e1 p\u0159episuje str\u00e1nku Nov\u00e1 karta."
     },
-    "settings_newtab_website_desc": {
-        "message": "M\u00edsto nahrazen\u00ed nov\u00e9 z\u00e1lo\u017eky m\u016f\u017eete m\u00edsto toho na\u010d\u00edst web, kter\u00fd je na\u010dten."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Chcete-li obnovit o\u010dek\u00e1van\u00e9 chov\u00e1n\u00ed, nakonfigurujte pros\u00edm aktualizovan\u00e9 \u0159e\u0161en\u00ed dostupn\u00e9 v nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Otev\u0159ete Nastaven\u00ed"
     },
     "settings_language": {
         "message": "Jazyk"

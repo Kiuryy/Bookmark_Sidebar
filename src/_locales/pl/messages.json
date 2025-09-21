@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Uaktualnij"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Poka\u017c w menad\u017cerze zak\u0142adek"
+    },
     "overlay_confirm_open_selected": {
         "message": "Czy na pewno chcesz otworzy\u0107 wszystkie {1} zak\u0142adki, w tym zak\u0142adki podfolder\u00f3w wybranych folder\u00f3w?"
     },
@@ -835,6 +838,42 @@
     },
     "settings_toggle_area_drag_desc": {
         "message": "przeci\u0105gnij aby poruszy\u0107"
+    },
+    "settings_trigger_area_width": {
+        "message": "Szeroko\u015b\u0107 wyzwalacza"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "Szeroko\u015b\u0107 obszaru kraw\u0119dzi ekranu, w kt\u00f3rym skonfigurowana akcja myszy powoduje wy\u015bwietlenie paska bocznego."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Szeroko\u015b\u0107 wyzwalacza w trybie okna"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "Szeroko\u015b\u0107 obszaru kraw\u0119dzi ekranu, w kt\u00f3rym skonfigurowana akcja myszy powoduje wy\u015bwietlenie paska bocznego, gdy przegl\u0105darka nie jest w trybie pe\u0142noekranowym lub ma zmniejszon\u0105 szeroko\u015b\u0107 (tryb okna)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Wysoko\u015b\u0107 wyzwalacza"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Wysoko\u015b\u0107 kraw\u0119dzi ekranu, na kt\u00f3rej skonfigurowana akcja myszy powoduje wy\u015bwietlenie paska bocznego. Zmniejszenie jej mo\u017ce pom\u00f3c unikn\u0105\u0107 przypadkowej aktywacji paska bocznego podczas normalnej interakcji z witryn\u0105."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Je\u015bli kursor myszy znajdzie si\u0119 w skonfigurowanym obszarze kraw\u0119dzi ekranu, pojawi si\u0119 pasek wska\u017anika. Mo\u017cesz dostosowa\u0107 jego wygl\u0105d poni\u017cej lub ustawi\u0107 szeroko\u015b\u0107 na zero, aby go wy\u0142\u0105czy\u0107."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Szeroko\u015b\u0107 wska\u017anika"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Szeroko\u015b\u0107 widocznego paska wska\u017anika. Mo\u017ce r\u00f3\u017cni\u0107 si\u0119 od szeroko\u015bci spustu."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Kolor wska\u017anika"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Rozmiar ikony wska\u017anika"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Kolor ikony wska\u017anika"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Ustaw skr\u00f3t klawiaturowy"

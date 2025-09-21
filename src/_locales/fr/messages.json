@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Mettre \u00e0 jour"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Afficher dans le gestionnaire de favoris"
+    },
     "overlay_confirm_open_selected": {
         "message": "Voulez-vous vraiment ouvrir tous les {1} favoris, y compris les favoris des sous-dossiers des dossiers s\u00e9lectionn\u00e9s ?"
     },
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "T\u00e9l\u00e9charger une image d'arri\u00e8re-plan"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "D\u00e9velopper la barre lat\u00e9rale lors du chargement de la page"
+    },
     "newtab_fallback_headline_general": {
         "message": "Quelque chose a bloqu\u00e9 la barre lat\u00e9rale"
     },
@@ -385,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Nous avons ouvert un nouvel onglet avec la barre lat\u00e9rale pour vous"
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Toujours afficher cette page lors de l'ouverture d'un nouvel onglet"
     },
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
@@ -836,6 +839,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Glisser pour d\u00e9placer"
     },
+    "settings_trigger_area_width": {
+        "message": "Largeur de la zone de d\u00e9clenchement"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "La largeur de la zone au bord de l\u2019\u00e9cran o\u00f9 l\u2019action de la souris configur\u00e9e d\u00e9clenche l\u2019apparition de la barre lat\u00e9rale."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Largeur de d\u00e9clenchement (mode fen\u00eatr\u00e9)"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "Largeur de la zone de d\u00e9clenchement (mode fen\u00eatr\u00e9)"
+    },
+    "settings_trigger_area_height": {
+        "message": "Hauteur de la zone de d\u00e9clenchement"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Hauteur de la zone de d\u00e9clenchement au bord de l\u2019\u00e9cran. Une valeur plus faible permet de limiter les activations involontaires de la barre lat\u00e9rale pendant la navigation."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Lorsque la souris entre dans la zone configur\u00e9e au bord de l\u2019\u00e9cran, une barre indicatrice s\u2019affiche. Vous pouvez ajuster son apparence ci-dessous, ou mettre sa largeur \u00e0 z\u00e9ro pour la d\u00e9sactiver."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Largeur de l\u2019indicateur"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Largeur de la barre indicatrice visible. Elle peut \u00eatre diff\u00e9rente de la largeur de la zone de d\u00e9clenchement."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Couleur de la barre indicatrice"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Taille de l\u2019ic\u00f4ne de l\u2019indicateur"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Couleur de l\u2019ic\u00f4ne indicatrice"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "D\u00e9finir un raccourci clavier"
     },
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Changement de th\u00e8me correctement effectu\u00e9"
     },
-    "settings_newtab_desc": {
-        "message": "Vous pouvez remplacer la page de nouvel onglet par d\u00e9faut de votre navigateur par une page fournie par cette extension. Cette page affichera votre barre lat\u00e9rale de signets et peut \u00eatre configur\u00e9e pour am\u00e9liorer votre productivit\u00e9."
+    "settings_newtab_intro": {
+        "message": "Souhaitez-vous que la barre des favoris s\u2019ouvre automatiquement dans chaque nouvel onglet ?"
     },
-    "settings_newtab_override": {
-        "message": "Court-circuiter la page nouvel onglet"
+    "settings_newtab_install_extension": {
+        "message": "Installez une extension de remplacement de page Nouvel Onglet, comme l\u2019une de celles-ci :"
     },
-    "settings_newtab_override_desc": {
-        "message": "Court-circuiter la page nouvel onglet en affichant une page de substitution, ou un site web, \u00e0 l'ouverture d'un nouvel onglet ?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Je ne suis affili\u00e9 \u00e0 aucune de ces extensions et ne re\u00e7ois aucune compensation pour les recommander."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Ces extensions permettent de d\u00e9finir une URL personnalis\u00e9e pour la page Nouvel Onglet. Une fois l\u2019extension install\u00e9e, entrez l\u2019URL suivante dans ses param\u00e8tres :"
     },
     "settings_newtab_override_preview": {
         "message": "Aper\u00e7u"
     },
-    "settings_newtab_override_configure": {
-        "message": "Configurer"
+    "settings_newtab_override_customise": {
+        "message": "Personnalisez cette page"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Afficher la barre lat\u00e9rale automatiquement"
+    "settings_newtab_favicon_desc": {
+        "message": "Vous pouvez personnaliser l\u2019ic\u00f4ne de l\u2019onglet (favicon) de la page Nouvel Onglet, ce qui vous permet de la reconna\u00eetre facilement parmi vos onglets ouverts."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Affichage automatique de la barre lat\u00e9rale \u00e0 l'ouverture d'un nouvel onglet."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Votre barre des favoris vient d\u2019\u00eatre mise \u00e0 jour."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Ciblage de la barre d'adresse"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Action requise !"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Si cette option est activ\u00e9e, la barre d'adresse sera cibl\u00e9e lors de l'ouverture d'un nouvel onglet. Sinon, le champ de recherche du site Web sera cibl\u00e9 \u00e0 la place."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "En raison d\u2019un changement de politique impos\u00e9 par Google, la fonctionnalit\u00e9 pr\u00e9c\u00e9dente de remplacement de la page Nouvel Onglet a d\u00fb \u00eatre supprim\u00e9e, car elle n\u2019est plus conforme aux directives pour les d\u00e9veloppeurs."
     },
-    "settings_newtab_website": {
-        "message": "Ouvrir une page web"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Par cons\u00e9quent, votre configuration actuelle qui rempla\u00e7ait la page Nouvel Onglet est affect\u00e9e."
     },
-    "settings_newtab_website_desc": {
-        "message": "Ouvrir une page web au lieu de la page de substitution."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Pour r\u00e9tablir le comportement attendu, veuillez configurer la nouvelle solution disponible dans les param\u00e8tres de l\u2019extension."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Ouvrir les param\u00e8tres"
     },
     "settings_language": {
         "message": "Langue"

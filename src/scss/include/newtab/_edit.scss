@@ -138,7 +138,7 @@ menu.infoBar {
 
   > div[data-name='sidebarConfig'] {
     position: absolute;
-    left: 20px;
+    left: 50px;
     top: -54px;
     display: flex;
     align-items: center;
@@ -257,7 +257,7 @@ body[data-pos='right'] {
     }
 
     > div[data-name='sidebarConfig'] {
-      right: 20px;
+      right: 50px;
       left: unset;
     }
   }

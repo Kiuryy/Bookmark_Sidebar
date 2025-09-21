@@ -1281,7 +1281,7 @@
         "message": "Installiere eine Erweiterung wie eine dieser, um die neuen Tab zu \u00e4ndern:"
     },
     "settings_newtab_extension_disclaimer": {
-        "message": "Ich bin nicht mit diesen Erweiterungen verbunden und bekomme kein Geld f\u00fcr die Empfehlung."
+        "message": "Ich bin nicht der Entwickler dieser Erweiterungen und bekomme keine Verg\u00fctung f\u00fcr ihre Empfehlung."
     },
     "settings_newtab_extension_desc": {
         "message": "Mit diesen Erweiterungen kannst du eine eigene URL festlegen, die aufgerufen wird, wenn du einen neuen Browser-Tab \u00f6ffnest. Gib nach der Installation diese URL in den Einstellungen der Erweiterung ein:"

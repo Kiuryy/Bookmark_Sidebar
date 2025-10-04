@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Actualizar"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Mostrar en Gestor de Marcadores"
+    },
     "overlay_confirm_open_selected": {
         "message": "\u00bfRealmente deseas abrir todos los {1} marcadores, incluyendo los marcadores de sub-carpetas de las carpetas seleccionadas?"
     },
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "Subir imagen de fondo"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Expandir la barra lateral cuando carguen las paginas"
+    },
     "newtab_fallback_headline_general": {
         "message": "Algo ha bloqueado la barra lateral"
     },
@@ -385,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Hemos abierto una nueva pesta\u00f1a con la barra lateral para usted"
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Mostrar siempre esta p\u00e1gina al abrir una pesta\u00f1a nueva"
     },
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"
@@ -594,7 +597,7 @@
         "message": "Nueva pesta\u00f1a"
     },
     "settings_menu_language": {
-        "message": "Lenguaje"
+        "message": "Idioma"
     },
     "settings_menu_language_general": {
         "message": "General"
@@ -835,6 +838,42 @@
     },
     "settings_toggle_area_drag_desc": {
         "message": "Arrastra para mover"
+    },
+    "settings_trigger_area_width": {
+        "message": "Ancho del disparador"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "El ancho del \u00e1rea del borde de la pantalla donde la acci\u00f3n del mouse configurada activa la aparici\u00f3n de la barra lateral."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Ancho de disparo en modo ventana"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "El ancho del \u00e1rea del borde de la pantalla donde la acci\u00f3n del mouse configurada activa la aparici\u00f3n de la barra lateral cuando el navegador no est\u00e1 en pantalla completa o tiene un ancho reducido (modo ventana)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Altura del disparador"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "La altura del borde de la pantalla donde la acci\u00f3n del rat\u00f3n configurada activa la barra lateral. Reducirla puede ayudar a evitar la activaci\u00f3n accidental de la barra lateral durante la interacci\u00f3n normal con el sitio."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Si el rat\u00f3n entra en el borde de la pantalla configurado, aparecer\u00e1 una barra indicadora. Puede personalizar su apariencia a continuaci\u00f3n o configurar el ancho a cero para desactivarla."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Ancho del indicador"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Ancho de la barra indicadora visible. Puede ser diferente del ancho del disparador."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Color del indicador"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Tama\u00f1o de icono del indicador"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Color de icono del indicador"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Establecer atajo de teclado"
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Tema actualizado correctamente"
     },
-    "settings_newtab_desc": {
-        "message": "Puede anular la p\u00e1gina de nueva pesta\u00f1a predeterminada de su navegador con una p\u00e1gina proporcionada por esta extensi\u00f3n. Esta p\u00e1gina mostrar\u00e1 su barra lateral de marcadores y se puede configurar para mejorar su productividad."
+    "settings_newtab_intro": {
+        "message": "\u00bfQuieres abrir tu barra lateral de marcadores autom\u00e1ticamente en nuevas pesta\u00f1as?"
     },
-    "settings_newtab_override": {
-        "message": "Anular p\u00e1gina de nueva pesta\u00f1a"
+    "settings_newtab_install_extension": {
+        "message": "Instale una extensi\u00f3n de Anulaci\u00f3n de nueva pesta\u00f1a como una de estas:"
     },
-    "settings_newtab_override_desc": {
-        "message": "\u00bfDeber\u00eda la extensi\u00f3n anular su actual p\u00e1gina nueva pesta\u00f1a con un dise\u00f1o personalizado o un sitio web que se debe cargar al abrir una nueva pesta\u00f1a?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "No estoy afiliado a estas extensiones y no recibo ninguna compensaci\u00f3n por recomendarlas."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Estas extensiones te permiten configurar una URL personalizada para las nuevas pesta\u00f1as. Tras la instalaci\u00f3n, introduce la siguiente URL en la configuraci\u00f3n de la extensi\u00f3n:"
     },
     "settings_newtab_override_preview": {
         "message": "Previsualizar"
     },
-    "settings_newtab_override_configure": {
-        "message": "Configurar"
+    "settings_newtab_override_customise": {
+        "message": "Personalizar esta p\u00e1gina"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Abrir autom\u00e1ticamente la barra lateral"
+    "settings_newtab_favicon_desc": {
+        "message": "Puedes personalizar el icono de pesta\u00f1a (favicon) para la p\u00e1gina de nueva pesta\u00f1a. Esto te permitir\u00e1 reconocerlo f\u00e1cilmente entre las pesta\u00f1as abiertas."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Configure si la barra lateral debe abrirse autom\u00e1ticamente al abrir una nueva pesta\u00f1a."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Tu barra lateral de marcadores acaba de actualizarse."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Centrar barra de direcciones"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "\u00a1Acci\u00f3n requerida!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Si lo habilitas, tu barra de direcciones sera centrada cuando abras una nueva pesta\u00f1a. Si no la caja de b\u00fasqueda del sitio web sera centrada en su lugar."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Debido a la aplicaci\u00f3n de una pol\u00edtica por parte de Google, la funcionalidad anterior de Anulaci\u00f3n de nueva pesta\u00f1a tuvo que eliminarse porque ya no cumple con sus pautas para desarrolladores."
     },
-    "settings_newtab_website": {
-        "message": "Cargar sitio web"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Como resultado, su configuraci\u00f3n actual que anula la p\u00e1gina Nueva pesta\u00f1a se ve afectada."
     },
-    "settings_newtab_website_desc": {
-        "message": "En lugar de abrir el reemplazo de nueva pesta\u00f1a, puede establecer un sitio web que se cargue en su lugar."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Para restaurar el comportamiento esperado, configure la soluci\u00f3n actualizada disponible en la configuraci\u00f3n de la extensi\u00f3n."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Abrir configuraci\u00f3n"
     },
     "settings_language": {
         "message": "Idioma"

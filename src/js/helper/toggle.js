@@ -180,7 +180,7 @@
                 const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + data.lastOpened + "']");
 
                 if (entry && entry.length() > 0) {
-                    entry.addClass($.cl.sidebar.mark);
+                    entry.addClass($.cl.sidebar.mark).removeClass($.cl.hover);
 
                     if (!fromBookmarkClick) {
                         ext.helper.model.setData({"u/lastOpened": null});

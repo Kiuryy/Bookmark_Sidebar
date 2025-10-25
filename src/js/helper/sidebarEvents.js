@@ -193,10 +193,11 @@
                         if (markTimeout) {
                             clearTimeout(markTimeout);
                         }
-
-                        markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
-                            box.find("a[" + $.attr.id + "='" + id + "']").removeClass($.cl.sidebar.mark);
-                        }, 500);
+                        if (_self.hasClass($.cl.sidebar.mark)) {
+                            markTimeout = setTimeout(() => { // remove highlighting after 800ms of hovering
+                                box.find("a[" + $.attr.id + "='" + id + "']").removeClass($.cl.sidebar.mark);
+                            }, 800);
+                        }
 
                         ext.helper.tooltip.create(_self);
                     }
@@ -208,9 +209,15 @@
                     }
                     $(e.currentTarget).removeClass($.cl.sidebar.mark);
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
-                }).on("mouseleave", (e) => {
-                    ext.helper.tooltip.close();
-                    $(e.currentTarget).find("a." + $.cl.hover).removeClass($.cl.hover);
+                }).on("mouseover", (e) => {
+                    // Workaround since mouseleave is not triggered when leaving the "> ul a" element, which is what we want to hook into
+                    if ($(e.target).parents("a").length() === 0 && e.target.tagName !== "A") {
+                        ext.helper.tooltip.close();
+                        $(e.currentTarget).find("a." + $.cl.hover).removeClass($.cl.hover);
+                        if (markTimeout) {
+                            clearTimeout(markTimeout);
+                        }
+                    }
                 }).on("click", "span." + $.cl.sidebar.removeMask + " > span", async (e) => { // undo deletion of an entry
                     e.preventDefault();
                     const elm = $(e.target).parents("a").eq(0);

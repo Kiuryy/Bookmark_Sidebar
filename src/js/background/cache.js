@@ -11,7 +11,8 @@
          */
         this.set = async (opts) => {
             try {
-                await $.api.storage.local.set({["cache_" + opts.name]: opts.val});
+                const key = "cache_" + opts.name + "_" + $.ua.browser;
+                await $.api.storage.local.set({[key]: opts.val});
             } catch (e) {
                 // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
             }
@@ -24,8 +25,9 @@
          * @returns {Promise}
          */
         this.get = async (opts) => {
-            const result = await $.api.storage.local.get(["cache_" + opts.name]);
-            return {val: result["cache_" + opts.name]};
+            const key = "cache_" + opts.name + "_" + $.ua.browser;
+            const result = await $.api.storage.local.get([key]);
+            return {val: result[key]};
         };
 
         /**
@@ -35,8 +37,9 @@
          * @returns {Promise}
          */
         this.remove = async (opts) => {
-            if (!b.importRunning) { // don't remove cache while import in running
-                await $.api.storage.local.remove(["cache_" + opts.name]);
+            if (!b.importRunning) { // don't remove cache while import is running
+                const key = "cache_" + opts.name + "_" + $.ua.browser;
+                await $.api.storage.local.remove([key]);
             }
         };
     };

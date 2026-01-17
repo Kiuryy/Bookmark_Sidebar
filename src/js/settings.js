@@ -276,11 +276,12 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            $.api.runtime.onMessage.addListener(async (message) => { // listen for events from the background script
+            $.api.runtime.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
                     unsavedChanges = false;
-                    await $.delay(2000);
-                    location.reload(true);
+                    $.delay(2000).then(() => {
+                        location.reload(true);
+                    });
                 }
             });
 

@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "Posodobi"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Poka\u017ei na strani \u00abPriljubljeno\u00ab"
+    },
     "overlay_confirm_open_selected": {
         "message": "Ali res \u017eelite odpreti vseh{1} zaznamkov, vklju\u010dno z zaznamki v podmapah v izbranih mapah?"
     },
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "Nalo\u017ei sliko ozadja"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Raz\u0161iri stransko vrstico med nalaganjem strani"
+    },
     "newtab_fallback_headline_general": {
         "message": "Nekaj je blokiralo stransko vrstico"
     },
@@ -385,9 +391,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Namesto tega smo odprli nov zavihek s stransko vrstico."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Vedno poka\u017ei to stran pri odpiranju novega zavihka"
     },
     "status_service_unavailable_headline": {
         "message": "Storitev ni dostopna"
@@ -836,6 +839,42 @@
     "settings_toggle_area_drag_desc": {
         "message": "Povlecite, da premaknete"
     },
+    "settings_trigger_area_width": {
+        "message": "\u0160irina spro\u017eilca"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "\u0160irina roba zaslona, \u200b\u200bkjer konfigurirano dejanje mi\u0161ke spro\u017ei prikaz stranske vrstice."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "\u0160irina spro\u017eilca v okenskem na\u010dinu"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "\u0160irina roba zaslona, \u200b\u200bkjer konfigurirano dejanje mi\u0161ke spro\u017ei prikaz stranske vrstice, ko brskalnik ni v celozaslonskem na\u010dinu ali ima zmanj\u0161ano \u0161irino (na\u010din okna)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Vi\u0161ina spro\u017eilca"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Vi\u0161ina roba zaslona, \u200b\u200bkjer konfigurirano dejanje mi\u0161ke spro\u017ei prikaz stranske vrstice. Zmanj\u0161anje vi\u0161ine lahko pomaga prepre\u010diti nenamerno aktivacijo stranske vrstice med obi\u010dajno interakcijo s spletnim mestom."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "\u010ce se mi\u0161ka premakne \u010dez konfigurirano obmo\u010dje roba zaslona, \u200b\u200bse prika\u017ee indikatorska vrstica. Njen videz lahko prilagodite spodaj ali pa jo onemogo\u010dite tako, da \u0161irino nastavite na ni\u010d."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "\u0160irina indikatorja"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "\u0160irina vidne indikatorske vrstice. Lahko se razlikuje od \u0161irine spro\u017eilca."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Barva indikatorja"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Velikost ikone indikatorja"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Barva ikone indikatorja"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Nastavi bli\u017enjico na tipkovnici"
     },
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Tema uspe\u0161no spremenjena"
     },
-    "settings_newtab_desc": {
-        "message": "Privzeto stran novega zavihka v brskalniku lahko preglasite s stranjo, ki jo ponuja ta raz\u0161iritev. Na tej strani bo prikazana stranska vrstica z zaznamki in jo je mogo\u010de konfigurirati za izbolj\u0161anje va\u0161e produktivnosti."
+    "settings_newtab_intro": {
+        "message": "\u017delite, da se stranska vrstica z zaznamki samodejno odpre v novih zavihkih?"
     },
-    "settings_newtab_override": {
-        "message": "Preglasi stran novega zavihka"
+    "settings_newtab_install_extension": {
+        "message": "Namestite raz\u0161iritev \u00bbPreglasitev novega zavihka\u00ab, kot je ena od teh:"
     },
-    "settings_newtab_override_desc": {
-        "message": "\u017delite da raz\u0161iritev preglasi va\u0161o stran trenutnega novega zavihka z ali prilagojenim ali spletno stranjo, ki bo nalo\u017eena ob odpiranju novega zavihka?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Nisem povezan s temi raz\u0161iritvami in ne prejemam nobenega nadomestila za njihovo priporo\u010danje."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Te raz\u0161iritve vam omogo\u010dajo nastavitev URL-ja po meri za nove zavihke. Po namestitvi v nastavitve raz\u0161iritve vnesite naslednji URL:"
     },
     "settings_newtab_override_preview": {
         "message": "Predogled"
     },
-    "settings_newtab_override_configure": {
-        "message": "Konfigurirajte"
+    "settings_newtab_override_customise": {
+        "message": "Prilagodi to stran"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Samodejno odpri stransko vrstico"
+    "settings_newtab_favicon_desc": {
+        "message": "Ikono zavihka (favicon) za nov zavihek lahko prilagodite. Tako jo boste la\u017eje prepoznali med odprtimi zavihki."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Nastavi, \u010de se stranska vrstica odpre samodejno ob odpiranju novega zavihka."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Stranska vrstica z zaznamki je bila pravkar posodobljena."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Izpostavljena naslovno vrstico"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Potrebno je ukrepanje!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "\u010ce omogo\u010dena, bo naslovna vrstica izpostavljena, ko odprete nov zavihek. \u010ce ne, bo namesto nje izpostavljeno iskalno polje"
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Zaradi uveljavljanja pravilnika s strani Googla je bilo treba prej\u0161njo funkcijo preglasitve novega zavihka odstraniti, ker ni ve\u010d skladna z njihovimi smernicami za razvijalce."
     },
-    "settings_newtab_website": {
-        "message": "Nalo\u017ei spletno stran"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Posledi\u010dno je prizadeta va\u0161a trenutna konfiguracija, ki preglasi stran Nov zavihek."
     },
-    "settings_newtab_website_desc": {
-        "message": "Na mesto odpiranja zamenjave novega zavihka lahko dolo\u010dite spletno stran, ki bo odprta namesto zavihka."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "\u010ce \u017eelite obnoviti pri\u010dakovano delovanje, konfigurirajte posodobljeno re\u0161itev, ki je na voljo v nastavitvah raz\u0161iritve."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Odpri nastavitve"
     },
     "settings_language": {
         "message": "Jezik"

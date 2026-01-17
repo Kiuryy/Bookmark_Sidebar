@@ -491,7 +491,7 @@
          *
          * @param {object} message
          */
-        const handleBackgroundMessage = async (message) => {
+        const handleBackgroundMessage = (message) => {
             if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
                 if (message.action === "reload") { // reload the current instance of the extension
@@ -512,8 +512,9 @@
                         }
 
                         ext.needsReload = true;
-                        await $.delay(delay);
-                        ext.reload();
+                        $.delay(delay).then(() => {
+                            ext.reload();
+                        });
                     }
                 } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     ext.helper.model.call("clearNotWorkingTimeout");

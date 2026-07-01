@@ -3,8 +3,6 @@
   overflow-y: scroll;
   overflow-x: hidden;
   outline: none;
-  background-color: $scrollBarBackground;
-  -webkit-background-clip: text;
   transition: background-color 0.3s;
 
   &::-webkit-scrollbar {
@@ -16,7 +14,7 @@
     border-radius: 20px;
     border: 3px solid transparent;
     background-clip: content-box;
-    background-color: inherit;
+    background-color: $scrollBarBackground;
   }
 
   &::-webkit-scrollbar-track {
@@ -25,7 +23,9 @@
   }
 
   &.hideScrollbar {
-    background-color: transparent !important;
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent !important;
+    }
   }
 }
 

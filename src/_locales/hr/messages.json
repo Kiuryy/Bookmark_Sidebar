@@ -185,6 +185,9 @@
     "overlay_update": {
         "message": "A\u017euriraj"
     },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Prika\u017ei u Upravitelju oznaka"
+    },
     "overlay_confirm_open_selected": {
         "message": "\u017delite li doista otvoriti sve {1} oznake, uklju\u010duju\u0107i oznake podmape odabranih mapa?"
     },
@@ -192,43 +195,43 @@
         "message": "Otvori sve"
     },
     "overlay_confirm_open_children": {
-        "message": "\u017delite li doista otvoriti sve {1} oznake podmape?"
+        "message": "\u017delite li doista otvoriti sve {1} oznake u podmapi?"
     },
     "overlay_hide_from_sidebar": {
-        "message": "Sakrij s bo\u010dne trake oznaka"
+        "message": "Sakrij s bo\u010dne trake"
     },
     "overlay_hide_bookmark_confirm": {
         "message": "\u017deli\u0161 li sakriti oznaku s bo\u010dne trake oznaka?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "\u017deli\u0161 li sakriti mapu s bo\u010dne trake oznaka? Sve podre\u0111ene oznake \u0107e tako\u0111er biti sakrivene."
+        "message": "\u017deli\u0161 li sakriti mapu s bo\u010dne trake oznaka? Sve oznake u toj mapi \u0107e tako\u0111er biti sakrivene."
     },
     "overlay_delete_bookmark_confirm": {
         "message": "\u017deli\u0161 li obrisati oznaku?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "\u017deli\u0161 li obrisati mapu spremanja? Sve podre\u0111ene oznake \u0107e tako\u0111er biti obrisane."
+        "message": "\u017deli\u0161 li obrisati mapu? Sve oznake u toj mapi \u0107e tako\u0111er biti obrisane."
     },
     "overlay_label_bookmark": {
         "message": "Oznaka"
     },
     "overlay_label_dir": {
-        "message": "Mapa spremanja"
+        "message": "Mapa"
     },
     "overlay_label_separator": {
-        "message": "Odvaja\u010d"
+        "message": "Separator"
     },
     "overlay_add_position": {
         "message": "Pozicija"
     },
     "overlay_add_position_prepend": {
-        "message": "Prethodi mapi spremanja"
+        "message": "Dodaj na po\u010detak mape"
     },
     "overlay_add_position_append": {
-        "message": "Dodaj mapi spremanja"
+        "message": "Dodaj na kraj mape"
     },
     "overlay_separator_title_desc": {
-        "message": "Dodaj naslov ako \u017eeli\u0161. Biti \u0107e prikazan iznad grani\u010dne linije .Korisno je kod organizacije oznaka."
+        "message": "Mo\u017ee\u0161 dodati naslov ako \u017eeli\u0161. Biti \u0107e prikazan iznad grani\u010dne linije. Korisno je kod organizacije oznaka."
     },
     "overlay_bookmark_views": {
         "message": "Pregledi"
@@ -237,13 +240,13 @@
         "message": "Pregled"
     },
     "overlay_bookmark_views_since": {
-        "message": "Pregledi od"
+        "message": "Snimljeni od"
     },
     "overlay_bookmark_views_per_month": {
-        "message": "Mjese\u010dno"
+        "message": "mjese\u010dno"
     },
     "overlay_bookmark_created_date": {
-        "message": "Stvoreno"
+        "message": "Kreirano"
     },
     "overlay_dir_children": {
         "message": "Elementi"
@@ -252,25 +255,25 @@
         "message": "Oznake"
     },
     "overlay_dir_children_dirs": {
-        "message": "Mape spremanja"
+        "message": "Mape"
     },
     "overlay_delete_selected": {
         "message": "Izbri\u0161i odabrane unose"
     },
     "overlay_delete_selected_confirm": {
-        "message": "\u017delite li zaista izbrisati odabrane unose? Sve oznake podmape odabranih mapa tako\u0111er \u0107e se izbrisati."
+        "message": "\u017delite li zaista izbrisati odabrane unose? Sve oznake u podmapama odabranih mapa tako\u0111er \u0107e biti izbrisane."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Promjenjeno"
     },
     "overlay_check_bookmarks_menu_broken": {
-        "message": "Neva\u017ee\u0107e"
+        "message": "Neva\u017ee\u0107i"
     },
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikati"
     },
     "overlay_check_bookmarks_menu_empty": {
-        "message": "Prazne mape spremanja"
+        "message": "Prazne mape"
     },
     "overlay_check_bookmarks_loading": {
         "message": "Provjera URLa oznaka"
@@ -282,7 +285,7 @@
         "message": "Ukloni ozna\u010deno"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "URLi svih oznaka su u redu"
+        "message": "URLi svih oznaka su valjani"
     },
     "overlay_check_bookmarks_no_results_changed": {
         "message": "Nema promijenjenih URLa oznaka"
@@ -291,10 +294,10 @@
         "message": "Nema neva\u017ee\u0107ih URLa oznaka"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Nema udvostru\u010denih URLa oznaka"
+        "message": "Nema duplih URL oznaka"
     },
     "overlay_check_bookmarks_no_results_empty": {
-        "message": "Nema mapa spremanja bez oznaka"
+        "message": "Nema mapa bez oznaka"
     },
     "newtab_title": {
         "message": "Nova kartica"
@@ -309,13 +312,13 @@
         "message": "Najvi\u0161e kori\u0161tene oznake"
     },
     "newtab_grid_links_custom": {
-        "message": "Korisni\u010dki definirani unosi"
+        "message": "Unosi definirani od korisnika"
     },
     "newtab_grid_links_hidden": {
         "message": "Ne prikazuj stranice"
     },
     "newtab_grid_links_appearance_thumbnail": {
-        "message": "Prika\u017ei preglede web stranice"
+        "message": "Prika\u017ei predpregled web stranice"
     },
     "newtab_grid_links_appearance_favicon": {
         "message": "Prika\u017ei ikone web stranice"
@@ -348,7 +351,7 @@
         "message": "Da biste omogu\u0107ili tra\u017eenje pomo\u0107u govora, morate omogu\u0107iti pristup mikrofonu."
     },
     "newtab_search_engine_headline": {
-        "message": "Pretra\u017eiva\u010d"
+        "message": "Tra\u017eilica"
     },
     "newtab_search_engine_custom": {
         "message": "Korisni\u010dki definirano"
@@ -365,6 +368,9 @@
     "newtab_upload_background": {
         "message": "U\u010ditajte pozadinsku sliku"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Pro\u0161iri bo\u010dnu traku prilikom u\u010ditavanja stranice"
+    },
     "newtab_fallback_headline_general": {
         "message": "Ne\u0161to sprje\u010dava rad bo\u010dne trake oznaka"
     },
@@ -378,16 +384,13 @@
         "message": "Bo\u010dna traka se ne mo\u017ee koristiti na zadanoj stranici nove kartice"
     },
     "newtab_fallback_headline_system": {
-        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na sustavnim stranicama {browserName}a"
+        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na stranicama sustava {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Jedno od tvojih URL pravila ne dozvoljava otvaranje bo\u010dne trake oznaka"
     },
     "newtab_fallback_desc": {
         "message": "Za tebe smo otvorili novu karticu s bo\u010dnom trakom oznaka."
-    },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "Uvijek prika\u017ei ovu stranicu kada se otvara nova kartica"
     },
     "status_service_unavailable_headline": {
         "message": "Usluga je nedostupna"
@@ -801,7 +804,7 @@
         "message": "Otvori bo\u010dnu traku"
     },
     "settings_open_action_desc": {
-        "message": "Otvorite bo\u010dnu traku oznaka lijevim ili desnim klikom mi\u0161a ili prelaskom mi\u0161a preko ruba prozora preglednika. Mo\u017eete ga promijeniti i otvoriti samo ako se klikne ikona pro\u0161irenja."
+        "message": "Otvorite bo\u010dnu traku klikom ili pomicanjem pokaziva\u010da mi\u0161a preko lijevog ili desnog ruba prozora preglednika. Alternativno, mo\u017eete je promijeniti tako da se otvara samo ako se klikne na ikonu pro\u0161irenja."
     },
     "settings_open_action_leftclick": {
         "message": "Lijevi klik"
@@ -819,25 +822,61 @@
         "message": "Konfigurirajte podru\u010dje"
     },
     "settings_toggle_area_desc": {
-        "message": "Prema zadanom, cijeli rub prozora va\u0161eg preglednika mo\u017ee se zaustaviti za otvaranje bo\u010dne trake oznaka. To mo\u017eete promijeniti i konfigurirati gdje to\u010dno otvoriti bo\u010dnu traku oznaka."
+        "message": "Prema zadanim postavkama, preko cijelog ruba prozora preglednika mo\u017ee se pre\u0107i mi\u0161em da bi se otvorila bo\u010dna traka. To mo\u017eete promijeniti i konfigurirati to\u010dno gdje \u0107e se bo\u010dna traka otvoriti."
     },
     "settings_toggle_area_width": {
         "message": "\u0160irina"
     },
     "settings_toggle_area_width_windowed": {
-        "message": "\u0160irina (sa prozorom)"
+        "message": "\u0160irina (u prozoru)"
     },
     "settings_toggle_area_height": {
         "message": "Visina"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Mo\u017eete smanjiti visinu podru\u010dja, tako da se bo\u010dna traka oznaka otvara samo kad pomaknete pokaziva\u010d na to mjesto ruba prozora preglednika."
+        "message": "Mo\u017eete smanjiti visinu aktivnog podru\u010dja tako da \u0107e se bo\u010dna traka otvoriti samo kada pomaknete kursor u to podru\u010dje na rubu prozora preglednika."
     },
     "settings_toggle_area_drag_desc": {
-        "message": "Povucite za pomicanje"
+        "message": "Odvuci za pomicanje"
+    },
+    "settings_trigger_area_width": {
+        "message": "\u0160irina podru\u010dja aktiviranja"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "\u0160irina rubnog podru\u010dja zaslona gdje konfigurirana radnja mi\u0161a pokre\u0107e pojavljivanje bo\u010dne trake."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "\u0160irina podru\u010dja aktiviranja u prozorskom prikazu"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "\u0160irina rubnog podru\u010dja zaslona gdje konfigurirana radnja mi\u0161a pokre\u0107e pojavljivanje bo\u010dne trake kada preglednik nije na cijelom zaslonu ili ima smanjenu \u0161irinu (na\u010din rada prozora)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Visina podru\u010dja aktiviranja"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "Visina podru\u010dja ruba zaslona gdje konfigurirana radnja mi\u0161a pokre\u0107e pojavljivanje bo\u010dne trake. Smanjenje visine mo\u017ee pomo\u0107i u izbjegavanju slu\u010dajne aktivacije bo\u010dne trake tijekom normalne interakcije s web-mjestom."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Ako mi\u0161 prije\u0111e na konfigurirano podru\u010dje ruba zaslona, \u200b\u200bpojavit \u0107e se indikatorska traka. Njezin izgled mo\u017eete prilagoditi u nastavku ili postaviti \u0161irinu na nulu da biste je onemogu\u0107ili."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "\u0160irina indikatora"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "\u0160irina vidljive indikatorske trake. Mo\u017ee se razlikovati od \u0161irine podru\u010dja aktiviranja trake."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Boja indikatora"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Veli\u010dina ikone indikatora"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Boja ikone indikatora"
     },
     "settings_keyboard_shortcut_button": {
-        "message": "Postavi pre\u010dac tipkovnicom"
+        "message": "Postavi tipkovni\u010dki pre\u010dac"
     },
     "settings_icon_action": {
         "message": "Kliknite na ikonu ekstenzije"
@@ -855,7 +894,7 @@
         "message": "Otvori oznake"
     },
     "settings_link_action_desc": {
-        "message": "Lijevim klikom oznaka \u0107e se otvoriti u trenutnoj kartici ili u novoj kartici."
+        "message": "Lijevim klikom oznaka \u0107e se otvoriti ili u trenutnoj kartici ili u novoj kartici."
     },
     "settings_link_action_current_tab": {
         "message": "Trenutna kartica"
@@ -864,43 +903,43 @@
         "message": "Nova kartica"
     },
     "settings_open_delay": {
-        "message": "Otvori odgodu"
+        "message": "Odgodi otvaranje"
     },
     "settings_open_delay_desc": {
-        "message": "Sprje\u010dava da se bo\u010dna traka oznaka odmah otvori kad lebdite mi\u0161em ili kliknete na podru\u010dje za aktiviranje."
+        "message": "Sprje\u010dava trenutno otvaranje bo\u010dne trake prilikom zadr\u017eavanja pokaziva\u010da mi\u0161a ili klika na podru\u010dje aktivacije na rubu prozora preglednika."
     },
     "settings_prevent_pagescroll": {
-        "message": "Sprije\u010di pomicanje stranice"
+        "message": "Sprije\u010di skrolanje stranice"
     },
     "settings_prevent_pagescroll_desc": {
-        "message": "Sprje\u010dava pomicanje trenutne web stranice dok je bo\u010dna traka oznaka otvorena."
+        "message": "Sprje\u010dava skrolanje trenutne web stranice dok je bo\u010dna traka oznaka otvorena."
     },
     "settings_dir_accordion": {
-        "message": "Prika\u017ei samo trenutnu mapu spremanja"
+        "message": "Prika\u017ei samo trenutnu mapu"
     },
     "settings_dir_accordion_desc": {
-        "message": "Zatvara sve mape spremanja osim trenutno aktivne."
+        "message": "Zatvara sve mape osim trenutno aktivne."
     },
     "settings_remember_state": {
         "message": "Zapamti"
     },
     "settings_remember_state_open_states_and_scroll": {
-        "message": "Pomaknite polo\u017eaj i otvorene mape spremanja"
+        "message": "Pomaknite polo\u017eaj i otvorene mape"
     },
     "settings_remember_state_all": {
-        "message": "Pomaknite polo\u017eaj, otvorene mape spremanja i zadnju otvorenu oznaku"
+        "message": "Pomaknite polo\u017eaj, otvorene mape i zadnju otvorenu oznaku"
     },
     "settings_remember_state_open_states": {
-        "message": "Otvorene mape spremanja"
+        "message": "Otvorene mape"
     },
     "settings_remember_state_open_states_root": {
-        "message": "Otvorene mape spremanja najvi\u0161e razine"
+        "message": "Otvorene mape najvi\u0161e razine"
     },
     "settings_remember_state_nothing": {
         "message": "Ni\u0161ta"
     },
     "settings_remember_open_states_sub_directories": {
-        "message": "Zapamti otvorene podmape spremanja"
+        "message": "Zapamti otvorene podmape"
     },
     "settings_remember_desc": {
         "message": "Ozna\u010dite \u0161to \u017eelite zapamtiti u svim promjenama stranice. Ako odaberete zapamtiti posljednju otvorenu oznaku, ona \u0107e biti ozna\u010dena kad se ponovno otvori bo\u010dna traka oznaka."
@@ -930,34 +969,34 @@
         "message": "Prije prve kartice"
     },
     "settings_close_timeout": {
-        "message": "Zatvori istek vremena"
+        "message": "Odgoda zatvaranja"
     },
     "settings_close_timeout_desc": {
-        "message": "Istek vremena u sekundama nakon zatvaranja bo\u010dne trake oznaka. Odbrojavanje \u0107e zapo\u010deti \u010dim mi\u0161 napusti bo\u010dnu traku oznaka i zaustaviti \u0107e se kada ponovo zapo\u010dnete lebditi nad njom."
+        "message": "Vremensko ograni\u010denje u sekundama nakon zatvaranja bo\u010dne trake. Vrijeme \u0107e zapo\u010deti \u010dim mi\u0161 napusti bo\u010dnu traku i zaustavit \u0107e se kada ponovno zadr\u017eite pokaziva\u010d iznad nje."
     },
     "settings_close_timeout_infinity": {
-        "message": "Ne zatvarajte automatski"
+        "message": "Ne zatvaraj automatski"
     },
     "settings_scroll_bar_hide": {
         "message": "Sakrij traku za pomicanje"
     },
     "settings_scroll_bar_hide_desc": {
-        "message": "Istek vremena u sekundama nakon skrivanja trake za pomicanje. Pomicanje \u0107e ponovo prikazati traku za pomicanje."
+        "message": "Istek vremena u sekundama nakon kojeg \u0107e trake za pomicanje biti skrivena. Pomicanje \u0107e ponovo prikazati traku za pomicanje."
     },
     "settings_scroll_bar_hide_infinity": {
-        "message": "Nikad ne sakrij"
+        "message": "Nikad ne sakrivaj"
     },
     "settings_prevent_windowed": {
         "message": "Onemogu\u0107i bo\u010dnu traku oznaka u na\u010dinu prozora"
     },
     "settings_prevent_windowed_desc": {
-        "message": "Onemogu\u0107uje mogu\u0107nost otvaranja bo\u010dne trake oznaka klikom ili lebdenjem mi\u0161a preko ruba sadr\u017eaja preglednika kada je preglednik u na\u010dinu prozora."
+        "message": "Onemogu\u0107uje mogu\u0107nost otvaranja bo\u010dne trake oznaka klikom ili lebdenjem mi\u0161a preko ruba preglednika kada je preglednik u na\u010dinu prozora."
     },
     "settings_tooltip_delay": {
-        "message": "Opis odgode"
+        "message": "Odgoda opisa"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Odgodite prije nego \u0161to opis za oznake bude prikazan prilikom lebdenja mi\u0161em."
+        "message": "Odgoda prije nego \u0161to opis za oznake bude prikazan prilikom lebdenja mi\u0161em."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Nikada ne prikazujte opise"
@@ -1002,52 +1041,52 @@
         "message": "Desno"
     },
     "settings_filter_explanation_1": {
-        "message": "Dodaj samo jedan URL uzorak po retku"
+        "message": "Dodaj samo jedan URL po retku"
     },
     "settings_filter_explanation_2": {
-        "message": "Koristite * da se podudara bilo koji znak (npr. example.com\/* \u0107e se podudarati sa svim stranicama pod example.com)"
+        "message": "Koristite * za pronala\u017eenje bilo kojeg znaka (npr. example.com\/* pronalazi sve stranice pod example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "Ako u pravilo ne uklju\u010dite bilo koji *, podudarat \u0107e se samo to\u010dnim URLom (npr. \"example.com\" se ne\u0107e podudarati s URL-om \"example.com\/about.html\")"
+        "message": "Ako u pravilo ne uklju\u010dite *, podudarat \u0107e se samo to\u010dni URL-ovi (npr. \"example.com\/about.html\" ne\u0107e se podudarati s URL-om \"example.com\")"
     },
     "settings_filter_explanation_4": {
-        "message": "Ne morate dodavati protokol (npr. http:\/\/) u pravilima"
+        "message": "U pravilima ne morate dodavati protokol (npr. http:\/\/)"
     },
     "settings_filter_visibility": {
         "message": "U\u010ditaj bo\u010dnu traku oznaka"
     },
     "settings_filter_visibility_desc": {
-        "message": "Ako ne \u017eelite da se bo\u010dna traka oznaka u\u010dita na svakoj stranici, mo\u017eete konfigurirati na kojoj \u0107e se u\u010ditati pro\u0161irenje (bijela lista) ili na kojoj se ne\u0107e (crna lista)."
+        "message": "Ako ne \u017eelite da se bo\u010dna traka u\u010ditava na svakoj stranici, mo\u017eete konfigurirati gdje \u0107e se u\u010ditati pro\u0161irenje (bijela lista) ili gdje se ne \u0107e u\u010ditati (crna lista)."
     },
     "settings_filter_visibility_always": {
         "message": "Na svakoj stranici"
     },
     "settings_filter_visibility_blacklist": {
-        "message": "Na svakoj stranici osim odre\u0111enih stranica"
+        "message": "Na svakoj stranici osim specificiranih stranica"
     },
     "settings_filter_visibility_whitelist": {
-        "message": "Samo na odre\u0111enim stranicama"
+        "message": "Samo na specificiranim stranicama"
     },
     "settings_filter_rules": {
         "message": "URL obrasci"
     },
     "settings_import_export_headline": {
-        "message": "Postavke uvoza \/ izvoza"
+        "message": "Uvoz \/ izvoz postavki"
     },
     "settings_import_export_notice": {
-        "message": "Postavke pro\u0161irenja automatski se sinkroniziraju izme\u0111u va\u0161ih ure\u0111aja, ako ste prijavljeni na {browserName} sa svojim ra\u010dunom. Ako se ne \u017eelite prijaviti ili \u017eelite podijeliti svoje postavke s drugim ljudima, mo\u017eete upotrijebiti ovu mogu\u0107nost uvoza\/izvoza."
+        "message": "Postavke pro\u0161irenja automatski se sinkroniziraju izme\u0111u va\u0161ih ure\u0111aja ako ste prijavljeni na {browserName} sa svojim ra\u010dunom. Ako se ne \u017eelite prijaviti ili \u017eelite dijeliti svoje postavke s drugim ljudima ili ure\u0111ajima, mo\u017eete koristiti ove opcije uvoza\/izvoza."
     },
     "settings_import_export_desc": {
         "message": "Mo\u017eete izvesti postavke pro\u0161irenja i spremiti ih lokalno na ra\u010dunalu. Prethodno izvezenu datoteku mo\u017eete uvesti na bilo koje ra\u010dunalo na kojem je instalirano pro\u0161irenje."
     },
     "settings_export": {
-        "message": "Postavke izvoza"
+        "message": "Izvezi postavke"
     },
     "settings_import": {
-        "message": "Postavke uvoza"
+        "message": "Uvezi postavke"
     },
     "settings_import_saved": {
-        "message": "Konfiguracija je uspje\u0161no uvezena"
+        "message": "Uvoz postavki je uspje\u0161an"
     },
     "settings_import_failed": {
         "message": "Uvoz konfiguracije nije uspio. Odaberite valjanu datoteku."
@@ -1235,38 +1274,44 @@
     "settings_theme_changed": {
         "message": "Tema je uspje\u0161no promijenjena"
     },
-    "settings_newtab_desc": {
-        "message": "Mo\u017eete poni\u0161titi zadanu stranicu nove kartice u pregledniku sa stranicom koju nudi ovo pro\u0161irenje. Ova \u0107e stranica prikazati bo\u010dnu traku s oznakama i mo\u017ee se konfigurirati za pove\u0107anje va\u0161e produktivnosti."
+    "settings_newtab_intro": {
+        "message": "\u017delite li da se bo\u010dna traka s oznakama automatski otvara u novim karticama?"
     },
-    "settings_newtab_override": {
-        "message": "Nadja\u010daj stranicu novu kartice"
+    "settings_newtab_install_extension": {
+        "message": "Instalirajte pro\u0161irenje \"New Tab Override\" kao \u0161to je jedno od ovih:"
     },
-    "settings_newtab_override_desc": {
-        "message": "Treba li pro\u0161irenje nadja\u010dati va\u0161u trenutnu stranicu nove kartice prema vlastitoj izradi ili web stranicu koja bi trebala biti u\u010ditana prilikom otvaranja nove kartice?"
+    "settings_newtab_extension_disclaimer": {
+        "message": "Nisam povezan s ovim pro\u0161irenjima i ne primam nikakvu naknadu za njihovo preporu\u010divanje."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Ova pro\u0161irenja vam omogu\u0107uju postavljanje prilago\u0111enog URL-a za nove kartice. Nakon instalacije, unesite sljede\u0107i URL u postavke pro\u0161irenja:"
     },
     "settings_newtab_override_preview": {
-        "message": "Pregled"
+        "message": "Predpregled"
     },
-    "settings_newtab_override_configure": {
-        "message": "Konfigurirati"
+    "settings_newtab_override_customise": {
+        "message": "Prilagodi ovu stranicu"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Otvori bo\u010dnu traku oznaka automatski"
+    "settings_newtab_favicon_desc": {
+        "message": "Ikonu kartice (favicon) mo\u017eete prilagoditi za novu karticu. To vam omogu\u0107uje da je lako prepoznate me\u0111u otvorenim karticama."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Konfigurirajte treba li se bo\u010dna traka oznaka automatski otvoriti prilikom otvaranja nove kartice."
+    "newtab_tmp_upgrade_headline": {
+        "message": "Bo\u010dna traka s oznakama upravo je a\u017eurirana."
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Usredoto\u010di adresnu traku"
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Potrebna je akcija!"
     },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Ako je omogu\u0107eno, va\u0161a adresna traka \u0107e biti usredoto\u010dena prilikom otvaranja nove kartice. U suprotnom, umjesto toga \u0107e se usredoto\u010diti okvir za pretra\u017eivanje web stranice."
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Zbog Googleove provedbe pravila, prethodna funkcionalnost nadja\u010davanja nove kartice morala je biti uklonjena jer vi\u0161e nije u skladu s njihovim smjernicama za razvojne programere."
     },
-    "settings_newtab_website": {
-        "message": "U\u010ditaj web stranicu"
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Zbog toga je pogo\u0111ena va\u0161a trenutna konfiguracija koja poni\u0161tava Novu karticu."
     },
-    "settings_newtab_website_desc": {
-        "message": "Umjesto otvaranja nove zamjenske kartica, mo\u017eete postaviti web stranicu koja je u\u010ditana umjesto nje."
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Za vra\u0107anje o\u010dekivanog pona\u0161anja, konfigurirajte a\u017euriranu aplikaciju rje\u0161enjem dostupnim u postavkama pro\u0161irenja."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Otvorite postavke"
     },
     "settings_language": {
         "message": "Jezik"

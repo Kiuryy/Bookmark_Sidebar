@@ -1,4 +1,6 @@
 
 body.dark .scrollBox {
-  background-color: $darkScrollBarBackground;
+  &::-webkit-scrollbar-thumb {
+    background-color: $darkScrollBarBackground;
+  }
 }

@@ -1,14 +1,17 @@
+@use "../include/vars";
+@use "include/bookmarkEntry";
+
 body.dark {
 
   section#sidebar {
-    background: $darkContentBackground;
+    background: vars.$darkContentBackground;
 
     &.permanent {
       border-color: rgba(255, 255, 255, 0.1);
     }
 
     > div.filter {
-      background: $darkContentBackground2;
+      background: vars.$darkContentBackground2;
     }
 
     > span.drag {
@@ -18,37 +21,32 @@ body.dark {
       }
     }
 
-    > a.lockPinned {
-      background: $darkContentBackground;
-      box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.2);
-    }
-
     > div.scrollBox {
 
       > div.pinned {
-        background-color: $darkContentBackground;
+        background-color: vars.$darkContentBackground;
 
         &::after {
-          background: $darkSeparatorColor;
+          background: vars.$darkSeparatorColor;
         }
       }
 
       > ul, > div.pinned > ul {
 
         a {
-          @include darkBookmarkEntry;
+          @include bookmarkEntry.darkBookmarkEntry;
 
           > span.drag {
 
             &::before {
-              background-color: $darkReorderIconColor;
+              background-color: vars.$darkReorderIconColor;
             }
 
             &:hover {
               background-color: rgba(255, 255, 255, 0.1);
 
               &::before {
-                background-color: $darkReorderIconColorActive;
+                background-color: vars.$darkReorderIconColorActive;
               }
             }
           }
@@ -72,19 +70,19 @@ body.dark {
     }
 
     ~ a.dragHelper {
-      @include darkBookmarkEntry;
-      background: $darkContentBackground !important;
+      @include bookmarkEntry.darkBookmarkEntry;
+      background: vars.$darkContentBackground !important;
     }
   }
 
   div#infoBox {
-    background: $darkContentBackground2;
+    background: vars.$darkContentBackground2;
 
     > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
 
       &::before {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
     }
   }

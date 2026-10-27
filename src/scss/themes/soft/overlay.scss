@@ -1,0 +1,134 @@
+@use "sass:meta";
+@use "../../include/vars";
+@use "helpers";
+
+[data-theme='soft'] { // the website behind the overlay is blurred by the iframe itself, see content.scss
+
+  div.modal {
+    border-radius: 30px;
+    background: helpers.$modalBackgroundGradient;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2), -10px -10px 40px rgba(255, 255, 255, 0.3), helpers.$highlight;
+    transition: transform 0.3s;
+
+    &:not(.visible) {
+      transform: scale(0.9);
+    }
+
+    > header { // directly on the background, the groove below separates it from the content
+      color: vars.$dyn-textColor;
+      background: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+
+      &::before {
+        background: vars.$dyn-colorScheme;
+      }
+
+      > h1 {
+        font-size: 140%;
+      }
+
+      > a.close {
+        background: helpers.$surfaceGradient;
+        box-shadow: helpers.raised(3px);
+        transition: box-shadow 0.3s;
+
+        &::before {
+          background: vars.$dyn-textColor;
+          mask-size: 18px;
+        }
+
+        &:hover {
+          box-shadow: helpers.pressed(3px);
+        }
+      }
+    }
+
+    > a.preview, > span.preview {
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.05);
+      box-shadow: helpers.pressed(2px);
+    }
+
+    > a.preview:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    &[data-type='keyboardShortcuts']::after,
+    &.urlCheckResults[data-type='checkBookmarks']::after,
+    &[data-type='searchEngine']::after {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    &[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
+      border: none;
+      border-radius: 6px;
+      padding: 2px 6px;
+      background: helpers.$surfaceGradient;
+      box-shadow: helpers.raised(2px);
+    }
+
+    &[data-type='edit'], &[data-type='add'] {
+
+      > ul > li {
+
+        > input, > textarea, > select {
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 14px;
+          padding: 8px 12px;
+          background: helpers.$fieldBackground;
+          box-shadow: helpers.pressed(2px);
+          transition: border-color 0.3s, box-shadow 0.3s;
+
+          &:focus {
+            border-color: vars.$dyn-colorScheme;
+            box-shadow: helpers.pressed(2px), 0 0 0 1px vars.$dyn-colorScheme;
+          }
+
+          &.error {
+            border-color: vars.$colorError;
+            box-shadow: helpers.pressed(2px), 0 0 0 1px vars.$colorError;
+          }
+        }
+      }
+    }
+
+    &[data-type='add'] > menu[data-name='select'] > a {
+      background: helpers.$surfaceGradient;
+      box-shadow: helpers.raised(6px);
+
+      &:hover {
+        box-shadow: helpers.pressed(5px);
+
+        &::before {
+          background-color: vars.$dyn-colorScheme;
+          opacity: 1;
+        }
+      }
+    }
+
+    > menu.buttons > a {
+      padding: 8px 16px 7px;
+      margin: 0 6px;
+      border-radius: 18px;
+      background: helpers.$surfaceGradient;
+      box-shadow: helpers.raised(3px);
+      transition: box-shadow 0.3s;
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        box-shadow: helpers.pressed(3px);
+      }
+    }
+
+    &.sidepanel {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+@include meta.load-css("dark/overlay");

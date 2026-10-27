@@ -6,7 +6,10 @@
         "message": "Favoris"
     },
     "extension_desc": {
-        "message": "Ajoute une barre lat\u00e9rale commutable regroupant tous vos favoris sur le bord de la fen\u00eatre de votre navigateur."
+        "message": "La barre lat\u00e9rale des signets vous permet d'acc\u00e9der rapidement \u00e0 tous vos signets gr\u00e2ce \u00e0 une barre lat\u00e9rale \u00e9pur\u00e9e et r\u00e9active, plac\u00e9e exactement l\u00e0 o\u00f9 vous en avez besoin."
+    },
+    "extension_webstore_desc": {
+        "message": "DEUX FA\u00c7ONS DE L'UTILISER\n- Superposition : la barre lat\u00e9rale s'affiche par-dessus le site web en cours lorsque vous cliquez ou passez la souris sur le bord gauche ou droit de la fen\u00eatre du navigateur, ou lorsque vous cliquez sur l'ic\u00f4ne de l'extension ; elle dispara\u00eet d\u00e8s que vous avez termin\u00e9.\n- Panneau lat\u00e9ral : la barre lat\u00e9rale s'ouvre dans le panneau lat\u00e9ral de votre navigateur et reste ouverte \u00e0 c\u00f4t\u00e9 des sites web que vous consultez, comme une barre lat\u00e9rale permanente.\n\nG\u00c9REZ VOS FAVORIS\n- Ajoutez, modifiez et supprimez des favoris, des dossiers et des s\u00e9parateurs directement dans la barre lat\u00e9rale\n- R\u00e9organisez le tout par glisser-d\u00e9poser\n- S\u00e9lectionnez plusieurs \u00e9l\u00e9ments \u00e0 la fois pour les d\u00e9placer, les supprimer ou les ouvrir ensemble\n- Effectuez une recherche instantan\u00e9e dans tous vos signets et triez-les comme vous le souhaitez\n- \u00c9pinglez vos signets pr\u00e9f\u00e9r\u00e9s en haut et masquez ceux dont vous n\u2019avez pas besoin\n\nPERSONNALISEZ-LA\nDe nombreuses options vous permettent d\u2019adapter la barre lat\u00e9rale \u00e0 votre fa\u00e7on de travailler : choisissez comment et o\u00f9 elle s\u2019ouvre, modifiez sa taille, ses couleurs, ses polices et ses ic\u00f4nes, passez en mode sombre et, si vous le souhaitez, remplacez votre page \u00ab Nouvel onglet \u00bb par une page int\u00e9grant la barre lat\u00e9rale.\n\nVOS COMMENTAIRES\nVous avez trouv\u00e9 un bug, ou vous avez une id\u00e9e de nouvelle fonctionnalit\u00e9 ou d\u2019am\u00e9lioration ? N\u2019h\u00e9sitez pas \u00e0 m\u2019en faire part. Chaque message est lu et contribue \u00e0 am\u00e9liorer Bookmark Sidebar."
     },
     "extension_version": {
         "message": "Version"
@@ -182,9 +185,6 @@
     "overlay_delete": {
         "message": "Supprimer"
     },
-    "overlay_update": {
-        "message": "Mettre \u00e0 jour"
-    },
     "overlay_show_in_bookmark_manager": {
         "message": "Afficher dans le gestionnaire de favoris"
     },
@@ -317,12 +317,6 @@
     "newtab_grid_links_hidden": {
         "message": "Ne rien afficher"
     },
-    "newtab_grid_links_appearance_thumbnail": {
-        "message": "Afficher les aper\u00e7us des sites web"
-    },
-    "newtab_grid_links_appearance_favicon": {
-        "message": "Afficher les ic\u00f4nes des sites web"
-    },
     "newtab_grid_links_grid_size": {
         "message": "Taille de la grille"
     },
@@ -395,9 +389,6 @@
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
     },
-    "status_feedback_unavailable_desc": {
-        "message": "Le retour d'exp\u00e9rience n'est pas disponible actuellement. Si vous voulez faire un retour d'exp\u00e9rience, envoyez-moi un courriel s'il vous pla\u00eet."
-    },
     "status_translation_unavailable_desc": {
         "message": "Le service de traduction n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
     },
@@ -440,74 +431,17 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Fermeture de la barre lat\u00e9rale, de l'\u00e9l\u00e9ment ou du menu contextuel"
     },
-    "contribute_intro": {
-        "message": "Pour am\u00e9liorer l'extension il faudrait que j'en sache plus sur l'utilisation et le param\u00e9trage des diff\u00e9rents utilisateurs."
-    },
-    "contribute_notice": {
-        "message": "Vous pouvez m'aider en m'indiquant vos param\u00e8tres"
-    },
-    "contribute_outro": {
-        "message": "Si vous vous interrogez ou avez des questions sur le partage d'information, faites-moi un retour d'exp\u00e9rience par message."
-    },
-    "contribute_share_config_label": {
-        "message": "Param\u00e8tres de partage"
-    },
-    "contribute_share_config_desc": {
-        "message": "Votre configuration est transmise de fa\u00e7on anonyme pour m'aider \u00e0 identifier les r\u00e9glages populaires et savoir quoi am\u00e9liorer ou changer dans les prochaines versions."
-    },
-    "contribute_share_activity_label": {
-        "message": "Partager mon activit\u00e9"
-    },
-    "contribute_share_activity_desc1": {
-        "message": "Vous pouvez partager votre activit\u00e9 de fa\u00e7on anonyme pour m'aider \u00e0 savoir comment l'extension est utilis\u00e9e de mani\u00e8re g\u00e9n\u00e9rale. Vos sites favoris et votre historique de navigation [b]ne seront pas[\/b] observ\u00e9s."
-    },
-    "contribute_share_activity_desc2": {
-        "message": "Ces informations sont tr\u00e8s utiles pour identifier les probl\u00e8mes d'ergonomie ou les fonctionnalit\u00e9s qui sont, par exemple, utilis\u00e9es peu souvent."
-    },
-    "contribute_share_activity_examples_intro": {
-        "message": "Les donn\u00e9es qui sont partag\u00e9es sont par exemple :"
-    },
-    "contribute_share_activity_example_1": {
-        "message": "Combien de favoris ont en moyenne les utilisateurs ?"
-    },
-    "contribute_share_activity_example_2": {
-        "message": "Quel est l'environnement des utilisateurs (Windows, Mac, Linux, ...) ?"
-    },
-    "contribute_share_activity_example_3": {
-        "message": "Les utilisateurs utilisent-ils la fonction recherche ?"
-    },
-    "contribute_share_activity_example_4": {
-        "message": "Les utilisateurs changent-ils le classement des favoris ?"
-    },
-    "contribute_share_activity_example_5": {
-        "message": "Tous les combiens les utilisateurs r\u00e9organisent-ils ou modifient-ils les favoris?"
-    },
     "onboarding_title": {
         "message": "Configuration"
     },
     "onboarding_headline": {
         "message": "Merci d'avoir install\u00e9 cette extension."
     },
-    "onboarding_intro_desc": {
-        "message": "Il existe plusieurs fa\u00e7ons d'ouvrir votre barre lat\u00e9rale."
-    },
-    "onboarding_intro_sidebar_overlay_desc": {
-        "message": "Ouvrir en haut des sites Web."
-    },
-    "onboarding_intro_sidebar_sidepanel_desc": {
-        "message": "Ouvrir dans le panneau lat\u00e9ral \u00e0 c\u00f4t\u00e9 du contenu principal des pages Web."
-    },
-    "onboarding_sidebar_overlay_disable": {
-        "message": "Je ne veux pas utiliser cette barre lat\u00e9rale superpos\u00e9e."
-    },
-    "onboarding_setup_start": {
-        "message": "Commencer la configuration"
-    },
-    "onboarding_setup_complete": {
-        "message": "Configuration termin\u00e9e"
+    "onboarding_mode_desc": {
+        "message": "Comment souhaitez-vous utiliser votre barre lat\u00e9rale ?"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "O\u00f9 souhaitez-vous afficher la barre lat\u00e9rale ?"
+        "message": "De quel c\u00f4t\u00e9 la barre lat\u00e9rale doit-elle s'afficher ?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "Comment voulez-vous ouvrir la barre lat\u00e9rale ?"
@@ -533,9 +467,6 @@
     "onboarding_handson_icon_desc": {
         "message": "Cliquez sur l'ic\u00f4ne de l'extension pour ouvrir la barre lat\u00e9rale."
     },
-    "onboarding_handson_sidepanel_desc": {
-        "message": "Cliquez sur l'ic\u00f4ne du panneau lat\u00e9ral en haut de votre navigateur et choisissez la vue de la barre lat\u00e9rale des signets."
-    },
     "onboarding_left": {
         "message": "gauche"
     },
@@ -548,107 +479,44 @@
     "onboarding_finish_desc": {
         "message": "\u00c0 vous de jouer."
     },
-    "onboarding_goto_settings": {
-        "message": "Param\u00e8tres suppl\u00e9mentaires"
+    "onboarding_finish_settings_title": {
+        "message": "Personnalisez votre exp\u00e9rience"
     },
-    "onboarding_goto_appearance": {
-        "message": "Param\u00e8tres d'affichage"
+    "onboarding_finish_settings_desc": {
+        "message": "D\u00e9finissez le comportement de la barre lat\u00e9rale, la mani\u00e8re dont vos favoris s'ouvrent et bien plus encore. Consultez les param\u00e8tres."
+    },
+    "onboarding_finish_appearance_title": {
+        "message": "Faites-en quelque chose qui vous ressemble vraiment"
+    },
+    "onboarding_finish_appearance_desc": {
+        "message": "Personnalisez les couleurs, les polices, les espacements et bien plus encore pour donner \u00e0 la barre lat\u00e9rale exactement l'aspect que vous souhaitez."
     },
     "settings_title": {
         "message": "Param\u00e8tres"
     },
-    "settings_menu_dashboard": {
+    "settings_tab_overview": {
         "message": "Aper\u00e7u"
     },
-    "settings_menu_sidebar": {
-        "message": "Barre lat\u00e9rale"
+    "settings_general": {
+        "message": "Param\u00e8tres g\u00e9n\u00e9raux"
     },
-    "settings_menu_sidebar_general": {
-        "message": "G\u00e9n\u00e9ral"
-    },
-    "settings_menu_sidebar_overlay": {
-        "message": "Fen\u00eatre d'info"
-    },
-    "settings_menu_sidebar_sidepanel": {
-        "message": "Barre Lat\u00e9rale"
-    },
-    "settings_menu_sidebar_tooltip": {
-        "message": "Infobulle"
-    },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Apparence"
     },
-    "settings_menu_appearance_general": {
-        "message": "G\u00e9n\u00e9ral"
-    },
-    "settings_menu_appearance_sidebar": {
-        "message": "Barre lat\u00e9rale"
-    },
-    "settings_menu_appearance_indicator": {
-        "message": "Repr\u00e9sentation"
-    },
-    "settings_menu_appearance_icon": {
-        "message": "Ic\u00f4ne"
-    },
-    "settings_menu_appearance_dialog": {
-        "message": "Dialogue"
-    },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "Nouvel onglet"
     },
-    "settings_menu_language": {
-        "message": "Langue"
-    },
-    "settings_menu_language_general": {
-        "message": "G\u00e9n\u00e9ral"
-    },
-    "settings_menu_language_translate": {
-        "message": "Traduction"
-    },
-    "settings_menu_support": {
-        "message": "Aide"
-    },
-    "settings_menu_infos": {
-        "message": "Propri\u00e9t\u00e9s"
-    },
-    "settings_menu_infos_aboutme": {
-        "message": "\u00c0 propos"
-    },
-    "settings_menu_infos_permissions": {
-        "message": "Autorisations"
-    },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "Priv\u00e9"
     },
-    "settings_menu_infos_contact": {
-        "message": "Contact"
-    },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "Historique des modifications"
-    },
-    "settings_menu_premium": {
-        "message": "Premium"
-    },
-    "settings_menu_export": {
-        "message": "Importer\/Exporter"
-    },
-    "settings_menu_expert": {
-        "message": "Options expertes"
     },
     "settings_save": {
         "message": "Enregistrer les modifications"
     },
     "settings_saved_message": {
         "message": "Les modifications ont \u00e9t\u00e9 enregistr\u00e9es"
-    },
-    "settings_restore": {
-        "message": "R\u00e9tablir les param\u00e8tres par d\u00e9faut"
-    },
-    "settings_restore_confirm": {
-        "message": "Voulez-vous vraiment r\u00e9tablir la configuration par d\u00e9faut ?"
-    },
-    "settings_restored_message": {
-        "message": "Les param\u00e8tres par d\u00e9faut ont \u00e9t\u00e9 r\u00e9tablis"
     },
     "settings_advanced": {
         "message": "Param\u00e8tres avanc\u00e9s"
@@ -662,29 +530,20 @@
     "settings_premium_invalid_key": {
         "message": "Impossible d'activer votre compte Premium. Merci de saisir une cl\u00e9 de licence valide."
     },
-    "settings_search_placeholder": {
-        "message": "Chercher une configuration"
+    "settings_currently_selected": {
+        "message": "S\u00e9lectionn\u00e9 actuellement"
     },
-    "settings_expert_settings_desc": {
-        "message": "Les param\u00e8tres expert vous permettent de configurer chaque param\u00e8tre de l'extension, m\u00eame celles que vous ne pouvez pas modifier en utilisant les cases \u00e0 cocher habituelles, ou les boutons d'activation de la page des param\u00e8tres."
+    "settings_example": {
+        "message": "Exemple"
     },
-    "settings_expert_settings_notice": {
-        "message": "Ne changez que les valeurs ici, si vous savez ce que vous faites. Une mauvaise configuration peut causer des comportements inattendus de l'extension. Si quelque chose ne fonctionne plus, vous pouvez revenir \u00e0 la configuration par d\u00e9faut."
+    "settings_details": {
+        "message": "D\u00e9tails"
     },
-    "settings_expert_save_error": {
-        "message": "N'a pas pu sauvegarder les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9."
+    "settings_video_play": {
+        "message": "Lecture"
     },
-    "settings_dashboard_sidebar_options": {
-        "message": "Configurez le comportement de votre barre lat\u00e9rale"
-    },
-    "settings_dashboard_sidebar_options_desc": {
-        "message": "Il existe plusieurs options qui permettent de modifier le comportement de l'extension. Par exemple, il est possible de modifier la fa\u00e7on dont la barre lat\u00e9rale s'ouvre. Il est aussi possible de d'\u00e9viter que la barre lat\u00e9rale s'affiche automatiquement avec l'utilisation de r\u00e8gles appropri\u00e9es."
-    },
-    "settings_dashboard_appearance_options": {
-        "message": "Changez l'apparence de la barre lat\u00e9rale"
-    },
-    "settings_dashboard_appearance_options_desc": {
-        "message": "Vous pouvez modifier enti\u00e8rement l'aspect de la barre lat\u00e9rale pour l'adapter \u00e0 vos besoins. Il existe diff\u00e9rentes options pour modifier la taille des caract\u00e8res, l'interligne, les couleurs, les ic\u00f4nes et bien d'autres choses encore. Vous pouvez \u00e9galement choisir parmi des mod\u00e8les pr\u00e9d\u00e9finis et des options pr\u00e9d\u00e9finies pour donner rapidement \u00e0 la barre lat\u00e9rale l'aspect que vous souhaitez."
+    "settings_video_pause": {
+        "message": "Pause"
     },
     "settings_tips_tricks_facts": {
         "message": "Est ce que vous saviez ?"
@@ -752,7 +611,7 @@
     "settings_tips_tricks_synchronization_desc": {
         "message": "Tous vos param\u00e8tres de la barre lat\u00e9rale seront synchronis\u00e9s entre vos appareils, si vous activez les options de synchronisation de votre navigateur dans les param\u00e8tres. M\u00eame sans Premium."
     },
-    "settings_tips_tricks_synchronization_action": {
+    "settings_sync_settings_link": {
         "message": "Voir vos r\u00e9glages de synchronisation"
     },
     "settings_tips_tricks_i18n_desc": {
@@ -782,23 +641,44 @@
     "settings_tips_tricks_multiselect_desc": {
         "message": "Vous pouvez s\u00e9lectionner plusieurs favoris ou dossiers dans la barre lat\u00e9rale, pour les ouvrir, les effacer ou les d\u00e9placer d'un coup avec un glisser\/d\u00e9poser."
     },
-    "settings_tips_tricks_newtab": {
-        "message": "Nouvel onglet"
-    },
-    "settings_tips_tricks_newtab_desc": {
-        "message": "Vous pouvez configurer l'apparence de la page des nouveaux onglets directement sur la page en cliquant sur le bouton {1} dans le coin inf\u00e9rieur. Vous pouvez alors modifier les \u00e9l\u00e9ments de la grille, le moteur de recherche, l'image de fond ou les liens en haut de la page."
-    },
     "settings_tips_tricks_privacy": {
         "message": "Priv\u00e9"
     },
     "settings_tips_tricks_privacy_desc": {
         "message": "Les signets affich\u00e9s dans votre barre lat\u00e9rale sont synchronis\u00e9s et g\u00e9r\u00e9s par {browserName}. L'extension ne stocke ni n'analyse ces signets, et affiche uniquement ceux de votre navigateur dans la barre lat\u00e9rale."
     },
-    "settings_tips_tricks_sidepanel": {
-        "message": "Panneau lat\u00e9ral du navigateur"
+    "settings_support": {
+        "message": "Aide"
     },
-    "settings_tips_tricks_sidepanel_desc": {
-        "message": "Vous pouvez ouvrir en permanence votre barre lat\u00e9rale de favoris pendant que vous naviguez. Il y a un panneau lat\u00e9ral fourni par votre navigateur. Cliquez sur l'ic\u00f4ne du panneau lat\u00e9ral en haut de votre navigateur et choisissez la vue de la barre lat\u00e9rale des signets."
+    "settings_info_permissions": {
+        "message": "Autorisations"
+    },
+    "settings_translation_cta_link": {
+        "message": "Aide \u00e0 la traduction"
+    },
+    "settings_translation_cta_desc": {
+        "message": "Toutes les traductions sont r\u00e9alis\u00e9es par la communaut\u00e9. Si votre langue n'est pas disponible, si la traduction est incompl\u00e8te ou comporte des erreurs, vous pouvez contribuer \u00e0 l'am\u00e9liorer pour le b\u00e9n\u00e9fice de tous."
+    },
+    "settings_trigger_area_configure": {
+        "message": "Configurer la zone de bordure"
+    },
+    "settings_translation_cta_headline": {
+        "message": "Vous parlez une autre langue ?"
+    },
+    "settings_knowledgebase": {
+        "message": "Base de connaissances"
+    },
+    "settings_knowledgebase_desc": {
+        "message": "La base de connaissances rassemble des articles proposant des analyses approfondies de fonctionnalit\u00e9s sp\u00e9cifiques, des conseils pratiques et un aper\u00e7u des coulisses du d\u00e9veloppement."
+    },
+    "settings_knowledgebase_link": {
+        "message": "D\u00e9couvrir"
+    },
+    "settings_support_desc": {
+        "message": "Vous avez une question, vous avez rep\u00e9r\u00e9 un bug ou vous avez une id\u00e9e ? Consultez la FAQ pour obtenir des r\u00e9ponses rapides ou utilisez le formulaire de contact pour joindre directement le d\u00e9veloppeur."
+    },
+    "settings_share_info_desc": {
+        "message": "Vous pouvez choisir de partager certaines informations, telles que votre configuration et la mani\u00e8re dont vous utilisez la barre lat\u00e9rale. Cela permet d'am\u00e9liorer l'extension."
     },
     "settings_open_action": {
         "message": "Affichage de la barre"
@@ -818,77 +698,47 @@
     "settings_open_action_icon": {
         "message": "Clic sur l'ic\u00f4ne"
     },
-    "settings_toggle_area": {
-        "message": "Configurer la zone de bordure"
-    },
-    "settings_toggle_area_desc": {
-        "message": "Par d\u00e9faut, vous pouvez passer votre souris sur toute la bordure du navigateur pour ouvrir la barre lat\u00e9rale. Vous pouvez modifier et configurer pr\u00e9cis\u00e9ment la zone pour ouvrir la barre lat\u00e9rale."
-    },
-    "settings_toggle_area_width": {
-        "message": "Largeur"
-    },
-    "settings_toggle_area_width_windowed": {
-        "message": "Largeur (mode fen\u00eatr\u00e9)"
-    },
-    "settings_toggle_area_height": {
-        "message": "Hauteur"
-    },
-    "settings_toggle_area_height_desc": {
-        "message": "Vous pouvez r\u00e9duire la hauteur de la zone pour que la barre lat\u00e9rale s'ouvre uniquement lorsque vous passez la souris dans cette zone de la bordure du navigateur."
-    },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "Glisser pour d\u00e9placer"
     },
-    "settings_trigger_area_width": {
+    "settings_trigger_width": {
         "message": "Largeur de la zone de d\u00e9clenchement"
     },
-    "settings_trigger_area_width_desc": {
+    "settings_trigger_width_desc": {
         "message": "La largeur de la zone au bord de l\u2019\u00e9cran o\u00f9 l\u2019action de la souris configur\u00e9e d\u00e9clenche l\u2019apparition de la barre lat\u00e9rale."
     },
-    "settings_trigger_area_width_windowed": {
+    "settings_trigger_width_windowed": {
         "message": "Largeur de d\u00e9clenchement (mode fen\u00eatr\u00e9)"
     },
-    "settings_trigger_area_width_windowed_desc": {
+    "settings_trigger_width_windowed_desc": {
         "message": "Largeur de la zone de d\u00e9clenchement (mode fen\u00eatr\u00e9)"
     },
-    "settings_trigger_area_height": {
+    "settings_trigger_height": {
         "message": "Hauteur de la zone de d\u00e9clenchement"
     },
-    "settings_trigger_area_height_desc": {
+    "settings_trigger_height_desc": {
         "message": "Hauteur de la zone de d\u00e9clenchement au bord de l\u2019\u00e9cran. Une valeur plus faible permet de limiter les activations involontaires de la barre lat\u00e9rale pendant la navigation."
     },
-    "settings_trigger_area_indicator_desc": {
+    "settings_indicator_desc": {
         "message": "Lorsque la souris entre dans la zone configur\u00e9e au bord de l\u2019\u00e9cran, une barre indicatrice s\u2019affiche. Vous pouvez ajuster son apparence ci-dessous, ou mettre sa largeur \u00e0 z\u00e9ro pour la d\u00e9sactiver."
     },
-    "settings_trigger_area_indicator_width": {
+    "settings_indicator_width": {
         "message": "Largeur de l\u2019indicateur"
     },
-    "settings_trigger_area_indicator_width_desc": {
+    "settings_indicator_width_desc": {
         "message": "Largeur de la barre indicatrice visible. Elle peut \u00eatre diff\u00e9rente de la largeur de la zone de d\u00e9clenchement."
     },
-    "settings_trigger_area_indicator_color": {
+    "settings_indicator_color": {
         "message": "Couleur de la barre indicatrice"
     },
-    "settings_trigger_area_indicator_icon_size": {
+    "settings_indicator_icon_size": {
         "message": "Taille de l\u2019ic\u00f4ne de l\u2019indicateur"
     },
-    "settings_trigger_area_indicator_icon_color": {
+    "settings_indicator_icon_color": {
         "message": "Couleur de l\u2019ic\u00f4ne indicatrice"
     },
     "settings_keyboard_shortcut_button": {
         "message": "D\u00e9finir un raccourci clavier"
-    },
-    "settings_icon_action": {
-        "message": "Cliquez sur l'ic\u00f4ne de l'extension"
-    },
-    "settings_icon_action_desc": {
-        "message": "Vous pouvez choisir comment la barre lat\u00e9rale doit appara\u00eetre lorsque vous cliquez sur l'ic\u00f4ne d'extension situ\u00e9e \u00e0 droite de la barre d'adresse du navigateur."
-    },
-    "settings_icon_action_overlay": {
-        "message": "Ouvrir la barre lat\u00e9rale en haut des sites Web"
-    },
-    "settings_icon_action_sidepanel": {
-        "message": "Ouvrir la barre lat\u00e9rale dans le panneau lat\u00e9ral fourni par le navigateur"
     },
     "settings_link_action": {
         "message": "Ouverture des favoris"
@@ -908,10 +758,10 @@
     "settings_open_delay_desc": {
         "message": "Emp\u00eache l'ouverture imm\u00e9diate de la barre lat\u00e9rale lors du survol ou du clic sur la zone d'activation au bord de la fen\u00eatre du navigateur."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Emp\u00eacher le d\u00e9filement"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Emp\u00eache le d\u00e9filement du site web actuel lorsque la barre lat\u00e9rale est ouverte."
     },
     "settings_dir_accordion": {
@@ -1016,20 +866,11 @@
     "settings_tooltip_content_url": {
         "message": "URL uniquement"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Info compl\u00e9mentaire"
-    },
-    "settings_sidebar_overlay_intro": {
-        "message": "Vous pouvez ici modifier le comportement de la barre lat\u00e9rale superpos\u00e9e qui s'ouvre au-dessus des sites web."
     },
     "settings_sidebar_position": {
         "message": "Position"
-    },
-    "settings_overlay_enabled": {
-        "message": "Activer la barre lat\u00e9rale superpos\u00e9e"
-    },
-    "settings_overlay_enabled_desc": {
-        "message": "Si vous souhaitez uniquement acc\u00e9der \u00e0 vos signets dans le panneau lat\u00e9ral fourni par le navigateur, vous pouvez d\u00e9sactiver la barre lat\u00e9rale superpos\u00e9e."
     },
     "settings_sidebar_position_desc": {
         "message": "Permet de positionner l'affichage de la barre de d\u00e9filement sur la gauche ou sur la droite de l'\u00e9cran."
@@ -1040,74 +881,38 @@
     "settings_sidebar_position_right": {
         "message": "Droite"
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Ne saisir qu'un masque d'URL par ligne"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Utiliser * pour remplacer un ou plusieurs caract\u00e8res (ex; exemple.com\/* retournera toutes les pages qui d\u00e9butent par exemple.com\/)."
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "Si vous n'utilisez pas le caract\u00e8re de substitution * la recherche retournera une pas que si elle est \u00e9gale au masque (ex; exemple.com ne retournera que l'URL exemple.com)."
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "Vous n'avez pas besoin d'inclure le protocole (http:\/\/, https:\/\/) dans le masque."
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "Charger la page"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "Sur chaque page"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "Sur toutes les pages sauf les pages sp\u00e9cifi\u00e9es"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Uniquement sur les pages sp\u00e9cifi\u00e9es"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "Masque d'URL"
     },
-    "settings_import_export_headline": {
-        "message": "Importer\/Exporter les param\u00e8tres"
-    },
-    "settings_import_export_notice": {
-        "message": "Les param\u00e8tres de l'extension sont automatiquement synchronis\u00e9s entre vos appareils si vous \u00eates connect\u00e9 \u00e0 {browserName} avec votre compte Google. Si vous ne souhaitez pas connecter votre compte ou partager vos param\u00e8tres avec d'autres personnes, vous pouvez utiliser l'option d'importation \/ exportation."
-    },
-    "settings_import_export_desc": {
-        "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."
-    },
-    "settings_export": {
-        "message": "Exporter configuration"
-    },
-    "settings_import": {
-        "message": "Importer configuration"
-    },
-    "settings_import_saved": {
-        "message": "Configuration import\u00e9e avec succ\u00e8s"
-    },
-    "settings_import_failed": {
-        "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
-    },
-    "settings_import_export_bookmarks": {
-        "message": "Importer\/Exporter les favoris"
-    },
-    "settings_import_export_bookmarks_desc": {
-        "message": "C'est une fonctionnalit\u00e9 du navigateur et non pas une partie de l'extension. Lisez en plus sur comment importer\/exporter des favoris sur {browserName}"
-    },
-    "settings_sidebar_sidepanel_intro": {
-        "message": "Ici, vous pouvez modifier le comportement de la barre lat\u00e9rale qui s'affiche dans le panneau lat\u00e9ral \u00e0 c\u00f4t\u00e9 du contenu principal des pages Web."
-    },
-    "settings_sidebar_position_sidepanel": {
-        "message": "Configurer si la barre lat\u00e9rale de votre navigateur doit s'ouvrir \u00e0 gauche ou \u00e0 droite."
-    },
-    "settings_sidebar_sidepanel_configure": {
-        "message": "Configurer la barre lat\u00e9rale"
-    },
-    "settings_presets": {
-        "message": "Param\u00e9trer les tailles par d\u00e9faut"
+    "settings_indicator": {
+        "message": "Repr\u00e9sentation"
     },
     "settings_presets_desc": {
         "message": "Vous pouvez r\u00e9gler les tailles par d\u00e9faut du panneau lat\u00e9ral. Cela affectera les curseurs de cette page pour ajuster la largeur du panneau lat\u00e9ral, la hauteur des lignes, la taille des ic\u00f4nes, etc."
@@ -1145,9 +950,6 @@
     "settings_scroll_bar_width": {
         "message": "Largeur de la barre de d\u00e9filement"
     },
-    "settings_icon_background_color": {
-        "message": "Couleur d'arri\u00e8re plan"
-    },
     "settings_icon_color": {
         "message": "Couleur"
     },
@@ -1163,25 +965,13 @@
     "settings_icon_color_desc_2": {
         "message": "Veuillez noter que la couleur automatique ne fonctionne pas si vous utilisez un th\u00e8me {browserName} personnalis\u00e9."
     },
-    "settings_indicator_width": {
-        "message": "Largeur"
-    },
-    "settings_indicator_color": {
-        "message": "Couleur"
-    },
-    "settings_indicator_icon_size": {
-        "message": "Taille de l'ic\u00f4ne"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Couleur de l'ic\u00f4ne"
-    },
     "settings_sidebar_width": {
         "message": "Largeur"
     },
     "settings_sidebar_width_desc": {
         "message": "La largeur de la barre lat\u00e9rale lorsqu'elle chevauche le site Web actuellement visit\u00e9. Cette option n'a aucun effet lors de l'utilisation de la barre lat\u00e9rale dans le panneau lat\u00e9ral fourni par le navigateur."
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "Hauteur de l'ent\u00eate"
     },
     "settings_sidebar_mask_color": {
@@ -1235,18 +1025,6 @@
     "settings_custom_css_desc": {
         "message": "Vous pouvez surcharger le style par d\u00e9faut avec votre propre feuille de style. N'utilisez cette option que si vous connaissez le CSS et savez ce que vous faites."
     },
-    "settings_theme": {
-        "message": "Th\u00e8me"
-    },
-    "settings_themes_notice": {
-        "message": "Vous pouvez choisir le design de base de la barre lat\u00e9rale. Le th\u00e8me s\u00e9lectionn\u00e9 peut \u00eatre configur\u00e9 gr\u00e2ce aux curseurs et options disponibles."
-    },
-    "settings_available_themes": {
-        "message": "Th\u00e8mes disponibles"
-    },
-    "settings_show_themes": {
-        "message": "Montrer les th\u00e8mes disponibles"
-    },
     "settings_theme_default": {
         "message": "Th\u00e8me par d\u00e9faut"
     },
@@ -1265,14 +1043,8 @@
     "settings_theme_focus_desc": {
         "message": "Ce th\u00e8me r\u00e9duit les animations et arrange les \u00e9l\u00e9ments plus denses pour que l'efficacit\u00e9 et la performance de l'extension."
     },
-    "settings_install_theme": {
-        "message": "Installer le th\u00e8me"
-    },
-    "settings_installed_theme_info": {
-        "message": "Actuellement install\u00e9"
-    },
-    "settings_theme_changed": {
-        "message": "Changement de th\u00e8me correctement effectu\u00e9"
+    "settings_tooltip": {
+        "message": "Infobulle"
     },
     "settings_newtab_intro": {
         "message": "Souhaitez-vous que la barre des favoris s\u2019ouvre automatiquement dans chaque nouvel onglet ?"
@@ -1295,38 +1067,17 @@
     "settings_newtab_favicon_desc": {
         "message": "Vous pouvez personnaliser l\u2019ic\u00f4ne de l\u2019onglet (favicon) de la page Nouvel Onglet, ce qui vous permet de la reconna\u00eetre facilement parmi vos onglets ouverts."
     },
-    "newtab_tmp_upgrade_headline": {
-        "message": "Votre barre des favoris vient d\u2019\u00eatre mise \u00e0 jour."
+    "settings_favicon_background": {
+        "message": "Couleur d'arri\u00e8re plan"
     },
-    "newtab_tmp_upgrade_action_required": {
-        "message": "Action requise !"
-    },
-    "newtab_tmp_upgrade_desc1": {
-        "message": "En raison d\u2019un changement de politique impos\u00e9 par Google, la fonctionnalit\u00e9 pr\u00e9c\u00e9dente de remplacement de la page Nouvel Onglet a d\u00fb \u00eatre supprim\u00e9e, car elle n\u2019est plus conforme aux directives pour les d\u00e9veloppeurs."
-    },
-    "newtab_tmp_upgrade_desc2": {
-        "message": "Par cons\u00e9quent, votre configuration actuelle qui rempla\u00e7ait la page Nouvel Onglet est affect\u00e9e."
-    },
-    "newtab_tmp_upgrade_desc3": {
-        "message": "Pour r\u00e9tablir le comportement attendu, veuillez configurer la nouvelle solution disponible dans les param\u00e8tres de l\u2019extension."
-    },
-    "newtab_tmp_upgrade_open_settings": {
-        "message": "Ouvrir les param\u00e8tres"
+    "settings_newtab_favicon": {
+        "message": "Nouvelle Onglet Favicon"
     },
     "settings_language": {
         "message": "Langue"
     },
     "settings_language_default": {
         "message": "Langue du navigateur"
-    },
-    "settings_language_desc": {
-        "message": "Langue de l'interface utilisateur"
-    },
-    "settings_translation_link": {
-        "message": "Aller \u00e0 la vue d'ensemble"
-    },
-    "settings_translation_desc": {
-        "message": "Vous pouvez aider \u00e0 traduire cette extension dans votre langue ou \u00e0 am\u00e9liorer la traduction existante."
     },
     "settings_translation_add_language": {
         "message": "Ajouter une langue"
@@ -1355,8 +1106,14 @@
     "settings_translation_submit_message": {
         "message": "Votre traduction a \u00e9t\u00e9 transmise"
     },
+    "settings_translation_submit_error": {
+        "message": "Votre traduction n'a pas pu \u00eatre envoy\u00e9e. Veuillez r\u00e9essayer plus tard."
+    },
     "settings_translation_status_released": {
         "message": "Traduction disponible"
+    },
+    "settings_translation_unsaved_confirm": {
+        "message": "Vos modifications n'ont pas encore \u00e9t\u00e9 enregistr\u00e9es. Voulez-vous vraiment les supprimer ?"
     },
     "settings_translation_status_incomplete": {
         "message": "La traduction est disponible mais certaines cat\u00e9gories sont incompl\u00e8tes."
@@ -1370,59 +1127,113 @@
     "settings_translation_required_category": {
         "message": "Obligatoire"
     },
-    "settings_support_faq_headline": {
-        "message": "Questions fr\u00e9quemment pos\u00e9es"
+    "settings_translation_overview": {
+        "message": "Traductions"
     },
-    "settings_support_feedback_headline": {
-        "message": "Retour d'exp\u00e9rience"
+    "settings_translation_goto_prev": {
+        "message": "Champ pr\u00e9c\u00e9dent vide"
     },
-    "settings_support_feedback_desc": {
-        "message": "Des suggestions d'am\u00e9lioration, des questions, des options de param\u00e9trage manquantes ou un dysfonctionnement ? Afin d'am\u00e9liorer l'exp\u00e9rience utilisateur de cette extension, je vous suis tr\u00e8s reconnaissant de tous vos retours d'exp\u00e9rience."
+    "settings_translation_goto_next": {
+        "message": "Champ suivant vide"
     },
-    "settings_support_feedback_notice": {
-        "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
+    "settings_import_export": {
+        "message": "Importer\/Exporter"
     },
-    "settings_support_feedback_email": {
-        "message": "Vous souhaitez obtenir une r\u00e9ponse? Veuillez indiquer une adresse \u00e9lectronique (facultatif)"
+    "settings_import_export_headline": {
+        "message": "Importer\/Exporter les param\u00e8tres"
     },
-    "settings_support_feedback_screenshot": {
-        "message": "Joignez des captures d'\u00e9cran"
+    "settings_import_export_notice": {
+        "message": "Vous n'avez pas besoin de cette fonctionnalit\u00e9 pour synchroniser vos appareils. Lorsque vous \u00eates connect\u00e9 \u00e0 votre navigateur et que la synchronisation est activ\u00e9e, vos favoris et les param\u00e8tres de cette extension sont automatiquement transf\u00e9r\u00e9s sur tous vos appareils. L'exportation et l'importation d'un fichier ne sont n\u00e9cessaires que si vous n'utilisez pas la synchronisation, si vous souhaitez partager vos param\u00e8tres avec quelqu'un d'autre ou si vous souhaitez les utiliser dans un autre profil de navigateur."
     },
-    "settings_support_feedback_screenshot_error_filesize": {
-        "message": "La taille de fichier de {1} est trop grande (> 1 MB)"
+    "settings_import_export_desc": {
+        "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."
     },
-    "settings_support_feedback_screenshot_error_amount": {
-        "message": "Vous pouvez seulement t\u00e9l\u00e9charger un maximum de {1} des captures d'\u00e9cran"
+    "settings_export": {
+        "message": "Exporter configuration"
     },
-    "settings_support_feedback_send": {
-        "message": "Envoyer mon retour d'exp\u00e9rience"
+    "settings_import": {
+        "message": "Importer configuration"
     },
-    "settings_support_feedback_sent_message": {
-        "message": "Merci pour votre retour d'exp\u00e9rience"
+    "settings_import_saved": {
+        "message": "Configuration import\u00e9e avec succ\u00e8s"
     },
-    "settings_support_feedback_send_failed": {
-        "message": "Votre message n'a pas pu \u00eatre envoy\u00e9. Veuillez r\u00e9essayer s'il vous pla\u00eet."
+    "settings_import_failed": {
+        "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
-    "settings_permissions_desc": {
-        "message": "Afin de rendre possible une barre lat\u00e9rale basculable dans {browserName}, les autorisations suivantes sont requises et demand\u00e9es par l'extension :"
+    "settings_import_export_bookmarks": {
+        "message": "Importer\/Exporter les favoris"
     },
-    "settings_permissions_contentscript_desc_1": {
-        "message": "Malheureusement, {browserName} ne dispose d'aucun m\u00e9canisme pour afficher le contenu dans la fen\u00eatre du navigateur sans interagir avec la page actuellement visit\u00e9e."
+    "settings_import_export_bookmarks_desc": {
+        "message": "Cette extension ne stocke pas vos favoris. Ceux-ci sont g\u00e9r\u00e9s par votre navigateur lui-m\u00eame ; l'extension se contente de les afficher. C'est pourquoi le fichier d'exportation ci-dessus contient vos param\u00e8tres, mais aucun de vos favoris. Pour sauvegarder, d\u00e9placer ou importer vos favoris, utilisez le gestionnaire de favoris int\u00e9gr\u00e9 \u00e0 votre navigateur."
     },
-    "settings_permissions_contentscript_desc_2": {
-        "message": "\u00c9tant donn\u00e9 que la barre lat\u00e9rale est affich\u00e9e en haut du site Web actuel, cette autorisation est requise. Outre cette raison technique, l'autorisation n'est pas utilis\u00e9e \u00e0 d'autres fins."
+    "settings_expert": {
+        "message": "Options expertes"
     },
-    "settings_permissions_contentscript_desc_3": {
-        "message": "Si vous avez des inqui\u00e9tudes concernant ce que je fais avec l'autorisation, vous pouvez afficher le code source de l'extension sur GitHub. C'est Open Source et visible pour tout le monde."
+    "settings_expert_settings_desc": {
+        "message": "Les param\u00e8tres expert vous permettent de configurer chaque param\u00e8tre de l'extension, m\u00eame celles que vous ne pouvez pas modifier en utilisant les cases \u00e0 cocher habituelles, ou les boutons d'activation de la page des param\u00e8tres."
     },
-    "settings_permissions_bookmarks_desc": {
-        "message": "L'extension affiche vos signets dans la barre lat\u00e9rale et a donc besoin de cette autorisation pour pouvoir y acc\u00e9der. L'autorisation permet \u00e9galement \u00e0 l'extension d'ajouter, de modifier et de supprimer des signets."
+    "settings_expert_settings_notice": {
+        "message": "Ne changez que les valeurs ici, si vous savez ce que vous faites. Une mauvaise configuration peut causer des comportements inattendus de l'extension. Si quelque chose ne fonctionne plus, vous pouvez revenir \u00e0 la configuration par d\u00e9faut."
     },
-    "settings_headline_share_userdata": {
+    "settings_expert_save_error": {
+        "message": "N'a pas pu sauvegarder les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9."
+    },
+    "settings_search_placeholder": {
+        "message": "Chercher une configuration"
+    },
+    "settings_import_export_bookmarks_link": {
+        "message": "Comment importer et exporter des signets dans votre navigateur"
+    },
+    "settings_share_info_intro_1": {
+        "message": "La barre lat\u00e9rale int\u00e8gre une fonctionnalit\u00e9 optionnelle de partage de donn\u00e9es. Cette fonctionnalit\u00e9 est strictement facultative. Par d\u00e9faut, aucune donn\u00e9e n'est transmise."
+    },
+    "contribute_notice": {
+        "message": "Vous pouvez m'aider en m'indiquant vos param\u00e8tres"
+    },
+    "settings_share_info_config": {
+        "message": "1. Partage des configurations"
+    },
+    "settings_share_info_activity": {
+        "message": "2. Partage des donn\u00e9es d'utilisation"
+    },
+    "settings_share_info_activity_examples": {
+        "message": "Les donn\u00e9es qui sont partag\u00e9es sont par exemple :"
+    },
+    "settings_share_info_activity_item_5": {
+        "message": "Combien de favoris ont en moyenne les utilisateurs ?"
+    },
+    "settings_share_info_activity_item_4": {
+        "message": "Quels sont les modes de barre lat\u00e9rale les plus populaires ?"
+    },
+    "settings_share_info_activity_item_1": {
+        "message": "Les utilisateurs utilisent-ils la fonction recherche ?"
+    },
+    "settings_share_info_activity_item_2": {
+        "message": "Les utilisateurs changent-ils le classement des favoris ?"
+    },
+    "settings_share_info_activity_item_3": {
+        "message": "Tous les combiens les utilisateurs r\u00e9organisent-ils ou modifient-ils les favoris?"
+    },
+    "settings_share_info": {
         "message": "Partager mes infos"
     },
-    "settings_saved_share_userdata": {
+    "settings_share_info_saved": {
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"
+    },
+    "settings_share_info_intro_2": {
+        "message": "Les utilisateurs qui choisissent de participer peuvent partager de mani\u00e8re anonyme certaines informations techniques afin de contribuer \u00e0 l'am\u00e9lioration de l'extension. Il existe deux cat\u00e9gories :"
+    },
+    "settings_share_info_config_intro": {
+        "message": "Les donn\u00e9es de configuration anonymes permettent d'identifier :"
+    },
+    "settings_share_info_config_item_1": {
+        "message": "quels sont les param\u00e8tres les plus couramment utilis\u00e9s"
+    },
+    "settings_share_info_config_item_2": {
+        "message": "quelles options sont rarement utilis\u00e9es"
+    },
+    "settings_share_info_config_item_3": {
+        "message": "quels param\u00e8tres par d\u00e9faut fonctionnent bien"
     },
     "premium_popup_text": {
         "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 le mode Premium ?"
@@ -1430,11 +1241,8 @@
     "premium_restricted_text": {
         "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec le mode Premium."
     },
-    "premium_desc_1": {
-        "message": "En mode Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s et m'aiderez \u00e0 maintenir l'extension."
-    },
-    "premium_desc_2": {
-        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payer le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension et de mon travail."
+    "premium_desc": {
+        "message": "Premium est un achat unique qui donne droit \u00e0 une licence \u00e0 vie pour toutes les fonctionnalit\u00e9s avanc\u00e9es."
     },
     "premium_get_now": {
         "message": "Souscrire un compte Premium."
@@ -1451,41 +1259,32 @@
     "premium_license_key": {
         "message": "Cl\u00e9 de licence"
     },
-    "premium_feature_early_access_headline": {
-        "message": "Soyez le premier \u00e0 essayer de nouvelles fonctionnalit\u00e9s exp\u00e9rimentales"
-    },
-    "premium_feature_early_access_desc": {
-        "message": "Avec un compte Premium, vous avez acc\u00e8s \u00e0 des fonctionnalit\u00e9s encore non disponibles, qui sont activement en d\u00e9veloppement ou en phase de test."
-    },
-    "premium_feature_sidebar_width_headline": {
-        "message": "Changer la largeur de votre barre lat\u00e9rale \u00e0 tout moment"
-    },
     "premium_feature_import_export_headline": {
         "message": "Importer et exporter vos param\u00e8tres"
     },
-    "premium_feature_custom_background_headline": {
-        "message": "Personnalisez votre page Nouvel Onglet"
+    "premium_feature_newtab_extended_headline": {
+        "message": "Personnalisation avanc\u00e9e des nouveaux onglets"
     },
-    "premium_feature_custom_background_desc": {
-        "message": "Si vous utilisez la page Nouvel Onglet de cette extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus jolie."
+    "premium_feature_newtab_extended_desc": {
+        "message": "Personnalisez pleinement la page \u00ab Nouvel onglet \u00bb : d\u00e9finissez votre propre image d'arri\u00e8re-plan et choisissez le nombre de raccourcis \u00e0 afficher dans la grille situ\u00e9e sous le champ de recherche."
     },
     "premium_feature_custom_css_headline": {
-        "message": "Personnalisez tout avec votre propre feuille de style"
+        "message": "Feuille de style personnalis\u00e9e (CSS)"
     },
     "premium_feature_custom_css_desc": {
-        "message": "Si vous \u00eates familier avec le CSS, vous pouvez compl\u00e8tement changer l'apparence de la barre lat\u00e9rale en ajoutant vos propres d\u00e9finitions de styles. Ceci vous permet d'absolument tout personnaliser."
+        "message": "Allez au-del\u00e0 des curseurs et des s\u00e9lecteurs de couleur, et personnalisez chaque d\u00e9tail de la barre lat\u00e9rale \u00e0 l'aide de vos propres r\u00e8gles CSS."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "V\u00e9rifiez les liens cass\u00e9s ou les doublons dans vos favoris"
+        "message": "V\u00e9rificateur de signets"
     },
     "premium_feature_linkchecker_desc": {
         "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URL mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
     },
     "premium_feature_themes_headline": {
-        "message": "Modifier le th\u00e8me de la barre lat\u00e9rale"
+        "message": "Th\u00e8mes de la barre lat\u00e9rale"
     },
     "premium_feature_themes_desc": {
-        "message": "Le th\u00e8me de la barre lat\u00e9rale peut \u00eatre chang\u00e9 en un clic. Il peut \u00e9galement \u00eatre configur\u00e9 gr\u00e2ce aux curseurs et options de couleurs."
+        "message": "Modifiez compl\u00e8tement l'apparence de la barre lat\u00e9rale en un seul clic, puis affinez les r\u00e9glages \u00e0 l'aide des curseurs et des options de couleur."
     },
     "premium_pay_intro_payment_method": {
         "message": "S\u00e9lectionnez un moyen de paiement ci-dessous et choisissez le montant que vous d\u00e9sirez payer \u00e0 l'\u00e9tape suivante."
@@ -1543,5 +1342,95 @@
     },
     "premium_pay_info_name": {
         "message": "Nom"
+    },
+    "premium_title": {
+        "message": "Premium"
+    },
+    "premium_desc_teaser": {
+        "message": "Il propose des fonctionnalit\u00e9s avanc\u00e9es pour les utilisateurs qui le souhaitent, tandis que la version gratuite reste tr\u00e8s performante et utile pour la plupart des gens."
+    },
+    "premium_desc_teaser_active": {
+        "message": "D\u00e9couvrez les fonctionnalit\u00e9s auxquelles vous avez acc\u00e8s."
+    },
+    "premium_free": {
+        "message": "Gratuit"
+    },
+    "premium_feature_bookmarks_headline": {
+        "message": "Ajouter, modifier et supprimer des signets"
+    },
+    "premium_feature_bookmarks_desc": {
+        "message": "G\u00e9rez vos favoris et vos dossiers directement depuis la barre lat\u00e9rale, sans jamais avoir \u00e0 ouvrir le gestionnaire de favoris."
+    },
+    "premium_feature_modes_headline": {
+        "message": "Mode \u00ab Overlay \u00bb ou \u00ab Side Panel \u00bb"
+    },
+    "premium_feature_modes_desc": {
+        "message": "Affichez vos favoris sous forme de fen\u00eatre superpos\u00e9e \u00e0 la page ou dans le panneau lat\u00e9ral du navigateur."
+    },
+    "premium_feature_styling_headline": {
+        "message": "Couleurs, tailles et espacement"
+    },
+    "premium_feature_styling_desc": {
+        "message": "Personnalisez les couleurs, la taille des polices et des ic\u00f4nes, l'interligne, l'indentation et bien plus encore."
+    },
+    "premium_feature_trigger_area_headline": {
+        "message": "Zone de d\u00e9clenchement personnalisable"
+    },
+    "premium_feature_trigger_area_desc": {
+        "message": "D\u00e9finissez o\u00f9 et comment la barre lat\u00e9rale s'ouvre, ainsi que la taille et la couleur de l'indicateur."
+    },
+    "premium_feature_visibility_headline": {
+        "message": "R\u00e8gles de visibilit\u00e9"
+    },
+    "premium_feature_visibility_desc": {
+        "message": "Choisissez sur quels sites web la barre lat\u00e9rale est disponible et o\u00f9 elle ne vous g\u00eane pas."
+    },
+    "premium_feature_dark_mode_headline": {
+        "message": "Mode sombre"
+    },
+    "premium_feature_dark_mode_desc": {
+        "message": "Appliquez un th\u00e8me sombre \u00e0 la barre lat\u00e9rale, manuellement ou automatiquement."
+    },
+    "premium_feature_extension_icon_desc": {
+        "message": "Choisissez la forme et la couleur de l'ic\u00f4ne de l'extension dans votre barre d'outils."
+    },
+    "premium_feature_sync_headline": {
+        "message": "Synchroniser les signets et les param\u00e8tres"
+    },
+    "premium_feature_sync_desc": {
+        "message": "Synchronisez vos favoris et les param\u00e8tres de vos extensions sur tous vos appareils. Il vous suffit d'activer la synchronisation dans les param\u00e8tres de votre navigateur."
+    },
+    "premium_feature_newtab_headline": {
+        "message": "Page \u00ab Nouvel onglet \u00bb"
+    },
+    "premium_feature_newtab_desc": {
+        "message": "Remplacez la page \u00ab Nouvel onglet \u00bb de votre navigateur par une page \u00e9pur\u00e9e affichant vos favoris et un champ de recherche."
+    },
+    "premium_feature_import_export_desc": {
+        "message": "Enregistrez vos param\u00e8tres dans un fichier sur votre ordinateur, puis importez-les sur n'importe quel appareil sur lequel l'extension est install\u00e9e."
+    },
+    "premium_feature_pinned_headline": {
+        "message": "Signets \u00e9pingl\u00e9s"
+    },
+    "premium_feature_pinned_desc": {
+        "message": "\u00c9pinglez vos favoris pr\u00e9f\u00e9r\u00e9s en haut de la barre lat\u00e9rale pour les avoir toujours \u00e0 port\u00e9e de main."
+    },
+    "premium_feature_both_modes_headline": {
+        "message": "Les deux modes de barre lat\u00e9rale simultan\u00e9ment"
+    },
+    "premium_feature_both_modes_desc": {
+        "message": "Utilisez la fen\u00eatre superpos\u00e9e et le panneau lat\u00e9ral c\u00f4te \u00e0 c\u00f4te, et choisissez celle qui convient le mieux \u00e0 la situation."
+    },
+    "premium_feature_priority_support_headline": {
+        "message": "Assistance prioritaire"
+    },
+    "premium_feature_priority_support_desc": {
+        "message": "Vos questions et vos commentaires sont trait\u00e9s en priorit\u00e9, ce qui vous permet d'obtenir une r\u00e9ponse plus rapide."
+    },
+    "premium_feature_support_dev_headline": {
+        "message": "Soutenez le d\u00e9veloppement"
+    },
+    "premium_feature_support_dev_desc": {
+        "message": "Aidez-nous \u00e0 pr\u00e9server l'ind\u00e9pendance de Bookmark Sidebar, \u00e0 assurer sa maintenance active et \u00e0 rendre possible le d\u00e9veloppement de nouvelles fonctionnalit\u00e9s."
     }
 }

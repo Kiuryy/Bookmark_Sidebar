@@ -1,3 +1,5 @@
+@use "../../../include/vars";
+
 
 body.dark {
 
@@ -6,11 +8,11 @@ body.dark {
     > ul > li > a {
 
       > div {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
       }
 
       &:hover {
-        background: rgba($darkContentBackground2, 0.5);
+        background: rgba(vars.$darkContentBackground2, 0.5);
 
         > div {
           border-color: rgba(255, 255, 255, 0.03);
@@ -27,15 +29,15 @@ body.dark {
       > a {
 
         &:hover {
-          background: rgba($darkContentBackground2, 0.4);
+          background: rgba(vars.$darkContentBackground2, 0.4);
         }
 
         > div {
-          background: rgba($darkContentBackground, 0.7);
+          background: rgba(vars.$darkContentBackground, 0.7);
         }
 
         > span {
-          color: $__textColor;
+          color: vars.$dyn-textColor;
           text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
         }
       }

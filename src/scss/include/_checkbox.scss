@@ -1,3 +1,7 @@
+@use "sass:meta";
+@use "mixins";
+@use "vars";
+
 
 div.checkbox {
   position: relative;
@@ -8,20 +12,20 @@ div.checkbox {
   }
 
   &[data-style="default"] {
-    @include mask(null, $__textColor, 22px);
+    @include mixins.mask(null, vars.$dyn-textColor, 22px);
     width: 20px;
     height: 20px;
 
     &::before {
-      transition: -webkit-mask 0.3s, background-color 0.3s;
+      transition: mask 0.3s, background-color 0.3s;
     }
 
     &[data-type='checkbox']::before {
-      @include maskImage('icon-checkbox-inactive');
+      @include mixins.maskImage('icon-checkbox-inactive');
     }
 
     &[data-type='radio']::before {
-      @include maskImage('icon-radio-inactive');
+      @include mixins.maskImage('icon-radio-inactive');
     }
 
     &::after {
@@ -50,24 +54,24 @@ div.checkbox {
     &.active {
 
       &::before {
-        background-color: $__colorScheme;
+        background-color: vars.$dyn-colorScheme;
       }
 
       &[data-type='checkbox']::before {
-        @include maskImage('icon-checkbox');
+        @include mixins.maskImage('icon-checkbox');
       }
 
       &[data-type='radio']::before {
-        @include maskImage('icon-radio');
+        @include mixins.maskImage('icon-radio');
       }
 
       &::after {
-        box-shadow: 0 0 0 0 $__colorScheme;
+        box-shadow: 0 0 0 0 vars.$dyn-colorScheme;
       }
 
       &.focus::after, &.clicked::after {
-        background: $__colorScheme;
-        box-shadow: 0 0 0 10px $__colorScheme;
+        background: vars.$dyn-colorScheme;
+        box-shadow: 0 0 0 10px vars.$dyn-colorScheme;
       }
     }
   }
@@ -97,7 +101,7 @@ div.checkbox {
       left: -3px;
       width: 20px;
       height: 20px;
-      background-color: $textColorInverted;
+      background-color: vars.$textColorInverted;
       transition: background-color 0.2s;
       box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
       border-radius: 50%;
@@ -111,12 +115,12 @@ div.checkbox {
       }
 
       &::before, &::after {
-        background-color: $__colorScheme;
+        background-color: vars.$dyn-colorScheme;
       }
     }
   }
 }
 
-@import "../rtl/include/checkbox";
-@import "../highContrast/include/checkbox";
-@import "../dark/include/checkbox";
+@include meta.load-css("../rtl/include/checkbox");
+@include meta.load-css("../highContrast/include/checkbox");
+@include meta.load-css("../dark/include/checkbox");

@@ -1,4 +1,6 @@
+@use "../../include/vars";
+
 
 body.dark svg.loading > circle {
-  stroke: $__textColor;
+  stroke: vars.$dyn-textColor;
 }

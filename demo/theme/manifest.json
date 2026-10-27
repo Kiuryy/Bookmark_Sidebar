@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Bookmark Sidebar Demo",
+    "version": "1.0",
+    "theme": {
+        "colors": {
+            "frame": [118, 150, 255],
+            "frame_inactive": [118, 150, 255],
+            "toolbar": [183, 199, 254],
+            "tab_text": [23, 37, 84],
+            "tab_background_text": [23, 37, 84],
+            "tab_background_text_inactive": [23, 37, 84],
+            "toolbar_text": [23, 37, 84],
+            "toolbar_button_icon": [30, 64, 175],
+            "bookmark_text": [23, 37, 84],
+            "omnibox_background": [255, 255, 255],
+            "omnibox_text": [23, 37, 84],
+            "ntp_background": [239, 246, 255],
+            "ntp_text": [23, 37, 84]
+        }
+    }
+}

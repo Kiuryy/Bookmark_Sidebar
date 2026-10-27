@@ -28,16 +28,16 @@
         const initEvents = (type) => {
             n.elm.fallbackInfo.children("a").on("click", (e) => {
                 e.preventDefault();
-                let suggestionType = "general";
+                let href = $.opts.website.knowledgebase.overlayMode; // explains on which pages the overlay is not available
 
                 switch (type) {
                     case "notWhitelisted":
-                    case "blacklisted":
-                        suggestionType = "filter";
+                    case "blacklisted": // the visibility rules are located in the settings tab
+                        href = $.api.runtime.getURL("html/settings.html#settings");
                         break;
                 }
 
-                $.api.tabs.create({url: $.api.runtime.getURL("html/settings.html#support_error_" + suggestionType)});
+                $.api.tabs.create({url: href});
             });
         };
 

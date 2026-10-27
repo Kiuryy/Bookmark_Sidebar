@@ -6,7 +6,10 @@
         "message": "Bookmarks"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
+        "message": "Bookmark Sidebar gives you quick access to all your bookmarks in a clean, fast sidebar, right where you need it."
+    },
+    "extension_webstore_desc": {
+        "message": "TWO WAYS TO USE IT\n- Overlay: The sidebar slides in over the current website when you click or hover at the left\/right edge of the browser window or click the extension icon, and gets out of your way as soon as you're done.\n- Side panel: The sidebar opens in the side panel of your browser and stays open next to the websites you visit, as a permanent sidebar.\n\nMANAGE YOUR BOOKMARKS\n- Add, edit and delete bookmarks, folders and separators directly in the sidebar\n- Rearrange everything via drag & drop\n- Select multiple entries at once to move, delete or open them together\n- Search all your bookmarks instantly and sort them the way you like\n- Pin your favorite bookmarks to the top and hide the ones you don't need\n\nMAKE IT YOURS\nMany options let you adjust the sidebar to the way you work: choose how and where it opens, change its size, colors, fonts and icons, switch to dark mode, and optionally replace your new tab page with one that has the sidebar built in.\n\nFEEDBACK\nFound a bug, or have an idea for a new feature or an improvement? Please let me know. Every message is read and helps make Bookmark Sidebar better."
     },
     "extension_version": {
         "message": "Version"
@@ -182,9 +185,6 @@
     "overlay_delete": {
         "message": "Delete"
     },
-    "overlay_update": {
-        "message": "Update"
-    },
     "overlay_show_in_bookmark_manager": {
         "message": "Show in Bookmark Manager"
     },
@@ -317,12 +317,6 @@
     "newtab_grid_links_hidden": {
         "message": "Don't show pages"
     },
-    "newtab_grid_links_appearance_thumbnail": {
-        "message": "Display website previews"
-    },
-    "newtab_grid_links_appearance_favicon": {
-        "message": "Display website icons"
-    },
     "newtab_grid_links_grid_size": {
         "message": "Grid size"
     },
@@ -395,9 +389,6 @@
     "status_service_unavailable_headline": {
         "message": "Service unavailable"
     },
-    "status_feedback_unavailable_desc": {
-        "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
-    },
     "status_translation_unavailable_desc": {
         "message": "The translation service is not available at the moment. Please try again later."
     },
@@ -440,74 +431,17 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Closes the sidebar, opened dialog or context menu"
     },
-    "contribute_intro": {
-        "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
-    },
-    "contribute_notice": {
-        "message": "You can help me by sharing your configuration"
-    },
-    "contribute_outro": {
-        "message": "If you have questions or concerns about the sharing of information then please send me a feedback message."
-    },
-    "contribute_share_config_label": {
-        "message": "Share configuration"
-    },
-    "contribute_share_config_desc": {
-        "message": "You share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases."
-    },
-    "contribute_share_activity_label": {
-        "message": "Share activity"
-    },
-    "contribute_share_activity_desc1": {
-        "message": "You can share your activity within the sidebar anonymously which helps me to better understand how the sidebar is being used in the field. Information about your bookmarks or your visited websites [b]will not[\/b] be measured."
-    },
-    "contribute_share_activity_desc2": {
-        "message": "This information is very useful to identify problems in usability or features which are, for example, not being used very often."
-    },
-    "contribute_share_activity_examples_intro": {
-        "message": "Examples of shared data:"
-    },
-    "contribute_share_activity_example_1": {
-        "message": "Average number of bookmarks per user?"
-    },
-    "contribute_share_activity_example_2": {
-        "message": "Which platform are users on (Windows, Mac, Linux, ...)?"
-    },
-    "contribute_share_activity_example_3": {
-        "message": "Is the search facility being used?"
-    },
-    "contribute_share_activity_example_4": {
-        "message": "Do users change the sorting order of the bookmarks?"
-    },
-    "contribute_share_activity_example_5": {
-        "message": "How often are users rearranging or editing entries?"
-    },
     "onboarding_title": {
         "message": "Setup"
     },
     "onboarding_headline": {
         "message": "Thank you for installing this extension."
     },
-    "onboarding_intro_desc": {
-        "message": "There are multiple ways to open your sidebar."
-    },
-    "onboarding_intro_sidebar_overlay_desc": {
-        "message": "Open on top of websites"
-    },
-    "onboarding_intro_sidebar_sidepanel_desc": {
-        "message": "Open in the side panel alongside the main content of webpages"
-    },
-    "onboarding_sidebar_overlay_disable": {
-        "message": "I don\"t want to use this overlaying sidebar"
-    },
-    "onboarding_setup_start": {
-        "message": "Setup now"
-    },
-    "onboarding_setup_complete": {
-        "message": "Setup completed"
+    "onboarding_mode_desc": {
+        "message": "How do you want to use your sidebar?"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Where do you want to have your sidebar to appear?"
+        "message": "On which side should your sidebar appear?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "How do you want to open your sidebar?"
@@ -533,9 +467,6 @@
     "onboarding_handson_icon_desc": {
         "message": "Click on the extension icon at the top of your browser to open the sidebar."
     },
-    "onboarding_handson_sidepanel_desc": {
-        "message": "Click on the side panel icon at the top of your browser and choose the Bookmark Sidebar view."
-    },
     "onboarding_left": {
         "message": "left"
     },
@@ -548,92 +479,41 @@
     "onboarding_finish_desc": {
         "message": "Have fun with your sidebar."
     },
-    "onboarding_goto_settings": {
-        "message": "More settings"
+    "onboarding_finish_settings_title": {
+        "message": "Fine-tune your experience"
     },
-    "onboarding_goto_appearance": {
-        "message": "Configure appearance"
+    "onboarding_finish_settings_desc": {
+        "message": "Decide how the sidebar behaves, how your bookmarks open and much more. Check out the settings."
+    },
+    "onboarding_finish_appearance_title": {
+        "message": "Make it truly yours"
+    },
+    "onboarding_finish_appearance_desc": {
+        "message": "Tweak colors, fonts, spacing and more to give the sidebar exactly the look you like."
     },
     "settings_title": {
         "message": "Settings"
     },
-    "settings_menu_dashboard": {
+    "settings_tab_overview": {
         "message": "Overview"
     },
-    "settings_menu_sidebar": {
-        "message": "Sidebar"
+    "settings_general": {
+        "message": "General Settings"
     },
-    "settings_menu_sidebar_general": {
-        "message": "General"
-    },
-    "settings_menu_sidebar_overlay": {
-        "message": "Overlay"
-    },
-    "settings_menu_sidebar_sidepanel": {
-        "message": "Side Panel"
-    },
-    "settings_menu_sidebar_tooltip": {
-        "message": "Tooltips"
-    },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Appearance"
     },
-    "settings_menu_appearance_general": {
-        "message": "General"
-    },
-    "settings_menu_appearance_sidebar": {
-        "message": "Sidebar"
-    },
-    "settings_menu_appearance_indicator": {
-        "message": "Indicator"
-    },
-    "settings_menu_appearance_icon": {
-        "message": "Icon"
-    },
-    "settings_menu_appearance_dialog": {
-        "message": "Dialog"
-    },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "New Tab"
     },
-    "settings_menu_language": {
-        "message": "Language"
-    },
-    "settings_menu_language_general": {
-        "message": "General"
-    },
-    "settings_menu_language_translate": {
-        "message": "Translate"
-    },
-    "settings_menu_support": {
-        "message": "Support"
-    },
-    "settings_menu_infos": {
-        "message": "Information"
-    },
-    "settings_menu_infos_aboutme": {
-        "message": "About me"
-    },
-    "settings_menu_infos_permissions": {
-        "message": "Permissions"
-    },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "Privacy"
     },
-    "settings_menu_infos_contact": {
+    "settings_info_contact": {
         "message": "Contact"
     },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "Changelog"
-    },
-    "settings_menu_premium": {
-        "message": "Premium"
-    },
-    "settings_menu_export": {
-        "message": "Import\/Export"
-    },
-    "settings_menu_expert": {
-        "message": "Expert settings"
     },
     "settings_save": {
         "message": "Save Changes"
@@ -641,17 +521,8 @@
     "settings_saved_message": {
         "message": "Changes saved successfully"
     },
-    "settings_restore": {
-        "message": "Restore default"
-    },
-    "settings_restore_confirm": {
-        "message": "Do you really want to restore the default configuration?"
-    },
-    "settings_restored_message": {
-        "message": "Configuration restored successfully"
-    },
     "settings_advanced": {
-        "message": "Advanced settings"
+        "message": "Advanced Settings"
     },
     "settings_not_synced": {
         "message": "Will not be synchronized across your devices."
@@ -662,29 +533,20 @@
     "settings_premium_invalid_key": {
         "message": "Could not activate Premium. Please enter a valid license key"
     },
-    "settings_search_placeholder": {
-        "message": "Search for configuration"
+    "settings_currently_selected": {
+        "message": "Currently Selected"
     },
-    "settings_expert_settings_desc": {
-        "message": "With the expert settings you can change all the configuration flags of the extension, even those you cannot change using the regular checkboxes or sliders on the settings page."
+    "settings_example": {
+        "message": "Example"
     },
-    "settings_expert_settings_notice": {
-        "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behavior of the extension. If something does not work properly however, you can revert to the default configuration."
+    "settings_details": {
+        "message": "Details"
     },
-    "settings_expert_save_error": {
-        "message": "Could not save settings. Please correct your input."
+    "settings_video_play": {
+        "message": "Play"
     },
-    "settings_dashboard_sidebar_options": {
-        "message": "Configure the behavior of your sidebar"
-    },
-    "settings_dashboard_sidebar_options_desc": {
-        "message": "There are various options you can change to control the extension. For example, you can change how the sidebar should slide in or how your bookmarks should be opened. If you don\"t want the sidebar to be loaded on every page, you can configure this, too, using appropriate rules."
-    },
-    "settings_dashboard_appearance_options": {
-        "message": "Change the appearance of your sidebar"
-    },
-    "settings_dashboard_appearance_options_desc": {
-        "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colors, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
+    "settings_video_pause": {
+        "message": "Pause"
     },
     "settings_tips_tricks_facts": {
         "message": "Did you know?"
@@ -752,7 +614,7 @@
     "settings_tips_tricks_synchronization_desc": {
         "message": "All your settings of the sidebar will be synchronized between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
     },
-    "settings_tips_tricks_synchronization_action": {
+    "settings_sync_settings_link": {
         "message": "Look up your sync settings"
     },
     "settings_tips_tricks_i18n_desc": {
@@ -782,23 +644,44 @@
     "settings_tips_tricks_multiselect_desc": {
         "message": "You can select multiple bookmarks or folders in the sidebar to open, delete or even move them with drag & drop at once."
     },
-    "settings_tips_tricks_newtab": {
-        "message": "New Tab"
-    },
-    "settings_tips_tricks_newtab_desc": {
-        "message": "You can configure the appearance of the New Tab Page directly on the page by clicking the {1} button in the lower corner. Then you can change the grid items, search engine, background image or the links on the top."
-    },
     "settings_tips_tricks_privacy": {
         "message": "Privacy"
     },
     "settings_tips_tricks_privacy_desc": {
         "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only displays the ones of your browser in the sidebar."
     },
-    "settings_tips_tricks_sidepanel": {
-        "message": "Browser side panel"
+    "settings_support": {
+        "message": "Support"
     },
-    "settings_tips_tricks_sidepanel_desc": {
-        "message": "You can have your bookmark sidebar permanently opened while you are browsing. There is a side panel provided by your browser. Click on the side panel icon at the top of your browser and choose the Bookmark Sidebar view."
+    "settings_info_permissions": {
+        "message": "Permissions"
+    },
+    "settings_translation_cta_link": {
+        "message": "Help Translating"
+    },
+    "settings_translation_cta_desc": {
+        "message": "All translations are made by the community. If your language is missing, incomplete, or has mistakes, you can help improve it for everyone."
+    },
+    "settings_trigger_area_configure": {
+        "message": "Configure area"
+    },
+    "settings_translation_cta_headline": {
+        "message": "Speak Another Language?"
+    },
+    "settings_knowledgebase": {
+        "message": "Knowledge Base"
+    },
+    "settings_knowledgebase_desc": {
+        "message": "The Knowledge Base collects articles with deep dives into individual features, handy insights, and a look behind the scenes of the development."
+    },
+    "settings_knowledgebase_link": {
+        "message": "Explore"
+    },
+    "settings_support_desc": {
+        "message": "Have a question, found a bug, or got an idea? Browse the FAQ for quick answers or use the contact form to reach the developer directly."
+    },
+    "settings_share_info_desc": {
+        "message": "You can opt in to share information such as your configuration and how you use the sidebar. This helps improve the extension."
     },
     "settings_open_action": {
         "message": "Open sidebar"
@@ -818,77 +701,47 @@
     "settings_open_action_icon": {
         "message": "Click on icon"
     },
-    "settings_toggle_area": {
-        "message": "Configure area"
-    },
-    "settings_toggle_area_desc": {
-        "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can change this and also configure exactly where to open the sidebar."
-    },
-    "settings_toggle_area_width": {
-        "message": "Width"
-    },
-    "settings_toggle_area_width_windowed": {
-        "message": "Width (Windowed)"
-    },
-    "settings_toggle_area_height": {
-        "message": "Height"
-    },
-    "settings_toggle_area_height_desc": {
-        "message": "You can reduce the height of the active area so the sidebar will only open when you move your cursor into that area at the edge of your browser window."
-    },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "Drag to move"
     },
-    "settings_trigger_area_width": {
+    "settings_trigger_width": {
         "message": "Trigger width"
     },
-    "settings_trigger_area_width_desc": {
+    "settings_trigger_width_desc": {
         "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear."
     },
-    "settings_trigger_area_width_windowed": {
+    "settings_trigger_width_windowed": {
         "message": "Trigger width in window mode"
     },
-    "settings_trigger_area_width_windowed_desc": {
+    "settings_trigger_width_windowed_desc": {
         "message": "The width of the screen edge area where the configured mouse action triggers the sidebar to appear when the browser is not fullscreen or has reduced width (window mode)."
     },
-    "settings_trigger_area_height": {
+    "settings_trigger_height": {
         "message": "Trigger height"
     },
-    "settings_trigger_area_height_desc": {
+    "settings_trigger_height_desc": {
         "message": "The height of the screen edge area where the configured mouse action triggers the sidebar to appear. Reducing it can help avoid accidental sidebar activation during normal site interaction."
     },
-    "settings_trigger_area_indicator_desc": {
-        "message": "The height of the screen edge area where the configured mouse action triggers the sidebar to appear. Reducing it can help avoid accidental sidebar activation during normal site interaction."
+    "settings_indicator_desc": {
+        "message": "If your mouse enters the configured screen edge area, an indicator bar appears. You can customize its appearance below, or set the width to zero to disable it."
     },
-    "settings_trigger_area_indicator_width": {
+    "settings_indicator_width": {
         "message": "Indicator width"
     },
-    "settings_trigger_area_indicator_width_desc": {
+    "settings_indicator_width_desc": {
         "message": "Width of the visible indicator bar. Can differ from the trigger width."
     },
-    "settings_trigger_area_indicator_color": {
+    "settings_indicator_color": {
         "message": "Indicator color"
     },
-    "settings_trigger_area_indicator_icon_size": {
+    "settings_indicator_icon_size": {
         "message": "Indicator icon size"
     },
-    "settings_trigger_area_indicator_icon_color": {
+    "settings_indicator_icon_color": {
         "message": "Indicator icon color"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"
-    },
-    "settings_icon_action": {
-        "message": "Click on extension icon"
-    },
-    "settings_icon_action_desc": {
-        "message": "You can choose how the sidebar should show up when you click on the extension icon which is located right of the browser address bar."
-    },
-    "settings_icon_action_overlay": {
-        "message": "Open sidebar on top of websites"
-    },
-    "settings_icon_action_sidepanel": {
-        "message": "Open sidebar in the browser provided side panel"
     },
     "settings_link_action": {
         "message": "Open bookmarks"
@@ -908,10 +761,10 @@
     "settings_open_delay_desc": {
         "message": "Prevents the sidebar from opening immediately when hovering or clicking on the activation area at the edge of the browser window."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Prevent page scrolling"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Prevents scrolling of the current website while the sidebar is open."
     },
     "settings_dir_accordion": {
@@ -1016,20 +869,11 @@
     "settings_tooltip_content_url": {
         "message": "Only URL"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Additional info"
-    },
-    "settings_sidebar_overlay_intro": {
-        "message": "Here you can change the behavior of the overlaying sidebar which opens on top of websites."
     },
     "settings_sidebar_position": {
         "message": "Position"
-    },
-    "settings_overlay_enabled": {
-        "message": "Enable overlaying sidebar"
-    },
-    "settings_overlay_enabled_desc": {
-        "message": "If you only want to access your bookmarks in the browser provided side panel, you can deactivate the overlaying sidebar."
     },
     "settings_sidebar_position_desc": {
         "message": "Define whether the sidebar should open on the left or right side of the browser window."
@@ -1040,74 +884,131 @@
     "settings_sidebar_position_right": {
         "message": "Right"
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Only add one URL pattern per line"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "If you don't include any * in a rule, only exact URL's will match (e.g. \"example.com\/about.html\" won't be matched for the URL \"example.com\")"
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "Load sidebar"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "On every page"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "On every page except specified pages"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Only on specific pages"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "URL patterns"
     },
-    "settings_import_export_headline": {
-        "message": "Import\/Export Settings"
+    "settings_sidepanel_position_configure": {
+        "message": "Configure Side Panel Position"
     },
-    "settings_import_export_notice": {
-        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
+    "settings_mode_overlay": {
+        "message": "Overlay Mode"
     },
-    "settings_import_export_desc": {
-        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
+    "settings_mode_sidepanel": {
+        "message": "Side Panel Mode"
     },
-    "settings_export": {
-        "message": "Export Settings"
+    "settings_extension_icon": {
+        "message": "Extension Icon"
     },
-    "settings_import": {
-        "message": "Import Settings"
+    "settings_indicator": {
+        "message": "Indicator"
     },
-    "settings_import_saved": {
-        "message": "Configuration imported successfully"
+    "settings_mode_headline": {
+        "message": "How Do You Want to Open the Sidebar?"
     },
-    "settings_import_failed": {
-        "message": "Failed to import the configuration. Please choose a valid file."
+    "settings_mode_use_both": {
+        "message": "Use Both Modes"
     },
-    "settings_import_export_bookmarks": {
-        "message": "Import\/Export Bookmarks"
+    "settings_mode_use": {
+        "message": "Use This Mode"
     },
-    "settings_import_export_bookmarks_desc": {
-        "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
+    "settings_mode_overlay_desc": {
+        "message": "Access your bookmarks via a togglable sidebar, which slides in from the side of your browser content and overlays the currently visited website."
     },
-    "settings_sidebar_sidepanel_intro": {
-        "message": "Here you can change the behavior of the sidebar which is displayed in the side panel alongside the main content of webpages."
+    "settings_mode_overlay_pro_1": {
+        "message": "Does not take space away from the browser content"
     },
-    "settings_sidebar_position_sidepanel": {
-        "message": "Configure whether the browser side panel should open on the left or right side."
+    "settings_mode_overlay_pro_2": {
+        "message": "Hides when a bookmark is clicked"
     },
-    "settings_sidebar_sidepanel_configure": {
-        "message": "Configure side panel"
+    "settings_mode_overlay_con_1": {
+        "message": "May conflict with some websites"
     },
-    "settings_presets": {
-        "message": "Set relative sizes"
+    "settings_mode_overlay_con_2": {
+        "message": "Can only be used on regular websites (not on the default new tab page, settings pages)"
+    },
+    "settings_mode_sidepanel_desc": {
+        "message": "Access your bookmarks via the browser's built-in side panel, which opens alongside the browser content."
+    },
+    "settings_mode_sidepanel_pro_1": {
+        "message": "Permanently visible next to the browser content once activated"
+    },
+    "settings_mode_sidepanel_pro_2": {
+        "message": "Stays open when a bookmark is clicked"
+    },
+    "settings_mode_sidepanel_con_1": {
+        "message": "Reduces browser content width"
+    },
+    "settings_mode_sidepanel_con_2": {
+        "message": "Is fairly wide, because the browser enforces a minimum width of the panel"
+    },
+    "settings_mode_both_desc_1": {
+        "message": "Both modes are enabled simultaneously. Open the sidebar in Side Panel Mode by clicking the extension icon, and in Overlay Mode by clicking the edge of the browser window."
+    },
+    "settings_mode_both_desc_2": {
+        "message": "Settings below that apply only to a specific mode are marked accordingly."
+    },
+    "settings_mode_info_overlay": {
+        "message": "These options only work for the sidebar in Overlay Mode"
+    },
+    "settings_mode_info_sidepanel": {
+        "message": "These options only work for the sidebar in Side Panel Mode"
+    },
+    "settings_sidebar_position_note_overlay": {
+        "message": "Please note that this will only change the position of the sidebar when opened in Overlay Mode. The position of the sidebar in Side Panel Mode needs to be configured in the settings of the browser."
+    },
+    "settings_sidebar_position_note_sidepanel": {
+        "message": "Please note that this will only change the position of the sidebar when opened in Side Panel Mode. The position of the sidebar in Overlay Mode needs to be configured in the other section."
+    },
+    "settings_trigger_area": {
+        "message": "Trigger Area"
+    },
+    "settings_indicator_icon": {
+        "message": "Indicator Icon"
+    },
+    "settings_extension_icon_hidden": {
+        "message": "You don't see the extension icon next to the address bar?"
+    },
+    "settings_extension_icon_hidden_howto": {
+        "message": "Here is how you can make it visible:"
+    },
+    "settings_keyboard_shortcut": {
+        "message": "Keyboard Shortcut"
+    },
+    "settings_keyboard_shortcut_desc": {
+        "message": "You can configure a keyboard shortcut, which will trigger a click on the extension icon. A click on the extension icon will open the sidebar."
+    },
+    "settings_lock_pinned": {
+        "message": "Keep Pinned Entries at the Top"
+    },
+    "settings_lock_pinned_desc": {
+        "message": "Pinned entries stay fixed at the top of the sidebar instead of scrolling away with the rest of your bookmarks."
     },
     "settings_presets_desc": {
         "message": "You can select predefined sizes for the sidebar. This will change the sliders on this page which will adjust the sidebar width, line heights, icon sizes and many other visual options."
@@ -1145,9 +1046,6 @@
     "settings_scroll_bar_width": {
         "message": "Scrollbar width"
     },
-    "settings_icon_background_color": {
-        "message": "Background Color"
-    },
     "settings_icon_color": {
         "message": "Color"
     },
@@ -1163,25 +1061,13 @@
     "settings_icon_color_desc_2": {
         "message": "Please note that the automatic color will not work when using a custom {browserName} theme."
     },
-    "settings_indicator_width": {
-        "message": "Width"
-    },
-    "settings_indicator_color": {
-        "message": "Color"
-    },
-    "settings_indicator_icon_size": {
-        "message": "Icon size"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Icon color"
-    },
     "settings_sidebar_width": {
         "message": "Width"
     },
     "settings_sidebar_width_desc": {
         "message": "The width of the sidebar when overlapping the currently visited website. This option does not have an effect when using the sidebar in the browser provided side panel."
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "Header height"
     },
     "settings_sidebar_mask_color": {
@@ -1235,23 +1121,23 @@
     "settings_custom_css_desc": {
         "message": "You can define your own stylesheet to override the default styling. Please only use this option if you are familiar with CSS and fully understand how to use them."
     },
+    "settings_custom_css_more_info": {
+        "message": "Want to learn more about CSS or looking for a starting point? Check out [a]this article[\/a]."
+    },
     "settings_theme": {
         "message": "Theme"
-    },
-    "settings_themes_notice": {
-        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and color options."
-    },
-    "settings_available_themes": {
-        "message": "Available Themes"
-    },
-    "settings_show_themes": {
-        "message": "Show available themes"
     },
     "settings_theme_default": {
         "message": "Default theme"
     },
     "settings_theme_default_desc": {
         "message": "This theme lets you access your bookmarks in a clean, modern way. The color of many of the elements can be changed by modifying the color scheme."
+    },
+    "settings_theme_soft": {
+        "message": "Soft theme"
+    },
+    "settings_theme_soft_desc": {
+        "message": "This theme gives the sidebar a soft, tactile look with rounded shapes, gentle gradients and a floating, semi-transparent header with separate buttons."
     },
     "settings_theme_glass": {
         "message": "Glass theme"
@@ -1265,14 +1151,17 @@
     "settings_theme_focus_desc": {
         "message": "This theme reduces the animations and arranges the elements more dense for improved productivity and performance."
     },
-    "settings_install_theme": {
-        "message": "Install theme"
+    "settings_theme_use": {
+        "message": "Use This Theme"
     },
-    "settings_installed_theme_info": {
-        "message": "Currently installed"
+    "settings_tooltip": {
+        "message": "Tooltip"
     },
-    "settings_theme_changed": {
-        "message": "Changed theme successfully"
+    "settings_background": {
+        "message": "Background"
+    },
+    "settings_layout": {
+        "message": "Layout"
     },
     "settings_newtab_intro": {
         "message": "Want to open your bookmarks sidebar automatically in new tabs?"
@@ -1295,38 +1184,17 @@
     "settings_newtab_favicon_desc": {
         "message": "You can customize the tab icon (favicon) for the new tab page. This lets you easily recognize it among your open tabs."
     },
-    "newtab_tmp_upgrade_headline": {
-        "message": "Your Bookmark Sidebar just got updated."
+    "settings_favicon_background": {
+        "message": "Background Color"
     },
-    "newtab_tmp_upgrade_action_required": {
-        "message": "Action Required!"
-    },
-    "newtab_tmp_upgrade_desc1": {
-        "message": "Due to a policy enforcement by Google, the previous New Tab Override functionality had to be removed as it no longer complies with their developer guidelines."
-    },
-    "newtab_tmp_upgrade_desc2": {
-        "message": "As a result, your current configuration that overrides the New Tab page is affected."
-    },
-    "newtab_tmp_upgrade_desc3": {
-        "message": "To restore the expected behavior, please configure the updated solution available in the extension\u2019s settings."
-    },
-    "newtab_tmp_upgrade_open_settings": {
-        "message": "Open Settings"
+    "settings_newtab_favicon": {
+        "message": "New Tab Favicon"
     },
     "settings_language": {
         "message": "Language"
     },
     "settings_language_default": {
         "message": "Browser default"
-    },
-    "settings_language_desc": {
-        "message": "The language of the user interface"
-    },
-    "settings_translation_link": {
-        "message": "Go to translation overview"
-    },
-    "settings_translation_desc": {
-        "message": "You can help translating the extension into your language or improve the existing one."
     },
     "settings_translation_add_language": {
         "message": "Add language"
@@ -1355,8 +1223,14 @@
     "settings_translation_submit_message": {
         "message": "Your translation has been submitted successfully"
     },
+    "settings_translation_submit_error": {
+        "message": "Your translation could not be submitted. Please try again later."
+    },
     "settings_translation_status_released": {
         "message": "Translation is available"
+    },
+    "settings_translation_unsaved_confirm": {
+        "message": "Your changes have not been submitted yet. Do you really want to discard them?"
     },
     "settings_translation_status_incomplete": {
         "message": "Translation is available but some categories are incomplete"
@@ -1370,59 +1244,143 @@
     "settings_translation_required_category": {
         "message": "Required"
     },
-    "settings_support_faq_headline": {
-        "message": "Frequently Asked Questions"
+    "settings_translation_overview": {
+        "message": "Translations"
     },
-    "settings_support_feedback_headline": {
-        "message": "Feedback"
+    "settings_translation_goto_prev": {
+        "message": "Previous empty field"
     },
-    "settings_support_feedback_desc": {
-        "message": "Have any suggestions for improvements, questions, noticed missing configuration options, or found a bug? To help improve this extension I would be very grateful for any and all feedback you can give me."
+    "settings_translation_goto_next": {
+        "message": "Next empty field"
     },
-    "settings_support_feedback_notice": {
-        "message": "Please compose your feedback in English language. Otherwise it will be difficult for me to understand and answer your message."
+    "settings_import_export": {
+        "message": "Import\/Export"
     },
-    "settings_support_feedback_email": {
-        "message": "You like to get an answer? Please provide an email address (optional)"
+    "settings_import_export_headline": {
+        "message": "Import\/Export Settings"
     },
-    "settings_support_feedback_screenshot": {
-        "message": "Attach screenshots"
+    "settings_import_export_notice": {
+        "message": "You don't need this to keep your devices in sync. When you are signed in to your browser with sync turned on, your bookmarks and the settings of this extension are transferred to all your devices automatically. Exporting and importing a file is only needed if you don't use sync, want to share your settings with someone else, or want to use them in another browser profile."
     },
-    "settings_support_feedback_screenshot_error_filesize": {
-        "message": "The file size of {1} is too big (> 1 MB)"
+    "settings_import_export_desc": {
+        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
     },
-    "settings_support_feedback_screenshot_error_amount": {
-        "message": "You can only upload a maximum of {1} screenshots"
+    "settings_export": {
+        "message": "Export Settings"
     },
-    "settings_support_feedback_send": {
-        "message": "Send feedback"
+    "settings_import": {
+        "message": "Import Settings"
     },
-    "settings_support_feedback_sent_message": {
-        "message": "Thank you for the feedback"
+    "settings_import_saved": {
+        "message": "Configuration imported successfully"
     },
-    "settings_support_feedback_send_failed": {
-        "message": "Your message could not be sent. Please try again."
+    "settings_import_failed": {
+        "message": "Failed to import the configuration. Please choose a valid file."
     },
-    "settings_permissions_desc": {
-        "message": "In order to make a togglable sidebar possible in {browserName}, the following permissions are required and requested by the extension:"
+    "settings_import_export_bookmarks": {
+        "message": "Import\/Export Bookmarks"
     },
-    "settings_permissions_contentscript_desc_1": {
-        "message": "Unfortunately {browserName} has no mechanism to display content in the browser window without interacting with the current webpage."
+    "settings_import_export_bookmarks_desc": {
+        "message": "Your bookmarks are not stored by this extension. They are managed by your browser itself, the extension only displays them. That's why the export above contains your settings, but none of your bookmarks. To back up, move, or import your bookmarks, use the bookmark manager that is built into your browser."
     },
-    "settings_permissions_contentscript_desc_2": {
-        "message": "Because the sidebar is being displayed on top of the current web page this permission is required. The permission is not used for any other purpose."
+    "settings_expert": {
+        "message": "Expert settings"
     },
-    "settings_permissions_contentscript_desc_3": {
-        "message": "If you have concerns regarding what I'm doing with these permissions you can view the source code of the extension on Github. It's Open Source and is visible for everyone.to view."
+    "settings_expert_settings_desc": {
+        "message": "With the expert settings you can change all the configuration flags of the extension, even those you cannot change using the regular checkboxes or sliders on the settings page."
     },
-    "settings_permissions_bookmarks_desc": {
-        "message": "The extension is displaying your bookmarks in the sidebar and therefore needs this permission to gain access. The permission also allows the extension to add, edit and remove bookmarks."
+    "settings_expert_settings_notice": {
+        "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behavior of the extension. If something does not work properly however, you can revert to the default configuration."
     },
-    "settings_headline_share_userdata": {
-        "message": "Share information"
+    "settings_expert_save_error": {
+        "message": "Could not save settings. Please correct your input."
     },
-    "settings_saved_share_userdata": {
+    "settings_search_placeholder": {
+        "message": "Search for configuration"
+    },
+    "settings_import_export_bookmarks_link": {
+        "message": "How to import and export bookmarks in your browser"
+    },
+    "settings_share_info_intro_1": {
+        "message": "Bookmark Sidebar includes an optional data sharing feature. This is strictly opt-in. By default, nothing is sent anywhere."
+    },
+    "contribute_notice": {
+        "message": "You can help me by sharing your configuration"
+    },
+    "settings_share_info_config": {
+        "message": "1. Configuration Sharing"
+    },
+    "settings_share_info_activity": {
+        "message": "2. Usage Activity Sharing"
+    },
+    "settings_share_info_activity_examples": {
+        "message": "Examples:"
+    },
+    "settings_share_info_activity_item_5": {
+        "message": "How many bookmarks do users typically manage?"
+    },
+    "settings_share_info_activity_item_4": {
+        "message": "Which sidebar modes are popular?"
+    },
+    "settings_share_info_activity_item_1": {
+        "message": "Is the search feature actively used?"
+    },
+    "settings_share_info_activity_item_2": {
+        "message": "Do users change bookmark sorting?"
+    },
+    "settings_share_info_activity_item_3": {
+        "message": "How often are bookmarks edited or rearranged?"
+    },
+    "settings_share_info": {
+        "message": "Share Information"
+    },
+    "settings_share_info_saved": {
         "message": "Your preference has been saved successfully"
+    },
+    "settings_share_info_intro_2": {
+        "message": "Users who choose to participate can anonymously share limited technical information that helps improve the extension. There are two categories:"
+    },
+    "settings_share_info_config_intro": {
+        "message": "Anonymous configuration data helps identify:"
+    },
+    "settings_share_info_config_item_1": {
+        "message": "which settings are most commonly used"
+    },
+    "settings_share_info_config_item_2": {
+        "message": "which options are rarely touched"
+    },
+    "settings_share_info_config_item_3": {
+        "message": "which defaults work well"
+    },
+    "settings_share_info_config_item_4": {
+        "message": "what should be simplified or improved in future versions"
+    },
+    "settings_share_info_config_outro": {
+        "message": "If enabled, the extension periodically sends the current configuration state to my server."
+    },
+    "settings_share_info_activity_intro": {
+        "message": "Anonymous interaction data helps understand how features are used in practice."
+    },
+    "settings_share_info_important": {
+        "message": "Importantly:"
+    },
+    "settings_share_info_not_collected_1": {
+        "message": "No bookmark titles are collected"
+    },
+    "settings_share_info_not_collected_2": {
+        "message": "No bookmark URLs are collected"
+    },
+    "settings_share_info_not_collected_3": {
+        "message": "No browsing history is collected"
+    },
+    "settings_share_info_not_collected_4": {
+        "message": "No visited websites are tracked"
+    },
+    "settings_share_info_purpose": {
+        "message": "The purpose is feature analytics, not surveillance."
+    },
+    "settings_share_info_more_info": {
+        "message": "Want to get more insights? Read the [a]Knowledge Base Article[\/a] with details on the analytics."
     },
     "premium_popup_text": {
         "message": "Have you checked out Premium yet?"
@@ -1430,11 +1388,8 @@
     "premium_restricted_text": {
         "message": "This feature is only available with Premium"
     },
-    "premium_desc_1": {
-        "message": "With Premium you will get access to additional features and help me maintaining the extension."
-    },
-    "premium_desc_2": {
-        "message": "You can check out the features included in Premium below. All key features of the extensions are free to use and won't require Premium access. You can pay what you think the extension and my work is worth to you to gain access to these features."
+    "premium_desc": {
+        "message": "Premium is a one-time purchase that grants a lifetime license for all advanced features."
     },
     "premium_get_now": {
         "message": "Get Premium now"
@@ -1451,41 +1406,32 @@
     "premium_license_key": {
         "message": "License Key"
     },
-    "premium_feature_early_access_headline": {
-        "message": "Be first to try out new experimental features"
-    },
-    "premium_feature_early_access_desc": {
-        "message": "With Premium you get access to unreleased features, which are currently under development or undergoing testing."
-    },
-    "premium_feature_sidebar_width_headline": {
-        "message": "Change the width of your sidebar at any time"
-    },
     "premium_feature_import_export_headline": {
-        "message": "Import and export your settings"
+        "message": "Import and Export Your Settings"
     },
-    "premium_feature_custom_background_headline": {
-        "message": "Customize your New Tab page"
+    "premium_feature_newtab_extended_headline": {
+        "message": "Extended New Tab Customization"
     },
-    "premium_feature_custom_background_desc": {
-        "message": "If you are using the New Tab page of this extension you can set your own background image to make it look even nicer."
+    "premium_feature_newtab_extended_desc": {
+        "message": "Make the New Tab page truly your own: set your own background image and choose how many shortcuts the grid below the search field shows."
     },
     "premium_feature_custom_css_headline": {
-        "message": "Customize everything with your own Stylesheet"
+        "message": "Custom Stylesheet (CSS)"
     },
     "premium_feature_custom_css_desc": {
-        "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customize absolutely anything."
+        "message": "Go beyond sliders and color pickers and style every detail of the sidebar with your own CSS rules."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "Check your bookmarks for broken links or duplicates"
+        "message": "Bookmark Checker"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "You can right-click any folder in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
+        "message": "Right-click any folder in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working, and bookmarks with the same URL."
     },
     "premium_feature_themes_headline": {
-        "message": "Change the theme of your sidebar"
+        "message": "Sidebar Themes"
     },
     "premium_feature_themes_desc": {
-        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and color options."
+        "message": "Change the entire look of the sidebar with a single click, then fine-tune it with sliders and color options."
     },
     "premium_pay_intro_payment_method": {
         "message": "Select a payment method below and choose the desired amount you want to pay in the next step."
@@ -1543,5 +1489,95 @@
     },
     "premium_pay_info_name": {
         "message": "Name"
+    },
+    "premium_title": {
+        "message": "Premium"
+    },
+    "premium_desc_teaser": {
+        "message": "It includes advanced features for users who want them, while the free version remains highly capable and useful for most people."
+    },
+    "premium_desc_teaser_active": {
+        "message": "Learn about the features you have access to."
+    },
+    "premium_free": {
+        "message": "Free"
+    },
+    "premium_feature_bookmarks_headline": {
+        "message": "Add, Edit, and Delete Bookmarks"
+    },
+    "premium_feature_bookmarks_desc": {
+        "message": "Manage your bookmarks and folders right from the sidebar, without ever opening the bookmark manager."
+    },
+    "premium_feature_modes_headline": {
+        "message": "Overlay or Side Panel Mode"
+    },
+    "premium_feature_modes_desc": {
+        "message": "Open your bookmarks as an overlay on top of the page or in the browser's side panel."
+    },
+    "premium_feature_styling_headline": {
+        "message": "Colors, Sizes and Spacing"
+    },
+    "premium_feature_styling_desc": {
+        "message": "Fine-tune colors, font and icon sizes, line height, indentation, and much more."
+    },
+    "premium_feature_trigger_area_headline": {
+        "message": "Customizable Trigger Area"
+    },
+    "premium_feature_trigger_area_desc": {
+        "message": "Decide where and how the sidebar opens, including the size and color of the indicator."
+    },
+    "premium_feature_visibility_headline": {
+        "message": "Visibility Rules"
+    },
+    "premium_feature_visibility_desc": {
+        "message": "Choose on which websites the sidebar is available and where it stays out of your way."
+    },
+    "premium_feature_dark_mode_headline": {
+        "message": "Dark Mode"
+    },
+    "premium_feature_dark_mode_desc": {
+        "message": "Give the sidebar a dark look, either manually or automatically."
+    },
+    "premium_feature_extension_icon_desc": {
+        "message": "Pick the shape and color of the extension icon in your toolbar."
+    },
+    "premium_feature_sync_headline": {
+        "message": "Sync Bookmarks and Settings"
+    },
+    "premium_feature_sync_desc": {
+        "message": "Keep your bookmarks and extension settings in sync across all your devices. Simply make sure to turn on sync in your browser settings."
+    },
+    "premium_feature_newtab_headline": {
+        "message": "New Tab Page"
+    },
+    "premium_feature_newtab_desc": {
+        "message": "Replace your browser's New Tab page with a clean page showing your bookmarks and a search field."
+    },
+    "premium_feature_import_export_desc": {
+        "message": "Save your settings as a file on your computer and import them on any device where the extension is installed."
+    },
+    "premium_feature_pinned_headline": {
+        "message": "Pinned Bookmarks"
+    },
+    "premium_feature_pinned_desc": {
+        "message": "Pin your favorite bookmarks to the top of the sidebar and keep them within reach at all times."
+    },
+    "premium_feature_both_modes_headline": {
+        "message": "Both Sidebar Modes at Once"
+    },
+    "premium_feature_both_modes_desc": {
+        "message": "Use the overlay and the side panel side by side and pick whichever suits the moment."
+    },
+    "premium_feature_priority_support_headline": {
+        "message": "Priority Support"
+    },
+    "premium_feature_priority_support_desc": {
+        "message": "Your questions and feedback move to the front of the queue, so you get a faster response."
+    },
+    "premium_feature_support_dev_headline": {
+        "message": "Support the Development"
+    },
+    "premium_feature_support_dev_desc": {
+        "message": "Help keep Bookmark Sidebar independent and actively maintained, and make new features possible."
     }
 }

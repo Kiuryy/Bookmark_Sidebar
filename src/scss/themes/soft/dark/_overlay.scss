@@ -1,0 +1,110 @@
+@use "../../../include/vars";
+@use "../helpers";
+
+.dark[data-theme='soft'] div.modal {
+  background: helpers.$darkBackgroundGradient;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5), helpers.$darkHighlight;
+
+  > header {
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    > a.close {
+      background: helpers.$darkSurfaceGradient;
+      box-shadow: helpers.darkRaised(3px);
+
+      &:hover {
+        box-shadow: helpers.darkPressed(3px);
+      }
+    }
+  }
+
+  > a.preview, > span.preview {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: helpers.darkPressed(2px);
+  }
+
+  > a.preview:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  &[data-type='keyboardShortcuts']::after,
+  &.urlCheckResults[data-type='checkBookmarks']::after,
+  &[data-type='searchEngine']::after {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  &[data-type='checkBookmarks'] { // solid background of the results, since the arrow of the active category has to cover the border to them
+
+    > menu.categories > li.active {
+      background: rgba(255, 255, 255, 0.06);
+
+      &::after {
+        background: helpers.$darkContentBackground;
+      }
+    }
+
+    > div[id^='results_'] {
+
+      > p, > ul {
+        background: helpers.$darkContentBackground;
+      }
+
+      > ul > li {
+
+        a.urlCheckAction, a.urlCheckHide {
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+          }
+        }
+      }
+    }
+  }
+
+  &[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
+    background: helpers.$darkSurfaceGradient;
+    box-shadow: helpers.darkRaised(2px);
+  }
+
+  &[data-type='edit'], &[data-type='add'] {
+
+    > ul > li > input, > ul > li > textarea, > ul > li > select {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: helpers.$darkFieldBackground;
+      box-shadow: helpers.darkPressed(2px);
+
+      &:focus {
+        border-color: vars.$dyn-colorScheme;
+        box-shadow: helpers.darkPressed(2px), 0 0 0 1px vars.$dyn-colorScheme;
+      }
+
+      &.error {
+        border-color: vars.$colorError;
+        box-shadow: helpers.darkPressed(2px), 0 0 0 1px vars.$colorError;
+      }
+    }
+  }
+
+  &[data-type='add'] > menu[data-name='select'] > a {
+    background: helpers.$darkSurfaceGradient;
+    box-shadow: helpers.darkRaised(6px);
+
+    &:hover {
+      box-shadow: helpers.darkPressed(5px);
+    }
+  }
+
+  > menu.buttons > a {
+    background: helpers.$darkSurfaceGradient;
+    box-shadow: helpers.darkRaised(3px);
+
+    &:hover {
+      box-shadow: helpers.darkPressed(3px);
+    }
+  }
+
+  &.sidepanel {
+    box-shadow: none;
+  }
+}

@@ -14,7 +14,6 @@
                 updateBookmark: b.helper.bookmarks.update,
                 createBookmark: b.helper.bookmarks.create,
                 deleteBookmark: b.helper.bookmarks.remove,
-                openWebsite: b.openWebsite,
                 reload: b.reload,
                 reinitialize: b.reinitialize,
                 systemColorChanged: b.helper.model.systemColorChanged,
@@ -27,15 +26,13 @@
                 openLink: b.helper.utility.openLink,
                 userType: b.helper.model.getUserType,
                 activatePremium: b.helper.utility.activatePremium,
-                deactivatePremium: b.helper.utility.removePremiumState,
+                devUserType: b.helper.utility.setDevUserType,
                 licenseKey: b.helper.model.getLicenseKey,
                 getCache: b.helper.cache.get,
                 setCache: b.helper.cache.set,
                 removeCache: b.helper.cache.remove,
-                websiteStatus: b.helper.utility.checkWebsiteStatus,
                 track: b.helper.analytics.track,
                 iconImageData: b.helper.icon.getImageData,
-                updateIcon: b.helper.icon.setExtensionIcon,
                 reloadIcon: b.helper.icon.init,
                 reloadBrowserAction: b.helper.browserAction.init,
                 clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
@@ -43,7 +40,6 @@
                 increaseViewCounter: b.helper.viewAmount.increaseByUrl,
                 viewAmounts: b.helper.viewAmount.getAll,
                 searchHistory: b.helper.utility.getHistoryBySearchVal,
-                parsedUrl: async (opts) => b.helper.utility.getParsedUrl(opts.href),
                 lastUpdateDate: async () => b.helper.model.getData("lastUpdateDate")
             };
 

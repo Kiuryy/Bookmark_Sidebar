@@ -1,3 +1,5 @@
+@use "vars";
+
 
 *, *::after, *::before {
   padding: 0;
@@ -7,10 +9,10 @@
 }
 
 body, input, textarea, select, button {
-  font-size: $baseFontSize;
-  font-family: $__fontFamily, sans-serif;
-  color: $textColor;
-  font-weight: $__fontWeightNormal;
+  font-size: vars.$baseFontSize;
+  font-family: vars.$dyn-fontFamily, sans-serif;
+  color: vars.$textColor;
+  font-weight: vars.$dyn-fontWeightNormal;
 }
 
 ul, menu {
@@ -18,10 +20,10 @@ ul, menu {
 }
 
 strong {
-  font-weight: $__fontWeightBold;
+  font-weight: vars.$dyn-fontWeightBold;
 }
 
 a {
-  color: $textColor;
+  color: vars.$textColor;
   text-decoration: none;
 }

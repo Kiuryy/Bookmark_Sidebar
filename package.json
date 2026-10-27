@@ -1,6 +1,6 @@
 {
   "name": "bookmark_sidebar",
-  "version": "2.5.7",
+  "version": "3.0.0",
   "license": "MS-RSL",
   "author": "Philipp Koenig",
   "homepage": "https://extensions.redeviation.com/",
@@ -9,17 +9,28 @@
     "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
   },
   "scripts": {
-    "init": "npm install && npm install -g npm-check-updates && npm rebuild node-sass",
-    "update": "ncu -u --packageFile package.json && npm install",
-    "build:chrome": "./build.sh --mode=build --target=chrome",
-    "build:firefox": "./build.sh --mode=build --target=firefox",
-    "release": "./build.sh --mode=release --target=chrome,firefox"
+    "init": "npm install && npm audit fix",
+    "update": "ncu -u --packageFile package.json && npm run init",
+    "build:chrome": "node build.mjs --mode=build --target=chrome",
+    "build:firefox": "node build.mjs --mode=build --target=firefox",
+    "build:demo": "node build.mjs --mode=build --target=chrome --demo",
+    "release": "node build.mjs --mode=release --target=chrome,firefox",
+    "launch-demo:chrome": "npm run build:demo && node demo/launch-browser.mjs chrome",
+    "launch-demo:edge": "npm run build:demo && node demo/launch-browser.mjs edge",
+    "record-demo:chrome": "npm run build:demo && node demo/launch-browser.mjs chrome --record",
+    "record-demo:edge": "npm run build:demo && node demo/launch-browser.mjs edge --record",
+    "convert-demo-recordings": "node demo/convert-recordings.mjs",
+    "extract-webstore-descriptions": "node webstore/descriptions.mjs",
+    "confirm-webstore-descriptions": "node webstore/descriptions.mjs -- --mark-published"
   },
   "devDependencies": {
-    "eslint": "^9.38.0",
-    "html-minifier-terser": "^7.2.0",
-    "sass": "^1.93.2",
-    "npm-check-updates": "^19.1.1",
-    "terser": "^5.44.0"
+    "@eslint/eslintrc": "3.3.7",
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0",
+    "globals": "17.13.0",
+    "html-minifier-terser": "7.2.0",
+    "npm-check-updates": "23.1.1",
+    "sass": "1.106.1",
+    "terser": "5.51.2"
   }
 }

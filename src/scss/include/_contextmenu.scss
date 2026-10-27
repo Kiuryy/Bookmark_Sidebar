@@ -1,11 +1,17 @@
+@use "sass:color";
+@use "sass:meta";
+@use "mixins";
+@use "placeholders";
+@use "vars";
+
 
 div.contextmenu {
   position: absolute;
   top: 0;
   min-width: 240px;
-  background: $contentBackground;
+  background: vars.$contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
+  border-radius: 12px;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4;
@@ -37,8 +43,9 @@ div.contextmenu {
   }
 
   > ul.icons {
-    background: darken($contentBackground2, 0.5%);
+    background: color.adjust(vars.$contentBackground2, $lightness: -0.5%);
     padding: 3px 2px 5px 2px;
+    border-radius: 0 0 12px 12px; // always below the list
 
     > li {
       position: relative;
@@ -49,7 +56,7 @@ div.contextmenu {
       }
 
       > a {
-        @include mask(null, $contextMenuIconColor, 20px);
+        @include mixins.mask(null, vars.$dyn-textColor, 20px);
         position: relative;
         display: block;
         width: 32px;
@@ -59,61 +66,70 @@ div.contextmenu {
         margin: 0 3px;
         transition: background-color 0.3s;
 
+        &::before {
+          opacity: vars.$contextMenuIconOpacity;
+          transition: opacity 0.3s;
+        }
+
         &.hover {
-          background-color: darken($contentBackground2, 3%);
+          background-color: color.adjust(vars.$contentBackground2, $lightness: -3%);
+
+          &::before {
+            opacity: 1;
+          }
         }
 
         &[data-name='delete']::before {
-          @include maskImage('icon-delete');
-          -webkit-mask-size: 19px;
+          @include mixins.maskImage('icon-delete');
+          mask-size: 19px;
         }
 
         &[data-name='edit']::before {
-          @include maskImage('icon-edit');
+          @include mixins.maskImage('icon-edit');
         }
 
         &[data-name='infos']::before {
-          @include maskImage('icon-info');
+          @include mixins.maskImage('icon-info');
         }
 
         &[data-name='add']::before {
-          @include maskImage('icon-add');
+          @include mixins.maskImage('icon-add');
         }
 
         &[data-name='copyToClipboard']::before {
-          @include maskImage('icon-copy');
-          -webkit-mask-size: 18px;
+          @include mixins.maskImage('icon-copy');
+          mask-size: 18px;
         }
 
         &[data-name='pin']::before {
-          @include maskImage('icon-pin');
-          -webkit-mask-size: 15px;
+          @include mixins.maskImage('icon-pin');
+          mask-size: 15px;
         }
 
         &[data-name='unpin']::before {
-          @include maskImage('icon-unpin');
-          -webkit-mask-size: 14px;
+          @include mixins.maskImage('icon-unpin');
+          mask-size: 14px;
         }
 
         &[data-name='showHidden']::before {
-          @include maskImage('icon-show');
+          @include mixins.maskImage('icon-show');
         }
 
         &[data-name='hide']::before {
-          @include maskImage('icon-hide');
+          @include mixins.maskImage('icon-hide');
         }
 
         &[data-name='settings']::before {
-          @include maskImage('icon-settings');
+          @include mixins.maskImage('icon-settings');
         }
 
         &[data-name='bookmarkManager']::before {
-          @include maskImage('icon-star');
+          @include mixins.maskImage('icon-star');
         }
 
         &[data-name='keyboardShortcuts']::before {
-          @include maskImage('icon-keyboard');
-          -webkit-mask-size: 22px;
+          @include mixins.maskImage('icon-keyboard');
+          mask-size: 22px;
         }
       }
 
@@ -124,7 +140,7 @@ div.contextmenu {
         transform: translate3d(calc(-50% + 19px), -7px, 0);
         text-align: center;
         white-space: nowrap;
-        background: $contentBackground;
+        background: vars.$contentBackground;
         border-radius: 20px;
         padding: 2px 7px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -146,7 +162,7 @@ div.contextmenu {
           height: 0;
           margin: auto;
           border: 7px solid transparent;
-          border-bottom-color: $contentBackground;
+          border-bottom-color: vars.$contentBackground;
           pointer-events: none;
         }
 
@@ -154,7 +170,7 @@ div.contextmenu {
           display: inline-block;
 
           > a {
-            @include mask(none, $contextMenuIconColor, 18px);
+            @include mixins.mask(none, vars.$dyn-textColor, 18px);
             position: relative;
             display: block;
             width: 24px;
@@ -164,16 +180,20 @@ div.contextmenu {
             margin: 0 1px;
             transition: background-color 0.3s;
 
+            &::before {
+              opacity: vars.$contextMenuIconOpacity;
+            }
+
             &[data-type='bookmark']::before {
-              @include maskImage('icon-bookmark');
+              @include mixins.maskImage('icon-bookmark');
             }
 
             &[data-type='dir']::before {
-              @include maskImage('icon-dir-1');
+              @include mixins.maskImage('icon-dir-1');
             }
 
             &[data-type='separator']::before {
-              @include maskImage('icon-separator');
+              @include mixins.maskImage('icon-separator');
             }
           }
         }
@@ -201,12 +221,12 @@ div.contextmenu {
         }
 
         &.hover + a {
-          color: $__colorScheme;
+          color: vars.$dyn-colorScheme;
         }
       }
 
       > a {
-        @include mask(null, $contextMenuIconColor, 20px);
+        @include mixins.mask(null, vars.$dyn-textColor, 20px);
         position: relative;
         display: block;
         line-height: 39px;
@@ -228,65 +248,66 @@ div.contextmenu {
           transition: background-color 0.3s, opacity 0.3s;
           width: 39px;
           height: 39px;
+          opacity: vars.$contextMenuIconOpacity;
         }
 
         &.hover {
-          color: $__colorScheme;
+          color: vars.$dyn-colorScheme;
 
           &::before {
-            background-color: $__colorScheme;
+            background-color: vars.$dyn-colorScheme;
             opacity: 0.8;
           }
         }
 
         &[data-name='add']::before {
-          @include maskImage('icon-add');
-          -webkit-mask-size: 22px;
+          @include mixins.maskImage('icon-add');
+          mask-size: 22px;
         }
 
         &[data-name='reload']::before {
-          @include maskImage('icon-update');
+          @include mixins.maskImage('icon-update');
         }
 
         &[data-name='closeAll']::before {
-          @include maskImage('icon-close');
+          @include mixins.maskImage('icon-close');
         }
 
         &[data-name='newTab']::before, &[data-name='openChildren']::before {
-          @include maskImage('icon-newTab');
+          @include mixins.maskImage('icon-newTab');
         }
 
         &[data-name='select']::before, &[data-name='deselect']::before {
-          @include maskImage('icon-select');
-          -webkit-mask-size: 24px;
+          @include mixins.maskImage('icon-select');
+          mask-size: 24px;
         }
 
         &[data-name='currentTab']::before {
-          @include maskImage('icon-currentTab');
+          @include mixins.maskImage('icon-currentTab');
         }
 
         &[data-name='newWindow']::before {
-          @include maskImage('icon-newWindow');
+          @include mixins.maskImage('icon-newWindow');
         }
 
         &[data-name='newIncognito']::before {
-          @include maskImage('icon-incognito');
+          @include mixins.maskImage('icon-incognito');
         }
 
         &[data-name='delete']::before {
-          @include maskImage('icon-delete');
+          @include mixins.maskImage('icon-delete');
         }
 
         &[data-name='edit']::before {
-          @include maskImage('icon-edit');
+          @include mixins.maskImage('icon-edit');
         }
 
         &[data-name='checkBookmarks']::before {
-          @include maskImage('icon-update');
+          @include mixins.maskImage('icon-update');
         }
 
         &[data-name='showInDir']::before {
-          @include maskImage('icon-showInDir');
+          @include mixins.maskImage('icon-showInDir');
         }
       }
     }
@@ -303,6 +324,6 @@ section#sidebar {
   }
 }
 
-@import "../rtl/include/contextmenu";
-@import "../highContrast/include/contextmenu";
-@import "../dark/include/contextmenu";
+@include meta.load-css("../rtl/include/contextmenu");
+@include meta.load-css("../highContrast/include/contextmenu");
+@include meta.load-css("../dark/include/contextmenu");

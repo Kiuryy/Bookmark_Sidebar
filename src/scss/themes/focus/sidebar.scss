@@ -1,5 +1,6 @@
-@import "../../include/vars";
-@import "../../include/mixins";
+@use "sass:meta";
+@use "../../include/vars";
+@use "../../include/mixins";
 
 [data-theme='focus'] {
 
@@ -52,7 +53,7 @@
           background: none !important;
 
           &::before {
-            -webkit-mask-size: 14px !important;
+            mask-size: 14px !important;
           }
         }
       }
@@ -70,7 +71,7 @@
         height: 24px;
 
         &::before {
-          -webkit-mask-size: 18px;
+          mask-size: 18px;
         }
       }
 
@@ -100,7 +101,9 @@
     &.selectionMode {
 
       > header {
-        width: 100px;
+        width: auto; // grows with the amount of selected entries, a fixed width would wrap the buttons at two digits
+        min-width: 100px;
+        max-width: calc(100% - 40px);
 
         > h1 {
           display: block;
@@ -108,7 +111,7 @@
 
           > strong {
             font-size: 120%;
-            font-weight: $__fontWeightMedium;
+            font-weight: vars.$dyn-fontWeightMedium;
           }
 
           > span {
@@ -136,16 +139,10 @@
       > header {
 
         > a.cancel::before {
-          @include maskImage('icon-close');
+          @include mixins.maskImage('icon-close');
           display: block;
         }
       }
-    }
-
-    > a.lockPinned {
-      top: 0;
-      border-radius: 3px;
-      transition: transform 0.1s, opacity 0.1s;
     }
 
     > div.filter {
@@ -197,5 +194,5 @@
   }
 }
 
-@import "rtl/sidebar";
-@import "dark/sidebar";
+@include meta.load-css("rtl/sidebar");
+@include meta.load-css("dark/sidebar");

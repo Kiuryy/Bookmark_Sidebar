@@ -1,20 +1,21 @@
-@import "../../include/vars";
-@import "../../include/mixins";
+@use "sass:meta";
+@use "../../include/vars";
 
 [data-theme='focus'] {
 
   div.modal {
+    background: vars.$contentBackground; // the header has no background of its own
     transition: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
     > header {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
       box-shadow: none;
       background: none;
       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
       &::before {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
 
       > h1 {
@@ -25,11 +26,11 @@
         transition: none;
 
         &::before {
-          background: $__textColor;
+          background: vars.$dyn-textColor;
         }
 
         &:hover {
-          background-color: $__hoverColor;
+          background-color: vars.$dyn-hoverColor;
         }
       }
     }
@@ -70,4 +71,4 @@
   }
 }
 
-@import "dark/overlay";
+@include meta.load-css("dark/overlay");

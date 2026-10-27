@@ -28,7 +28,8 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            sidebarPos = ext.helper.model.getData("b/sidebarPosition");
+            // in the side panel the sidebar fills the whole page starting at x=0, so the configured position must not mirror the calculation
+            sidebarPos = ext.helper.utility.getPageType() === "sidepanel" ? "left" : ext.helper.model.getData("b/sidebarPosition");
             showCreationDialog = ext.helper.model.getData("b/dndCreationDialog");
             initEvents();
             initExternalDragDropEvents();
@@ -62,8 +63,7 @@
          * @returns {boolean}
          */
         const isDraggedElementOutside = (elm) => {
-            let offset = 0;
-
+            let offset;
             if (typeof elm === "object") {
                 const boundClientRect = elm[0].getBoundingClientRect();
                 offset = boundClientRect.left;
@@ -360,7 +360,7 @@
                 ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
                 await $.delay();
-                const boundClientRect = entryElm[0].getBoundingClientRect();
+                const boundClientRect = entryElm.children("a")[0].getBoundingClientRect(); // the position of the link like when starting to drag, since it can be indented within the list entry (e.g. in the soft theme)
 
                 draggedElm.css({
                     top: boundClientRect.top + "px",
@@ -418,7 +418,7 @@
             let draggedElm = null;
             let bookmarkElm = null;
             let topVal = 0;
-            let leftVal = 0;
+            let leftVal;
 
             if (eventType === "dragover") { // dragging anything (e.g. a link, an image, ...)
                 topVal = y - 20;

@@ -1,9 +1,11 @@
+@use "../../../include/vars";
+
 body.dark {
 
   div.modal[data-type='searchEngine'] {
 
     &::after {
-      background: $darkContentBackground2;
+      background: vars.$darkContentBackground2;
     }
 
     > div.scrollBox {
@@ -11,7 +13,7 @@ body.dark {
       > ul {
 
         > li > a:hover {
-          color: $__textColor;
+          color: vars.$dyn-textColor;
         }
 
         &[data-type='custom'] > li > input {

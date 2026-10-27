@@ -1,0 +1,136 @@
+@use "../../../include/vars";
+@use "../helpers";
+
+.dark[data-theme='soft'] {
+
+  section#sidebar ~ a.dragHelper { // same selector as the generic dark styles (body.dark section#sidebar ~ a.dragHelper), otherwise their background wins
+    background: helpers.$darkSurfaceGradient !important;
+    box-shadow: helpers.darkRaised(6px);
+  }
+
+  section#sidebar {
+    background: helpers.$darkBackgroundGradient;
+
+    > header {
+
+      > h1, > a, > div.searchBox {
+        background: helpers.$darkGlassBackground;
+        box-shadow: helpers.darkRaised(4px), helpers.$darkHighlight;
+      }
+
+      > a {
+
+        &:hover {
+          background: helpers.$darkGlassBackground;
+          box-shadow: helpers.darkRaised(3px), helpers.$darkHighlight;
+        }
+
+        &:active, &.active {
+          background: helpers.$darkGlassBackground;
+          box-shadow: helpers.darkPressed(3px);
+        }
+      }
+
+      > div.searchBox > a.searchClose:hover {
+        background-color: rgba(255, 255, 255, 0.07);
+      }
+    }
+
+    > div.filter {
+      background: helpers.$darkGlassBackground;
+      box-shadow: helpers.darkRaised(4px), helpers.$darkHighlight;
+    }
+
+    > div.scrollBox {
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      &.scrolled ~ div.filter {
+        box-shadow: helpers.darkRaised(4px), helpers.$darkHighlight;
+      }
+
+      > div.pinned {
+        background: transparent;
+
+        &.fixed {
+          background: helpers.$darkGlassBackground;
+          box-shadow: helpers.darkRaised(5px), helpers.$darkHighlight;
+        }
+      }
+
+      > ul, > div.pinned > ul {
+
+        a {
+
+          &.mark {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%), vars.$dyn-colorScheme;
+          }
+        }
+      }
+
+      > a[data-name='add'] {
+        background: helpers.$darkSurfaceGradient;
+        box-shadow: helpers.darkRaised(3px);
+
+        &:hover {
+          box-shadow: helpers.darkPressed(3px);
+        }
+      }
+    }
+  }
+
+  div.contextmenu {
+    background: helpers.$darkMenuBackground;
+    box-shadow: helpers.$darkMenuShadow;
+
+    > ul.icons {
+      background: rgba(0, 0, 0, 0.1);
+      box-shadow: helpers.darkPressed(2px);
+
+      > li > a {
+
+        &.hover {
+          background-color: vars.$dyn-hoverColor;
+
+          &::before {
+            background-color: vars.$dyn-colorScheme;
+          }
+        }
+      }
+
+      > li > ul {
+        background: helpers.$darkMenuSolidBackground;
+        box-shadow: helpers.$darkMenuShadow;
+
+        &::before {
+          border-bottom-color: helpers.$darkMenuSolidBackground;
+        }
+      }
+    }
+
+    > ul.list > li > a { // the base dark styles dim the whole entry instead of the icon
+      opacity: 1;
+      transition: color 0.3s, background-color 0.3s; // the base dark styles only transition the opacity
+
+      &::before {
+        opacity: vars.$contextMenuIconOpacity;
+      }
+
+      &.hover {
+        color: vars.$dyn-colorScheme;
+
+        &::before {
+          background-color: vars.$dyn-colorScheme;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  div#infoBox {
+    background: helpers.$darkGlassBackground;
+    box-shadow: helpers.darkRaised(6px), helpers.$darkHighlight;
+  }
+}

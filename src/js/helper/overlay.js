@@ -84,6 +84,10 @@
                     handleKeyboardShortcutsDescHtml(data);
                     break;
                 }
+                case "pin": { // only opened when the user has no access to pinning entries
+                    this.showPremiumRestriction();
+                    break;
+                }
             }
 
             if (elements.modal.find("input").length() > 0) {
@@ -166,6 +170,28 @@
         };
 
         /**
+         * Fills the current overlay with the info, that the feature requires premium, and a link to the premium dialog of the settings
+         */
+        this.showPremiumRestriction = () => {
+            const desc = $("<p></p>")
+                .addClass($.cl.premium)
+                .html("<span>" + ext.helper.i18n.get("premium_restricted_text") + "</span>")
+                .appendTo(elements.modal);
+
+            const link = $("<a></a>").text(ext.helper.i18n.get("more_link")).appendTo(desc);
+
+            link.on("click", (e) => {
+                e.preventDefault();
+                ext.helper.model.call("openLink", {
+                    href: $.api.runtime.getURL("html/settings.html#premium"),
+                    newTab: true
+                });
+            });
+
+            this.setCloseButtonLabel("close");
+        };
+
+        /**
          * Returns true if the overlay iframe is in the DOM
          *
          * @returns {boolean}
@@ -204,7 +230,7 @@
             if (data.isDir) {
                 preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "'></span>");
             } else if ($.opts.demoMode) {
-                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "'></span>");
+                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (parseInt(data.id) % 10 + 1) + "'></span>"); // same color as in the sidebar
             } else {
                 ext.helper.model.call("favicon", {url: data.url}).then((response) => { // retrieve favicon of url
                     if (response.img) { // favicon found -> add to entry

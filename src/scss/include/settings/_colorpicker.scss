@@ -1,9 +1,12 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
 
 div.color-picker {
   position: absolute;
   z-index: 9;
   width: 225px;
-  background: $contentBackground;
+  background: vars.$contentBackground;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
   margin: 0;
   display: none;
@@ -68,7 +71,7 @@ div.color-picker {
   }
 
   > div.alpha {
-    background-image: img('settings/alpha.svg');
+    background-image: mixins.img('settings/alpha.svg');
     background-size: 12px;
 
     > div {
@@ -88,16 +91,16 @@ div.color-picker {
     right: 7px;
     width: 45px;
     padding: 0 5px;
-    background: $bodyBackground;
+    background: vars.$bodyBackground;
     border-radius: 18px;
     display: flex;
 
     > span {
       display: inline-block;
-      color: $textColor;
+      color: vars.$textColor;
       line-height: 18px;
       font-size: 80%;
-      font-weight: $__fontWeightBold;
+      font-weight: vars.$dyn-fontWeightBold;
       text-transform: capitalize;
     }
 
@@ -108,7 +111,7 @@ div.color-picker {
       height: 18px;
       line-height: 18px;
       border: none;
-      color: $textColor;
+      color: vars.$textColor;
       background: transparent;
       text-align: right;
       font-size: 80%;
@@ -141,11 +144,11 @@ div.color-picker {
       line-height: 18px;
       border-radius: 18px;
       border: none;
-      color: $textColor;
-      background: $bodyBackground;
+      color: vars.$textColor;
+      background: vars.$bodyBackground;
       font-size: 80%;
     }
   }
 }
 
-@import "../../rtl/include/settings/colorpicker";
+@include meta.load-css("../../rtl/include/settings/colorpicker");

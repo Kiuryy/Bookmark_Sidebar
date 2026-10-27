@@ -1,0 +1,79 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
+.btn {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 9px 12px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), inset 0 0 0 1px rgb(0 0 0 / 7%);
+  font-weight: vars.$dyn-fontWeightMedium;
+  font-size: 90%;
+  background: vars.$contentBackground linear-gradient(to bottom, rgb(0 0 0 / 0%), rgb(0 0 0 / 2%));
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.2s, opacity 0.2s, padding 0.2s;
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.03);
+    opacity: 0.97;
+  }
+
+  &:active {
+    transform: scale(1.02) translateY(1px);
+  }
+
+  &.icon {
+    @include mixins.mask(null, vars.$dyn-textColor, 18px);
+    padding: 9px 10px 9px 26px;
+
+    &::before {
+      mask-position: left center !important;
+      left: 5px !important;
+    }
+
+    &.video::before {
+      @include mixins.maskImage('settings/icon-play');
+    }
+
+    &.external::before {
+      @include mixins.maskImage('icon-newtab');
+    }
+  }
+
+  &.primary, &.selected {
+    background: vars.$gradient2;
+    color: vars.$textColorInverted;
+    font-size: 105%;
+    border: none;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%), inset 0px 0px 0px 1px rgb(255 255 255 / 10%);
+    text-shadow: 0 1px 1px rgb(0 0 0 / 30%);
+
+    &.icon {
+      padding-left: 30px;
+
+      &::before {
+        background-color: vars.$textColorInverted;
+        mask-size: 20px;
+      }
+    }
+
+    &:hover {
+      filter: hue-rotate(20deg) brightness(1.05);
+    }
+  }
+
+  &.selected {
+    @include mixins.mask("icon-check", vars.$textColorInverted, 20px);
+    background: vars.$colorSuccess;
+    padding-left: 30px;
+    pointer-events: none;
+
+    &::before {
+      mask-position: left center;
+      left: 7px;
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/button");

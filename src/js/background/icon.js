@@ -23,7 +23,7 @@
 
         const defaultColors = {
             forLight: "#555555",
-            forDark: "#ffffff"
+            forDark: "#eeeeee"
         };
 
         let currentIcon = null;
@@ -91,16 +91,29 @@
          * @param ctx
          * @param opts
          */
-        const drawSvgPath = (ctx, opts) => {
+        const drawSvgPath = async (ctx, opts) => {
             ctx.beginPath();
 
             let shapeName = opts.name;
             let shapeColor = opts.color;
             let fill = false;
 
-            if (shapeName.endsWith("-filled") || typeof icons[shapeName].strokeWidth === "undefined") {
+            if (shapeName.endsWith("-filled") || (icons[shapeName] && typeof icons[shapeName].strokeWidth === "undefined")) {
                 shapeName = shapeName.replace("-filled", "");
                 fill = true;
+            }
+
+            if (!icons[shapeName]) {
+                const resp = await fetch($.api.runtime.getURL(`img/icon-${shapeName}.svg`));
+                if (resp.ok) {
+                    const svg = await resp.text();
+                    const paths = [...svg.matchAll(/<path[^>]*\sd=["']([^"']+)["']/gi)]
+                        .map(m => m[1]);
+                    fill = true;
+                    icons[shapeName] = {
+                        path: paths.join(" ")
+                    };
+                }
             }
 
             if (opts.color === "auto") {
@@ -147,7 +160,7 @@
                 ctx.closePath();
             }
 
-            drawSvgPath(ctx, opts);
+            await drawSvgPath(ctx, opts);
             return ctx.getImageData(0, 0, iconSize, iconSize);
         };
 
@@ -158,20 +171,14 @@
          * @returns {Promise}
          */
         this.setExtensionIcon = async (opts) => {
-            const onlyCurrentTab = opts.onlyCurrentTab || false;
-
-            if (currentIcon && !onlyCurrentTab && currentIcon === opts.name + "_" + opts.color) {
+            if (currentIcon && currentIcon === opts.name + "_" + opts.color) {
                 // icon is the same -> do nothing
             } else { // icon is different
                 const imageData = await this.getImageData(opts);
                 $.api.action.setIcon({
-                    imageData: imageData,
-                    tabId: onlyCurrentTab && opts.tabId ? opts.tabId : null
+                    imageData: imageData
                 });
-
-                if (!onlyCurrentTab) {
-                    currentIcon = opts.name + "_" + opts.color;
-                }
+                currentIcon = opts.name + "_" + opts.color;
             }
         };
     };

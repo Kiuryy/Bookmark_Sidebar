@@ -1,14 +1,16 @@
+@use "../../include/vars";
+
 body.highContrast:not(.dark) div.contextmenu {
 
   > ul.list > li > a {
     transition: opacity 0.3s;
 
     &.hover {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
       opacity: 1;
 
       &::before {
-        background-color: $__textColor;
+        background-color: vars.$dyn-textColor;
         opacity: 0.8;
       }
     }

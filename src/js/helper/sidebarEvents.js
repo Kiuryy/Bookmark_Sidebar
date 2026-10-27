@@ -9,7 +9,6 @@
 
         let markTimeout = null;
         let sidepanelLeaveTimeout = null;
-        let lockPinnedEntriesTimeout = null;
         let isRestoring = false;
         let sidebarPos = null;
         let surface = null;
@@ -27,16 +26,13 @@
 
             initBookmarkEntriesEvents();
             initFilterEvents();
-            initPinnedEntriesEvents();
             initGeneralEvents();
 
             if (ext.helper.utility.getPageType() === "sidepanel") {
                 initSidepanelEvents();
             }
 
-            if (ext.helper.model.getUserType() === "premium") {
-                initSidebarWidthEvents();
-            }
+            initSidebarWidthEvents();
         };
 
         /**
@@ -72,6 +68,8 @@
                 if (middleClick) { // new tab -> middle click
                     const active = e.shiftKey || (config.newTab === "background" && config.linkAction === "newtab");
                     ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground
+                } else if (e.shiftKey) { // shift + click -> new window
+                    ext.helper.utility.openUrl(data, "newWindow");
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
                 } else if (ext.helper.selection.isEnabled() && elm.parents("div." + $.cl.sidebar.entryPinned).length() === 0) { // sidebar is in selection mode -> select/deselect the entry instead of opening the url/folder
@@ -241,59 +239,6 @@
         };
 
         /**
-         * Initializes events for the pinned entry container
-         *
-         * @returns {Promise}
-         */
-        const initPinnedEntriesEvents = async () => {
-            const clTimeout = () => { // clear timeout for the lock icon
-                if (lockPinnedEntriesTimeout) {
-                    clearTimeout(lockPinnedEntriesTimeout);
-                }
-            };
-
-            const startTimeout = () => { // remove lock icon after 500ms of hovering
-                clTimeout();
-                lockPinnedEntriesTimeout = setTimeout(() => {
-                    ext.elm.lockPinned.removeClass($.cl.active);
-                    ext.helper.toggle.removeSidebarHoverClass();
-                }, 500);
-            };
-
-            ext.elm.pinnedBox.on("mouseenter", () => {
-                clTimeout();
-                ext.elm.lockPinned.addClass($.cl.active);
-            }).on("mouseleave", () => {
-                startTimeout();
-            });
-
-            ext.elm.lockPinned.on("mouseenter", () => {
-                clTimeout();
-            }).on("mouseleave", () => {
-                startTimeout();
-            }).on("click", async (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                ext.elm.lockPinned.toggleClass($.cl.sidebar.fixed);
-                ext.elm.pinnedBox.toggleClass($.cl.sidebar.fixed);
-
-                const isLocked = ext.elm.pinnedBox.hasClass($.cl.sidebar.fixed);
-
-                await ext.helper.model.setData({
-                    "u/lockPinned": isLocked
-                });
-
-                if (isLocked === false) { // scroll to top if the pinned entries got unlocked
-                    ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0, 200);
-                    ext.elm.lockPinned.removeClass($.cl.active);
-                }
-
-                ext.helper.toggle.removeSidebarHoverClass();
-                ext.helper.list.updateSortFilter();
-            });
-        };
-
-        /**
          * Initializes general events for the sidebar
          *
          * @returns {Promise}
@@ -320,13 +265,6 @@
                     $(document).off($.opts.events.premiumPurchased);
                     ext.helper.model.call("activatePremium", {licenseKey: e.detail.licenseKey});
                 }
-            }).on($.opts.events.showFeedbackForm, () => { // user accessed the feedback page from the webstore -> open the feedback form of the extension
-                $("div[data-name='redeviation-extension']").removeAttr($.attr.name);
-
-                ext.helper.model.call("openLink", {
-                    href: $.api.runtime.getURL("html/settings.html#support"),
-                    newTab: false
-                });
             });
 
             $(ext.elm.iframeDocument).on($.opts.events.checkboxChanged, async (e) => {
@@ -401,11 +339,11 @@
                             break;
                         }
                         case "translation": {
-                            href = "html/settings.html#language_translate";
+                            href = "html/translations.html";
                             break;
                         }
                         case "shareInfo": {
-                            href = "html/settings.html#infos_permissions";
+                            href = "html/settings.html#share-info";
                             break;
                         }
                     }

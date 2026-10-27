@@ -1,0 +1,16 @@
+// The sidebar preview is shown on the left (see SettingsPreviewHelper.rebuild())
+html[dir='rtl'] body[data-tab="appearance"] {
+  padding-right: 0;
+  padding-left: 280px;
+  background: linear-gradient(
+          135deg,
+          #8BDEDA 0%,
+          #43ADD0 7%,
+          #998EE0 14%,
+          #E17DC2 21%,
+          #EF9393 28%,
+          transparent 50%
+  );
+  background-repeat: no-repeat;
+  background-position: left top;
+}

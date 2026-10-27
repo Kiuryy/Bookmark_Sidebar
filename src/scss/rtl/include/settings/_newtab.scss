@@ -1,60 +1,23 @@
+html[dir='rtl'] body > main {
 
-html[dir='rtl'] {
+  section.extension-recommendations > a {
+    padding: 7px 12px 7px 14px;
+  }
 
-  body[data-type^='newtab'] {
+  div.url {
+    direction: ltr;
+  }
 
-    > section#wrapper > main {
+  div.buttons > a.btn {
 
-      div.intro {
-        padding-right: 100px;
-        padding-left: 20px;
+    + a.btn {
+      margin-left: 0;
+      margin-right: 8px;
+    }
 
-        &::before {
-          left: unset;
-          right: 0;
-          transform: scaleX(-1);
-        }
-      }
-
-      section.extensionRecommendations > a {
-        padding-left: 20px;
-        padding-right: 16px;
-      }
-
-      div.buttons {
-
-        > a.button {
-          padding-right: 38px;
-          padding-left: 15px;
-
-          + a.button {
-            margin-right: 10px;
-            margin-left: unset;
-          }
-
-          &[data-name='preview']::before {
-            right: 2px;
-            left: unset;
-          }
-
-          &[data-name='styling']::before {
-            right: 5px;
-            left: unset;
-            transform: scaleX(-1);
-          }
-        }
-      }
-
-      div.faviconOptions {
-
-        > aside {
-          justify-self: left;
-
-          @media (max-width: 1280px) {
-            justify-self: right;
-          }
-        }
-      }
+    &[data-name='styling']::before {
+      transform: scaleX(-1);
+      mask-position: left center !important; // mirrored -> left is the right side again
     }
   }
 }

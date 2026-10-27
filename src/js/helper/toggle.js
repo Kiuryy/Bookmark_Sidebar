@@ -6,9 +6,12 @@
      * @constructor
      */
     $.ToggleHelper = function (ext) {
-        const toggleArea = {};
         const timeout = {};
 
+        let triggerWidth = null;
+        let triggerWidthWindowed = null;
+        let triggerHeight = null;
+        let triggerOffsetTop = null;
         let openDelay = 0;
         let mouseNotTopLeft = false;
         let hoveredOnce = false;
@@ -18,6 +21,8 @@
         let preventWebapp = null;
         let indicatorWidth = null;
         let sidebarWidth = null;
+        let showIndicator = true;
+        let showIndicatorIcon = true;
         let inPixelToleranceTime = null;
         let keypressed = null;
         let refocusWebsite = null;
@@ -29,7 +34,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "b/refocusWebsite", "n/autoOpen"]);
+            const data = ext.helper.model.getData(["a/theme", "b/triggerWidth", "b/triggerWidthWindowed", "b/triggerHeight", "b/triggerOffsetTop", "b/preventPageScroll", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "b/refocusWebsite", "n/autoOpen"]);
             const pageType = ext.helper.utility.getPageType();
 
             ext.elm.indicator = $("<div></div>")
@@ -45,23 +50,23 @@
                 lastFocussed = document.activeElement;
             }
 
-            Object.entries(data.toggleArea).forEach(([key, val]) => {
-                toggleArea[key] = +val;
-            });
-
             openDelay = +data.openDelay * 1000;
             sidebarPos = pageType === "sidepanel" ? "right" : data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
             preventWindowed = data.preventWindowed;
             preventWebapp = data.preventWebapp;
             refocusWebsite = data.refocusWebsite;
+            triggerWidth = +data.triggerWidth;
+            triggerWidthWindowed = +data.triggerWidthWindowed;
+            triggerHeight = +data.triggerHeight;
+            triggerOffsetTop = +data.triggerOffsetTop;
 
             ext.elm.indicator.css({
-                height: toggleArea.height + "%",
-                top: toggleArea.top + "%"
+                height: triggerHeight + "%",
+                top: triggerOffsetTop + "%"
             });
 
-            if (toggleArea.height === 100) {
+            if (triggerHeight === 100) {
                 ext.elm.indicator.addClass($.cl.page.fullHeight);
             }
 
@@ -75,12 +80,18 @@
                 if (data.styles.sidebarWidth) {
                     sidebarWidth = parseInt(data.styles.sidebarWidth);
                 }
+                if (data.styles.indicatorWidth) {
+                    showIndicator = parseInt(data.styles.indicatorWidth) > 0;
+                }
+                if (data.styles.indicatorIconSize) {
+                    showIndicatorIcon = parseInt(data.styles.indicatorIconSize) > 0;
+                }
             }
 
-            if (data.showIndicator && pageType !== "sidepanel" && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
+            if (showIndicator && pageType !== "sidepanel" && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
                 ext.elm.indicator.html("<div></div>").attr($.attr.position, sidebarPos);
 
-                if (data.showIndicatorIcon) { // show indicator icon
+                if (showIndicatorIcon) { // show indicator icon
                     $("<span></span>").appendTo(ext.elm.indicator.children("div"));
                 }
 
@@ -227,8 +238,7 @@
                 tooltips.length() === 0 &&
                 !ext.elm.iframeBody.hasClass($.cl.drag.isDragged) &&
                 !ext.elm.widthDrag.hasClass($.cl.drag.isDragged) &&
-                !ext.elm.widthDrag.hasClass($.cl.hover) &&
-                !ext.elm.lockPinned.hasClass($.cl.active)
+                !ext.elm.widthDrag.hasClass($.cl.hover)
             ) {
                 ext.elm.iframe.removeClass($.cl.page.hover);
 
@@ -346,14 +356,12 @@
 
             if (openAction !== "icon") {
                 $(document).on(openAction + ".bs dragover.bs", (e) => {
-                    let openByType = false;
+                    let openByType = true;
                     if (e.type === "dragover") { // drag -> only open when configuration is set
                         const dt = e.dataTransfer;
                         openByType = dt && dt.types && (dt.types.indexOf ? dt.types.indexOf("text/plain") !== -1 : dt.types.contains("text/plain"));
                     } else if (e.type === "mousedown") { // mousedown -> only open when the left mouse button is pressed
                         openByType = e.button === 0;
-                    } else {
-                        openByType = true;
                     }
 
                     if (e.isTrusted && openByType && isMousePosInPixelTolerance(e.clientX, e.clientY)) { // check mouse position and mouse button
@@ -421,9 +429,9 @@
                         clientX = window.innerWidth - clientX - 1;
                     }
 
-                    let w = toggleArea.width;
+                    let w = triggerWidth;
                     if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
-                        w = toggleArea.widthWindowed;
+                        w = triggerWidthWindowed;
                     }
 
                     const area = {
@@ -435,7 +443,7 @@
                         area.w = indicatorWidth;
                     }
 
-                    ret = clientX < area.w && (area.h >= toggleArea.top && area.h <= toggleArea.top + toggleArea.height);
+                    ret = clientX < area.w && (area.h >= triggerOffsetTop && area.h <= triggerOffsetTop + triggerHeight);
                 }
             }
 

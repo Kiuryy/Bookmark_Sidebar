@@ -1,8 +1,12 @@
+@use "sass:meta";
+@use "mixins";
+@use "vars";
+
 
 div.modal[data-type='checkBookmarks'] {
 
   > header::before {
-    @include maskImage('icon-update');
+    @include mixins.maskImage('icon-update');
   }
 
   > p {
@@ -13,11 +17,11 @@ div.modal[data-type='checkBookmarks'] {
     line-height: 170%;
 
     &.success {
-      @include mask('icon-check', $colorSuccess, 48px);
+      @include mixins.mask('icon-check', vars.$colorSuccess, 48px);
       padding: 90px 0 80px;
 
       &::before {
-        -webkit-mask-position-y: bottom;
+        mask-position: center bottom;
       }
     }
   }
@@ -37,7 +41,7 @@ div.modal[data-type='checkBookmarks'] {
       left: 0;
       height: 100%;
       border-radius: 0 20px 20px 0;
-      background: $__colorScheme;
+      background: vars.$dyn-colorScheme;
       transition: width 0.2s linear;
     }
   }
@@ -60,51 +64,51 @@ div.modal[data-type='checkBookmarks'] {
 
   > menu.categories {
     position: absolute;
-    top: $__overlayHeaderHeight;
+    top: vars.$dyn-overlayHeaderHeight;
     left: 0;
     width: 210px;
-    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    height: calc(100% - #{vars.$dyn-overlayHeaderHeight} - 57px);
     padding-top: 20px;
     border-right-width: 1px;
     border-right-style: solid;
-    border-color: $separatorColor;
+    border-color: vars.$separatorColor;
 
     > li {
-      @include mask(null, $__textColor, 20px);
+      @include mixins.mask(null, vars.$dyn-textColor, 20px);
       position: relative;
       height: 40px;
 
       &::before {
         left: 10px;
         width: 20px;
-        -webkit-mask-position-x: 0;
+        mask-position: 0 center;
       }
 
       &[data-name='changed']::before {
-        @include maskImage('icon-update-2');
+        @include mixins.maskImage('icon-update-2');
       }
 
       &[data-name='broken']::before {
-        @include maskImage('icon-broken');
+        @include mixins.maskImage('icon-broken');
       }
 
       &[data-name='duplicate']::before {
-        @include maskImage('icon-duplicate');
+        @include mixins.maskImage('icon-duplicate');
       }
 
       &[data-name='empty']::before {
-        @include maskImage('icon-dir-1');
-        -webkit-mask-size: 16px;
+        @include mixins.maskImage('icon-dir-1');
+        mask-size: 16px;
       }
 
       &.active {
-        background: $contentBackground2;
+        background: vars.$contentBackground2;
 
         &::after {
           content: "";
           position: absolute;
-          border: 1px solid $separatorColor;
-          background: $contentBackground;
+          border: 1px solid vars.$separatorColor;
+          background: vars.$contentBackground;
           top: 0;
           bottom: 0;
           margin: auto;
@@ -140,7 +144,7 @@ div.modal[data-type='checkBookmarks'] {
 
   > div[id^='results_'] {
     position: relative;
-    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    height: calc(100% - #{vars.$dyn-overlayHeaderHeight} - 57px);
     margin-left: 210px;
     display: none;
 
@@ -151,12 +155,12 @@ div.modal[data-type='checkBookmarks'] {
     > p {
       position: relative;
       min-height: 100%;
-      background: $contentBackground;
+      background: vars.$contentBackground;
       text-align: center;
       padding: 50px 20px 0;
 
       > span {
-        @include mask('icon-check', $__textColor, 32px);
+        @include mixins.mask('icon-check', vars.$dyn-textColor, 32px);
         position: relative;
         display: inline-block;
         font-size: 140%;
@@ -164,7 +168,7 @@ div.modal[data-type='checkBookmarks'] {
         padding-left: 40px;
 
         &::before {
-          -webkit-mask-position-x: 0;
+          mask-position: 0 center;
           opacity: 0.4;
         }
       }
@@ -173,12 +177,12 @@ div.modal[data-type='checkBookmarks'] {
     > ul {
       position: relative;
       min-height: 100%;
-      background: $contentBackground;
+      background: vars.$contentBackground;
 
       > li {
         position: relative;
         padding: 17px 11px;
-        border-bottom: 1px solid $separatorColor;
+        border-bottom: 1px solid vars.$separatorColor;
         transition: height 0.3s, padding 0.3s, opacity 0.25s;
 
         &:last-child {
@@ -206,7 +210,7 @@ div.modal[data-type='checkBookmarks'] {
 
         > strong, > a.info {
           display: inline-block;
-          font-weight: $__fontWeightBold;
+          font-weight: vars.$dyn-fontWeightBold;
           width: calc(100% - 155px);
           vertical-align: top;
           white-space: nowrap;
@@ -228,23 +232,23 @@ div.modal[data-type='checkBookmarks'] {
           z-index: 2;
 
           &:hover {
-            background-color: $contentBackground2;
+            background-color: vars.$contentBackground2;
           }
         }
 
         a.urlCheckAction {
-          @include mask('icon-delete', $__textColor, 18px);
+          @include mixins.mask('icon-delete', vars.$dyn-textColor, 18px);
           right: 10px;
         }
 
         a.urlCheckHide {
-          @include mask('icon-hide', $__textColor, 18px);
+          @include mixins.mask('icon-hide', vars.$dyn-textColor, 18px);
           right: 50px;
         }
 
         > ul.breadcrumb {
           display: inline-block;
-          font-weight: $__fontWeightBold;
+          font-weight: vars.$dyn-fontWeightBold;
           vertical-align: top;
 
           > li {
@@ -264,7 +268,7 @@ div.modal[data-type='checkBookmarks'] {
                 width: 0;
                 height: 0;
                 border: 4px solid transparent;
-                border-left-color: $__textColor;
+                border-left-color: vars.$dyn-textColor;
                 opacity: 0.5;
               }
             }
@@ -312,7 +316,7 @@ div.modal[data-type='checkBookmarks'] {
             }
 
             > strong {
-              font-weight: $__fontWeightMedium;
+              font-weight: vars.$dyn-fontWeightMedium;
             }
 
             > a.urlCheckAction {
@@ -323,7 +327,7 @@ div.modal[data-type='checkBookmarks'] {
               height: 26px;
 
               &::before {
-                -webkit-mask-size: 16px;
+                mask-size: 16px;
               }
             }
 
@@ -348,7 +352,7 @@ div.modal[data-type='checkBookmarks'] {
                     width: 0;
                     height: 0;
                     border: 3px solid transparent;
-                    border-left-color: $__textColor;
+                    border-left-color: vars.$dyn-textColor;
                     opacity: 0.5;
                   }
                 }
@@ -357,7 +361,7 @@ div.modal[data-type='checkBookmarks'] {
           }
 
           ~ a.urlCheckHide {
-            @include mask('icon-hide', $__textColor, 18px);
+            @include mixins.mask('icon-hide', vars.$dyn-textColor, 18px);
             right: 10px;
             top: 12px;
             bottom: unset;
@@ -369,8 +373,8 @@ div.modal[data-type='checkBookmarks'] {
     &#results_changed {
 
       > ul > li > a.urlCheckAction::before {
-        @include maskImage('icon-check');
-        -webkit-mask-size: 22px;
+        @include mixins.maskImage('icon-check');
+        mask-size: 22px;
       }
     }
   }
@@ -380,7 +384,7 @@ div.modal[data-type='checkBookmarks'] {
   }
 
   &.urlCheckResults {
-    @extend %modalFooterBackground;
+    @include mixins.modalFooterBackground;
     width: 900px;
     height: 700px;
     max-height: 100%;
@@ -416,7 +420,7 @@ div.modal[data-type='checkBookmarks'] {
       border-right-width: 0;
       border-bottom-width: 1px;
       border-bottom-style: solid;
-      border-color: $separatorColor;
+      border-color: vars.$separatorColor;
 
       > li::after {
         display: none;
@@ -444,6 +448,6 @@ div.modal[data-type='checkBookmarks'] {
   }
 }
 
-@import "../rtl/include/linkchecker";
-@import "../highContrast/include/linkchecker";
-@import "../dark/include/linkchecker";
+@include meta.load-css("../rtl/include/linkchecker");
+@include meta.load-css("../highContrast/include/linkchecker");
+@include meta.load-css("../dark/include/linkchecker");

@@ -228,7 +228,8 @@
 
                     if (searchResults.length() === 1) {
                         ext.helper.sidebarEvents.handleEntryClick(searchResults.eq(0).children("a"), {
-                            ctrlKey: (e.ctrlKey || e.metaKey)
+                            ctrlKey: (e.ctrlKey || e.metaKey),
+                            shiftKey: e.shiftKey
                         });
                     }
                 }

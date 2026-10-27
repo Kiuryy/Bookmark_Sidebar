@@ -54,26 +54,8 @@
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
-            // Show upgrade info due to the changed new tab override options
-            try {
-                const oldVersionNumber = parseFloat(versionPartsOld[0] + "." + versionPartsOld[1]);
-                const newVersionNumber = parseFloat(versionPartsNew[0] + "." + versionPartsNew[1]);
-
-                if (!isNaN(oldVersionNumber) && !isNaN(newVersionNumber) && oldVersionNumber < 2.5 && newVersionNumber >= 2.5) {
-                    const obj = await $.api.storage.sync.get(["newtab"]);
-                    if (obj && obj.newtab && (obj.newtab.override === true || obj.newtab.override === "true")) {
-                        b.helper.utility.openLink({
-                            href: $.api.runtime.getURL("html/tmp_upgrade.html"),
-                            newTab: true
-                        });
-                    }
-                }
-            } catch (e) {
-                // Silently handle any errors in version parsing or comparison
-            }
-
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                await updateOptions("upgrade");
+                await updateOptions("upgrade", details.previousVersion);
             }
 
             await b.reinitialize();
@@ -83,10 +65,14 @@
          * Updates the stored settings and data after installing or upgrading
          *
          * @param {string} type
+         * @param {string} previousVersion only set for type=upgrade
          * @returns {Promise}
          */
-        const updateOptions = async (type) => {
+        const updateOptions = async (type, previousVersion = null) => {
             const obj = await $.api.storage.sync.get(null); // get all stored information
+            const {utility} = await $.api.storage.local.get(["utility"]);
+            obj.utility = utility || {};
+
             if (typeof obj.behaviour === "undefined") {
                 obj.behaviour = {};
             }
@@ -104,7 +90,7 @@
             }
 
             if (type === "upgrade") {
-                updateOptionsAfterUpgrade(obj);
+                updateOptionsAfterUpgrade(obj, previousVersion);
             } else if (type === "install") {
                 updateOptionsAfterInstall(obj);
             }
@@ -112,6 +98,7 @@
             await $.api.storage.sync.set({behaviour: obj.behaviour});
             await $.api.storage.sync.set({newtab: obj.newtab});
             await $.api.storage.sync.set({appearance: obj.appearance});
+            await $.api.storage.local.set({utility: obj.utility});
         };
 
         /**
@@ -132,8 +119,32 @@
          * Upgrades the stored settings and data to be compatible to the new version
          *
          * @param {object} obj
+         * @param {string} previousVersion
          */
-        const updateOptionsAfterUpgrade = (obj) => {
+        const updateOptionsAfterUpgrade = (obj, previousVersion) => {
+            if (parseInt(previousVersion, 10) < 3 && typeof obj.behaviour.mode === "undefined") { // upgrade from v1/v2 to v3+
+                if (obj.behaviour.overlayEnabled === false) {
+                    obj.behaviour.mode = "sidepanel";
+                } else if (obj.behaviour.openAction === "icon" || (obj.behaviour.iconAction && obj.behaviour.iconAction !== "sidepanel")) { // extension icon toggled the overlay
+                    obj.behaviour.mode = "overlay";
+                } else {
+                    obj.behaviour.mode = "both";
+                }
+            }
+
+            if (obj.behaviour.toggleArea && typeof obj.behaviour.toggleArea === "object") { // toggleArea was split into separate trigger* options
+                Object.entries({
+                    width: "triggerWidth",
+                    widthWindowed: "triggerWidthWindowed",
+                    height: "triggerHeight",
+                    top: "triggerOffsetTop"
+                }).forEach(([oldKey, newKey]) => {
+                    if (typeof obj.behaviour.toggleArea[oldKey] !== "undefined" && typeof obj.behaviour[newKey] === "undefined") {
+                        obj.behaviour[newKey] = +obj.behaviour.toggleArea[oldKey];
+                    }
+                });
+            }
+
             try {
                 delete obj.appearance.darkMode;
                 delete obj.behaviour.contextmenu;
@@ -149,6 +160,13 @@
                 delete obj.behaviour.replaceNewTab;
                 delete obj.behaviour.language;
                 delete obj.behaviour.model;
+                delete obj.behaviour.overlayEnabled;
+                delete obj.behaviour.iconAction;
+                delete obj.behaviour.toggleArea;
+                delete obj.appearance.showIndicator;
+                delete obj.appearance.showIndicatorIcon;
+                delete obj.appearance.showBookmarkIcons;
+                delete obj.appearance.showDirectoryIcons;
                 delete obj.appearance.language;
                 delete obj.appearance.sidebarPosition;
                 delete obj.appearance.addVisual;
@@ -164,16 +182,11 @@
                 delete obj.newtab.focusOmnibox;
                 delete obj.newtab.website;
 
-                if (obj.appearance.styles && obj.appearance.styles.fontFamily && obj.appearance.styles.fontFamily.toUpperCase() === "DEFAULT") {
-                    const existingFontFamily = obj.appearance.styles.fontFamily.toUpperCase();
-
-                    if (existingFontFamily === "DEFAULT"
-                        || existingFontFamily === "ROBOTO"
-                        || existingFontFamily === "NOTO SANS SC"
-                        || existingFontFamily === "NOTO SANS TC"
-                        || existingFontFamily === "NOTO SANS JAPANESE") {
-                        obj.appearance.styles.fontFamily = "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif";
+                if (typeof obj.utility.lockPinned !== "undefined") { // lockPinned moved from utility to behaviour
+                    if (typeof obj.behaviour.lockPinned === "undefined") {
+                        obj.behaviour.lockPinned = obj.utility.lockPinned;
                     }
+                    delete obj.utility.lockPinned;
                 }
             } catch (e) {
                 //

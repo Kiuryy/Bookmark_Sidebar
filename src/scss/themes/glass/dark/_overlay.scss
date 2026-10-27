@@ -1,10 +1,35 @@
+@use "../../../include/vars";
+
 .dark[data-theme='glass'] div.modal {
-  background: #{"rgba(0, 0, 0, #{$__backgroundTransparency})"};
+  background: #{"rgba(0, 0, 0, #{vars.$dyn-backgroundTransparency})"};
 
   &[data-type='keyboardShortcuts']::after,
   &.urlCheckResults[data-type='checkBookmarks']::after,
   &[data-type='searchEngine']::after {
     background: rgba(255, 255, 255, 0.1);
+  }
+
+  &[data-type='checkBookmarks'] { // the generic dark styles (body.dark div.modal …) are more specific than the light ones of the theme, so they have to be repeated here
+
+    > menu.categories > li.active {
+      background-color: vars.$dyn-hoverColor;
+
+      &::after {
+        border-color: vars.$dyn-textColor;
+        background: none;
+      }
+    }
+
+    > div[id^='results_'] {
+
+      > p, > ul {
+        background: transparent;
+      }
+
+      > ul > li a.urlCheckAction:hover, > ul > li a.urlCheckHide:hover {
+        background-color: vars.$dyn-hoverColor;
+      }
+    }
   }
 
   &[data-type='edit'], &[data-type='add'] {

@@ -1,3 +1,5 @@
+@use "../../../include/vars";
+
 
 body.dark {
 
@@ -6,12 +8,12 @@ body.dark {
     > nav > ul > li > a {
 
       &:hover {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
       }
     }
   }
 
   &.customBackground section#content > nav > ul > li > a {
-    background: rgba($darkContentBackground,0.7);
+    background: rgba(vars.$darkContentBackground,0.7);
   }
 }

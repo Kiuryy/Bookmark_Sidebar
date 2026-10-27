@@ -1,0 +1,58 @@
+// Palette and shadows of the soft theme, shared by the sidebar and the overlay stylesheet
+
+$gap: 12px; // space between the floating header blobs/filter and the edges of the sidebar
+$blobSize: var(--blobSize); // height of the title, search field and buttons in the header, depends on the header height (see sidebar.scss)
+$headerGap: 6px; // space between the blobs in the header
+$headerPadding: 10px; // space between the blobs and the edges of the sidebar
+
+$background: #eef1f5;
+$backgroundGradient: linear-gradient(160deg, #f6f8fb 0%, #eef1f5 55%, #e6eaf0 100%);
+$surfaceGradient: linear-gradient(145deg, #fafbfd 0%, #e8ecf1 100%);
+$glassBackground: rgba(246, 248, 251, 0.6);
+// floating menus are lighter than the sidebar and have an outline + deep shadow, so they clearly stand out
+$menuBackground: rgba(247, 249, 252, 0.88);
+$menuSolidBackground: #f6f8fb; // sub menus, their arrow can't be semi-transparent
+$menuShadow: 0 0 0 1px rgba(60, 72, 90, 0.08), 0 4px 10px rgba(60, 72, 90, 0.12), 0 16px 40px rgba(60, 72, 90, 0.25);
+$modalBackgroundGradient: linear-gradient(160deg, #fafbfd 0%, #f4f6f9 55%, #eef1f5 100%); // lighter than the sidebar, like the menus
+$fieldBackground: rgba(255, 255, 255, 0.95); // text fields in the overlay, clearly lighter than the background
+$glassBlur: blur(16px) saturate(160%);
+$shadowDark: rgba(163, 177, 198, 0.6);
+$shadowLight: rgba(255, 255, 255, 0.9);
+$pressedShadowDark: rgba(163, 177, 198, 0.3);
+$pressedShadowLight: rgba(255, 255, 255, 0.6);
+$highlight: inset 1px 1px 0 rgba(255, 255, 255, 0.7);
+
+$darkBackground: #2a2e35;
+$darkContentBackground: #30343c; // solid content area on top of the background gradient (e.g. results of the bookmark checker)
+$darkBackgroundGradient: linear-gradient(160deg, #323741 0%, #2a2e35 55%, #23262c 100%);
+$darkSurfaceGradient: linear-gradient(145deg, #343943 0%, #272a30 100%);
+$darkGlassBackground: rgba(44, 48, 56, 0.6);
+$darkMenuBackground: rgba(60, 65, 75, 0.92);
+$darkMenuSolidBackground: #3e434d;
+$darkMenuShadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 10px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(0, 0, 0, 0.55);
+$darkFieldBackground: rgba(0, 0, 0, 0.25);
+$darkShadowDark: rgba(0, 0, 0, 0.45);
+$darkShadowLight: rgba(255, 255, 255, 0.04);
+$darkPressedShadowDark: rgba(0, 0, 0, 0.25);
+$darkPressedShadowLight: rgba(255, 255, 255, 0.03);
+$darkHighlight: inset 1px 1px 0 rgba(255, 255, 255, 0.06);
+
+// Soft shadow making the element look like it is extruded from the background
+@function raised($size, $dark: $shadowDark, $light: $shadowLight) {
+  @return $size $size ($size * 2) $dark, (-$size) (-$size) ($size * 2) $light;
+}
+
+// Soft shadow making the element look like it is gently pressed into the background (lighter and more blurred than raised),
+// starts with two empty outer shadows, so it lines up with raised() (+ $highlight) and box-shadow can transition between them
+@function pressed($size, $dark: $pressedShadowDark, $light: $pressedShadowLight) {
+  @return 0 0 0 transparent, 0 0 0 transparent,
+  inset ($size * 0.5) ($size * 0.5) ($size * 2.5) $dark, inset ($size * -0.5) ($size * -0.5) ($size * 2.5) $light;
+}
+
+@function darkRaised($size) {
+  @return raised($size, $darkShadowDark, $darkShadowLight);
+}
+
+@function darkPressed($size) {
+  @return pressed($size, $darkPressedShadowDark, $darkPressedShadowLight);
+}

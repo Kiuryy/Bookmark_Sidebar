@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title data-i18n="settings_translation_overview"></title>
+    <style>
+        body.building > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="building">
+<header>
+    <div>
+        <div id="logo"><span></span></div>
+
+        <menu id="breadcrumb"></menu>
+
+        <menu id="actions">
+            <li>
+                <a class="btn primary" id="save" data-i18n="settings_translation_submit"></a>
+            </li>
+        </menu>
+    </div>
+</header>
+
+<main>
+
+    <!-- all languages -->
+    <section class="view" data-name="overview">
+        <section class="wrapper">
+            <strong data-i18n="settings_translation_overview"></strong>
+            <p class="intro" data-i18n="settings_translation_info"></p>
+
+            <div class="cols languages" data-cols="3"></div>
+        </section>
+    </section>
+
+    <!-- categories of the selected language -->
+    <section class="view" data-name="language">
+        <section class="wrapper">
+            <strong>
+                <span class="headline"></span>
+                <a href="#" class="btn back" data-i18n="settings_translation_back_to_overview"></a>
+            </strong>
+
+            <div class="cols intro">
+                <div class="col">
+                    <p data-i18n="settings_translation_notice1"></p>
+                    <p data-i18n="settings_translation_notice2"></p>
+                </div>
+                <div class="col">
+                    <div class="reminder">
+                        <label data-i18n="settings_translation_reminder_desc"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cols categories" data-cols="3"></div>
+        </section>
+    </section>
+
+    <!-- language variables of the selected category -->
+    <section class="view" data-name="category">
+        <section class="wrapper">
+            <div class="toolbar">
+                <strong class="headline"></strong>
+                <a href="#" class="btn back" data-i18n="settings_translation_back_to_overview"></a>
+                <span class="amount-info"></span>
+                <a class="goto" data-value="up"></a>
+                <a class="goto" data-value="down"></a>
+            </div>
+
+            <p class="help"></p>
+
+            <ul class="entries"></ul>
+        </section>
+    </section>
+
+    <!-- translation service is not reachable -->
+    <section class="view" data-name="unavailable">
+        <section class="wrapper">
+            <strong data-i18n="status_service_unavailable_headline"></strong>
+            <p data-i18n="status_translation_unavailable_desc"></p>
+        </section>
+    </section>
+
+</main>
+
+<section id="thanks-dialog" class="dialog">
+    <div>
+        <header><h2 data-i18n="settings_translation_thanks_headline"></h2></header>
+
+        <blockquote>
+            <p data-i18n="settings_translation_thanks_desc"></p>
+            <footer data-i18n="extension_author"></footer>
+        </blockquote>
+
+        <input type="email" placeholder="your@email-address.com"/>
+
+        <footer>
+            <a href="#" class="btn primary" data-type="submit" data-i18n="settings_translation_submit"></a>
+            <a href="#" class="btn" data-type="close" data-i18n="settings_translation_thanks_close"></a>
+        </footer>
+    </div>
+</section>
+
+<script src='/js/translations.js'></script>
+</body>
+</html>

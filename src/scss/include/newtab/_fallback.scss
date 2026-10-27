@@ -1,6 +1,10 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
 
 div#fallbackInfo {
-  @include mask('icon-info', $textColorLight, 24px);
+  @include mixins.mask('icon-info', vars.$textColorLight, 24px);
   position: relative;
   width: 100%;
   max-width: 650px;
@@ -20,21 +24,21 @@ div#fallbackInfo {
   }
 
   > h2 {
-    font-weight: $__fontWeightNormal;
+    font-weight: vars.$dyn-fontWeightNormal;
     font-size: 140%;
   }
 
   > p {
-    font-weight: $__fontWeightNormal;
-    color: $textColorLight;
+    font-weight: vars.$dyn-fontWeightNormal;
+    color: vars.$textColorLight;
     font-size: 120%;
     margin: 7px 0 25px 0;
   }
 
   > a {
-    font-weight: $__fontWeightMedium;
+    font-weight: vars.$dyn-fontWeightMedium;
     cursor: pointer;
-    color: $__colorScheme;
+    color: vars.$dyn-colorScheme;
     font-size: 110%;
   }
 
@@ -56,9 +60,9 @@ div#fallbackInfo {
 }
 
 body.customBackground div#fallbackInfo {
-  background: rgba($contentBackground, 0.8);
+  background: rgba(vars.$contentBackground, 0.8);
 }
 
-@import "../../rtl/include/newtab/fallback";
-@import "../../highContrast/include/newtab/fallback";
-@import "../../dark/include/newtab/fallback";
+@include meta.load-css("../../rtl/include/newtab/fallback");
+@include meta.load-css("../../highContrast/include/newtab/fallback");
+@include meta.load-css("../../dark/include/newtab/fallback");

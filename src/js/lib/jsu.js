@@ -2,7 +2,7 @@
  * jsu - Javascript Utilities
  *
  * Philipp König
- * https://redeviation.com/
+ * https://philipp-koenig.com/
  */
 (() => {
     "use strict";
@@ -31,6 +31,29 @@
             return new Promise((resolve) => {
                 setTimeout(resolve, t);
             });
+        },
+        /**
+         * Deep merges source into target (mutates target)
+         * Arrays are treated as atomic values (replaced, not merged)
+         *
+         * @param {object} target
+         * @param {object} source
+         * @returns {object}
+         */
+        deepMerge: (target, source) => {
+            Object.keys(source).forEach((key) => {
+                const sourceValue = source[key];
+                const targetValue = target[key];
+
+                const isMergeableObject = (val) => val instanceof Object && !Array.isArray(val);
+
+                if (isMergeableObject(sourceValue) && key in target && isMergeableObject(targetValue)) {
+                    jsuTools.deepMerge(targetValue, sourceValue);
+                } else {
+                    target[key] = sourceValue;
+                }
+            });
+            return target;
         },
         /**
          * Returns the basic system information

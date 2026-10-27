@@ -1,3 +1,5 @@
+@use "../include/vars";
+
 
 body.highContrast:not(.dark) div.modal {
 
@@ -11,7 +13,7 @@ body.highContrast:not(.dark) div.modal {
   p.premium {
 
     > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
     }
   }
 
@@ -24,11 +26,11 @@ body.highContrast:not(.dark) div.modal {
         &.hover {
 
           &::before {
-            background-color: $__textColor;
+            background-color: vars.$dyn-textColor;
           }
 
           &::after {
-            color: $__textColor;
+            color: vars.$dyn-textColor;
           }
         }
       }
@@ -46,10 +48,10 @@ body.highContrast:not(.dark) div.modal {
   &[data-type='keyboardShortcuts'] {
 
     > div.scrollBox > div > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
 
       &::before {
-        border-color: $__textColor;
+        border-color: vars.$dyn-textColor;
       }
     }
   }
@@ -57,10 +59,10 @@ body.highContrast:not(.dark) div.modal {
   > menu.buttons {
 
     > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
 
       &::before {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
     }
   }

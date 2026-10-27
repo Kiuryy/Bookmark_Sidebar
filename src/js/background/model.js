@@ -82,23 +82,25 @@
 
                 if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
                     return {info: "shareInfo"};
-                } else if (translationInfo.length > 0 && daysSinceTranslationReminder > 3) { // user has enabled translation reminder and didn't got one the last three days -> check whether a language the user wants to be notified about is incomplete
+                }
+
+                if (translationInfo.length > 0 && daysSinceTranslationReminder > 3) { // user has enabled translation reminder and didn't got one the last three days -> check whether a language the user wants to be notified about is incomplete
+                    await this.setData("translationReminder", +new Date()); // save before fetching, so a failed request isn't repeated on every sidebar open
                     const langList = await b.helper.language.getIncompleteLanguages();
-                    await this.setData("translationReminder", +new Date());
 
                     for (const lang of translationInfo) {
                         if (langList.indexOf(lang) !== -1) { // a language of the list is incomplete -> show info box
                             return {info: "translation"};
                         }
                     }
-                } else {
-                    const obj = await this.getUserType();
-                    const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+                }
 
-                    if (obj.userType !== "premium" && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
-                        await this.setData("premiumInfo", +new Date());
-                        return {info: "premium"};
-                    }
+                const obj = await this.getUserType();
+                const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+
+                if (!obj.userType.startsWith("premium") && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
+                    await this.setData("premiumInfo", +new Date());
+                    return {info: "premium"};
                 }
             }
 
@@ -111,12 +113,23 @@
          * @returns {Promise}
          */
         this.getUserType = async () => {
-            let userType = "default";
+            if ($.opts.demoMode) { // the demo profile can define the user type (see demo/profile/extension-settings.js), read on every call, since it is stored after the background script has been initialised
+                const config = await $.api.storage.sync.get(["demoUserType"]);
+                if (typeof config.demoUserType === "string") {
+                    return {userType: config.demoUserType};
+                }
+            }
 
-            if (typeof licenseKey === "string" && licenseKey.length === 29) { // license key is available
+            let userType = "free";
+
+            if (typeof licenseKey === "string" && licenseKey.length === 29 && licenseKey.endsWith("XXX")) {
+                userType = "premium-plus";
+            } else if (typeof licenseKey === "string" && licenseKey.length === 29) {
                 userType = "premium";
             } else if (data && data.installationDate && data.installationDate < 1538352000000) { // installed before 01.10.2018
-                userType = "legacy";
+                userType = "pre2018";
+            } else if (data && data.installationDate && data.installationDate < 1788220800000) { // installed before 01.09.2026 TODO adapt to real date
+                userType = "pre2026";
             }
 
             return {userType: userType};

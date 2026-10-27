@@ -1,0 +1,8 @@
+html[dir='rtl'] body > main > section.step[data-name='openAction'] div.icon-info { // below the option of the extension icon, which is the last column
+  text-align: left;
+}
+
+html[dir='rtl'] body > main > section.step[data-name='finished'] div.cols > div.col.option::after { // icon on top of the gradient square, which is on the right
+  left: unset;
+  right: 24px;
+}

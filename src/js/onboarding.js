@@ -4,100 +4,108 @@
     const Onboarding = function () {
 
         let configChanged = false;
-        let currentSetup = "";
-        let surfaceConfiguredInSetup = "";
+        let widthBeforeSidepanel = null;
 
-        /*
-         * ################################
-         * PUBLIC
-         * ################################
-         */
-
-        this.elm = {
-            body: $("body"),
-            title: $("head > title"),
-            videos: $("body video[data-src]"),
-            sidebar: {
-                left: $("div#sidebar"),
-                right: null
-            }
-        };
+        const sidepanelMinWidth = 50; // the page has to get narrower by at least this amount of pixels to count as an opened side panel
 
         /**
          * Constructor
          */
         this.run = async () => {
             initHelpers();
-            const loader = this.helper.template.loading().appendTo(this.elm.body);
-            this.elm.body.addClass($.cl.initLoading);
+            const loader = this.helper.template.loading().appendTo("body");
+            $("body").addClass($.cl.initLoading);
 
             await this.helper.model.init();
             await this.helper.i18n.init();
 
-            this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+            $("body").parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
             this.helper.stylesheet.init({defaultVal: true});
+            await this.helper.stylesheet.addStylesheets(["settings"], $(document));
 
-            this.helper.i18n.parseHtml(document);
-            this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+            $("body").removeClass($.cl.building);
 
-            await this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
-
-            this.elm.body.removeClass($.cl.building);
-
-            this.elm.sidebar.right = $(this.elm.sidebar.left[0].outerHTML).appendTo(this.elm.body);
-            this.elm.sidebar.right.attr($.attr.position, "right");
+            parseLangVars();
+            this.helper.dialog.init();
+            this.helper.video.init();
 
             initGeneralEvents();
-            initIntroEvents();
+            initModeEvents();
+            initOpenActionEvents();
             initPositionEvents();
             initSurfaceEvents();
-            initOpenActionEvents();
             initHandsOnEvents();
             initFinishedEvents();
 
-            this.elm.videos.forEach((_self) => {
-                const video = $(_self);
-                const src = video.attr($.attr.src);
-                this.helper.model.call("parsedUrl", {
-                    href: src
-                }).then((parsedSrc) => {
-                    video.removeAttr($.attr.src);
-                    $("<source/>")
-                        .attr("src", parsedSrc)
-                        .attr("type", "video/mp4")
-                        .appendTo(video);
-                });
-            });
-
-            await $.delay(500); // finish loading
-            this.elm.body.removeClass($.cl.initLoading);
-
-            await gotoSlide("intro-1");
+            await $.delay(500);
             loader.remove();
+            $("body").removeClass($.cl.initLoading);
 
-            await $.delay(1200);
-            await gotoSlide("intro-2");
+            await gotoStep("welcome");
+            await $.delay(1500);
+            await gotoStep("mode");
         };
 
-        /*
-         * ################################
-         * PRIVATE
-         * ################################
+        /**
+         * Opens the given url in a new active tab
+         *
+         * @param {string} href
          */
+        this.openLink = (href) => {
+            this.helper.model.call("openLink", {
+                href: href,
+                newTab: true,
+                active: true
+            });
+        };
 
         /**
-         * Initialises the helper objects
+         * Adds the given class to the given elements if the condition is true, or removes it otherwise
+         *
+         * @param {jsu} elm
+         * @param {string} cl
+         * @param {boolean} condition
          */
-        const initHelpers = () => {
-            this.helper = {
-                i18n: new $.I18nHelper(this),
-                font: new $.FontHelper(this),
-                stylesheet: new $.StylesheetHelper(this),
-                template: new $.TemplateHelper(this),
-                utility: new $.UtilityHelper(this),
-                model: new $.ModelHelper(this)
-            };
+        this.setConditionalClass = (elm, cl, condition) => {
+            elm.forEach((node) => {
+                node.classList.toggle(cl, !!condition);
+            });
+        };
+
+        /**
+         * Applies the language variables to the page
+         */
+        const parseLangVars = () => {
+            this.helper.i18n.parseHtml(document);
+            $("head > title").text($("head > title").text() + " - " + this.helper.i18n.get("extension_name"));
+        };
+
+        /**
+         * Returns the element of the step with the given name
+         *
+         * @param {string} name
+         * @returns {jsu}
+         */
+        const getStep = (name) => $(`section.${$.cl.settings.intro.step}[${$.attr.name}='${name}']`);
+
+        /**
+         * Returns the selectable options of the step with the given name
+         *
+         * @param {string} name
+         * @returns {jsu}
+         */
+        const getOptions = (name) => getStep(name).find(`div.${$.cl.settings.intro.option}`);
+
+        /**
+         * Stores the given values and remembers to let the other tabs know about the changed configuration when leaving the page
+         *
+         * @param {object} values
+         * @returns {Promise}
+         */
+        const saveData = async (values) => {
+            await this.helper.model.setData(values);
+            configChanged = true;
         };
 
         /**
@@ -112,262 +120,206 @@
         };
 
         /**
-         * Initialises the eventhandlers for the intro slide
+         * Initialises the eventhandlers of the mode selection, the mode is stored right away,
+         * opening the sidebar via the extension icon is only possible in overlay mode, otherwise the icon opens the side panel
          */
-        const initIntroEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='intro-2'] div.video").on("click", async (e) => {
+        const initModeEvents = () => {
+            const step = getStep("mode");
+
+            step.find(`div.col.mode[${$.attr.name}='overlay'] a.btn.external`).on("click", (e) => {
                 e.preventDefault();
-                currentSetup = $(e.currentTarget).attr($.attr.type);
-                if (currentSetup === "sidepanel") {
-                    await gotoSlide("surface");
-                } else {
-                    await gotoNextSlide();
+                this.openLink($.opts.website.knowledgebase.overlayMode);
+            });
+
+            step.find(`div.col.mode[${$.attr.name}='sidepanel'] a.btn.external`).on("click", (e) => {
+                e.preventDefault();
+                this.openLink($.opts.website.knowledgebase.sidepanelMode);
+            });
+
+            step.find(`a[${$.attr.type}='mode']`).on("click", async (e) => {
+                e.preventDefault();
+                const mode = $(e.currentTarget).attr($.attr.value);
+                const values = {"b/mode": mode};
+
+                if (mode !== "overlay" && this.helper.model.getData("b/openAction") === "icon") {
+                    values["b/openAction"] = this.helper.model.getData("b/openAction", true);
                 }
+
+                await saveData(values);
+                this.helper.model.call("reloadBrowserAction");
+
+                await gotoStep(mode === "overlay" ? "openAction" : "surface");
             });
         };
 
         /**
-         * Initialises the eventhandlers for the position slide
-         */
-        const initPositionEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='position'] a").on("click", async (e) => {
-                e.preventDefault();
-                const value = $(e.currentTarget).attr($.attr.value);
-                await this.helper.model.setData({"b/sidebarPosition": value});
-                configChanged = true;
-                await gotoNextSlide();
-            }).on("mouseenter", (e) => {
-                const value = $(e.currentTarget).attr($.attr.value);
-                this.elm.body.attr($.attr.position, value);
-
-                Object.values(this.elm.sidebar).forEach((sidebar) => {
-                    sidebar.removeClass($.cl.visible);
-                });
-
-                this.elm.sidebar[value].addClass($.cl.visible);
-            }).on("mouseleave", async (e) => {
-                const slide = $(e.currentTarget).parent();
-                await $.delay();
-                if (slide.hasClass($.cl.visible)) {
-                    Object.values(this.elm.sidebar).forEach((sidebar) => {
-                        sidebar.removeClass($.cl.visible);
-                    });
-                }
-            });
-        };
-
-        /**
-         * Initialises the eventhandlers for the surface slide
-         */
-        const initSurfaceEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("click", async (e) => {
-                e.preventDefault();
-                const value = $(e.currentTarget).attr($.attr.value);
-                const styles = this.helper.model.getData("a/styles");
-                const defaultColors = this.helper.model.getDefaultColors();
-
-                styles.colorScheme = defaultColors.colorScheme[value];
-                styles.textColor = defaultColors.textColor[value];
-                styles.bookmarksDirColor = defaultColors.textColor[value];
-                styles.sidebarMaskColor = defaultColors.sidebarMaskColor[value];
-                styles.hoverColor = defaultColors.hoverColor[value];
-
-                await this.helper.model.setData({
-                    "a/surface": value,
-                    "a/styles": styles
-                });
-
-                configChanged = true;
-                surfaceConfiguredInSetup = currentSetup;
-                await gotoNextSlide();
-            }).on("mouseenter", (e) => {
-                const value = $(e.currentTarget).attr($.attr.value);
-                let bodyAttr = value;
-                if (value === "auto") {
-                    bodyAttr = this.helper.stylesheet.getSystemSurface();
-                }
-                this.elm.body.attr($.attr.onboarding.surface, bodyAttr);
-
-                if (currentSetup === "sidepanel") {
-                    this.elm.sidebar.right.addClass($.cl.visible);
-                }
-            }).on("mouseleave", async (e) => {
-                const slide = $(e.currentTarget).parent();
-                await $.delay();
-                if (slide.hasClass($.cl.visible)) {
-                    this.elm.body.removeAttr($.attr.onboarding.surface);
-                }
-            });
-        };
-
-        /**
-         * Initialises the eventhandlers for the openAction slide
+         * Initialises the eventhandlers of the open action step
          */
         const initOpenActionEvents = () => {
-            const videoWrapper = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] div." + $.cl.onboarding.video);
-
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] a").on("click", async (e) => {
+            getOptions("openAction").on("click", async (e) => {
                 e.preventDefault();
-                configChanged = true;
-                if ($(e.currentTarget).hasClass($.cl.cancel)) {
-                    await this.helper.model.setData({"b/overlayEnabled": false});
-                    await gotoSlide("finished");
-                } else {
-                    const value = $(e.currentTarget).attr($.attr.value);
-                    await this.helper.model.setData({
-                        "b/openAction": value,
-                        "b/iconAction": value === "icon" ? "overlay" : "sidepanel",
-                        "b/overlayEnabled": true
-                    });
+                const values = {"b/openAction": $(e.currentTarget).attr($.attr.value)};
 
-                    if ($.browserName === "Edge") { // New design of Edge has a border around the browser content, which makes it hard to click the outermost pixel
-                        await this.helper.model.setData({
-                            "b/toggleArea": {
-                                width: 20,
-                                widthWindowed: 20,
-                                height: 100,
-                                top: 0
-                            }
-                        });
-                    }
-
-                    this.helper.model.call("reloadBrowserAction");
-                    await gotoNextSlide();
+                if ($.browserName === "Edge") { // New design of Edge has a border around the browser content, which makes it hard to click the outermost pixel
+                    values["b/triggerWidth"] = 20;
                 }
-            }).on("mouseenter", (e) => {
-                const value = $(e.currentTarget).attr($.attr.value);
 
-                if (value === "icon") {
-                    videoWrapper.addClass($.cl.onboarding.highlightIcon);
-                } else {
-                    videoWrapper.removeClass($.cl.onboarding.highlightIcon);
-                }
-            }).on("mouseleave", (e) => {
-                videoWrapper.removeClass($.cl.onboarding.highlightIcon);
+                await saveData(values);
+                this.helper.model.call("reloadBrowserAction");
+                await gotoStep("position");
             });
         };
 
         /**
-         * Initialises the eventhandlers for the hands-on slide
+         * Initialises the eventhandlers of the position step
+         */
+        const initPositionEvents = () => {
+            getOptions("position").on("click", async (e) => {
+                e.preventDefault();
+                await saveData({"b/sidebarPosition": $(e.currentTarget).attr($.attr.value)});
+                await gotoStep("surface");
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers of the surface step, an explicitly selected surface also changes the colors to the defaults of this surface
+         */
+        const initSurfaceEvents = () => {
+            getOptions("surface").on("click", async (e) => {
+                e.preventDefault();
+                const surface = $(e.currentTarget).attr($.attr.value);
+                const values = {"a/surface": surface};
+
+                if (surface !== "auto") { // in auto mode the model applies the colors of the system surface by itself
+                    const styles = this.helper.model.getData("a/styles");
+                    const defaultColors = this.helper.model.getDefaultColors(this.helper.model.getData("a/theme"));
+
+                    this.helper.model.getSurfaceColorDependentStyles().forEach((key) => {
+                        styles[key] = defaultColors[key][surface];
+                    });
+
+                    if (this.helper.model.isDefaultColorScheme(styles.colorScheme)) { // only change if it was the default color (of any theme) before
+                        styles.colorScheme = defaultColors.colorScheme[surface];
+                    }
+
+                    values["a/styles"] = styles;
+                }
+
+                await saveData(values);
+                await gotoStep("handson");
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers of the hands-on step, opening the sidebar finishes the setup
          */
         const initHandsOnEvents = () => {
             $(document).on($.opts.events.sidebarOpened, async () => {
-                if ($("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']").hasClass($.cl.visible)) {
-                    await gotoSlide("finished");
+                if ($("body").attr($.attr.settings.step) === "handson") {
+                    await gotoStep("finished");
                 }
             });
 
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson'] a").on("click", async (e) => {
+            $(window).on("resize", async () => { // the side panel takes its space from the page -> the page getting narrower means it has been opened
+                if (widthBeforeSidepanel === null) {
+                    return;
+                }
+
+                if (window.innerWidth > widthBeforeSidepanel) { // the window got wider in the meantime -> compare with the new width
+                    widthBeforeSidepanel = window.innerWidth;
+                } else if (widthBeforeSidepanel - window.innerWidth >= sidepanelMinWidth) {
+                    widthBeforeSidepanel = null;
+                    await gotoStep("finished");
+                }
+            });
+
+            getStep("handson").find(`a[${$.attr.type}='done']`).on("click", async (e) => {
                 e.preventDefault();
-                await gotoSlide("finished");
+                await gotoStep("finished");
             });
         };
 
         /**
-         * Initialises the eventhandlers for the last slide
+         * Initialises the eventhandlers of the last step
          */
         const initFinishedEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] a").on("click", (e) => {
+            getOptions("finished").on("click", (e) => {
                 e.preventDefault();
-                if ($(e.currentTarget).hasClass($.cl.onboarding.settings)) {
-                    location.href = $.api.runtime.getURL("html/settings.html");
-                } else if ($(e.currentTarget).hasClass($.cl.onboarding.appearance)) {
-                    location.href = $.api.runtime.getURL("html/settings.html") + "#appearance_sidebar";
-                }
+                const url = $.api.runtime.getURL("html/settings.html");
+                location.href = $(e.currentTarget).attr($.attr.value) === "appearance" ? url + "#appearance" : url + "#settings";
             });
         };
 
         /**
-         * Shows the next slide
-         */
-        const gotoNextSlide = async () => {
-            const name = $("section." + $.cl.onboarding.slide + "." + $.cl.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
-            await gotoSlide(name);
-        };
-
-        /**
-         * Shows the slide with the given name
+         * Fades out the current step and fades in the step with the given name
          *
          * @param {string} name
+         * @returns {Promise}
          */
-        const gotoSlide = async (name) => {
-            if (name === "surface" && surfaceConfiguredInSetup && surfaceConfiguredInSetup !== currentSetup) {
-                // skip "surface" slide if the user has this already configured in another setup (e.g. sidepanel)
-                name = "handson";
+        const gotoStep = async (name) => {
+            const prevStep = $(`section.${$.cl.settings.intro.step}.${$.cl.visible}`);
+            if (prevStep.length() > 0) { // fade out the current step first
+                prevStep.removeClass($.cl.visible);
+                await $.delay(300);
             }
 
-            if (name === "handson") {
-                await updateHandsOnSlide();
-            } else if (name === "finished") {
-                this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
-                $("section." + $.cl.onboarding.slide + " [" + $.attr.type + "='" + currentSetup + "'] > span.setup").text(this.helper.i18n.get("onboarding_setup_complete")).addClass($.cl.onboarding.finished);
-                const unfinishedSetups = $("section." + $.cl.onboarding.slide + " span.setup:not(." + $.cl.onboarding.finished + ")").length() > 0;
-                if (unfinishedSetups) {
-                    name = "intro-2";
+            widthBeforeSidepanel = null;
+            if (name === "surface") { // show the placeholder sidebar of the previews on the side it will appear (the side panel is usually on the right)
+                const position = this.helper.model.getData("b/mode") === "sidepanel" ? "right" : this.helper.model.getData("b/sidebarPosition");
+                getStep("surface").attr($.attr.position, position);
+            } else if (name === "handson") {
+                updateHandsOnStep();
+
+                if (this.helper.model.getData("b/mode") === "sidepanel") {
+                    widthBeforeSidepanel = window.innerWidth;
+                } else {
+                    loadSidebar();
                 }
             }
 
-            const prevSlide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
-            prevSlide.removeClass($.cl.visible);
+            $("body").attr($.attr.settings.step, name);
+            window.scrollTo(0, 0);
 
-            await $.delay(300);
-            const newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
-            const num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
-
-            this.helper.model.call("track", {
-                name: "action",
-                value: {name: "onboarding", value: num + "_" + (currentSetup ? currentSetup + "_" : "") + name},
-                always: true
-            });
+            await $.delay(20); // the step has to be displayed before it can fade in
+            getStep(name).addClass($.cl.visible);
         };
 
         /**
-         * Initialises the Hands-On slide with the actual sidebar loaded
+         * Describes how to open the sidebar, based on the configured mode, position and open action,
+         * a cursor at the edge of the window points to the trigger area, when opening via the extension icon there is the info how to make the icon visible instead
          */
-        const updateHandsOnSlide = async () => {
-            const slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");
-            if (currentSetup === "sidepanel") {
-                slide.children("div." + $.cl.onboarding.video).addClass($.cl.visible);
-            } else {
-                slide.children("div." + $.cl.onboarding.video).removeClass($.cl.visible);
-                loadSidebar();
-            }
+        const updateHandsOnStep = () => {
+            const step = getStep("handson");
+            const config = this.helper.model.getData(["b/mode", "b/openAction", "b/sidebarPosition"]);
+            const viaIcon = config.mode === "sidepanel" || config.openAction === "icon"; // in side panel mode the extension icon opens the side panel
+            let text;
 
-            Object.values(this.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar
-                sidebar.removeClass($.cl.visible);
-            });
-
-            const infoText = slide.children("p." + $.cl.onboarding.small);
-
-            const config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
-            this.elm.body.attr($.attr.position, config.sidebarPosition);
-
-            // change description how to open the sidebar based on sidebar position and configurated openAction
-            if (currentSetup === "sidepanel") {
-                infoText.text(this.helper.i18n.get("onboarding_handson_sidepanel_desc"));
-            } else if (config.openAction === "icon") {
-                infoText.text(this.helper.i18n.get("onboarding_handson_icon_desc"));
+            if (viaIcon) {
+                text = this.helper.i18n.get("onboarding_handson_icon_desc");
             } else {
                 const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
-                let text = this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position]);
+                text = this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position]);
 
                 if (config.openAction !== "mousemove") {
                     const mouseButton = this.helper.i18n.get("onboarding_" + (config.openAction === "contextmenu" ? "right" : "left"));
                     text += " " + this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton]);
                 }
-
-                infoText.text(text);
             }
 
-            await $.delay(300);
-            this.elm.body.removeClass($.cl.onboarding.hideOpenTypeIcon);
-            this.elm.body.attr($.attr.onboarding.openType, config.openAction === "icon" || currentSetup === "sidepanel" ? "icon" : "mouse");
+            step.find(`p.${$.cl.settings.intro.text}`).text(text);
+            this.setConditionalClass(step.find(`div.${$.cl.settings.intro.iconInfo}`), $.cl.hidden, !viaIcon);
+            this.setConditionalClass(step.find(`span.${$.cl.settings.intro.openHint}`), $.cl.hidden, viaIcon);
+            step.find(`span.${$.cl.settings.intro.openHint}`).attr($.attr.position, config.sidebarPosition);
         };
 
         /**
-         * Loads the sidebar with the specified configuration
+         * Loads the sidebar with the stored configuration
          */
         const loadSidebar = () => {
+            if ($(`script[${$.attr.type}='script_sidebar']`).length() > 0) { // already loaded
+                return;
+            }
+
             $.opts.manifest.content_scripts[0].css.forEach((css) => {
                 $("head").append("<link href='" + $.api.runtime.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
@@ -389,7 +341,24 @@
 
             loadJs();
         };
+
+        /**
+         * Initialises the helper objects
+         */
+        const initHelpers = () => {
+            this.helper = {
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                template: new $.TemplateHelper(this),
+                utility: new $.UtilityHelper(this),
+                model: new $.ModelHelper(this),
+                dialog: new $.SettingsDialogHelper(this),
+                video: new $.SettingsVideoHelper(this),
+            };
+        };
     };
 
     new Onboarding().run();
+
 })(jsu);

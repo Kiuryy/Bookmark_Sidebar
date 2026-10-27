@@ -1,0 +1,388 @@
+@use "sass:meta";
+@use "../../include/vars";
+@use "../../include/mixins";
+@use "helpers";
+
+// the list starts right below the blobs of the header, the filter and the sticky pinned entries a bit further down
+$blobBottom: calc(var(--blobTop) + #{helpers.$blobSize});
+$headerOffset: calc(#{$blobBottom} + 2px);
+$filterOffset: calc(#{$blobBottom} + 10px);
+
+[data-theme='soft'] {
+
+  a.dragHelper {
+    background: helpers.$surfaceGradient !important;
+    border-radius: 14px;
+    box-shadow: helpers.raised(6px);
+
+    > span.drag {
+      border-radius: 50%;
+    }
+  }
+
+  section#sidebar {
+    // size of the blobs in the header: max. 36px (= default header height of 60px), larger blobs don't fit into
+    // the 280px of the settings preview anymore, min. 30px so the label and the icons stay readable
+    --blobSize: clamp(30px, #{vars.$dyn-sidebarHeaderHeight} - 24px, 36px);
+    // space above the blobs: centered in the header, but not too close to the top or too far away from it
+    --blobTop: clamp(6px, (#{vars.$dyn-sidebarHeaderHeight} - var(--blobSize)) * 0.5, 12px);
+    background: helpers.$backgroundGradient;
+
+    > header { // no bar, the title, the search field and every button are separate blobs floating above the bookmarks
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: $headerOffset; // ends where the list starts, so it doesn't catch the clicks on the entries below the blobs
+      align-items: flex-start;
+      gap: helpers.$headerGap;
+      padding: var(--blobTop) helpers.$headerPadding 0;
+      background: none;
+      box-shadow: none;
+      overflow: clip;
+      overflow-clip-margin: 20px; // don't cut off the shadows of the blobs
+
+      > h1, > a {
+        height: helpers.$blobSize;
+        border-radius: 999px;
+        background: helpers.$glassBackground;
+        backdrop-filter: helpers.$glassBlur;
+        box-shadow: helpers.raised(4px), helpers.$highlight;
+      }
+
+      > h1 {
+        padding: 0 calc(#{helpers.$blobSize} * 0.3);
+        font-size: min(100%, calc(#{helpers.$blobSize} * 0.39)); // 14px for the default size
+        line-height: helpers.$blobSize;
+        white-space: nowrap;
+        color: vars.$dyn-textColor;
+        transition: transform 0.5s, opacity 0.3s;
+
+        > strong {
+          color: vars.$dyn-colorScheme;
+          font-weight: vars.$dyn-fontWeightMedium;
+        }
+      }
+
+      > a {
+        width: helpers.$blobSize;
+        flex-shrink: 0;
+        transition: box-shadow 0.3s, transform 0.3s, opacity 0.5s;
+
+        &::before {
+          background-color: vars.$dyn-textColor;
+          mask-size: calc(#{helpers.$blobSize} * 0.48);
+          transition: background-color 0.3s;
+        }
+
+        &.menu {
+          margin-right: 0;
+        }
+
+        &:hover {
+          background: helpers.$glassBackground;
+          box-shadow: helpers.raised(3px), helpers.$highlight;
+
+          &::before {
+            background-color: vars.$dyn-colorScheme;
+          }
+        }
+
+        &:active, &.active {
+          background: helpers.$glassBackground;
+          box-shadow: helpers.pressed(3px);
+
+          &::before {
+            background-color: vars.$dyn-colorScheme;
+          }
+        }
+
+        &.cancel, &.cancel:not([data-type='compact']) { // selection mode: always a round close button instead of the text button
+          width: helpers.$blobSize;
+          height: helpers.$blobSize;
+          padding: 0;
+          margin: 0;
+          border-radius: 999px;
+          font-size: 0;
+          color: transparent;
+
+          &::before {
+            @include mixins.maskImage('icon-close');
+            display: block;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      > div.searchBox { // replaces the title blob, the sort and menu button stay visible next to it
+        top: var(--blobTop);
+        bottom: auto;
+        margin: 0;
+        left: helpers.$headerPadding;
+        width: calc(100% - #{helpers.$headerPadding * 2 + helpers.$headerGap * 2} - #{helpers.$blobSize} * 2);
+        height: helpers.$blobSize;
+        border-radius: 999px;
+        background: helpers.$glassBackground;
+        backdrop-filter: helpers.$glassBlur;
+        box-shadow: helpers.raised(4px), helpers.$highlight;
+
+        > input[type='text'] {
+          width: calc(100% - #{helpers.$blobSize});
+          padding: 0 5px 0 calc(#{helpers.$blobSize} * 0.3);
+          color: vars.$dyn-textColor;
+
+          &::-webkit-input-placeholder {
+            color: vars.$dyn-textColor;
+            opacity: 0.6;
+          }
+        }
+
+        > a.searchClose {
+          width: calc(#{helpers.$blobSize} - 8px);
+          height: calc(#{helpers.$blobSize} - 8px);
+          margin: 4px;
+
+          &::before {
+            background-color: vars.$dyn-textColor;
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+
+      &.searchVisible:not(.selectionMode) > h1 {
+        opacity: 0;
+      }
+    }
+
+    > div.filter {
+      top: $filterOffset;
+      left: helpers.$gap;
+      width: calc(100% - #{helpers.$gap * 2});
+      padding: 12px 16px 7px;
+      border-radius: 20px;
+      background: helpers.$glassBackground;
+      backdrop-filter: helpers.$glassBlur;
+      box-shadow: helpers.raised(4px), helpers.$highlight;
+      transition: opacity 0.3s, transform 0.3s;
+
+      &::before { // catches the clicks next to the floating filter, the bookmarks behind it are not clickable
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -(helpers.$gap);
+        right: -(helpers.$gap);
+        z-index: -1;
+      }
+    }
+
+    > div.scrollBox {
+      scroll-padding-top: $headerOffset;
+
+      &::before { // keeps the beginning of the list below the header, the padding-top is set inline to the height of the filter
+        content: "";
+        display: block;
+        height: $headerOffset;
+      }
+
+      &:has(~ div.filter:not(.hidden))::before { // more space for the shadow of the filter
+        height: $filterOffset;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: $headerOffset 0 helpers.$gap;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+
+      &.scrolled ~ div.filter {
+        box-shadow: helpers.raised(4px), helpers.$highlight;
+      }
+
+      &.scrolled:not([data-direction='up']) ~ div.filter {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+        pointer-events: none;
+      }
+
+      &.scrolled:not([data-direction='up']) > div.pinned.fixed { // filter is hidden -> directly below the header
+        top: calc(#{$filterOffset} - var(--filterHeight, 0px));
+      }
+
+      > div.pinned {
+        background: transparent;
+
+        &.fixed {
+          // filter visible: below it (the padding-top of the scrollBox already covers its height, see sidebar.scss),
+          // the min() adds the space between filter and pinned entries only if there is a filter (--filterHeight > 0)
+          top: calc(#{$filterOffset} + min(var(--filterHeight, 0px) * 1000, 8px));
+          margin: 0 helpers.$gap 9px;
+          padding: 6px 0;
+          border-radius: 20px;
+          background: helpers.$glassBackground;
+          backdrop-filter: helpers.$glassBlur;
+          box-shadow: helpers.raised(5px), helpers.$highlight;
+
+          &::before { // catches the clicks next to and above the floating box, the bookmarks behind it are not clickable
+            content: "";
+            position: absolute;
+            top: -8px;
+            bottom: 0;
+            left: -(helpers.$gap);
+            right: -(helpers.$gap);
+            z-index: -1;
+          }
+
+          &::after {
+            display: none;
+          }
+
+          > ul a {
+            margin: 0 6px;
+          }
+        }
+      }
+
+      > ul, > div.pinned > ul {
+
+        a {
+          margin: 0 10px;
+          border-radius: 14px;
+
+          &.mark {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%), vars.$dyn-colorScheme;
+          }
+
+          > span.drag, > span.add {
+            border-radius: 50%;
+          }
+
+          > span.removeMask {
+            border-radius: 14px;
+          }
+        }
+
+        li {
+
+          &.isDragged {
+            border-radius: 14px;
+          }
+
+          &.dragHover::before {
+            border-radius: 14px;
+          }
+        }
+      }
+
+      > a[data-name='add'] {
+        background: helpers.$surfaceGradient;
+        box-shadow: helpers.raised(3px);
+        margin-left: calc(#{vars.$dyn-bookmarksHorizontalPadding} + 4px);
+        margin-right: calc(#{vars.$dyn-bookmarksHorizontalPadding} + 4px);
+        transition: box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: helpers.pressed(3px);
+        }
+      }
+    }
+  }
+
+  div.contextmenu {
+    border-radius: 22px;
+    background: helpers.$menuBackground;
+    backdrop-filter: helpers.$glassBlur;
+    box-shadow: helpers.$menuShadow;
+
+    > ul.icons { // always below the list, inset by the same 8px as the list entries
+      margin: 0 8px 8px;
+      padding: 4px 1px; // + 3px margin of the icons = 4px on every side
+      border-radius: 14px; // radius of the menu - inset
+      background: rgba(0, 0, 0, 0.03);
+      box-shadow: helpers.pressed(2px);
+
+      > li {
+
+        > a {
+
+          &::before {
+            transition: background-color 0.3s, opacity 0.3s;
+          }
+
+          &.hover {
+            background-color: vars.$dyn-hoverColor;
+
+            &::before {
+              background-color: vars.$dyn-colorScheme;
+            }
+          }
+        }
+
+        > ul { // sub menu of the 'add' icon
+          border-radius: 20px;
+          background: helpers.$menuSolidBackground;
+          box-shadow: helpers.$menuShadow;
+
+          &::before {
+            border-bottom-color: helpers.$menuSolidBackground;
+          }
+
+          > li > a {
+
+            &:hover {
+              background-color: vars.$dyn-hoverColor;
+
+              &::before {
+                background-color: vars.$dyn-colorScheme;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > ul.list {
+      padding: 8px;
+
+      > li > a {
+        border-radius: 14px;
+        transition: color 0.3s, background-color 0.3s;
+
+        &.hover {
+          background-color: vars.$dyn-hoverColor;
+
+          &::before {
+            background-color: vars.$dyn-colorScheme;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  div.tooltip {
+    border-radius: 8px;
+    padding: 3px 7px 4px;
+  }
+
+  div#infoBox {
+    background: helpers.$glassBackground;
+    backdrop-filter: helpers.$glassBlur;
+    box-shadow: helpers.raised(6px), helpers.$highlight;
+
+    > a, > a::before {
+      border-radius: 14px;
+    }
+  }
+}
+
+@include meta.load-css("rtl/sidebar");
+@include meta.load-css("dark/sidebar");

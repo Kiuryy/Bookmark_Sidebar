@@ -1,36 +1,98 @@
-@import "../../include/vars";
-@import "../../include/mixins";
+@use "sass:meta";
+@use "../../include/vars";
+
+$fadeHeight: 24px; // the bookmarks start to blur slightly before reaching the header or the sticky pinned entries
+$blurZoneHeight: calc(#{vars.$dyn-sidebarHeaderHeight} + #{$fadeHeight});
+
+// Progressive blur: two stacked layers (::before + ::after of the element), each faded out towards the bottom with a mask,
+// the higher the bookmarks are scrolled, the more they are blurred and covered by the tint, $solid = the part above the fade
+@mixin progressiveBlur($height, $solid) {
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $height;
+    margin: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &::before {
+    backdrop-filter: blur(calc(#{vars.$dyn-backgroundBlur} * 0.5 + 1px));
+    mask-image: linear-gradient(to bottom, #000 $solid, transparent 100%);
+  }
+
+  &::after {
+    background: none;
+    backdrop-filter: blur(calc(#{vars.$dyn-backgroundBlur} * 1.5 + 4px));
+    mask-image: linear-gradient(to bottom, #000 calc(#{$solid} * 0.6), transparent calc(100% - #{$fadeHeight * 0.5}));
+  }
+}
 
 [data-theme='glass'] {
 
   section#sidebar {
-    background: #{"rgba(255, 255, 255, #{$__backgroundTransparency})"};
-    backdrop-filter: blur($__backgroundBlur);
+    background: none;
 
-    > header {
+    // the background and the blur of the website are on a separate layer behind the content instead of the sidebar itself:
+    // an element with backdrop-filter limits the backdrop-filter of all its descendants to its own content,
+    // so the blur behind the header and the blur of the contextmenu wouldn't affect the bookmarks
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #{"rgba(255, 255, 255, #{vars.$dyn-backgroundTransparency})"};
+      backdrop-filter: blur(vars.$dyn-backgroundBlur);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    > header { // floats above the list, the bookmarks are visible (blurred) behind it
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: clip;
+      overflow-clip-margin: $fadeHeight; // = the part of the blur layers below the header
       background: none;
       box-shadow: none;
-      color: $__textColor;
+      color: vars.$dyn-textColor;
+
+      @include progressiveBlur($blurZoneHeight, calc(#{$blurZoneHeight} * 0.4));
+
+      &::before {
+        background: linear-gradient(to bottom, #{"rgba(255, 255, 255, #{vars.$dyn-backgroundTransparency})"} 0%, rgba(255, 255, 255, 0) 100%);
+      }
 
       > h1 {
-        color: $__textColor;
+        color: vars.$dyn-textColor;
+        transition: transform 0.5s, opacity 0.3s;
+      }
+
+      &.searchVisible:not(.selectionMode) > h1 { // the header only clips 24px beyond its edges
+        opacity: 0;
       }
 
       > a {
 
         &::before {
-          background-color: $__textColor;
+          background-color: vars.$dyn-textColor;
         }
 
         &:hover, &.active {
-          background-color: $__hoverColor;
+          background-color: vars.$dyn-hoverColor;
         }
 
         &.cancel:not([data-type='compact']) {
-          color: $__textColor;
+          color: vars.$dyn-textColor;
 
           &::after {
-            background: $__textColor;
+            background: vars.$dyn-textColor;
             opacity: 0.4;
           }
         }
@@ -40,10 +102,10 @@
         background-color: rgba(0, 0, 0, 0.07);
 
         > input[type='text'] {
-          color: $__textColor;
+          color: vars.$dyn-textColor;
 
           &::-webkit-input-placeholder {
-            color: $__textColor;
+            color: vars.$dyn-textColor;
             opacity: 0.7;
           }
         }
@@ -51,7 +113,7 @@
         > a.searchClose {
 
           &::before {
-            background-color: $__textColor;
+            background-color: vars.$dyn-textColor;
           }
 
           &:hover {
@@ -62,37 +124,49 @@
     }
 
     > div.filter {
-      background: $__textColor;
+      background: vars.$dyn-textColor;
+      z-index: 3; // above the blur layers
       border-radius: 5px;
       transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
 
       a {
-        color: $__foregroundColor;
+        color: vars.$dyn-foregroundColor;
 
         &[data-direction]::before {
-          background-color: $__foregroundColor;
+          background-color: vars.$dyn-foregroundColor;
         }
       }
 
       > ul > li > div.checkbox::before {
-        background-color: $__foregroundColor;
+        background-color: vars.$dyn-foregroundColor;
       }
     }
 
     > div.scrollBox {
+      scroll-padding-top: vars.$dyn-sidebarHeaderHeight;
+
+      &::before { // keeps the beginning of the list below the header, the padding-top is set inline to the height of the filter
+        content: "";
+        display: block;
+        height: vars.$dyn-sidebarHeaderHeight;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin-top: vars.$dyn-sidebarHeaderHeight;
+      }
 
       > div.pinned {
         background: transparent;
 
-        &.fixed {
-          border: 2px solid rgba(0, 0, 0, 0.2);
-          background: $contentBackground;
-          border-radius: 5px;
-          padding: 3px 0;
-          margin: 0 0 0 10px;
+        &.fixed { // sticky -> the bookmarks below fade out the same way as below the header
+          // reaches up behind the header, otherwise the bookmarks would shine through the fading part of the header blur
+          @include progressiveBlur(calc(100% + #{$fadeHeight}), calc(100% - #{$fadeHeight}));
+          z-index: 2; // below the header, above the list
+          margin: calc(#{vars.$dyn-sidebarHeaderHeight} * -1) 0 0; // overlaps the spacer of the scrollBox
+          padding: calc(#{vars.$dyn-sidebarHeaderHeight} + 4px) 0 4px;
 
-          &::after {
-            display: none;
+          &::before {
+            background: #{"rgba(255, 255, 255, #{vars.$dyn-backgroundTransparency})"};
           }
         }
       }
@@ -100,10 +174,36 @@
       &.scrolled:not([data-direction='up']) ~ div.filter {
         opacity: 0;
         transform: translate3d(0, -20px, 0);
+        pointer-events: none;
       }
     }
   }
 }
 
-@import "rtl/sidebar";
-@import "dark/sidebar";
+[data-theme='glass'] div.contextmenu {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(calc(#{vars.$dyn-backgroundBlur} + 12px)) saturate(160%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 10px 40px rgba(0, 0, 0, 0.2);
+
+  > ul.icons {
+    background: rgba(0, 0, 0, 0.04);
+
+    > li {
+
+      > a.hover {
+        background-color: vars.$dyn-hoverColor;
+      }
+
+      > ul { // sub menu of the 'add' icon, can't be blurred (nested inside the blurred contextmenu), so it's nearly opaque
+        background: rgba(255, 255, 255, 0.95);
+
+        &::before {
+          border-bottom-color: rgba(255, 255, 255, 0.95);
+        }
+      }
+    }
+  }
+}
+
+@include meta.load-css("rtl/sidebar");
+@include meta.load-css("dark/sidebar");

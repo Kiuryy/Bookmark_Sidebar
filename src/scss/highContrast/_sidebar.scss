@@ -1,3 +1,5 @@
+@use "../include/vars";
+
 body.highContrast:not(.dark) {
 
   section#sidebar {
@@ -24,10 +26,10 @@ body.highContrast:not(.dark) {
   div#infoBox {
 
     > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
 
       &::before {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
     }
   }

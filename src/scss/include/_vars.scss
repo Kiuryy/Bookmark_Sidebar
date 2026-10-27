@@ -5,25 +5,60 @@ $mainColor1: #8741ed;
 $mainColor2: #6494f4;
 $mainColor3: #00e5fd;
 
-$gradient: linear-gradient(45deg, $mainColor1 0%, $mainColor3 100%);
-$gradientRtl: linear-gradient(-45deg, $mainColor1 0%, $mainColor3 100%);
-
 $textColor: #666;
 $textColorLight: #aaa;
 $textColorLight2: #ccc;
 $textColorInverted: #fff;
 $contentBackground: #fff;
-$bodyBackground: #f2f2f2;
+$bodyBackground: #f0f0f0;
 
 $colorSuccess: #5eba7d;
 $colorNotice: #f5c525;
 $colorError: #f99;
 
 // Settings
-$settingsHeaderHeight: 50px;
+$settingsTextColor: #333;
+$settingsContentWidth: 1400px;
+$settingsHeaderHeight: 60px;
 $settingsMenuWidth: 250px;
-$settingsMenuBackground: #322e2f;
-$settingsMenuHoverBackground: rgba(255, 255, 255, 0.07);
+$settingsHeaderBackground: #282B33;
+$settingsMenuHoverBackground: rgba(255, 255, 255, 0.07); // TODO DEPRECATED
+$settingsContentPadding: 0 2%;
+
+$settingsColorOverlayMode: #8e86fc;
+$settingsColorSidepanelMode: #fe62f1;
+
+// Gradients
+$gradient: linear-gradient(45deg, $mainColor1 0%, $mainColor3 100%);
+$gradientRtl: linear-gradient(-45deg, $mainColor1 0%, $mainColor3 100%);
+
+$gradient2: linear-gradient(45deg, $mainColor2 0%, $mainColor3 150%);
+
+// Content sections (background + matching accent)
+$gradientContentBackground: linear-gradient(80deg, #f8f8fc 0%, #e6eeff 100%);
+$gradientContentAccent: linear-gradient(90deg, #83a9f6, $mainColor2);
+
+$gradientContentBackground1: linear-gradient(80deg, #d9fbff 0%, #ffe7f1 100%);
+$gradientContentAccent1: linear-gradient(90deg, #00c2fd, $mainColor3);
+
+$gradientContentBackground2: linear-gradient(80deg, #ebedfd 0%, #efeeff 100%);
+$gradientContentAccent2: linear-gradient(90deg, #5b6cf0, $settingsColorOverlayMode);
+
+$gradientContentBackground3: linear-gradient(80deg, #fff0f0 0%, #fff5e0 100%);
+$gradientContentAccent3: linear-gradient(90deg, #f66, #fa0);
+
+$gradientContentBackground4: linear-gradient(80deg, #dbece9 0%, #fff4f4 100%);
+$gradientContentAccent4: linear-gradient(90deg, #6fb3a6, #7ecbbd);
+
+$gradientContentBackground5: linear-gradient(80deg, #ffe0d9 0%, transparent 100%);
+$gradientContentAccent5: linear-gradient(90deg, #ff8266, #ff99ee);
+
+$gradientContentBackground6: linear-gradient(80deg, #e3f6f4 0%, #e3f6fe 100%);
+$gradientContentAccent6: linear-gradient(90deg, #14b8a6, #38bdf8);
+
+$gradientContentBackground7: linear-gradient(80deg, #f7e5fa 0%, #ffe9f2 100%);
+$gradientContentAccent7: linear-gradient(90deg, #c33ed3, $settingsColorSidepanelMode);
+
 
 // New tab
 $newTabSearchWidth: 630px;
@@ -32,7 +67,7 @@ $newTabSearchHeight: 54px;
 // Sidebar
 $contentBackground2: #f5f5f5;
 $scrollBarBackground: #ccc;
-$contextMenuIconColor: #ccc;
+$contextMenuIconOpacity: 0.7; // icons use the text color, slightly dimmed
 $reorderIconColor: #aaa;
 $reorderIconColorActive: #888;
 $removedBackground: #ddd;
@@ -43,7 +78,6 @@ $separatorColor: rgba(0, 0, 0, 0.15);
 $darkContentBackground: #3d3d3d;
 $darkContentBackground2: #4d4d4d;
 $darkScrollBarBackground: #999;
-$darkContextMenuIconColor: #999;
 $darkReorderIconColor: #bbb;
 $darkReorderIconColorActive: #eee;
 $darkRemovedBackground: #666;
@@ -54,40 +88,42 @@ $darkSeparatorColor: rgba(255, 255, 255, 0.15);
 $demoColors: #37bf99 #d737d5 #3e6bf2 #f4572f #f74b58 #f5a2bf #1a90ba #b4bd0e #fdde32 #8ccbce;
 
 // Dynamic
-$__colorScheme: "%colorScheme";
-$__foregroundColor: "%foregroundColor";
-$__textColor: "%textColor";
-$__hoverColor: "%hoverColor";
-$__sidebarWidth: "%sidebarWidth";
-$__sidebarHeaderHeight: "%sidebarHeaderHeight";
-$__overlayHeaderHeight: "%overlayHeaderHeight";
-$__sidebarMaskColor: "%sidebarMaskColor";
-$__bookmarksFontSize: "%bookmarksFontSize";
-$__bookmarksIconSize: "%bookmarksIconSize";
-$__directoriesIconSize: "%directoriesIconSize";
-$__bookmarksLineHeight: "%bookmarksLineHeight";
-$__bookmarksDirIcon: "%bookmarksDirIcon";
-$__bookmarksDirColor: "%bookmarksDirColor";
-$__bookmarksDirIndentation: "%bookmarksDirIndentation";
-$__bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
-$__tooltipFontSize: "%tooltipFontSize";
-$__scrollBarWidth: "%scrollBarWidth";
-$__indicatorWidth: "%indicatorWidth";
-$__indicatorIconSize: "%indicatorIconSize";
-$__indicatorIconColor: "%indicatorIconColor";
-$__indicatorColor: "%indicatorColor";
-$__overlayMaskColor: "%overlayMaskColor";
+$dyn-colorScheme: "%colorScheme";
+$dyn-foregroundColor: "%foregroundColor";
+$dyn-textColor: "%textColor";
+$dyn-hoverColor: "%hoverColor";
+$dyn-sidebarWidth: "%sidebarWidth";
+$dyn-sidebarHeaderHeight: "%sidebarHeaderHeight";
+$dyn-overlayHeaderHeight: "%overlayHeaderHeight";
+$dyn-sidebarMaskColor: "%sidebarMaskColor";
+$dyn-bookmarksFontSize: "%bookmarksFontSize";
+$dyn-bookmarksIconSize: "%bookmarksIconSize";
+$dyn-directoriesIconSize: "%directoriesIconSize";
+$dyn-bookmarksLineHeight: "%bookmarksLineHeight";
+$dyn-bookmarksDirIcon: "%bookmarksDirIcon";
+$dyn-bookmarksDirColor: "%bookmarksDirColor";
+$dyn-bookmarksDirIndentation: "%bookmarksDirIndentation";
+$dyn-bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
+$dyn-tooltipFontSize: "%tooltipFontSize";
+$dyn-scrollBarWidth: "%scrollBarWidth";
+$dyn-indicatorWidth: "%indicatorWidth";
+$dyn-indicatorIconSize: "%indicatorIconSize";
+$dyn-indicatorIconColor: "%indicatorIconColor";
+$dyn-indicatorColor: "%indicatorColor";
+$dyn-overlayMaskColor: "%overlayMaskColor";
 
-$__backgroundTransparency: "%backgroundTransparency";
-$__backgroundBlur: "%backgroundBlur";
+$separatorLabelIndent: calc(#{$dyn-bookmarksHorizontalPadding} + #{$dyn-directoriesIconSize}); // offset of the label of a separator, where the line is interrupted
 
-$__fontFamily: "%fontFamily";
-$__fontWeightThin: "%fontWeightThin"; // 100
-$__fontWeightExtraLight: "%fontWeightExtraLight"; // 200
-$__fontWeightLight: "%fontWeightLight"; // 300
-$__fontWeightNormal: "%fontWeightNormal"; // 400
-$__fontWeightMedium: "%fontWeightMedium"; // 500
-$__fontWeightSemiBold: "%fontWeightSemiBold"; // 600
-$__fontWeightBold: "%fontWeightBold"; // 700
-$__fontWeightExtraBold: "%fontWeightExtraBold"; // 800
-$__fontWeightBlack: "%fontWeightBlack"; // 900
+$dyn-backgroundTransparency: "%backgroundTransparency";
+$dyn-backgroundBlur: "%backgroundBlur";
+
+$dyn-fontFamily: "%fontFamily";
+$dyn-fontWeightThin: "%fontWeightThin"; // 100
+$dyn-fontWeightExtraLight: "%fontWeightExtraLight"; // 200
+$dyn-fontWeightLight: "%fontWeightLight"; // 300
+$dyn-fontWeightNormal: "%fontWeightNormal"; // 400
+$dyn-fontWeightMedium: "%fontWeightMedium"; // 500
+$dyn-fontWeightSemiBold: "%fontWeightSemiBold"; // 600
+$dyn-fontWeightBold: "%fontWeightBold"; // 700
+$dyn-fontWeightExtraBold: "%fontWeightExtraBold"; // 800
+$dyn-fontWeightBlack: "%fontWeightBlack"; // 900

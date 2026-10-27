@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example</title>
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --text: #1f1f1f;
+            --text-footer: #5e5e5e;
+            --logo: #3c5bd6;
+            --link-hover: rgba(60, 64, 67, 0.08);
+            --border: #dadce0;
+            --search-bg: #ffffff;
+            --shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            --icon: #5f6368;
+            --footer: #eceef1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1f1f1f;
+                --text: #e3e3e3;
+                --text-footer: #bdc1c6;
+                --logo: #b7c7fe;
+                --link-hover: rgba(232, 234, 237, 0.08);
+                --border: #5f6368;
+                --search-bg: #4d5156;
+                --shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+                --icon: #9aa0a6;
+                --footer: #171717;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            height: 60px;
+            padding: 6px 12px 0 24px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+            margin-right: 8px;
+            font-size: 13px;
+        }
+
+        .icon-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .icon-button:hover {
+            background: var(--link-hover);
+        }
+
+        .icon-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--icon);
+        }
+
+        .avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin: 0 4px;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .avatar svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 24vh;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 26px;
+            color: var(--logo);
+            font-size: 38px;
+            font-weight: 500;
+            letter-spacing: -1px;
+            user-select: none;
+        }
+
+        .logo svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            width: min(584px, 90vw);
+            height: 48px;
+            padding: 0 8px 0 16px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: var(--search-bg);
+        }
+
+        .search:hover, .search:focus-within {
+            border-color: transparent;
+            box-shadow: var(--shadow);
+        }
+
+        .search svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            fill: var(--icon);
+        }
+
+        .search input {
+            flex: 1;
+            height: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .search .icon-button {
+            width: 36px;
+            height: 36px;
+        }
+
+        .search .icon-button svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        footer {
+            background: var(--footer);
+            color: var(--text-footer);
+            font-size: 14px;
+        }
+
+        footer .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 48px;
+            padding: 0 30px;
+        }
+
+        footer .group {
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Mail</a>
+        <a href="/images" data-navigate>Images</a>
+    </nav>
+    <button class="icon-button" type="button" aria-label="Apps">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM6 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+        </svg>
+    </button>
+    <button class="avatar" type="button" aria-label="Account">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+            <defs>
+                <linearGradient id="avatar-bg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#b7c7fe"/>
+                    <stop offset="1" stop-color="#7696ff"/>
+                </linearGradient>
+            </defs>
+            <rect width="32" height="32" fill="url(#avatar-bg)"/>
+            <circle cx="16" cy="12.5" r="5.5" fill="#f3f6ff"/>
+            <path d="M5 32c0-6.6 4.9-11 11-11s11 4.4 11 11z" fill="#f3f6ff"/>
+        </svg>
+    </button>
+</header>
+
+<main>
+    <h1 class="logo">
+        <svg viewBox="0 0 72 72" aria-hidden="true">
+            <defs>
+                <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#7696ff"/>
+                    <stop offset="1" stop-color="#3c5bd6"/>
+                </linearGradient>
+            </defs>
+            <rect width="72" height="72" rx="20" fill="url(#logo-bg)"/>
+            <circle cx="32" cy="32" r="14" fill="none" stroke="#ffffff" stroke-width="6"/>
+            <path d="M42 42 53 53" stroke="#b7c7fe" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        search
+    </h1>
+
+    <form>
+        <div class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input type="text" name="q" aria-label="Search" autocomplete="off">
+            <button class="icon-button" type="button" aria-label="Search by voice">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                </svg>
+            </button>
+            <button class="icon-button" type="button" aria-label="Search by image">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 3 7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <div class="row">
+        <div class="group">
+            <a href="/">About</a>
+            <a href="/">Settings</a>
+        </div>
+        <div class="group">
+            <a href="/">Privacy</a>
+            <a href="/">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // nothing on this page leads anywhere, except the links to the other demo pages
+    document.addEventListener("click", (e) => {
+        if (e.target.closest("a:not([data-navigate])")) {
+            e.preventDefault();
+        }
+    });
+    document.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
+</script>
+</body>
+</html>

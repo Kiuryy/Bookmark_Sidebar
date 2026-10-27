@@ -1,6 +1,8 @@
+@use "../../include/vars";
+
 
 body.dark .scrollBox {
   &::-webkit-scrollbar-thumb {
-    background-color: $darkScrollBarBackground;
+    background-color: vars.$darkScrollBarBackground;
   }
 }

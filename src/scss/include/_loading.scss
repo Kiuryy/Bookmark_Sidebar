@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "vars";
+
 $size: 36px;
 $offset: 2 * 3.14159265359 * 16;
 $duration: 1.5s;
@@ -36,10 +39,10 @@ svg.loading {
     stroke-dasharray: $offset;
     stroke-dashoffset: 0;
     transform-origin: center;
-    stroke: $__colorScheme;
+    stroke: vars.$dyn-colorScheme;
     animation: dash $duration ease-in-out infinite;
   }
 }
 
-@import "../dark/include/loading";
-@import "../highContrast/include/loading";
+@include meta.load-css("../dark/include/loading");
+@include meta.load-css("../highContrast/include/loading");

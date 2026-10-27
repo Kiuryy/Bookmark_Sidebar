@@ -30,14 +30,26 @@
         };
 
         /**
-         * Removes the premium state for the current account
+         * Dev only: Changes the user type by removing the licence key and setting the installation date accordingly (premium requires a licence key)
          *
          * @param {object} opts
          * @returns {Promise}
          */
-        this.removePremiumState = async (opts) => {
+        this.setDevUserType = async (opts) => {
+            const installationDates = {
+                free: +new Date(),
+                pre2018: +new Date(2016, 11, 1),
+                pre2026: +new Date(2026, 11, 1)
+            };
+
+            if (!$.isDev || !installationDates[opts.userType]) {
+                return {success: false};
+            }
+
             await b.helper.model.setLicenseKey(null);
+            await b.helper.model.setData("installationDate", installationDates[opts.userType]);
             await b.reinitialize({type: "premiumDeactivated"});
+            return {success: true};
         };
 
         /**
@@ -70,7 +82,7 @@
          * @returns {Promise}
          */
         this.checkLicenseKey = async (licenseKey) => {
-            let response = {};
+            let response;
 
             try {
                 const formData = new FormData();
@@ -96,36 +108,6 @@
             } else {
                 console.error("License key check: Invalid response", licenseKey, response);
                 return {valid: null};
-            }
-        };
-
-        /**
-         * Checks whether the website is available
-         *
-         * @returns {Promise}
-         */
-        this.checkWebsiteStatus = async () => {
-            let response = {};
-
-            try {
-                const formData = new FormData();
-                formData.append("version", $.isDev ? "9.9.9" : $.opts.manifest.version);
-
-                const req = await fetch($.opts.website.api.checkStatus, {
-                    method: "POST",
-                    responseType: "json",
-                    body: formData
-                });
-
-                response = await req.json();
-            } catch (err) {
-                return {status: "unavailable"};
-            }
-
-            if (response && response.available) {
-                return {status: "available"};
-            } else {
-                return {status: "unavailable"};
             }
         };
 

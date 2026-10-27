@@ -1,0 +1,80 @@
+@use "../../../include/vars";
+
+html[dir='rtl'] {
+
+  body > header > div > menu#breadcrumb > li {
+
+    + li::before {
+      margin: 0 8px 0 12px;
+      transform: rotate(-135deg);
+    }
+
+    &:first-child > a {
+      padding-left: 8px;
+      padding-right: 34px;
+
+      &::before {
+        left: unset;
+        right: 10px;
+        mask-position: right center;
+      }
+    }
+  }
+
+  body > main > section.view {
+
+    div.cols > .col {
+
+      > strong {
+        margin: -2px 0 0 30px;
+      }
+
+      > span.required {
+        right: unset;
+        left: 18px;
+      }
+
+      > span.status {
+        right: unset;
+        left: 16px;
+      }
+    }
+
+    div.progress {
+      direction: rtl;
+
+      > span {
+        direction: ltr;
+      }
+    }
+
+    div.toolbar {
+
+      > a.back {
+        margin-left: 0;
+        margin-right: 8px;
+      }
+
+      > span.amount-info {
+        margin: 0 auto 0 6px;
+      }
+    }
+
+    ul.entries > li.empty::before {
+      left: unset;
+      right: -14px;
+    }
+  }
+
+  body > section#thanks-dialog > div > blockquote {
+    padding-left: 0;
+    padding-right: 12px;
+    border-left: none;
+    border-right: 4px solid vars.$separatorColor;
+
+    > footer::before {
+      margin-right: 0;
+      margin-left: 4px;
+    }
+  }
+}

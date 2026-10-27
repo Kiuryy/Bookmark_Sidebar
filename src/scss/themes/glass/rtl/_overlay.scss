@@ -1,3 +1,5 @@
+@use "../../../include/vars";
+
 html[dir='rtl'] [data-theme='glass'] div.modal {
 
   &[data-type='checkBookmarks'] {
@@ -8,8 +10,8 @@ html[dir='rtl'] [data-theme='glass'] div.modal {
         right: unset;
         left: -4px;
         border: none;
-        border-left: 3px solid $__textColor;
-        border-bottom: 3px solid $__textColor;
+        border-left: 3px solid vars.$dyn-textColor;
+        border-bottom: 3px solid vars.$dyn-textColor;
       }
     }
   }

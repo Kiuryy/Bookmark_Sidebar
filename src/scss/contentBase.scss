@@ -1,5 +1,5 @@
-@import "include/vars";
-@import "include/mixins";
+@use "include/placeholders";
+@use "include/vars";
 
 // Indicator
 body > div#redeviation-bs-indicator {

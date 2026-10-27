@@ -5,9 +5,6 @@
     "extension_name_short": {
         "message": "Marcaje"
     },
-    "extension_desc": {
-        "message": "Adaug\u0103 o bar\u0103 lateral\u0103 comod\u0103 cu toate marcajele pe marginea ferestrei browserului."
-    },
     "extension_version": {
         "message": "Versiune"
     },
@@ -422,7 +419,7 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "\u00cenchide bara lateral\u0103, selec\u021bia deschis\u0103 sau meniul contextual"
     },
-    "contribute_intro": {
+    "settings_share_info_intro_1": {
         "message": "Pentru a \u00eembun\u0103t\u0103\u021bi extensia a\u0219 dori s\u0103 \u0219tiu mai bine cum folosesc utilizatorii bara lateral\u0103 \u0219i ce configura\u021bii folosesc."
     },
     "contribute_notice": {
@@ -431,13 +428,13 @@
     "contribute_outro": {
         "message": "Dac\u0103 ave\u021bi \u00eentreb\u0103ri sau \u00eengrijor\u0103ri despre partajarea informa\u021biilor, v\u0103 rog s\u0103 \u00eemi trimite\u021bi un mesaj de feedback."
     },
-    "contribute_share_config_label": {
+    "settings_share_info_config": {
         "message": "Partajeaz\u0103 configura\u021bia"
     },
     "contribute_share_config_desc": {
         "message": "Partajarea configura\u021biei este anonim\u0103, ceea ce m\u0103 ajut\u0103 pe mine s\u0103 identific configura\u021biile populare \u0219i s\u0103 \u00eemi dau seama ce s\u0103 \u00eembun\u0103t\u0103\u021besc sau s\u0103 schimb \u00een versiunile viitoare."
     },
-    "contribute_share_activity_label": {
+    "settings_share_info_activity": {
         "message": "Partajeaz\u0103 activitatea"
     },
     "contribute_share_activity_desc1": {
@@ -446,22 +443,22 @@
     "contribute_share_activity_desc2": {
         "message": "Aceast\u0103 informa\u021bie este foarte folositoare pentru a identifica problemele de uzabilitate sau caracteristicile care nu sunt folosite foarte des de exemplu."
     },
-    "contribute_share_activity_examples_intro": {
+    "settings_share_info_activity_examples": {
         "message": "Date care sunt partajate sunt de exemplu:"
     },
-    "contribute_share_activity_example_1": {
+    "settings_share_info_activity_item_5": {
         "message": "C\u00e2te marcaje au utilizatorii \u00een medie ?"
     },
-    "contribute_share_activity_example_2": {
+    "settings_share_info_activity_item_4": {
         "message": "Ce platform\u0103 folosesc utilizatorii (Windows, Mac, Linux, ...)?"
     },
-    "contribute_share_activity_example_3": {
+    "settings_share_info_activity_item_1": {
         "message": "Folosesc utilizatorii bara de c\u0103utare?"
     },
-    "contribute_share_activity_example_4": {
+    "settings_share_info_activity_item_2": {
         "message": "Utilizatorii modific\u0103 sortarea marcajelor?"
     },
-    "contribute_share_activity_example_5": {
+    "settings_share_info_activity_item_3": {
         "message": "C\u00e2t de des rearanjeaz\u0103 sau modific\u0103 utilizatorii intr\u0103rile?"
     },
     "onboarding_title": {
@@ -521,16 +518,16 @@
     "settings_menu_sidebar": {
         "message": "Bar\u0103 lateral\u0103"
     },
-    "settings_menu_sidebar_general": {
+    "settings_general": {
         "message": "General"
     },
-    "settings_menu_sidebar_overlay": {
+    "settings_mode_overlay": {
         "message": "Suprapunere"
     },
-    "settings_menu_sidebar_tooltip": {
+    "settings_tooltip": {
         "message": "Sfaturi pentru ajutor"
     },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Aspect"
     },
     "settings_menu_appearance_general": {
@@ -539,13 +536,13 @@
     "settings_menu_appearance_sidebar": {
         "message": "Bar\u0103 lateral\u0103"
     },
-    "settings_menu_appearance_indicator": {
+    "settings_indicator": {
         "message": "Indicator"
     },
-    "settings_menu_appearance_icon": {
+    "settings_extension_icon": {
         "message": "Iconi\u021b\u0103"
     },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "Tab nou"
     },
     "settings_menu_language": {
@@ -554,10 +551,10 @@
     "settings_menu_language_general": {
         "message": "General"
     },
-    "settings_menu_language_translate": {
+    "settings_menu_translate": {
         "message": "Traducere"
     },
-    "settings_menu_support": {
+    "settings_support": {
         "message": "Sus\u021bine"
     },
     "settings_menu_infos": {
@@ -566,25 +563,25 @@
     "settings_menu_infos_aboutme": {
         "message": "Despre mine"
     },
-    "settings_menu_infos_permissions": {
+    "settings_info_permissions": {
         "message": "Permisiuni"
     },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "Intimitate"
     },
     "settings_menu_infos_contact": {
         "message": "Contact"
     },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "Istoric schimb\u0103ri"
     },
-    "settings_menu_premium": {
+    "premium_title": {
         "message": "Premiu"
     },
-    "settings_menu_export": {
+    "settings_import_export": {
         "message": "Import\/Export"
     },
-    "settings_menu_expert": {
+    "settings_expert": {
         "message": "Set\u0103ri avansate"
     },
     "settings_save": {
@@ -644,7 +641,7 @@
     "settings_open_action_icon": {
         "message": "Clic pe iconi\u021b\u0103"
     },
-    "settings_toggle_area": {
+    "settings_trigger_area_configure": {
         "message": "Configura\u021bi zona"
     },
     "settings_toggle_area_desc": {
@@ -662,7 +659,7 @@
     "settings_toggle_area_height_desc": {
         "message": "Pute\u021bi reduce \u00een\u0103l\u021bimea zonei, astfel \u00eenc\u00e2t bara lateral\u0103 se va deschide numai c\u00e2nd muta\u021bi cursorul \u00een acea loca\u021bie a marginii ferestrei browserului."
     },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "Trage pentru a muta"
     },
     "settings_keyboard_shortcut_button": {
@@ -686,10 +683,10 @@
     "settings_open_delay_desc": {
         "message": "\u00cempiedic\u0103 deschiderea imediat\u0103 a barei laterale la suprapunerea mouse-ului sau f\u0103c\u00e2nd clic cu \u00eent\u00e2rziere."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Previne derularea paginii"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Previne derularea site-ului curent c\u00e2t timp bara lateral\u0103 este deschis\u0103."
     },
     "settings_dir_accordion": {
@@ -794,7 +791,7 @@
     "settings_tooltip_content_url": {
         "message": "Doar URL"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Informa\u021bii adi\u021bionale"
     },
     "settings_sidebar_position": {
@@ -809,34 +806,34 @@
     "settings_sidebar_position_right": {
         "message": "Dreapta"
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Ad\u0103uga\u021bi numai un singur model URL pe linie"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Utiliza\u021bi * pentru a potrivi oricare dintre caractere (de ex. example.com\/* se potrive\u0219te cu toate paginile de la example.com)"
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "Dac\u0103 nu include\u021bi nicun caracter * \u00eentr-o regul\u0103, se va potrivi numai adresa URL exact\u0103 (de exemplu, \"example.com\" nu se va potrivi pentru adresa URL \"example.com\/about.html\")"
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "Nu este necesar s\u0103 ad\u0103uga\u021bi protocolul (de exemplu, http: \/\/) \u00een reguli"
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "\u00cenc\u0103rca\u021bi bara lateral\u0103"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "Pe fiecare pagin\u0103"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "Pe fiecare pagin\u0103, cu excep\u021bia anumitor pagini"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Numai pe anumite pagini"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "Modele URL"
     },
     "settings_import_export_notice": {
@@ -905,22 +902,10 @@
     "settings_icon_color_desc_2": {
         "message": "\u021aine\u021bi cont c\u0103, culoarea automat\u0103 nu func\u021bioneaz\u0103 atunci c\u00e2nd este folosit\u0103 o tem\u0103 personalizat\u0103 pentru {browserName}."
     },
-    "settings_indicator_width": {
-        "message": "L\u0103\u021bime"
-    },
-    "settings_indicator_color": {
-        "message": "Culoare"
-    },
-    "settings_indicator_icon_size": {
-        "message": "M\u0103rime iconi\u021b\u0103"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Culoare iconi\u021b\u0103"
-    },
     "settings_sidebar_width": {
         "message": "L\u0103\u021bime"
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "\u00cen\u0103l\u021bimea antetului"
     },
     "settings_sidebar_mask_color": {
@@ -998,10 +983,10 @@
     "settings_theme_glass_desc": {
         "message": "Aceast\u0103 tem\u0103 face fundalului barei laterale semitransparent \u0219i adaug\u0103 un efect de sticl\u0103 neclar\u0103. Po\u021bi s\u0103 reglezi acest efect \u0219i transparitatea barei laterale."
     },
-    "settings_install_theme": {
+    "settings_theme_use": {
         "message": "Instaleaz\u0103 tem\u0103"
     },
-    "settings_installed_theme_info": {
+    "settings_currently_selected": {
         "message": "Instalat \u00een prezent"
     },
     "settings_theme_changed": {
@@ -1037,13 +1022,13 @@
     "settings_language_default": {
         "message": "Browser implicit"
     },
-    "settings_language_desc": {
+    "settings_language_desc_old": {
         "message": "Limba interfe\u021bei utilizatorului"
     },
-    "settings_translation_link": {
+    "settings_translation_cta_link": {
         "message": "Accesa\u021bi prezentarea general\u0103 a traducerii"
     },
-    "settings_translation_desc": {
+    "settings_translation_cta_desc": {
         "message": "Pute\u021bi ajuta la traducerea acestei extensii \u00een limba dvs. sau s\u0103 o \u00eembun\u0103t\u0103\u021bi\u021bi pe cea existent\u0103."
     },
     "settings_translation_add_language": {
@@ -1133,10 +1118,10 @@
     "settings_permissions_bookmarks_desc": {
         "message": "Extensia afi\u0219eaz\u0103 marcajele tale \u00een bara lateral\u0103 \u0219i de aceea are nevoie de permisiune pentru a ob\u021bine accesul. Permisiunea va da voie extensiei s\u0103 adauge, editeze \u0219i s\u0103 elimine marcaje."
     },
-    "settings_headline_share_userdata": {
+    "settings_share_info": {
         "message": "Partaja\u021bi informa\u021bii"
     },
-    "settings_saved_share_userdata": {
+    "settings_share_info_saved": {
         "message": "Preferin\u021bele dvs. au fost salvate cu succes"
     },
     "premium_popup_text": {
@@ -1145,7 +1130,7 @@
     "premium_restricted_text": {
         "message": "Aceast\u0103 func\u021bie este disponibil\u0103 doar cu versiunea Premium"
     },
-    "premium_desc_1": {
+    "premium_desc": {
         "message": "Cu versiunea Premium vei ob\u021bine acces la func\u021bii suplimentare \u0219i m\u0103 vei ajuta s\u0103 men\u021bin activ\u0103 extensia."
     },
     "premium_desc_2": {
@@ -1178,10 +1163,10 @@
     "premium_feature_import_export_headline": {
         "message": "Importa\u021bi \u0219i exporta\u021bi set\u0103rile d-voastr\u0103"
     },
-    "premium_feature_custom_background_headline": {
+    "premium_feature_newtab_extended_headline": {
         "message": "Personaliza\u021bi pagina Fil\u0103 nou\u0103"
     },
-    "premium_feature_custom_background_desc": {
+    "premium_feature_newtab_extended_desc": {
         "message": "Dac\u0103 folosi\u021bi pagina Fil\u0103 nou\u0103 din aceast\u0103 extensie, pute\u021bi seta propria d-voastr\u0103 imagine de fundal pentru a o face s\u0103 arate \u0219i mai bine."
     },
     "premium_feature_custom_css_headline": {

@@ -1,9 +1,12 @@
+@use "../include/vars";
+@use "include/bookmarkEntry";
+
 
 html[dir='rtl'] {
 
   a.dragHelper {
-    @include bookmarkEntryRtl;
-    padding-right: $__bookmarksHorizontalPadding;
+    @include bookmarkEntry.bookmarkEntryRtl;
+    padding-right: vars.$dyn-bookmarksHorizontalPadding;
     padding-left: 46px;
 
     > span.selected {
@@ -41,6 +44,7 @@ html[dir='rtl'] {
       > div.searchBox {
         left: unset;
         right: 12px;
+        transform: translate3d(-20px, 0, 0); // slides in from the left, in the same direction as the title moves out
 
         > input[type='text'] {
           padding-right: 12px;
@@ -53,13 +57,6 @@ html[dir='rtl'] {
         > h1 {
           transform: translate3d(200%, 0, 0);
         }
-      }
-    }
-
-    > a.lockPinned {
-
-      > span::before {
-        transform: scaleX(-1);
       }
     }
 
@@ -101,11 +98,11 @@ html[dir='rtl'] {
       > ul, > div.pinned > ul {
 
         a {
-          @include bookmarkEntryRtl;
+          @include bookmarkEntry.bookmarkEntryRtl;
 
           + ul {
             padding-left: unset;
-            padding-right: $__bookmarksDirIndentation;
+            padding-right: vars.$dyn-bookmarksDirIndentation;
           }
         }
 
@@ -127,7 +124,7 @@ html[dir='rtl'] {
       > div#bookmarkBox {
 
         a:hover {
-          padding-right: $__bookmarksHorizontalPadding;
+          padding-right: vars.$dyn-bookmarksHorizontalPadding;
           padding-left: 46px;
         }
 
@@ -141,7 +138,7 @@ html[dir='rtl'] {
     &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
 
       &:hover {
-        padding-left: $__bookmarksHorizontalPadding;
+        padding-left: vars.$dyn-bookmarksHorizontalPadding;
       }
     }
 
@@ -149,7 +146,7 @@ html[dir='rtl'] {
 
       > div.scrollBox > ul a > img, > span.icon {
         left: unset;
-        right: calc(#{$__bookmarksHorizontalPadding} + 11px);
+        right: calc(#{vars.$dyn-bookmarksHorizontalPadding} + 11px);
       }
     }
   }

@@ -1,0 +1,58 @@
+@use "../mixins";
+@use "../vars";
+
+// White box on the gradient background of a wrapper (columns, aside, cards of the translation page)
+@mixin card {
+  background: vars.$contentBackground;
+  border-radius: 14px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+
+// Card of a list, with the title as strong element (languages and categories of the translation page, options of the intro page)
+@mixin list-card {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 0;
+  padding: 16px 18px;
+  color: vars.$textColor;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  > strong {
+    display: inline-block;
+    font-size: 120%;
+    font-weight: vars.$dyn-fontWeightMedium;
+  }
+}
+
+// Hover and click effect of a list card
+@mixin clickable-card {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 15%);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  }
+}
+
+// Browser toolbar in the background of the icon previews, $right is the image of the right end (with or without spacing for the extension icon)
+@mixin browser-mockup($height, $right: "mockup-right", $dark: true) {
+  background-image: mixins.img('settings/mockup-left.png'), mixins.img('settings/#{$right}.png'), mixins.img('settings/mockup-middle.png');
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: left 0, right 0, left 0;
+  background-size: auto $height;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  @if ($dark) {
+    &.dark {
+      background-image: mixins.img('settings/mockup-left-dark.png'), mixins.img('settings/#{$right}-dark.png'), mixins.img('settings/mockup-middle-dark.png');
+    }
+  }
+}

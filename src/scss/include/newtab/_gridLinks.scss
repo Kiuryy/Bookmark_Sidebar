@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "sass:meta";
+@use "../placeholders";
+@use "../vars";
+
 div#gridLinks {
   margin: 50px auto 0;
   text-align: center;
@@ -23,7 +28,7 @@ div#gridLinks {
       position: relative;
       display: block;
       font-size: 90%;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       padding: 17px 0;
 
       &.hidden {
@@ -49,7 +54,7 @@ div#gridLinks {
           height: 52px;
           padding: 15px;
           margin: 0 auto 5px;
-          background: $contentBackground;
+          background: vars.$contentBackground;
           box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 50%;
@@ -70,7 +75,7 @@ div#gridLinks {
         }
 
         &:hover {
-          background: darken($bodyBackground, 5%);
+          background: color.adjust(vars.$bodyBackground, $lightness: -5%);
 
           > div {
             border-color: rgba(0, 0, 0, 0.2);
@@ -91,19 +96,19 @@ body.customBackground div#gridLinks {
   > ul > li > a {
 
     &:hover {
-      background: rgba($contentBackground, 0.3);
+      background: rgba(vars.$contentBackground, 0.3);
     }
 
     > div {
-      background: rgba($contentBackground, 0.8);
+      background: rgba(vars.$contentBackground, 0.8);
     }
 
     > span {
-      color: $textColorInverted;
+      color: vars.$textColorInverted;
       text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     }
   }
 }
 
-@import "../../rtl/include/newtab/gridLinks";
-@import "../../dark/include/newtab/gridLinks";
+@include meta.load-css("../../rtl/include/newtab/gridLinks");
+@include meta.load-css("../../dark/include/newtab/gridLinks");

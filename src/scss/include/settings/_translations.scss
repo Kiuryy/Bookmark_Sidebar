@@ -1,0 +1,416 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+@use "helpers";
+
+// Breadcrumb replacing the tabs in the header of the translations page
+body > header > div > menu#breadcrumb {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  font-size: 110%;
+  font-weight: vars.$dyn-fontWeightMedium;
+
+  > li {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+
+    + li::before { // separator arrow
+      content: "";
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      margin: 0 12px 0 8px;
+      border-top: 2px solid rgb(255 255 255 / 40%);
+      border-right: 2px solid rgb(255 255 255 / 40%);
+      transform: rotate(45deg);
+    }
+
+    > a {
+      padding: 6px 8px;
+      border-radius: 6px;
+      color: vars.$textColorInverted;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0.6;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+        background: rgb(255 255 255 / 12%);
+      }
+
+      &.active {
+        opacity: 1;
+        pointer-events: none;
+      }
+    }
+
+    &:first-child > a { // icon for the root entry, like the tabs of the settings page
+      @include mixins.mask('settings/icon-translate', vars.$textColorInverted, 18px);
+      padding-left: 34px;
+
+      &::before {
+        width: 20px;
+        left: 10px;
+        mask-position: left center;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+body[data-view]:not([data-view='category']) > header menu#actions a#save { // submitting is only possible when editing a category (data-view only exists on the translations page, the stylesheet is shared with the settings)
+  display: none;
+}
+
+body > main > section.view {
+  display: none;
+}
+
+@each $view in overview, language, category, unavailable {
+  body[data-view='#{$view}'] > main > section.view[data-name='#{$view}'] {
+    display: block;
+  }
+}
+
+body > main > section.view {
+
+  section.wrapper {
+    min-height: calc(100vh - #{vars.$settingsHeaderHeight});
+
+    > strong > a.back { // next to the language name
+      font-size: 55%;
+    }
+  }
+
+  p.intro {
+    margin: -12px 0 30px;
+    font-size: 110%;
+  }
+
+  div.intro {
+    margin: -10px 0 30px;
+
+    div.reminder {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      > div.checkbox {
+        flex-shrink: 0;
+        margin: 0;
+      }
+
+      > label {
+        font-weight: vars.$dyn-fontWeightNormal;
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Cards of the languages and categories
+  div.cols > .col {
+    @include helpers.list-card;
+
+    > strong {
+      margin: -2px 30px 0 0;
+      padding: 2px 4px;
+    }
+
+    > span.required {
+      position: absolute;
+      top: 17px;
+      right: 18px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 80%;
+      background: rgba(0 0 0 / 8%);
+    }
+
+    > span.status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 22px;
+      height: 22px;
+      cursor: help;
+    }
+
+    > select {
+      width: 100%;
+      margin: 0;
+    }
+
+    &.language-select {
+      justify-content: center;
+    }
+  }
+
+  a.col {
+    @include helpers.clickable-card;
+  }
+
+  div.progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    direction: ltr;
+
+    > div {
+      flex: 1;
+      height: 5px;
+      border-radius: 2px;
+      background: rgb(0 0 0 / 10%);
+      max-width: 180px;
+      overflow: hidden;
+
+      > div {
+        height: 100%;
+        background: vars.$colorSuccess;
+      }
+    }
+
+    > span {
+      flex-shrink: 0;
+      font-size: 85%;
+      color: vars.$textColorLight;
+    }
+  }
+
+  div.languages > a.col {
+
+    @each $status, $color, $icon in (released vars.$colorSuccess 'icon-check', incomplete vars.$colorNotice 'icon-check', draft vars.$colorError 'icon-close') {
+      &[data-status='#{$status}'] {
+        > span.status {
+          @include mixins.mask($icon, $color, 22px);
+        }
+
+        div.progress > div > div {
+          background: $color;
+        }
+
+        &.mark > strong { // language the user is currently using
+          background: $color;
+        }
+      }
+    }
+
+    &.mark > strong {
+      color: vars.$textColorInverted;
+    }
+  }
+
+  div.categories > a.col.incomplete div.progress > div > div {
+    background: vars.$colorNotice;
+  }
+
+  // List of the language variables of a category
+  div.toolbar {
+    position: sticky;
+    top: vars.$settingsHeaderHeight;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    margin-top: -55px;
+    border-radius: 0 0 14px 14px;
+    background: vars.$contentBackground;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+    z-index: 3;
+
+    > strong.headline {
+      font-size: 130%;
+      font-weight: vars.$dyn-fontWeightMedium;
+    }
+
+    > a.back { // next to the category name, like the one next to the language name
+      margin-left: 8px;
+    }
+
+    > span.amount-info {
+      margin: 0 6px 0 auto; // counter and navigation buttons stay on the right
+    }
+
+    > a.goto {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: vars.$contentBackground2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 9px;
+        height: 9px;
+        border-top: 2px solid vars.$textColorLight;
+        border-right: 2px solid vars.$textColorLight;
+      }
+
+      &[data-value='up']::after {
+        transform: translateY(2px) rotate(-45deg);
+      }
+
+      &[data-value='down']::after {
+        transform: translateY(-2px) rotate(135deg);
+      }
+    }
+  }
+
+  p.help {
+    margin: 20px 0 30px;
+    font-size: 110%;
+  }
+
+  ul.entries {
+    margin-top: 20px;
+
+    > li {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 20px;
+      padding: 15px 18px;
+      border-radius: 14px;
+      background: vars.$contentBackground;
+      box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+      transition: box-shadow 0.2s;
+
+      + li {
+        margin-top: 15px;
+      }
+
+      &.empty::before { // marker for the fields which still need to be translated
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: -14px;
+        width: 6px;
+        border-radius: 5px;
+        background: vars.$colorNotice;
+      }
+
+      @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      > div.original {
+        min-width: 0;
+
+        > span {
+          display: block;
+          min-height: 70px;
+          padding: 7px 10px;
+          border-radius: 7px;
+          background: vars.$contentBackground2;
+          line-height: 1.5;
+          white-space: pre-wrap;
+          overflow-wrap: anywhere;
+          user-select: text;
+        }
+
+        > footer.var-name {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 4px;
+          margin-top: 8px;
+          font-size: 90%;
+          color: vars.$textColorLight;
+          direction: ltr; // the variable names are always english
+
+          > label {
+            font-weight: vars.$dyn-fontWeightNormal;
+            margin-right: 2px;
+          }
+
+          > span {
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: rgb(0 0 0 / 10%);
+            color: vars.$textColor;
+            opacity: 0.6;
+
+            + span::before {
+              content: "\203A";
+              position: absolute;
+              top: -4px;
+              left: -9px;
+              line-height: normal;
+              font-size: 150%;
+              color: vars.$textColorLight;
+            }
+
+            + span {
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+
+      > textarea {
+        width: 100%;
+        height: 70px;
+        min-height: 70px;
+        margin: 0;
+        padding: 7px 10px;
+        border-radius: 7px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// Thank you dialog after translating a larger amount of variables
+body > section#thanks-dialog > div {
+
+  > blockquote {
+    font-size: 110%;
+    margin: 10px 0 25px;
+    padding-left: 12px;
+    border-left: 4px solid vars.$separatorColor;
+    line-height: 1.5;
+
+    > footer {
+      margin-top: 8px;
+      font-size: 90%;
+      font-weight: vars.$dyn-fontWeightMedium;
+
+      &::before {
+        content: "\2013";
+        margin-right: 4px;
+      }
+    }
+  }
+
+  > input[type='email'] {
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+  }
+
+  > footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+  }
+}
+
+body > div.message[data-type="error"] > span {
+  background: vars.$colorError;
+  color: vars.$textColorInverted;
+}
+
+@include meta.load-css("../../rtl/include/settings/translations");

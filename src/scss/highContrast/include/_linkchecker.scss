@@ -1,3 +1,5 @@
+@use "../../include/vars";
+
 body.highContrast:not(.dark) div.modal {
 
   &[data-type='checkBookmarks'] {
@@ -5,7 +7,7 @@ body.highContrast:not(.dark) div.modal {
     > div.progressBar {
 
       > div {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
     }
   }

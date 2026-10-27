@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:meta";
+@use "../vars";
+
 
 section#content {
 
@@ -19,7 +23,7 @@ section#content {
 
         > a {
           position: relative;
-          color: $__textColor;
+          color: vars.$dyn-textColor;
           display: block;
           cursor: pointer;
           padding: 7px 10px;
@@ -28,7 +32,7 @@ section#content {
           transition: background 0.3s;
 
           &:hover {
-            background: darken($bodyBackground, 5%);
+            background: color.adjust(vars.$bodyBackground, $lightness: -5%);
           }
         }
       }
@@ -53,10 +57,10 @@ body.customBackground section#content > nav {
     margin: 0 2px 5px;
 
     > a {
-      background: rgba($bodyBackground, 0.8);
+      background: rgba(vars.$bodyBackground, 0.8);
     }
   }
 }
 
-@import "../../rtl/include/newtab/topLinks";
-@import "../../dark/include/newtab/topLinks";
+@include meta.load-css("../../rtl/include/newtab/topLinks");
+@include meta.load-css("../../dark/include/newtab/topLinks");

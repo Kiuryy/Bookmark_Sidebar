@@ -1,125 +1,142 @@
-div.tab[data-name='expert'] {
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
 
-  input.search {
-    max-width: 250px;
+body > section#expert-dialog > div {
+  display: flex; // the box always fills the dialog height -> allows pushing the footer to the bottom when the content is shorter
+  flex-direction: column;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  > input.search {
+    max-width: 300px;
     margin-top: 25px;
   }
 
-  p + p {
-    margin-top: 15px;
-  }
+  > div.expert-config {
+    direction: ltr; // the configuration keys are always english
+    margin-bottom: 30px; // spacing to the footer, which uses an automatic top margin
 
-  p.premium {
-    margin-top: 30px;
-  }
+    > div[data-type] {
+      margin-top: 25px;
 
-  > div[data-type] {
+      > h3 {
+        font-size: 130%;
+        font-weight: vars.$dyn-fontWeightMedium;
+        margin-bottom: 10px;
+      }
+    }
 
-    > ul {
+    li {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      padding: 0 0 0 5px;
+      border-radius: 5px;
 
-      li {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
-        padding: 0 5px;
+      + li {
+        margin-top: 3px;
+      }
 
-        &:hover {
-          background: rgba(0, 0, 0, 0.04);
+      &:hover {
+        background: rgb(0 0 0 / 4%);
+      }
+
+      > label {
+        padding-right: 12px;
+        margin-right: 7px;
+        line-height: 28px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 6px;
+          height: 6px;
+          margin: auto;
+          border-top: 2px solid rgb(0 0 0 / 20%);
+          border-right: 2px solid rgb(0 0 0 / 20%);
+          transform: rotateZ(45deg);
         }
 
-        > label {
-          position: relative;
-          padding-right: 12px;
-          margin-right: 7px;
-          line-height: 28px;
+        > div.info {
+          @include mixins.mask("icon-info", vars.$textColorLight, 16px);
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
+          margin: -3px 0 0 5px;
+          cursor: help;
 
-          &::after {
-            content: "";
+          > span {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            width: 6px;
-            height: 6px;
-            margin: auto;
-            border-top: 2px solid rgba(0, 0, 0, 0.2);
-            border-right: 2px solid rgba(0, 0, 0, 0.2);
-            transform: rotateZ(45deg);
-          }
+            width: 220px;
+            top: 28px;
+            left: calc(-110px + 10px);
+            padding: 6px 8px;
+            border-radius: 5px;
+            background: vars.$tooltipBackground;
+            color: vars.$textColorInverted;
+            font-size: 80%;
+            line-height: normal;
+            transform: translate3d(0, -5px, 0);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 9;
 
-          > div.info {
-            @include mask("icon-info", $textColorLight, 16px);
-            position: relative;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            font-weight: normal;
-            vertical-align: middle;
-            margin: -3px 0 0 5px;
-            cursor: help;
-
-            > span {
+            &::before {
+              content: "";
               position: absolute;
-              width: 200px;
-              background: rgba(0, 0, 0, 0.8);
-              top: 28px;
-              left: calc(-100px + 10px);
-              color: $textColorInverted;
-              font-size: 80%;
-              line-height: normal;
-              padding: 5px;
-              border-radius: 5px;
-              transform: translate3d(0, -5px, 0);
-              opacity: 0;
-              pointer-events: none;
-              transition: opacity 0.3s, transform 0.3s;
-              z-index: 9;
-
-              &::before {
-                content: "";
-                position: absolute;
-                top: -14px;
-                left: 0;
-                right: 0;
-                width: 0;
-                height: 0;
-                margin: auto;
-                border: 7px solid transparent;
-                border-bottom-color: $tooltipBackground;
-              }
-            }
-
-            &:hover > span {
-              transform: translate3d(0, 0, 0);
-              opacity: 1;
+              top: -14px;
+              left: 0;
+              right: 0;
+              width: 0;
+              height: 0;
+              margin: auto;
+              border: 7px solid transparent;
+              border-bottom-color: vars.$tooltipBackground;
             }
           }
-        }
 
-        > input[type='text'] {
-          width: auto;
-          flex: 1;
-          margin: 0;
-          background: none;
-          font-size: 90%;
-          transition: box-shadow 0.5s;
-
-          &:focus {
-            background: rgba(0, 0, 0, 0.04);
-          }
-
-          &.error {
-            box-shadow: 0 0 3px $colorError;
+          &:hover > span {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
           }
         }
       }
 
-      ul {
+      > input[type='text'] {
+        width: auto;
         flex: 1;
-        margin-top: 24px;
+        min-width: 150px;
+        font-size: 90%;
+        margin: 0;
+      }
+
+      > ul {
+        flex-basis: 100%;
+        padding-left: 20px;
+        margin-bottom: 10px;
       }
     }
   }
+
+  > footer { // keeps the save button visible when scrolling through the configuration
+    position: sticky;
+    bottom: -30px; // compensates the bottom padding of the box, so the footer sticks to the very bottom
+    display: flex;
+    justify-content: flex-end;
+    margin: auto -30px -30px;
+    padding: 15px 30px;
+    background: vars.$contentBackground2;
+    border-top: 1px solid vars.$separatorColor;
+    z-index: 2;
+  }
 }
 
-@import "../../rtl/include/settings/expert";
+@include meta.load-css("../../rtl/include/settings/expert");

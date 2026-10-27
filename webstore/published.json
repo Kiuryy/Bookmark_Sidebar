@@ -1,0 +1,37 @@
+{
+    "cs": {
+        "hashes": {
+            "chrome": "26dc7f2c268a6d78",
+            "edge": "5d08a4bcc6769590"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "de": {
+        "hashes": {
+            "chrome": "541d1adf24b26a78",
+            "edge": "e523da46b9afe5eb"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "en": {
+        "hashes": {
+            "chrome": "5eecd2f36c9c50e7",
+            "edge": "a3d6c4304843f645"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "en_US": {
+        "hashes": {
+            "chrome": "e2e16b864e3351c8",
+            "edge": "1116970f786b4595"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "zh_CN": {
+        "hashes": {
+            "chrome": "1cfee88a780bdf9c",
+            "edge": "f2495a57a8d1b22e"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    }
+}

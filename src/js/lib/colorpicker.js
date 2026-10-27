@@ -2,7 +2,7 @@
  * Colorpicker.js
  *
  * Philipp König
- * https://redeviation.com/
+ * https://philipp-koenig.com/
  */
 window.Colorpicker = (() => {
     "use strict";
@@ -430,7 +430,7 @@ window.Colorpicker = (() => {
 
                 const offset = 5;
                 const size = this.pickingArea.clientWidth;
-                const pos = [e.pageX - rect.left, e.pageY - rect.top];
+                const pos = [e.clientX - rect.left, e.clientY - rect.top];
 
                 pos.forEach((v, k) => {
                     if (v > size) {
@@ -473,7 +473,7 @@ window.Colorpicker = (() => {
             this.huePicker = picker;
             addMouseListener(area, (e) => {
                 const rect = this.hueArea.getBoundingClientRect();
-                let x = Math.max(0, e.pageX - rect.left);
+                let x = Math.max(0, e.clientX - rect.left);
                 const width = this.hueArea.clientWidth;
 
                 if (x > width) {
@@ -509,7 +509,7 @@ window.Colorpicker = (() => {
 
             addMouseListener(area, (e) => {
                 const rect = alpha.area.getBoundingClientRect();
-                let x = e.pageX - rect.left;
+                let x = e.clientX - rect.left;
                 const width = alpha.area.clientWidth;
 
                 if (x < 0) {
@@ -721,26 +721,30 @@ window.Colorpicker = (() => {
                 const isRtl = document.documentElement.getAttribute("dir") === "rtl";
                 const rect = preview.getBoundingClientRect();
 
+                const scrollX = window.pageXOffset;
+                const scrollY = window.pageYOffset;
+
                 const leftDefaults = {
-                    l: rect.left,
-                    r: rect.left - wrapper.offsetWidth + preview.offsetWidth
+                    l: rect.left + scrollX,
+                    r: rect.left + scrollX - wrapper.offsetWidth + preview.offsetWidth
                 };
 
                 const pos = ["bottom", isRtl ? "right" : "left"];
-                let top = rect.top + preview.offsetHeight;
+
+                let top = rect.top + scrollY + preview.offsetHeight;
                 let left = leftDefaults[isRtl ? "r" : "l"];
 
-                if (wrapper.offsetHeight + top > window.innerHeight) {
-                    top = rect.top - wrapper.offsetHeight;
+                if (top + wrapper.offsetHeight > scrollY + window.innerHeight) {
+                    top = rect.top + scrollY - wrapper.offsetHeight;
                     pos[0] = "top";
                 }
 
-                if (wrapper.offsetWidth + left > window.innerWidth) {
+                if (left + wrapper.offsetWidth > scrollX + window.innerWidth) {
                     left = leftDefaults.r;
                     pos[1] = "right";
                 }
 
-                if (left < 0) {
+                if (left < scrollX) {
                     left = leftDefaults.l;
                     pos[1] = "left";
                 }

@@ -1,0 +1,15 @@
+html[dir='rtl'] body > main {
+
+  section.wrapper > strong::before {
+    margin-right: 0;
+    margin-left: 14px;
+  }
+
+  p.note {
+    padding: 7px 30px 7px 10px;
+
+    &::before {
+      mask-position: right 7px top 7px;
+    }
+  }
+}

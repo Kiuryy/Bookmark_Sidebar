@@ -1,0 +1,23 @@
+@use "../../include/vars";
+
+// Overlay: blurs the website behind it, set on the iframe instead of its body, so it fades in together with the mask,
+// while the iframe is fading in (opacity < 1) a backdrop-filter inside of it can't see the website and pops in at the end
+body > iframe#redeviation-bs-overlay[data-theme='glass'] {
+  backdrop-filter: blur(vars.$dyn-backgroundBlur);
+}
+
+// Sidebar: same problem, the iframe is not faded in/out (the sidebar slides in/out via transform anyway),
+// only the mask is faded via its background color, so the blur of the sidebar background is visible during the animation
+body > #redeviation-bs-sidebar[data-theme='glass'] { // a custom element, the iframe is inside its shadow root
+  opacity: 1;
+  background-color: transparent !important;
+  transition: width 0s 0.3s, height 0s 0.3s, transform 0.3s, background-color 0.3s;
+
+  &.redeviation-bs-visible {
+    transition: transform 0.3s, background-color 0.3s;
+
+    &:not(.redeviation-bs-hideMask) {
+      background-color: vars.$dyn-sidebarMaskColor !important;
+    }
+  }
+}

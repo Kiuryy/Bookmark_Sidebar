@@ -1,16 +1,18 @@
+@use "../../include/vars";
+
 @mixin bookmarkEntryRtl {
 
   &.dir {
 
     &.has-arrow {
-      padding-left: $__bookmarksHorizontalPadding;
+      padding-left: vars.$dyn-bookmarksHorizontalPadding;
       padding-right: 15px !important;
 
       &::before {
         right: 5px;
         left: unset;
         border-left-color: transparent;
-        border-right-color: $__textColor;
+        border-right-color: vars.$dyn-textColor;
         transform-origin: 75% 50%;
       }
 
@@ -25,15 +27,23 @@
 
   > span.copied {
     left: unset;
-    right: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);
+    right: calc(#{vars.$dyn-bookmarksIconSize} + #{vars.$dyn-bookmarksHorizontalPadding} + 10px);
   }
 
   > img, > span.icon {
-    margin: 0 0 0 $__bookmarksHorizontalPadding;
+    margin: 0 0 0 vars.$dyn-bookmarksHorizontalPadding;
   }
 
   > div.checkbox {
-    margin: 0 0 0 $__bookmarksHorizontalPadding;
+    margin: 0 0 0 vars.$dyn-bookmarksHorizontalPadding;
+  }
+
+  &.separator > span.label[data-name] {
+    background-position: right center;
+
+    &::before {
+      margin: 0 vars.$separatorLabelIndent 0 10px;
+    }
   }
 
   > span.removeMask {

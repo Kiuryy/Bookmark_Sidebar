@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example Images</title>
+    <!--
+        Image search results with colorful photos behind the whole viewport, to show off the transparency of the sidebar.
+        The photos are free images from Unsplash (Unsplash License) and are loaded from images.unsplash.com.
+    -->
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --header-bg: rgba(246, 247, 249, 0.85);
+            --text: #1f1f1f;
+            --text-light: #5e5e5e;
+            --logo: #3c5bd6;
+            --link-hover: rgba(60, 64, 67, 0.08);
+            --border: #dadce0;
+            --search-bg: #ffffff;
+            --shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            --icon: #5f6368;
+            --chip-bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1f1f1f;
+                --header-bg: rgba(31, 31, 31, 0.85);
+                --text: #e3e3e3;
+                --text-light: #bdc1c6;
+                --logo: #b7c7fe;
+                --link-hover: rgba(232, 234, 237, 0.08);
+                --border: #5f6368;
+                --search-bg: #4d5156;
+                --shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+                --icon: #9aa0a6;
+                --chip-bg: #303134;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            z-index: 1;
+            top: 0;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+        }
+
+        header .top {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            height: 68px;
+            padding: 0 16px 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+            color: var(--logo);
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            user-select: none;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            width: min(640px, 60vw);
+            height: 44px;
+            padding: 0 8px 0 18px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--search-bg);
+        }
+
+        .search:hover, .search:focus-within {
+            border-color: transparent;
+            box-shadow: var(--shadow);
+        }
+
+        .search input {
+            flex: 1;
+            height: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .icon-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .icon-button:hover {
+            background: var(--link-hover);
+        }
+
+        .icon-button svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--icon);
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            margin-left: auto;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .avatar svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            padding: 0 24px 0 186px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        nav a {
+            padding: 4px 0 10px;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a.active {
+            border-bottom-color: var(--logo);
+            color: var(--logo);
+        }
+
+        .chips {
+            display: flex;
+            gap: 8px;
+            padding: 10px 24px 12px;
+            overflow: hidden;
+        }
+
+        .chips a {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            gap: 8px;
+            height: 32px;
+            padding: 0 14px 0 4px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--chip-bg);
+            white-space: nowrap;
+        }
+
+        .chips a::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--chip);
+        }
+
+        main {
+            display: grid;
+            grid-auto-flow: dense;
+            grid-auto-rows: 180px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 6px;
+            padding: 0 6px 6px;
+        }
+
+        figure {
+            position: relative;
+            margin: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: var(--placeholder);
+            cursor: pointer;
+        }
+
+        figure.wide {
+            grid-column: span 2;
+        }
+
+        figure.tall {
+            grid-row: span 2;
+        }
+
+        figure.big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        figure:hover img {
+            transform: scale(1.04);
+        }
+
+        figcaption {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 28px 12px 10px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+            color: #ffffff;
+            font-size: 13px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        figcaption span {
+            display: block;
+            margin-top: 2px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        figure:hover figcaption {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top">
+        <a class="logo" href="/" data-navigate>
+            <svg viewBox="0 0 72 72" aria-hidden="true">
+                <defs>
+                    <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#7696ff"/>
+                        <stop offset="1" stop-color="#3c5bd6"/>
+                    </linearGradient>
+                </defs>
+                <rect width="72" height="72" rx="20" fill="url(#logo-bg)"/>
+                <circle cx="32" cy="32" r="14" fill="none" stroke="#ffffff" stroke-width="6"/>
+                <path d="M42 42 53 53" stroke="#b7c7fe" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+            search
+        </a>
+
+        <form class="search">
+            <input type="text" name="q" aria-label="Search" autocomplete="off">
+            <button class="icon-button" type="button" aria-label="Search by image">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 3 7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+            </button>
+            <button class="icon-button" type="button" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+        </form>
+
+        <button class="avatar" type="button" aria-label="Account">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+                <defs>
+                    <linearGradient id="avatar-bg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#b7c7fe"/>
+                        <stop offset="1" stop-color="#7696ff"/>
+                    </linearGradient>
+                </defs>
+                <rect width="32" height="32" fill="url(#avatar-bg)"/>
+                <circle cx="16" cy="12.5" r="5.5" fill="#f3f6ff"/>
+                <path d="M5 32c0-6.6 4.9-11 11-11s11 4.4 11 11z" fill="#f3f6ff"/>
+            </svg>
+        </button>
+    </div>
+
+    <nav>
+        <a href="/" data-navigate>All</a>
+        <a href="/" class="active">Images</a>
+        <a href="/">Videos</a>
+        <a href="/">News</a>
+        <a href="/">Maps</a>
+    </nav>
+
+    <div class="chips">
+        <a href="/" style="--chip: linear-gradient(135deg, #f7797d, #fbd786)">Sunset</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #43cea2, #185a9d)">Ocean</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #a8e063, #56ab2f)">Nature</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #da22ff, #9733ee)">Abstract</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #f953c6, #b91d73)">Gradient</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #2c3e50, #4ca1af)">Mountains</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #f2994a, #f2c94c)">Flowers</a>
+        <a href="/" style="--chip: linear-gradient(135deg, #0f2027, #2c5364)">Night sky</a>
+    </div>
+</header>
+
+<main></main>
+
+<script>
+    // [Unsplash photo id, title, placeholder color, tile size], ordered so the colorful ones fill the edges of the viewport
+    const photos = [
+        ["1541701494587-cb58502866ab", "Ink in water", "#1f5f8b", "big"],
+        ["1493246507139-91e8fad9978e", "Mountain lake at dawn", "#3f8a9c"],
+        ["1579546929518-9e396f3cc809", "Soft rainbow gradient", "#f09ab8", "tall"],
+        ["1490730141103-6cac27aaab94", "Sunset reflection", "#d9573d"],
+        ["1490750967868-88aa4486c946", "Yellow poppies", "#e8a51c"],
+        ["1618005182384-a83a8bd57fbe", "Purple waves", "#7b4fd6", "wide"],
+        ["1472214103451-9374bd1c798e", "Green valley", "#6aa33a"],
+        ["1557672172-298e090bd0f1", "Liquid marble", "#e3a3d6"],
+        ["1507525428034-b723cf961d3e", "Beach at sunrise", "#7cc4c8", "wide"],
+        ["1604076913837-52ab5629fba9", "Red light swirl", "#c9304f", "tall"],
+        ["1501785888041-af3ef285b470", "Turquoise lake", "#2fa3a0"],
+        ["1476820865390-c52aeebb9891", "Autumn road", "#c56a2c"],
+        ["1618172193622-ae2d025f4032", "Teal spiral", "#1b8fb0", "big"],
+        ["1470252649378-9c29740c9fa8", "Golden hour", "#c9822e"],
+        ["1465146344425-f00d5f5c8f07", "Poppy field", "#d3b58a"],
+        ["1557682250-33bd709cbe85", "Violet gradient", "#9147c4"],
+        ["1500530855697-b586d89ba3ee", "Desert road", "#b8674a", "wide"],
+        ["1519681393784-d120267933ba", "Milky Way", "#35406e"],
+        ["1433086966358-54859d0ed716", "Waterfall", "#4f7a3b", "tall"],
+        ["1614850523459-c2f4c699c52e", "Midnight gradient", "#3a2a8a"],
+        ["1513836279014-a89f7a76ae86", "Treetops", "#3f7a55"],
+        ["1508739773434-c26b3d09e071", "Red mountains", "#8c4a36"],
+        ["1620641788421-7a1c342ea42e", "Neon glow", "#5a1f7a", "wide"],
+        ["1439066615861-d1af74d74000", "Lake pier", "#2e7fc0"],
+        ["1470071459604-3b5ec3a7fe05", "Misty hills", "#6f9152"],
+        ["1506905925346-21bda4d32df4", "Above the clouds", "#6a7fa6", "tall"],
+        ["1502082553048-f009c37129b9", "Lone tree", "#6ea04a"],
+        ["1518837695005-2083093ee35b", "Ocean waves", "#3d6a7a"],
+        ["1506744038136-46273834b3fb", "Valley river", "#7f9cb0"],
+        ["1464822759023-fed622ff2c3b", "Mountain range", "#5d88b5", "wide"],
+        ["1500534314209-a25ddb2bd429", "Hazy mountains", "#b7a48f"],
+        ["1441974231531-c6227db76b6e", "Forest path", "#4a6b32"],
+        ["1447752875215-b2761acb3c5d", "Forest bridge", "#3e5a3a"]
+    ];
+
+    const main = document.querySelector("main");
+    photos.forEach(([id, title, color, size]) => {
+        const width = size === "big" ? 1200 : 800;
+        const figure = document.createElement("figure");
+        if (size) {
+            figure.classList.add(size);
+        }
+        figure.style.setProperty("--placeholder", color);
+        figure.innerHTML = `<img src="https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80" alt="${title}">`
+            + `<figcaption>${title}<span>unsplash.com</span></figcaption>`;
+        main.appendChild(figure);
+    });
+
+    // nothing on this page leads anywhere, except the links to the other demo pages
+    document.addEventListener("click", (e) => {
+        if (e.target.closest("a:not([data-navigate])")) {
+            e.preventDefault();
+        }
+    });
+    document.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
+</script>
+</body>
+</html>

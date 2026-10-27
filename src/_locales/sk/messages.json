@@ -5,9 +5,6 @@
     "extension_name_short": {
         "message": "Z\u00e1lo\u017eky"
     },
-    "extension_desc": {
-        "message": "Prid\u00e1 prep\u00ednate\u013en\u00fd panel s va\u0161imi z\u00e1lo\u017ekami na okraj obrazovky prehliada\u010da."
-    },
     "extension_version": {
         "message": "Verzia"
     },
@@ -182,8 +179,8 @@
     "overlay_delete": {
         "message": "Vymaza\u0165"
     },
-    "overlay_update": {
-        "message": "Aktualizova\u0165"
+    "overlay_show_in_bookmark_manager": {
+        "message": "Zobrazi\u0165 v Spr\u00e1vcovi z\u00e1lo\u017eiek"
     },
     "overlay_confirm_open_selected": {
         "message": "Naozaj chcete otvori\u0165 v\u0161etky z\u00e1lo\u017eky ({1}), vr\u00e1tane z\u00e1lo\u017eiek podadres\u00e1rov vybrat\u00fdch prie\u010dinkov?"
@@ -314,12 +311,6 @@
     "newtab_grid_links_hidden": {
         "message": "Nezobrazova\u0165 str\u00e1nky"
     },
-    "newtab_grid_links_appearance_thumbnail": {
-        "message": "Zobrazi\u0165 uk\u00e1\u017eky web str\u00e1nky"
-    },
-    "newtab_grid_links_appearance_favicon": {
-        "message": "Zobrazi\u0165 ikony web str\u00e1nky"
-    },
     "newtab_grid_links_grid_size": {
         "message": "Ve\u013ekos\u0165 mrie\u017eky"
     },
@@ -365,6 +356,9 @@
     "newtab_upload_background": {
         "message": "Nahra\u0165 obr\u00e1zok pozadia"
     },
+    "newtab_sidebar_auto_open": {
+        "message": "Rozbali\u0165 bo\u010dn\u00fd panel pri na\u010d\u00edtan\u00ed str\u00e1nky"
+    },
     "newtab_fallback_headline_general": {
         "message": "Nie\u010do zablokovalo bo\u010dn\u00fd panel"
     },
@@ -386,14 +380,8 @@
     "newtab_fallback_desc": {
         "message": "Otvorili sme V\u00e1m nov\u00fa kartu s bo\u010dn\u00fdm panelom."
     },
-    "newtab_fallback_set_as_new_tab": {
-        "message": "V\u017edy zobraz t\u00fato str\u00e1nku pri otvoren\u00ed novej karty"
-    },
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
-    },
-    "status_feedback_unavailable_desc": {
-        "message": "Slu\u017eba sp\u00e4tnej v\u00e4zby je moment\u00e1lne nedostupn\u00e1. Ak chcete odosla\u0165 sp\u00e4tn\u00fa v\u00e4zbu, pros\u00edm, po\u0161lite n\u00e1m e-mail."
     },
     "status_translation_unavailable_desc": {
         "message": "Slu\u017eba prekladu je moment\u00e1lne nedostupn\u00e1. Pros\u00edm, sk\u00faste to nesk\u00f4r."
@@ -437,74 +425,17 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zatvor\u00ed bo\u010dn\u00fd panel, otvoren\u00fa vrstvu alebo kontextov\u00e9 menu"
     },
-    "contribute_intro": {
-        "message": "Aby som mohol roz\u0161\u00edrenie vylep\u0161ova\u0165, r\u00e1d by som vedel viac o u\u017e\u00edvate\u013eoch panela a nastaveniach, ktor\u00e9 pou\u017e\u00edvaj\u00fa."
-    },
-    "contribute_notice": {
-        "message": "Pom\u00f4\u017ete mi zdie\u013ean\u00edm va\u0161ej konfigur\u00e1cie"
-    },
-    "contribute_outro": {
-        "message": "Ak m\u00e1te ot\u00e1zky alebo obavy zo zdie\u013eania inform\u00e1ci\u00ed, pros\u00edm po\u0161lite mi sp\u00e4tn\u00fa v\u00e4zbu."
-    },
-    "contribute_share_config_label": {
-        "message": "Zdie\u013ea\u0165 konfigur\u00e1ciu"
-    },
-    "contribute_share_config_desc": {
-        "message": "Svoju konfigur\u00e1cie zdie\u013eate anonymne. Pom\u00e1ha mi to ur\u010di\u0165 popul\u00e1rne nastavenia a zisti\u0165, \u010do je potrebn\u00e9 zlep\u0161i\u0165 v bud\u00facich vydaniach."
-    },
-    "contribute_share_activity_label": {
-        "message": "Aktivita zdie\u013eania"
-    },
-    "contribute_share_activity_desc1": {
-        "message": "Svoju aktivitu m\u00f4\u017eete zdie\u013ea\u0165 anonymne. To mi pom\u00e1ha zisti\u0165 ako u\u017e\u00edvatelia roz\u0161\u00edrenie pou\u017e\u00edvaj\u00fa. Inform\u00e1cie o va\u0161ich z\u00e1lo\u017ek\u00e1ch alebo nav\u0161t\u00edven\u00fdch str\u00e1nkach [b]nebud\u00fa[\/b] sledovan\u00e9."
-    },
-    "contribute_share_activity_desc2": {
-        "message": "T\u00e1to inform\u00e1cia je ve\u013emi d\u00f4le\u017eit\u00e1 k ur\u010deniu probl\u00e9mov s pou\u017e\u00edvan\u00edm alebo funkci\u00ed, ktor\u00e9 sa nepou\u017e\u00edvaj\u00fa \u010dasto."
-    },
-    "contribute_share_activity_examples_intro": {
-        "message": "D\u00e1ta, ktor\u00e9 s\u00fa zdie\u013ean\u00e9 s\u00fa napr\u00edklad:"
-    },
-    "contribute_share_activity_example_1": {
-        "message": "Ko\u013eko z\u00e1lo\u017eiek u\u017e\u00edvatelia priemerne maj\u00fa?"
-    },
-    "contribute_share_activity_example_2": {
-        "message": "Ak\u00fd opera\u010dn\u00fd styst\u00e9m (Windows, Mac, Linux, ...) u\u017e\u00edvatelia pou\u017e\u00edvaj\u00fa?"
-    },
-    "contribute_share_activity_example_3": {
-        "message": "Pou\u017e\u00edvaj\u00fa vyh\u0161ad\u00e1vanie?"
-    },
-    "contribute_share_activity_example_4": {
-        "message": "Menia u\u017e\u00edvatelia zoradenie z\u00e1lo\u017eiek?"
-    },
-    "contribute_share_activity_example_5": {
-        "message": "Ako \u010dasto u\u017e\u00edvatelia upravuj\u00fa alebo zora\u010fuj\u00fa z\u00e1lo\u017eky?"
-    },
     "onboarding_title": {
         "message": "Nastavenie"
     },
     "onboarding_headline": {
         "message": "\u010eakujeme, \u017ee ste si nain\u0161talovali toto roz\u0161\u00edrenie."
     },
-    "onboarding_intro_desc": {
-        "message": "Existuje nieko\u013eko sp\u00f4sobov, ako otvori\u0165 bo\u010dn\u00fd panel."
-    },
-    "onboarding_intro_sidebar_overlay_desc": {
-        "message": "Otvori\u0165 v hornej \u010dasti webov\u00fdch str\u00e1nok"
-    },
-    "onboarding_intro_sidebar_sidepanel_desc": {
-        "message": "Otvori\u0165 na bo\u010dnom paneli ved\u013ea hlavn\u00e9ho obsahu webov\u00fdch str\u00e1nok"
-    },
-    "onboarding_sidebar_overlay_disable": {
-        "message": "Nechcem pou\u017ei\u0165 tento prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel"
-    },
-    "onboarding_setup_start": {
-        "message": "Nastavi\u0165 teraz"
-    },
-    "onboarding_setup_complete": {
-        "message": "Nastavenie dokon\u010den\u00e9"
+    "onboarding_mode_desc": {
+        "message": "Ako chcete vyu\u017e\u00edva\u0165 bo\u010dn\u00fd panel?"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Kde chcete ma\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
+        "message": "Na ktorej strane by sa mal zobrazova\u0165 bo\u010dn\u00fd panel?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "Ako si \u017eel\u00e1te otvori\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
@@ -530,9 +461,6 @@
     "onboarding_handson_icon_desc": {
         "message": "Kliknite na ikonu roz\u0161\u00edrenia pre otvorenie bo\u010dn\u00e9ho panela."
     },
-    "onboarding_handson_sidepanel_desc": {
-        "message": "Kliknite na ikonu bo\u010dn\u00e9ho panela v hornej \u010dasti prehliada\u010da a vyberte zobrazenie bo\u010dn\u00e9ho panela so z\u00e1lo\u017ekami."
-    },
     "onboarding_left": {
         "message": "\u013eav\u00fd\/\u00e1"
     },
@@ -545,107 +473,44 @@
     "onboarding_finish_desc": {
         "message": "Pr\u00edjemn\u00fa z\u00e1bavu."
     },
-    "onboarding_goto_settings": {
-        "message": "Viac nastaven\u00ed"
+    "onboarding_finish_settings_title": {
+        "message": "Vylep\u0161ite si svoj z\u00e1\u017eitok"
     },
-    "onboarding_goto_appearance": {
-        "message": "Nastavi\u0165 vzh\u013ead"
+    "onboarding_finish_settings_desc": {
+        "message": "Ur\u010dite, ako sa bude spr\u00e1va\u0165 bo\u010dn\u00fd panel, ako sa bud\u00fa otv\u00e1ra\u0165 va\u0161e z\u00e1lo\u017eky a mnoho \u010fal\u0161ieho. Pozrite si nastavenia."
+    },
+    "onboarding_finish_appearance_title": {
+        "message": "Urobte si to naozaj pod\u013ea seba"
+    },
+    "onboarding_finish_appearance_desc": {
+        "message": "Upravte farby, p\u00edsma, medzery a \u010fal\u0161ie prvky, aby bo\u010dn\u00fd panel vyzeral presne tak, ako sa v\u00e1m p\u00e1\u010di."
     },
     "settings_title": {
         "message": "Nastavenie"
     },
-    "settings_menu_dashboard": {
+    "settings_tab_overview": {
         "message": "Preh\u013ead"
     },
-    "settings_menu_sidebar": {
-        "message": "Bo\u010dn\u00fd panel"
+    "settings_general": {
+        "message": "V\u0161eobecn\u00e9 nastavenia"
     },
-    "settings_menu_sidebar_general": {
-        "message": "V\u0161eobecn\u00e9"
-    },
-    "settings_menu_sidebar_overlay": {
-        "message": "Vrstva"
-    },
-    "settings_menu_sidebar_sidepanel": {
-        "message": "Bo\u010dn\u00fd panel"
-    },
-    "settings_menu_sidebar_tooltip": {
-        "message": "N\u00e1poveda"
-    },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Vzh\u013ead"
     },
-    "settings_menu_appearance_general": {
-        "message": "V\u0161eobecn\u00e9"
-    },
-    "settings_menu_appearance_sidebar": {
-        "message": "Bo\u010dn\u00fd panel"
-    },
-    "settings_menu_appearance_indicator": {
-        "message": "Indik\u00e1tor"
-    },
-    "settings_menu_appearance_icon": {
-        "message": "Ikony"
-    },
-    "settings_menu_appearance_dialog": {
-        "message": "Dial\u00f3gov\u00e9 okno"
-    },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "Nov\u00e1 karta"
     },
-    "settings_menu_language": {
-        "message": "Jazyk"
-    },
-    "settings_menu_language_general": {
-        "message": "V\u0161eobecn\u00e9"
-    },
-    "settings_menu_language_translate": {
-        "message": "Prelo\u017ei\u0165"
-    },
-    "settings_menu_support": {
-        "message": "Podpora"
-    },
-    "settings_menu_infos": {
-        "message": "Inform\u00e1cie"
-    },
-    "settings_menu_infos_aboutme": {
-        "message": "O mne"
-    },
-    "settings_menu_infos_permissions": {
-        "message": "Opr\u00e1vnenia"
-    },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "S\u00fakromie"
     },
-    "settings_menu_infos_contact": {
-        "message": "Kontakt"
-    },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "Z\u00e1znam zmien"
-    },
-    "settings_menu_premium": {
-        "message": "Premium"
-    },
-    "settings_menu_export": {
-        "message": "Import\/Export"
-    },
-    "settings_menu_expert": {
-        "message": "Pokro\u010dil\u00e9 nastavenia"
     },
     "settings_save": {
         "message": "Ulo\u017ei\u0165 zmeny"
     },
     "settings_saved_message": {
         "message": "Zmeny boli \u00faspe\u0161ne ulo\u017een\u00e9"
-    },
-    "settings_restore": {
-        "message": "Obnovi\u0165 v\u00fdchodzie"
-    },
-    "settings_restore_confirm": {
-        "message": "Naozaj chcete obnovi\u0165 v\u00fdchodzie nastavenia?"
-    },
-    "settings_restored_message": {
-        "message": "Nastavenia boli \u00faspe\u0161ne obnoven\u00e9"
     },
     "settings_advanced": {
         "message": "Pokro\u010dil\u00e9 nastavenia"
@@ -659,29 +524,14 @@
     "settings_premium_invalid_key": {
         "message": "Nepodarilo sa aktivova\u0165 Premium. Zadajte platn\u00fd licen\u010dn\u00fd k\u013e\u00fa\u010d"
     },
-    "settings_search_placeholder": {
-        "message": "Vyh\u013eadajte konfigur\u00e1ciu"
+    "settings_currently_selected": {
+        "message": "Aktu\u00e1lne vybran\u00e9"
     },
-    "settings_expert_settings_desc": {
-        "message": "Pomocou expertn\u00fdch nastaven\u00ed m\u00f4\u017eete zmeni\u0165 v\u0161etky pr\u00edznaky konfigur\u00e1cie roz\u0161\u00edrenia, a to aj tie, ktor\u00e9 nem\u00f4\u017eete zmeni\u0165 pomocou be\u017en\u00fdch za\u010diarkavac\u00edch pol\u00ed\u010dok alebo pos\u00fava\u010dov str\u00e1nky s nastaveniami."
+    "settings_example": {
+        "message": "Pr\u00edklad"
     },
-    "settings_expert_settings_notice": {
-        "message": "Tu me\u0148te iba hodnoty, ak viete, \u010do rob\u00edte. Chybn\u00e9 konfigur\u00e1cie m\u00f4\u017eu sp\u00f4sobi\u0165 neo\u010dak\u00e1van\u00e9 spr\u00e1vanie roz\u0161\u00edrenia. Ak sa nie\u010do pokaz\u00ed, m\u00f4\u017eete sa vr\u00e1ti\u0165 k predvolenej konfigur\u00e1cii."
-    },
-    "settings_expert_save_error": {
-        "message": "Nastavenia sa nepodarilo ulo\u017ei\u0165. Opravte svoje zadania."
-    },
-    "settings_dashboard_sidebar_options": {
-        "message": "Nastavte spr\u00e1vanie bo\u010dn\u00e9ho panela."
-    },
-    "settings_dashboard_sidebar_options_desc": {
-        "message": "Existuje mnoho mo\u017enost\u00ed, pre zmenu ovl\u00e1dania roz\u0161\u00edrenia. M\u00f4\u017eete napr\u00edklad zmeni\u0165 sp\u00f4sob zas\u00favania bo\u010dn\u00e9ho panela alebo otv\u00e1rania z\u00e1lo\u017eiek. Ak nechcete, aby sa bo\u010dn\u00fd panel otv\u00e1ral na ka\u017edej str\u00e1nke, m\u00f4\u017eete to tie\u017e nakonfigurova\u0165 pomocou vhodn\u00fdch pravidiel."
-    },
-    "settings_dashboard_appearance_options": {
-        "message": "Zme\u0148te vzh\u013ead bo\u010dn\u00e9ho panela"
-    },
-    "settings_dashboard_appearance_options_desc": {
-        "message": "Vzh\u013ead bo\u010dn\u00e9ho panela m\u00f4\u017eete \u00faplne zmeni\u0165 tak, aby vyhovoval va\u0161im potreb\u00e1m. K dispoz\u00edcii s\u00fa r\u00f4zne mo\u017enosti zmeny ve\u013ekosti p\u00edsma, riadkovania, farieb, ikon a mnoho \u010fal\u0161\u00edch. M\u00f4\u017eete si tie\u017e vybra\u0165 z preddefinovan\u00fdch dizajnov a prednastaven\u00fdch mo\u017enost\u00ed, v\u010faka ktor\u00fdm bude bo\u010dn\u00fd panel r\u00fdchlo vyzera\u0165 tak, ako chcete."
+    "settings_details": {
+        "message": "Podrobnosti"
     },
     "settings_tips_tricks_facts": {
         "message": "Vedeli ste ?"
@@ -749,7 +599,7 @@
     "settings_tips_tricks_synchronization_desc": {
         "message": "V\u0161etky va\u0161e nastavenia bo\u010dn\u00e9ho panela sa bud\u00fa synchronizova\u0165 medzi va\u0161imi zariadeniami, ak v nastaveniach povol\u00edte mo\u017enosti synchroniz\u00e1cie preh\u013ead\u00e1va\u010da. Aj bez pr\u00e9miovej verzie."
     },
-    "settings_tips_tricks_synchronization_action": {
+    "settings_sync_settings_link": {
         "message": "Vyh\u013eadajte nastavenia synchroniz\u00e1cie"
     },
     "settings_tips_tricks_i18n_desc": {
@@ -779,23 +629,44 @@
     "settings_tips_tricks_multiselect_desc": {
         "message": "Na bo\u010dnom paneli m\u00f4\u017eete vybra\u0165 viac z\u00e1lo\u017eiek alebo prie\u010dinkov, ktor\u00e9 chcete otvori\u0165, odstr\u00e1ni\u0165 alebo dokonca presun\u00fa\u0165 pomocou funkcie drag & drop."
     },
-    "settings_tips_tricks_newtab": {
-        "message": "Nov\u00e1 karta"
-    },
-    "settings_tips_tricks_newtab_desc": {
-        "message": "Vzh\u013ead str\u00e1nky na novej karte m\u00f4\u017eete nakonfigurova\u0165 priamo na str\u00e1nke kliknut\u00edm na tla\u010didlo {1} v dolnom rohu. Potom m\u00f4\u017eete zmeni\u0165 polo\u017eky mrie\u017eky, vyh\u013ead\u00e1vac\u00ed modul, pozadie alebo odkazy na vrchu."
-    },
     "settings_tips_tricks_privacy": {
         "message": "S\u00fakromie"
     },
     "settings_tips_tricks_privacy_desc": {
         "message": "Z\u00e1lo\u017eky zobrazen\u00e9 na bo\u010dnom paneli s\u00fa synchronizovan\u00e9 a spravovan\u00e9 prehliada\u010dom {browserName}. Toto roz\u0161\u00edrenie tieto z\u00e1lo\u017eky neuklad\u00e1 ani neanalyzuje, na bo\u010dnom paneli zobrazuje iba tie, ktor\u00e9 pou\u017e\u00edva v\u00e1\u0161 prehliada\u010d."
     },
-    "settings_tips_tricks_sidepanel": {
-        "message": "Bo\u010dn\u00fd panel prehliada\u010da"
+    "settings_support": {
+        "message": "Podpora"
     },
-    "settings_tips_tricks_sidepanel_desc": {
-        "message": "Po\u010das prehliadania m\u00f4\u017eete ma\u0165 natrvalo otvoren\u00fd bo\u010dn\u00fd panel so z\u00e1lo\u017ekami. V\u00e1\u0161 prehliada\u010d poskytuje bo\u010dn\u00fd panel. Kliknite na ikonu bo\u010dn\u00e9ho panela v hornej \u010dasti prehliada\u010da a vyberte zobrazenie bo\u010dn\u00e9ho panela so z\u00e1lo\u017ekami."
+    "settings_info_permissions": {
+        "message": "Opr\u00e1vnenia"
+    },
+    "settings_translation_cta_link": {
+        "message": "Pomoc pri preklade"
+    },
+    "settings_translation_cta_desc": {
+        "message": "V\u0161etky preklady pripravuje komunita. Ak v\u00e1\u0161 jazyk ch\u00fdba, je ne\u00fapln\u00fd alebo obsahuje chyby, m\u00f4\u017eete pom\u00f4c\u0165 ho vylep\u0161i\u0165 pre v\u0161etk\u00fdch."
+    },
+    "settings_trigger_area_configure": {
+        "message": "Nastavi\u0165 oblas\u0165"
+    },
+    "settings_translation_cta_headline": {
+        "message": "Hovor\u00edte in\u00fdm jazykom?"
+    },
+    "settings_knowledgebase": {
+        "message": "Znalostn\u00e1 b\u00e1za"
+    },
+    "settings_knowledgebase_desc": {
+        "message": "Znalostn\u00e1 b\u00e1za obsahuje \u010dl\u00e1nky, ktor\u00e9 sa podrobne venuj\u00fa jednotliv\u00fdm funkci\u00e1m, poskytuj\u00fa u\u017eito\u010dn\u00e9 inform\u00e1cie a pon\u00fakaj\u00fa poh\u013ead do z\u00e1kulisia v\u00fdvoja."
+    },
+    "settings_knowledgebase_link": {
+        "message": "Objavova\u0165"
+    },
+    "settings_support_desc": {
+        "message": "M\u00e1te ot\u00e1zku, na\u0161li ste chybu alebo m\u00e1te n\u00e1pad? Prezrite si \u010dast\u00e9 ot\u00e1zky (FAQ), kde n\u00e1jdete r\u00fdchle odpovede, alebo pou\u017eite kontaktn\u00fd formul\u00e1r a obr\u00e1\u0165te sa priamo na v\u00fdvoj\u00e1ra."
+    },
+    "settings_share_info_desc": {
+        "message": "M\u00f4\u017eete sa rozhodn\u00fa\u0165 zdie\u013ea\u0165 inform\u00e1cie, ako napr\u00edklad va\u0161u konfigur\u00e1ciu a sp\u00f4sob, ak\u00fdm pou\u017e\u00edvate bo\u010dn\u00fd panel. To pom\u00e1ha vylep\u0161ova\u0165 toto roz\u0161\u00edrenie."
     },
     "settings_open_action": {
         "message": "Otvorenie bo\u010dnej li\u0161ty"
@@ -815,41 +686,47 @@
     "settings_open_action_icon": {
         "message": "Kliknutie na ikonu"
     },
-    "settings_toggle_area": {
-        "message": "Nastavi\u0165 oblas\u0165"
-    },
-    "settings_toggle_area_desc": {
-        "message": "Vo v\u00fdchodzom nastaven\u00ed, cel\u00fd okraj okna prehliada\u010da m\u00f4\u017ee by\u0165 pou\u017eit\u00fd k otvoreniu panela. M\u00f4\u017eete presne nastavi\u0165, kde sa bude panel otv\u00e1ra\u0165."
-    },
-    "settings_toggle_area_width": {
-        "message": "\u0160\u00edrka"
-    },
-    "settings_toggle_area_width_windowed": {
-        "message": "\u0160\u00edrka (okna)"
-    },
-    "settings_toggle_area_height": {
-        "message": "V\u00fd\u0161ka"
-    },
-    "settings_toggle_area_height_desc": {
-        "message": "M\u00f4\u017eete zmen\u0161i\u0165 v\u00fd\u0161ku oblasti tak, aby sa panel otvoril iba ak pohnete kurzorom do danej oblasti okraja okna."
-    },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "\u0164ahan\u00edm posuniete"
+    },
+    "settings_trigger_width": {
+        "message": "\u0160\u00edrka sp\u00fa\u0161\u0165a\u010da"
+    },
+    "settings_trigger_width_desc": {
+        "message": "\u0160\u00edrka okraja obrazovky, pri ktorej nastaven\u00e1 akcia my\u0161i spust\u00ed zobrazenie bo\u010dn\u00e9ho panela."
+    },
+    "settings_trigger_width_windowed": {
+        "message": "\u0160\u00edrka sp\u00fa\u0161\u0165a\u010da v re\u017eime okna"
+    },
+    "settings_trigger_width_windowed_desc": {
+        "message": "\u0160\u00edrka okraja obrazovky, v ktorej nastaven\u00e1 akcia my\u0161i spust\u00ed zobrazenie bo\u010dn\u00e9ho panela, ak prehliada\u010d nie je v re\u017eime celej obrazovky alebo m\u00e1 z\u00fa\u017een\u00fa \u0161\u00edrku (re\u017eim okna)."
+    },
+    "settings_trigger_height": {
+        "message": "V\u00fd\u0161ka sp\u00fa\u0161\u0165a\u010da"
+    },
+    "settings_trigger_height_desc": {
+        "message": "V\u00fd\u0161ka oblasti okraja obrazovky, pri ktorej nastaven\u00e1 akcia my\u0161i spust\u00ed zobrazenie bo\u010dn\u00e9ho panela. Zmen\u0161en\u00edm tejto hodnoty je mo\u017en\u00e9 zabr\u00e1ni\u0165 n\u00e1hodn\u00e9mu aktivovaniu bo\u010dn\u00e9ho panela pri be\u017enej interakcii s webovou str\u00e1nkou."
+    },
+    "settings_indicator_desc": {
+        "message": "Ak kurzor my\u0161i vst\u00fapi do nastavenej oblasti okraja obrazovky, zobraz\u00ed sa indika\u010dn\u00fd pruh. Jeho vzh\u013ead si m\u00f4\u017eete prisp\u00f4sobi\u0165 ni\u017e\u0161ie alebo ho deaktivova\u0165 nastaven\u00edm \u0161\u00edrky na nulu."
+    },
+    "settings_indicator_width": {
+        "message": "\u0160\u00edrka indik\u00e1tora"
+    },
+    "settings_indicator_width_desc": {
+        "message": "\u0160\u00edrka vidite\u013en\u00e9ho indik\u00e1torov\u00e9ho pr\u00fa\u017eku. M\u00f4\u017ee sa l\u00ed\u0161i\u0165 od \u0161\u00edrky sp\u00fa\u0161\u0165a\u010da."
+    },
+    "settings_indicator_color": {
+        "message": "Farba indik\u00e1tora"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Ve\u013ekos\u0165 ikony indik\u00e1tora"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Farba ikony indik\u00e1tora"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastavi\u0165 kl\u00e1vesov\u00fa skratku"
-    },
-    "settings_icon_action": {
-        "message": "Kliknite na ikonu roz\u0161\u00edrenia"
-    },
-    "settings_icon_action_desc": {
-        "message": "M\u00f4\u017eete si vybra\u0165, ako sa m\u00e1 bo\u010dn\u00fd panel zobrazi\u0165, ke\u010f kliknete na ikonu roz\u0161\u00edrenia, ktor\u00e1 sa nach\u00e1dza napravo od panela s adresou prehliada\u010da."
-    },
-    "settings_icon_action_overlay": {
-        "message": "Otvorte bo\u010dn\u00fd panel v hornej \u010dasti webov\u00fdch str\u00e1nok"
-    },
-    "settings_icon_action_sidepanel": {
-        "message": "Otvorte bo\u010dn\u00fd panel na bo\u010dnom paneli poskytnutom prehliada\u010dom"
     },
     "settings_link_action": {
         "message": "Otvori\u0165 z\u00e1lo\u017eky"
@@ -869,10 +746,10 @@
     "settings_open_delay_desc": {
         "message": "Zabr\u00e1ni okam\u017eit\u00e9mu otvoreniu panelu."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Zabr\u00e1ni\u0165 posunu str\u00e1nky"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Zabra\u0148uje pos\u00favaniu aktu\u00e1lneho webu pri otvoren\u00ed postrann\u00e9ho panelu."
     },
     "settings_dir_accordion": {
@@ -977,20 +854,11 @@
     "settings_tooltip_content_url": {
         "message": "Iba URL"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Dodato\u010dn\u00e9 inform\u00e1cie"
-    },
-    "settings_sidebar_overlay_intro": {
-        "message": "Tu m\u00f4\u017eete zmeni\u0165 spr\u00e1vanie prekr\u00fdvaj\u00faceho bo\u010dn\u00e9ho panela, ktor\u00fd sa otv\u00e1ra nad webov\u00fdmi str\u00e1nkami."
     },
     "settings_sidebar_position": {
         "message": "Poz\u00edcia"
-    },
-    "settings_overlay_enabled": {
-        "message": "Povoli\u0165 prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel"
-    },
-    "settings_overlay_enabled_desc": {
-        "message": "Ak chcete k svojim z\u00e1lo\u017ek\u00e1m pristupova\u0165 iba na bo\u010dnom paneli prehliada\u010da, m\u00f4\u017eete deaktivova\u0165 prekr\u00fdvaj\u00faci bo\u010dn\u00fd panel."
     },
     "settings_sidebar_position_desc": {
         "message": "Dovo\u013euje nastavi\u0165 \u010di sa bude panel otv\u00edra\u0165 vpravo alebo v\u013eavo."
@@ -1001,74 +869,131 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Pridajte iba jeden URL vzor na riadok"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Pou\u017eite * pre zhodu s ak\u00fdmko\u013evek znakom. (Napr. example.com\/* vyhovuje v\u0161etk\u00fdm podstr\u00e1nkam na example.com)"
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "Ak nezahrniete \u017eiaden * v pravidle, bude pou\u017eit\u00e1 iba presn\u00e1 URL (napr: pravidlo \"example.com\" nezodpoved\u00e1 str\u00e1nke \"example.com\/about.html\")"
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "Nemus\u00edte zad\u00e1va\u0165 protokol (napr: https:\/\/) v pravidl\u00e1ch."
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "Na\u010d\u00edta\u0165 panel"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "Ak nechcete panel na\u010d\u00edta\u0165 na ka\u017edej str\u00e1nke, m\u00f4\u017eete nastavi\u0165, kde m\u00e1 by\u0165 panel na\u010d\u00edtan\u00fd (whitelist) a kde nie (blacklist)."
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "Na ka\u017edej str\u00e1nke"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "Na ka\u017edej str\u00e1nke okrem \u0161pecifick\u00fdch"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Iba na \u0161pecifick\u00fdch str\u00e1nkach"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "URL vzor"
     },
-    "settings_import_export_headline": {
-        "message": "Importuj\/Exportuj Nastavenia"
+    "settings_sidepanel_position_configure": {
+        "message": "Nastavenie polohy bo\u010dn\u00e9ho panela"
     },
-    "settings_import_export_notice": {
-        "message": "Nastavenia roz\u0161\u00edrenia sa automaticky synchronizuj\u00fa medzi va\u0161imi zariadeniami, ak ste prihl\u00e1sen\u00ed do \u00fa\u010dtu {browserName} pomocou svojho \u00fa\u010dtu. Ak sa nechcete prihl\u00e1si\u0165 alebo nechcete zdie\u013ea\u0165 svoje nastavenia s in\u00fdmi \u013eu\u010fmi, m\u00f4\u017eete pou\u017ei\u0165 t\u00fato mo\u017enos\u0165 importu \/ exportu."
+    "settings_mode_overlay": {
+        "message": "Re\u017eim prekr\u00fdvania"
     },
-    "settings_import_export_desc": {
-        "message": "M\u00f4\u017eete exportova\u0165 svoje nastavenia a ulo\u017ei\u0165 si ich lok\u00e1lne vo va\u0161om po\u010d\u00edta\u010di. M\u00f4\u017eete importova\u0165 tieto nastavenia na akomko\u013evek po\u010d\u00edta\u010di, kde je roz\u0161\u00edrenie nain\u0161talovan\u00e9."
+    "settings_mode_sidepanel": {
+        "message": "Re\u017eim bo\u010dn\u00e9ho panela"
     },
-    "settings_export": {
-        "message": "Exportova\u0165 nastavenia"
+    "settings_extension_icon": {
+        "message": "Ikona roz\u0161\u00edrenia"
     },
-    "settings_import": {
-        "message": "Importova\u0165 nastavenia"
+    "settings_indicator": {
+        "message": "Indik\u00e1tor"
     },
-    "settings_import_saved": {
-        "message": "Nastavenia boli \u00faspe\u0161ne importovan\u00e9"
+    "settings_mode_headline": {
+        "message": "Ako chcete otvori\u0165 bo\u010dn\u00fd panel?"
     },
-    "settings_import_failed": {
-        "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
+    "settings_mode_use_both": {
+        "message": "Pou\u017e\u00edvajte oba re\u017eimy"
     },
-    "settings_import_export_bookmarks": {
-        "message": "Importuj\/Exportuj Z\u00e1lo\u017eky"
+    "settings_mode_use": {
+        "message": "Pou\u017eite tento re\u017eim"
     },
-    "settings_import_export_bookmarks_desc": {
-        "message": "Toto je s\u00fa\u010das\u0165 prehliada\u010da a nie roz\u0161\u00edrenia. Pre\u010d\u00edtajte si viac inform\u00e1ci\u00ed o tom, ako importova\u0165 a exportova\u0165 z\u00e1lo\u017eky v {browserName}."
+    "settings_mode_overlay_desc": {
+        "message": "K svojim z\u00e1lo\u017ek\u00e1m m\u00e1te pr\u00edstup prostredn\u00edctvom bo\u010dn\u00e9ho panela, ktor\u00fd sa d\u00e1 zapn\u00fa\u0165 alebo vypn\u00fa\u0165 a ktor\u00fd sa vys\u00fava z boku obsahu prehliada\u010da a prekr\u00fdva aktu\u00e1lne nav\u0161t\u00edven\u00fa webov\u00fa str\u00e1nku."
     },
-    "settings_sidebar_sidepanel_intro": {
-        "message": "Tu m\u00f4\u017eete zmeni\u0165 spr\u00e1vanie bo\u010dn\u00e9ho panela, ktor\u00fd sa zobrazuje na bo\u010dnom paneli ved\u013ea hlavn\u00e9ho obsahu webov\u00fdch str\u00e1nok."
+    "settings_mode_overlay_pro_1": {
+        "message": "Nezaber\u00e1 miesto, ktor\u00e9 by mohlo by\u0165 vyhraden\u00e9 pre obsah prehliada\u010da"
     },
-    "settings_sidebar_position_sidepanel": {
-        "message": "Nakonfigurujte, \u010di sa m\u00e1 bo\u010dn\u00fd panel prehliada\u010da otv\u00e1ra\u0165 na \u013eavej alebo pravej strane."
+    "settings_mode_overlay_pro_2": {
+        "message": "Skryje sa po kliknut\u00ed na z\u00e1lo\u017eku"
     },
-    "settings_sidebar_sidepanel_configure": {
-        "message": "Nakonfigurujte bo\u010dn\u00fd panel"
+    "settings_mode_overlay_con_1": {
+        "message": "M\u00f4\u017ee doch\u00e1dza\u0165 ku konfliktom s niektor\u00fdmi webov\u00fdmi str\u00e1nkami"
     },
-    "settings_presets": {
-        "message": "Nastavi\u0165 relat\u00edvne ve\u013ekosti"
+    "settings_mode_overlay_con_2": {
+        "message": "Mo\u017eno pou\u017ei\u0165 iba na be\u017en\u00fdch webov\u00fdch str\u00e1nkach (nie na predvolenej str\u00e1nke novej karty ani na str\u00e1nkach nastaven\u00ed)"
+    },
+    "settings_mode_sidepanel_desc": {
+        "message": "K svojim z\u00e1lo\u017ek\u00e1m sa dostanete prostredn\u00edctvom vstavan\u00e9ho bo\u010dn\u00e9ho panela prehliada\u010da, ktor\u00fd sa otv\u00e1ra ved\u013ea obsahu prehliada\u010da."
+    },
+    "settings_mode_sidepanel_pro_1": {
+        "message": "Po aktiv\u00e1cii je trvalo vidite\u013en\u00fd ved\u013ea obsahu prehliada\u010da"
+    },
+    "settings_mode_sidepanel_pro_2": {
+        "message": "Zostane otvoren\u00e9 po kliknut\u00ed na z\u00e1lo\u017eku"
+    },
+    "settings_mode_sidepanel_con_1": {
+        "message": "Zmen\u0161uje \u0161\u00edrku obsahu prehliada\u010da"
+    },
+    "settings_mode_sidepanel_con_2": {
+        "message": "Je pomerne \u0161irok\u00fd, preto\u017ee prehliada\u010d vynucuje minim\u00e1lnu \u0161\u00edrku panela"
+    },
+    "settings_mode_both_desc_1": {
+        "message": "Oba re\u017eimy s\u00fa zapnut\u00e9 s\u00fa\u010dasne. Bo\u010dn\u00fd panel otvor\u00edte v re\u017eime bo\u010dn\u00e9ho panela kliknut\u00edm na ikonu roz\u0161\u00edrenia a v re\u017eime prekrytia kliknut\u00edm na okraj okna prehliada\u010da."
+    },
+    "settings_mode_both_desc_2": {
+        "message": "Nastavenia uveden\u00e9 ni\u017e\u0161ie, ktor\u00e9 sa vz\u0165ahuj\u00fa iba na konkr\u00e9tny re\u017eim, s\u00fa pr\u00edslu\u0161n\u00fdm sp\u00f4sobom ozna\u010den\u00e9."
+    },
+    "settings_mode_info_overlay": {
+        "message": "Tieto mo\u017enosti funguj\u00fa iba pre bo\u010dn\u00fd panel v re\u017eime prekr\u00fdvania"
+    },
+    "settings_mode_info_sidepanel": {
+        "message": "Tieto mo\u017enosti funguj\u00fa iba pre bo\u010dn\u00fd panel v re\u017eime bo\u010dn\u00e9ho panela"
+    },
+    "settings_sidebar_position_note_overlay": {
+        "message": "Upozor\u0148ujeme, \u017ee t\u00fdmto sa zmen\u00ed iba poloha bo\u010dn\u00e9ho panela pri otvoren\u00ed v re\u017eime prekr\u00fdvania. Poloha bo\u010dn\u00e9ho panela v re\u017eime bo\u010dn\u00e9ho panela sa mus\u00ed nastavi\u0165 v nastaveniach prehliada\u010da."
+    },
+    "settings_sidebar_position_note_sidepanel": {
+        "message": "Upozor\u0148ujeme, \u017ee t\u00fdmto sa zmen\u00ed iba poloha bo\u010dn\u00e9ho panela pri otvoren\u00ed v re\u017eime bo\u010dn\u00e9ho panela. Poloha bo\u010dn\u00e9ho panela v re\u017eime prekrytia sa mus\u00ed nastavi\u0165 v inej \u010dasti."
+    },
+    "settings_trigger_area": {
+        "message": "Sp\u00fa\u0161\u0165acia oblas\u0165"
+    },
+    "settings_indicator_icon": {
+        "message": "Ikona indik\u00e1tora"
+    },
+    "settings_extension_icon_hidden": {
+        "message": "Nevid\u00edte ikonu roz\u0161\u00edrenia ved\u013ea adresn\u00e9ho riadka?"
+    },
+    "settings_extension_icon_hidden_howto": {
+        "message": "Takto to m\u00f4\u017eete zvidite\u013eni\u0165:"
+    },
+    "settings_keyboard_shortcut": {
+        "message": "Kl\u00e1vesov\u00e1 skratka"
+    },
+    "settings_keyboard_shortcut_desc": {
+        "message": "M\u00f4\u017eete nastavi\u0165 kl\u00e1vesov\u00fa skratku, ktor\u00e1 spust\u00ed kliknutie na ikonu roz\u0161\u00edrenia. Kliknut\u00edm na ikonu roz\u0161\u00edrenia otvor\u00edte bo\u010dn\u00fd panel."
+    },
+    "settings_lock_pinned": {
+        "message": "Udr\u017eiava\u0165 pripnut\u00e9 polo\u017eky na vrchu"
+    },
+    "settings_lock_pinned_desc": {
+        "message": "Pripnut\u00e9 polo\u017eky zost\u00e1vaj\u00fa na vrchu bo\u010dn\u00e9ho panela a nepos\u00favaj\u00fa sa spolu s ostatn\u00fdmi z\u00e1lo\u017ekami."
     },
     "settings_presets_desc": {
         "message": "Pre bo\u010dn\u00fd panel m\u00f4\u017eete vybra\u0165 preddefinovan\u00e9 ve\u013ekosti. T\u00fdmto zmen\u00edte slidery na tejto str\u00e1nke, aby ste upravili \u0161\u00edrku bo\u010dn\u00e9ho panela, v\u00fd\u0161ky \u010diar, ve\u013ekosti ikon a mnoho \u010fal\u0161\u00edch mo\u017enost\u00ed."
@@ -1106,9 +1031,6 @@
     "settings_scroll_bar_width": {
         "message": "\u0160\u00edrka posuvn\u00e9ho jazdca"
     },
-    "settings_icon_background_color": {
-        "message": "Farba pozadia"
-    },
     "settings_icon_color": {
         "message": "Farba"
     },
@@ -1124,25 +1046,13 @@
     "settings_icon_color_desc_2": {
         "message": "Upozor\u0148ujeme, \u017ee pri pou\u017eit\u00ed vlastn\u00e9ho mot\u00edvu {browserName} nefunguje automatick\u00e1 farba."
     },
-    "settings_indicator_width": {
-        "message": "\u0160\u00edrka"
-    },
-    "settings_indicator_color": {
-        "message": "Farba"
-    },
-    "settings_indicator_icon_size": {
-        "message": "Ve\u013ekos\u0165 ikony"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Farba ikony"
-    },
     "settings_sidebar_width": {
         "message": "\u0160\u00edrka"
     },
     "settings_sidebar_width_desc": {
         "message": "\u0160\u00edrka bo\u010dn\u00e9ho panela pri prekryt\u00ed aktu\u00e1lne nav\u0161t\u00edvenej webovej str\u00e1nky. T\u00e1to mo\u017enos\u0165 nem\u00e1 vplyv pri pou\u017eit\u00ed bo\u010dn\u00e9ho panela na bo\u010dnom paneli poskytnutom prehliada\u010dom."
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "V\u00fd\u0161ka hlavi\u010dky"
     },
     "settings_sidebar_mask_color": {
@@ -1196,17 +1106,8 @@
     "settings_custom_css_desc": {
         "message": "M\u00f4\u017eete si definova\u0165 vlastn\u00e9 CSS pravidl\u00e1, ktor\u00e9 nahradia v\u00fdchodzie \u0161t\u00fdly. Pros\u00edme, pou\u017eite t\u00fato mo\u017enos\u0165 iba ak viete nar\u00e1ba\u0165 s technol\u00f3giou CSS a viete \u010do rob\u00edte."
     },
-    "settings_theme": {
-        "message": "T\u00e9ma"
-    },
-    "settings_themes_notice": {
-        "message": "M\u00f4\u017eete si vybra\u0165 z\u00e1kladn\u00fd vzh\u013ead bo\u010dn\u00e9ho panela. Vybrat\u00fa t\u00e9mu je mo\u017en\u00e9 prisp\u00f4sobi\u0165 pomocou dostupn\u00fdch posuvn\u00edkov a farieb."
-    },
-    "settings_available_themes": {
-        "message": "Dostupn\u00e9 t\u00e9my"
-    },
-    "settings_show_themes": {
-        "message": "Zobrazi\u0165 dostupn\u00e9 t\u00e9my"
+    "settings_custom_css_more_info": {
+        "message": "Chcete sa dozvedie\u0165 viac o CSS alebo h\u013ead\u00e1te v\u00fdchodiskov\u00fd bod? Pozrite si [a]tento \u010dl\u00e1nok[\/a]."
     },
     "settings_theme_default": {
         "message": "Predvolen\u00e1 t\u00e9ma"
@@ -1226,62 +1127,50 @@
     "settings_theme_focus_desc": {
         "message": "T\u00e1to t\u00e9ma zobrazuje menej anim\u00e1cii a ovl\u00e1dacie prvky umiest\u0148uje hustej\u0161ie, pre zlep\u0161enie produktivity a v\u00fdkonu."
     },
-    "settings_install_theme": {
-        "message": "In\u0161talova\u0165 t\u00e9mu"
+    "settings_theme_use": {
+        "message": "Pou\u017ei t\u00fato \u0161abl\u00f3nu"
     },
-    "settings_installed_theme_info": {
-        "message": "Aktu\u00e1lne in\u0161talovan\u00e1"
+    "settings_tooltip": {
+        "message": "N\u00e1poveda"
     },
-    "settings_theme_changed": {
-        "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"
+    "settings_background": {
+        "message": "Background"
     },
-    "settings_newtab_desc": {
-        "message": "Predvolen\u00fa str\u00e1nku na novej karte svojho prehliada\u010da m\u00f4\u017eete prep\u00edsa\u0165 str\u00e1nkou poskytovanou t\u00fdmto roz\u0161\u00edren\u00edm. Na tejto str\u00e1nke sa zobraz\u00ed bo\u010dn\u00fd panel so z\u00e1lo\u017ekami a mo\u017eno ju nakonfigurova\u0165 tak, aby zv\u00fd\u0161ila va\u0161u produktivitu."
+    "settings_layout": {
+        "message": "Rozlo\u017eenie"
     },
-    "settings_newtab_override": {
-        "message": "Nahradi\u0165 str\u00e1nku novej karty"
+    "settings_newtab_intro": {
+        "message": "Chcete, aby sa bo\u010dn\u00fd panel s z\u00e1lo\u017ekami automaticky otv\u00e1ral v nov\u00fdch kart\u00e1ch?"
     },
-    "settings_newtab_override_desc": {
-        "message": "Malo by roz\u0161\u00edrenie nahradi\u0165 aktu\u00e1lnu str\u00e1nku novej karty?"
+    "settings_newtab_install_extension": {
+        "message": "Nain\u0161talujte si roz\u0161\u00edrenie na prepisovanie nov\u00fdch kariet, napr\u00edklad jedno z t\u00fdchto:"
+    },
+    "settings_newtab_extension_disclaimer": {
+        "message": "S t\u00fdmito roz\u0161\u00edreniami nem\u00e1m \u017eiadnu spojitos\u0165 a za ich odpor\u00fa\u010danie nedost\u00e1vam \u017eiadnu odmenu."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Tieto roz\u0161\u00edrenia v\u00e1m umo\u017e\u0148uj\u00fa nastavi\u0165 vlastn\u00fa URL adresu pre nov\u00e9 karty. Po in\u0161tal\u00e1cii zadajte v nastaveniach roz\u0161\u00edrenia nasleduj\u00facu URL adresu:"
     },
     "settings_newtab_override_preview": {
         "message": "Predh\u013ead"
     },
-    "settings_newtab_override_configure": {
-        "message": "Nastavi\u0165"
+    "settings_newtab_override_customise": {
+        "message": "Prisp\u00f4sobte si t\u00fato str\u00e1nku"
     },
-    "settings_newtab_sidebar_auto_open": {
-        "message": "Automaticky otvori\u0165 panel"
+    "settings_newtab_favicon_desc": {
+        "message": "Ikona karty (favicon) na str\u00e1nke novej karty si m\u00f4\u017eete prisp\u00f4sobi\u0165. V\u010faka tomu ju \u013eahko rozozn\u00e1te medzi ostatn\u00fdmi otvoren\u00fdmi kartami."
     },
-    "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Nastavi\u0165 \u010di by mal by\u0165 panel automaticky otvoren\u00fd pri otvoren\u00ed novej karty."
+    "settings_favicon_background": {
+        "message": "Farba pozadia"
     },
-    "settings_newtab_focus_omnibox": {
-        "message": "Zamera\u0165 adresn\u00fa li\u0161tu"
-    },
-    "settings_newtab_focus_omnibox_desc": {
-        "message": "Ak je povolen\u00e1, pri otvoren\u00ed novej karty bude panel s adresou zameran\u00fd. Ak nie, namiesto toho sa zameria na vyh\u013ead\u00e1vacie pole na webovej str\u00e1nke."
-    },
-    "settings_newtab_website": {
-        "message": "Na\u010d\u00edta\u0165 webov\u00fa str\u00e1nku."
-    },
-    "settings_newtab_website_desc": {
-        "message": "Namiesto otvorenia n\u00e1hrady novej karty, m\u00f4\u017eete nastavi\u0165 str\u00e1nku, ktor\u00e1 sa m\u00e1 otvori\u0165."
+    "settings_newtab_favicon": {
+        "message": "Ikona ob\u013e\u00faben\u00fdch str\u00e1nok v novej karte"
     },
     "settings_language": {
         "message": "Jazyk"
     },
     "settings_language_default": {
         "message": "V\u00fdchodzie nastavenie prehliada\u010da"
-    },
-    "settings_language_desc": {
-        "message": "Jazyk u\u017e\u00edvate\u013esk\u00e9ho rozhrania"
-    },
-    "settings_translation_link": {
-        "message": "Prejdi na preh\u013ead prekladov"
-    },
-    "settings_translation_desc": {
-        "message": "M\u00f4\u017ee\u0161 pom\u00f4c\u0165 s prekladom roz\u0161\u00edrenia do svojho jazyka."
     },
     "settings_translation_add_language": {
         "message": "Prida\u0165 jazyk"
@@ -1310,8 +1199,14 @@
     "settings_translation_submit_message": {
         "message": "V\u00e1\u0161 preklad bol \u00faspe\u0161ne odoslan\u00fd."
     },
+    "settings_translation_submit_error": {
+        "message": "V\u00e1\u0161 preklad sa nepodarilo odosla\u0165. Sk\u00faste to pros\u00edm nesk\u00f4r."
+    },
     "settings_translation_status_released": {
         "message": "Preklad je dostupn\u00fd"
+    },
+    "settings_translation_unsaved_confirm": {
+        "message": "Va\u0161e zmeny e\u0161te neboli odoslan\u00e9. Naozaj ich chcete zru\u0161i\u0165?"
     },
     "settings_translation_status_incomplete": {
         "message": "Preklad je dostupn\u00fd, ale niektor\u00e9 kateg\u00f3rie s\u00fa ne\u00fapln\u00e9"
@@ -1325,59 +1220,143 @@
     "settings_translation_required_category": {
         "message": "Povinn\u00e9"
     },
-    "settings_support_faq_headline": {
-        "message": "\u010casto kladen\u00e9 ot\u00e1zky"
+    "settings_translation_overview": {
+        "message": "Preklady"
     },
-    "settings_support_feedback_headline": {
-        "message": "Sp\u00e4tn\u00e1 vazba"
+    "settings_translation_goto_prev": {
+        "message": "Predch\u00e1dzaj\u00face pr\u00e1zdne pole"
     },
-    "settings_support_feedback_desc": {
-        "message": "M\u00e1te nejak\u00e9 n\u00e1vrhy na zlep\u0161enie alebo ot\u00e1zky? V\u0161imli ste si ch\u00fdbaj\u00face mo\u017enosti nastavenia alebo na\u0161li chybu? Budem v\u010fa\u010dn\u00fd za ka\u017ed\u00fa sp\u00e4tn\u00fa v\u00e4zbu, ktor\u00fa m\u00e1te."
+    "settings_translation_goto_next": {
+        "message": "\u010eal\u0161ie pr\u00e1zdne pole"
     },
-    "settings_support_feedback_notice": {
-        "message": "Pros\u00edm, po\u0161lite mi svoj dotaz v angli\u010dtnie, inak bude pre m\u0148a ve\u013emi n\u00e1ro\u010dn\u00e9 porozumie\u0165 va\u0161ej spr\u00e1ve."
+    "settings_import_export": {
+        "message": "Import\/Export"
     },
-    "settings_support_feedback_email": {
-        "message": "Chcete dosta\u0165 odpove\u010f? Zadajte e-mailov\u00fa adresu (volite\u013en\u00e9)"
+    "settings_import_export_headline": {
+        "message": "Importuj\/Exportuj Nastavenia"
     },
-    "settings_support_feedback_screenshot": {
-        "message": "Prilo\u017ei\u0165 screenshot"
+    "settings_import_export_notice": {
+        "message": "Na synchroniz\u00e1ciu va\u0161ich zariaden\u00ed to nepotrebujete. Ak ste prihl\u00e1sen\u00ed v prehliada\u010di a m\u00e1te zapnut\u00fa synchroniz\u00e1ciu, va\u0161e z\u00e1lo\u017eky a nastavenia tohto roz\u0161\u00edrenia sa automaticky prenes\u00fa do v\u0161etk\u00fdch va\u0161ich zariaden\u00ed. Export a import s\u00faboru je potrebn\u00fd len v pr\u00edpade, \u017ee nepou\u017e\u00edvate synchroniz\u00e1ciu, chcete zdie\u013ea\u0165 svoje nastavenia s niek\u00fdm in\u00fdm alebo ich chcete pou\u017ei\u0165 v inom profile prehliada\u010da."
     },
-    "settings_support_feedback_screenshot_error_filesize": {
-        "message": "Ve\u013ekos\u0165 s\u00faboru {1} je pr\u00edli\u0161 ve\u013ek\u00e1 (> 1MB)"
+    "settings_import_export_desc": {
+        "message": "M\u00f4\u017eete exportova\u0165 svoje nastavenia a ulo\u017ei\u0165 si ich lok\u00e1lne vo va\u0161om po\u010d\u00edta\u010di. M\u00f4\u017eete importova\u0165 tieto nastavenia na akomko\u013evek po\u010d\u00edta\u010di, kde je roz\u0161\u00edrenie nain\u0161talovan\u00e9."
     },
-    "settings_support_feedback_screenshot_error_amount": {
-        "message": "M\u00f4\u017eete prilo\u017ei\u0165 maxim\u00e1lne {1} screenshotov."
+    "settings_export": {
+        "message": "Exportova\u0165 nastavenia"
     },
-    "settings_support_feedback_send": {
-        "message": "Odosla\u0165 spr\u00e1vu"
+    "settings_import": {
+        "message": "Importova\u0165 nastavenia"
     },
-    "settings_support_feedback_sent_message": {
-        "message": "\u010eakujem v\u00e1m za sp\u00e4tn\u00fa v\u00e4zbu."
+    "settings_import_saved": {
+        "message": "Nastavenia boli \u00faspe\u0161ne importovan\u00e9"
     },
-    "settings_support_feedback_send_failed": {
-        "message": "Va\u0161a spr\u00e1va nemohla by\u0165 odoslan\u00e1. Sk\u00faste to znova."
+    "settings_import_failed": {
+        "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
     },
-    "settings_permissions_desc": {
-        "message": "Ak chcete v prehliada\u010di {browserName} umo\u017eni\u0165 prep\u00ednate\u013en\u00fd bo\u010dn\u00fd panel, nasleduj\u00face povolenia s\u00fa povinn\u00e9 a vy\u017eiadan\u00e9 roz\u0161\u00edren\u00edm:"
+    "settings_import_export_bookmarks": {
+        "message": "Importuj\/Exportuj Z\u00e1lo\u017eky"
     },
-    "settings_permissions_contentscript_desc_1": {
-        "message": "Prehliada\u010d {browserName} bohu\u017eia\u013e nem\u00e1 \u017eiadny mechanizmus na zobrazovanie obsahu v okne prehliada\u010da bez toho, aby interagoval s aktu\u00e1lne nav\u0161tevovanou str\u00e1nkou."
+    "settings_import_export_bookmarks_desc": {
+        "message": "Toto roz\u0161\u00edrenie neuklad\u00e1 va\u0161e z\u00e1lo\u017eky. O ich spr\u00e1vu sa star\u00e1 samotn\u00fd prehliada\u010d, roz\u0161\u00edrenie ich iba zobrazuje. Preto uveden\u00fd export obsahuje va\u0161e nastavenia, ale \u017eiadne z va\u0161ich z\u00e1lo\u017eiek. Ak chcete z\u00e1lo\u017eky z\u00e1lohova\u0165, presun\u00fa\u0165 alebo importova\u0165, pou\u017eite spr\u00e1vcu z\u00e1lo\u017eiek, ktor\u00fd je integrovan\u00fd vo va\u0161om prehliada\u010di."
     },
-    "settings_permissions_contentscript_desc_2": {
-        "message": "Ke\u010f\u017ee sa bo\u010dn\u00fd panel zobrazuje v hornej \u010dasti aktu\u00e1lnej webovej str\u00e1nky, je potrebn\u00e9 toto povolenie. Okrem tohto technick\u00e9ho d\u00f4vodu sa povolenie nevyu\u017e\u00edva na in\u00e9 \u00fa\u010dely."
+    "settings_expert": {
+        "message": "Pokro\u010dil\u00e9 nastavenia"
     },
-    "settings_permissions_contentscript_desc_3": {
-        "message": "Ak m\u00e1te pochybnosti o tom, \u010do rob\u00edm so s\u00fahlasom, m\u00f4\u017eete si pozrie\u0165 zdrojov\u00fd k\u00f3d roz\u0161\u00edrenia v slu\u017ebe Github. Je to otvoren\u00fd zdroj a vidite\u013en\u00fd pre v\u0161etk\u00fdch."
+    "settings_expert_settings_desc": {
+        "message": "Pomocou expertn\u00fdch nastaven\u00ed m\u00f4\u017eete zmeni\u0165 v\u0161etky pr\u00edznaky konfigur\u00e1cie roz\u0161\u00edrenia, a to aj tie, ktor\u00e9 nem\u00f4\u017eete zmeni\u0165 pomocou be\u017en\u00fdch za\u010diarkavac\u00edch pol\u00ed\u010dok alebo pos\u00fava\u010dov str\u00e1nky s nastaveniami."
     },
-    "settings_permissions_bookmarks_desc": {
-        "message": "Roz\u0161\u00edrenie zobrazuje va\u0161e z\u00e1lo\u017eky na bo\u010dnom paneli, a preto potrebuje na z\u00edskanie pr\u00edstupu toto povolenie. Povolenie tie\u017e umo\u017e\u0148uje roz\u0161\u00edreniu prid\u00e1va\u0165, upravova\u0165 a odstra\u0148ova\u0165 z\u00e1lo\u017eky."
+    "settings_expert_settings_notice": {
+        "message": "Tu me\u0148te iba hodnoty, ak viete, \u010do rob\u00edte. Chybn\u00e9 konfigur\u00e1cie m\u00f4\u017eu sp\u00f4sobi\u0165 neo\u010dak\u00e1van\u00e9 spr\u00e1vanie roz\u0161\u00edrenia. Ak sa nie\u010do pokaz\u00ed, m\u00f4\u017eete sa vr\u00e1ti\u0165 k predvolenej konfigur\u00e1cii."
     },
-    "settings_headline_share_userdata": {
+    "settings_expert_save_error": {
+        "message": "Nastavenia sa nepodarilo ulo\u017ei\u0165. Opravte svoje zadania."
+    },
+    "settings_search_placeholder": {
+        "message": "Vyh\u013eadajte konfigur\u00e1ciu"
+    },
+    "settings_import_export_bookmarks_link": {
+        "message": "Ako importova\u0165 a exportova\u0165 z\u00e1lo\u017eky vo va\u0161om prehliada\u010di"
+    },
+    "settings_share_info_intro_1": {
+        "message": "Bo\u010dn\u00fd panel z\u00e1lo\u017eiek obsahuje volite\u013en\u00fa funkciu zdie\u013eania \u00fadajov. Ide o funkciu, ktor\u00fa je potrebn\u00e9 v\u00fdslovne aktivova\u0165. V predvolenom nastaven\u00ed sa nikam ni\u010d neodosiela."
+    },
+    "contribute_notice": {
+        "message": "Pom\u00f4\u017ete mi zdie\u013ean\u00edm va\u0161ej konfigur\u00e1cie"
+    },
+    "settings_share_info_config": {
+        "message": "1. Zdie\u013eanie konfigur\u00e1cie"
+    },
+    "settings_share_info_activity": {
+        "message": "2. Zdie\u013eanie \u00fadajov o pou\u017e\u00edvan\u00ed"
+    },
+    "settings_share_info_activity_examples": {
+        "message": "D\u00e1ta, ktor\u00e9 s\u00fa zdie\u013ean\u00e9 s\u00fa napr\u00edklad:"
+    },
+    "settings_share_info_activity_item_5": {
+        "message": "Ko\u013eko z\u00e1lo\u017eiek u\u017e\u00edvatelia priemerne maj\u00fa?"
+    },
+    "settings_share_info_activity_item_4": {
+        "message": "Ktor\u00e9 re\u017eimy bo\u010dn\u00e9ho panela s\u00fa ob\u013e\u00faben\u00e9?"
+    },
+    "settings_share_info_activity_item_1": {
+        "message": "Pou\u017e\u00edvaj\u00fa vyh\u0161ad\u00e1vanie?"
+    },
+    "settings_share_info_activity_item_2": {
+        "message": "Menia u\u017e\u00edvatelia zoradenie z\u00e1lo\u017eiek?"
+    },
+    "settings_share_info_activity_item_3": {
+        "message": "Ako \u010dasto u\u017e\u00edvatelia upravuj\u00fa alebo zora\u010fuj\u00fa z\u00e1lo\u017eky?"
+    },
+    "settings_share_info": {
         "message": "Zdie\u013ea\u0165 inform\u00e1cie"
     },
-    "settings_saved_share_userdata": {
+    "settings_share_info_saved": {
         "message": "Va\u0161e preferencie boli \u00faspe\u0161ne ulo\u017een\u00e9"
+    },
+    "settings_share_info_intro_2": {
+        "message": "Pou\u017e\u00edvatelia, ktor\u00ed sa rozhodn\u00fa zapoji\u0165, m\u00f4\u017eu anonymne zdie\u013ea\u0165 obmedzen\u00e9 technick\u00e9 inform\u00e1cie, ktor\u00e9 pom\u00e1haj\u00fa vylep\u0161ova\u0165 toto roz\u0161\u00edrenie. Existuj\u00fa dve kateg\u00f3rie:"
+    },
+    "settings_share_info_config_intro": {
+        "message": "Anonymn\u00e9 konfigura\u010dn\u00e9 \u00fadaje pom\u00e1haj\u00fa identifikova\u0165:"
+    },
+    "settings_share_info_config_item_1": {
+        "message": "ktor\u00e9 nastavenia sa pou\u017e\u00edvaj\u00fa naj\u010dastej\u0161ie"
+    },
+    "settings_share_info_config_item_2": {
+        "message": "ktor\u00e9 mo\u017enosti sa takmer nikdy nepou\u017e\u00edvaj\u00fa"
+    },
+    "settings_share_info_config_item_3": {
+        "message": "ktor\u00e9 z predvolen\u00fdch nastaven\u00ed funguj\u00fa dobre"
+    },
+    "settings_share_info_config_item_4": {
+        "message": "\u010do by sa malo v bud\u00facich verzi\u00e1ch zjednodu\u0161i\u0165 alebo vylep\u0161i\u0165"
+    },
+    "settings_share_info_config_outro": {
+        "message": "Ak je t\u00e1to funkcia zapnut\u00e1, roz\u0161\u00edrenie pravidelne odosiela aktu\u00e1lny stav konfigur\u00e1cie na m\u00f4j server."
+    },
+    "settings_share_info_activity_intro": {
+        "message": "Anonymn\u00e9 \u00fadaje o interakci\u00e1ch pom\u00e1haj\u00fa pochopi\u0165, ako sa funkcie vyu\u017e\u00edvaj\u00fa v praxi."
+    },
+    "settings_share_info_important": {
+        "message": "D\u00f4le\u017eit\u00e9:"
+    },
+    "settings_share_info_not_collected_1": {
+        "message": "Nezaznamen\u00e1vaj\u00fa sa n\u00e1zvy z\u00e1lo\u017eiek"
+    },
+    "settings_share_info_not_collected_2": {
+        "message": "Nezaznamen\u00e1vaj\u00fa sa \u017eiadne URL adresy z\u00e1lo\u017eiek"
+    },
+    "settings_share_info_not_collected_3": {
+        "message": "Nezaznamen\u00e1va sa \u017eiadna hist\u00f3ria prehliadania"
+    },
+    "settings_share_info_not_collected_4": {
+        "message": "Nesleduj\u00fa sa \u017eiadne nav\u0161t\u00edven\u00e9 webov\u00e9 str\u00e1nky"
+    },
+    "settings_share_info_purpose": {
+        "message": "Cie\u013eom je anal\u00fdza funkci\u00ed, nie sledovanie."
+    },
+    "settings_share_info_more_info": {
+        "message": "Chcete z\u00edska\u0165 viac inform\u00e1ci\u00ed? Pre\u010d\u00edtajte si [a]\u010dl\u00e1nok v znalostnej b\u00e1ze[\/a] s podrobnos\u0165ami o analytike."
     },
     "premium_popup_text": {
         "message": "\u00da\u017e si si pozrel Premium?"
@@ -1385,11 +1364,8 @@
     "premium_restricted_text": {
         "message": "T\u00e1to mo\u017enos\u0165 je dostupn\u00e1 len s Premium."
     },
-    "premium_desc_1": {
-        "message": "S Premium z\u00edskate pr\u00edstup k \u010fal\u0161\u00edm funkci\u00e1m a pom\u00f4\u017ete mi udr\u017eiava\u0165 roz\u0161\u00edrenie."
-    },
-    "premium_desc_2": {
-        "message": "Funkcie zahrnut\u00e9 v Premium si m\u00f4\u017eete pozrie\u0165 v sekci\u00ed Premium ni\u017e\u0161ie. V\u0161etky k\u013e\u00fa\u010dov\u00e9 funkcie roz\u0161\u00edren\u00ed sa daj\u00fa pou\u017e\u00edva\u0165 zadarmo a v\u00f4bec nevy\u017eaduj\u00fa pr\u00e9miu. Ak chcete z\u00edska\u0165 pr\u00edstup k t\u00fdmto funkci\u00e1m, m\u00f4\u017eete zaplati\u0165, za \u010do v\u00e1m roz\u0161\u00edrenie a moja pr\u00e1ca stoj\u00ed."
+    "premium_desc": {
+        "message": "Premium je jednorazov\u00fd n\u00e1kup, ktor\u00fd poskytuje do\u017eivotn\u00fa licenciu na v\u0161etky pokro\u010dil\u00e9 funkcie."
     },
     "premium_get_now": {
         "message": "Z\u00edska\u0165 Premium teraz"
@@ -1406,41 +1382,32 @@
     "premium_license_key": {
         "message": "Licen\u010dn\u00fd k\u013e\u00fa\u010d"
     },
-    "premium_feature_early_access_headline": {
-        "message": "Bu\u010fte prv\u00ed, ktor\u00ed vysk\u00fa\u0161aj\u00fa nov\u00e9 experiment\u00e1lne funkcie"
-    },
-    "premium_feature_early_access_desc": {
-        "message": "S programom Premium z\u00edskate pr\u00edstup k nevydan\u00fdm prvkom, ktor\u00e9 sa moment\u00e1lne vyv\u00edjaj\u00fa alebo testuj\u00fa."
-    },
-    "premium_feature_sidebar_width_headline": {
-        "message": "\u0160\u00edrku bo\u010dn\u00e9ho panela m\u00f4\u017eete kedyko\u013evek zmeni\u0165"
-    },
     "premium_feature_import_export_headline": {
         "message": "Importujte a exportujte svoje nastavenia"
     },
-    "premium_feature_custom_background_headline": {
-        "message": "Prisp\u00f4sobte si str\u00e1nku Nov\u00e1 karta"
+    "premium_feature_newtab_extended_headline": {
+        "message": "Roz\u0161\u00edren\u00e9 prisp\u00f4sobenie novej karty"
     },
-    "premium_feature_custom_background_desc": {
-        "message": "Ak pou\u017e\u00edvate str\u00e1nku Nov\u00e1 karta tohto roz\u0161\u00edrenia, m\u00f4\u017eete si nastavi\u0165 vlastn\u00fd obr\u00e1zok na pozad\u00ed, aby vyzeral e\u0161te kraj\u0161ie."
+    "premium_feature_newtab_extended_desc": {
+        "message": "Prisp\u00f4sobte si str\u00e1nku \u201eNov\u00e1 karta\u201c pod\u013ea svojich predst\u00e1v: nastavte si vlastn\u00fd obr\u00e1zok na pozad\u00ed a vyberte, ko\u013eko skratiek sa m\u00e1 zobrazova\u0165 v mrie\u017eke pod vyh\u013ead\u00e1vac\u00edm po\u013eom."
     },
     "premium_feature_custom_css_headline": {
-        "message": "Prisp\u00f4sobte si v\u0161etko pomocou vlastnej \u0161abl\u00f3ny so \u0161t\u00fdlmi"
+        "message": "Vlastn\u00fd \u0161t\u00fdlov\u00fd list (CSS)"
     },
     "premium_feature_custom_css_desc": {
-        "message": "Ak ste obozn\u00e1men\u00ed s CSS, m\u00f4\u017eete zmeni\u0165 celkov\u00fd vzh\u013ead bo\u010dn\u00e9ho panela pridan\u00edm vlastn\u00fdch defin\u00edci\u00ed \u0161t\u00fdlov. To v\u00e1m umo\u017en\u00ed \u00faplne prisp\u00f4sobi\u0165 v\u0161etko."
+        "message": "Neobmedzujte sa len na posuvn\u00edky a n\u00e1stroje na v\u00fdber farieb a upravte ka\u017ed\u00fd detail bo\u010dn\u00e9ho panela pomocou vlastn\u00fdch pravidiel CSS."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "Skontrolujte svoje z\u00e1lo\u017eky, \u010di neobsahuj\u00fa nefunk\u010dn\u00e9 odkazy alebo duplik\u00e1ty"
+        "message": "Kontrola z\u00e1lo\u017eiek"
     },
     "premium_feature_linkchecker_desc": {
         "message": "M\u00f4\u017eete klikn\u00fa\u0165 prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fd adres\u00e1r na bo\u010dnom paneli a vykona\u0165 kontrolu. Na str\u00e1nke s v\u00fdsledkami sa zobrazia v\u0161etky aktualizovan\u00e9 adresy URL, z\u00e1lo\u017eky, ktor\u00e9 u\u017e nefunguj\u00fa, a z\u00e1lo\u017eky s rovnakou adresou URL."
     },
     "premium_feature_themes_headline": {
-        "message": "Zme\u0148te mot\u00edv svojho bo\u010dn\u00e9ho panela"
+        "message": "Mot\u00edvy bo\u010dn\u00e9ho panela"
     },
     "premium_feature_themes_desc": {
-        "message": "Cel\u00fd vzh\u013ead bo\u010dn\u00e9ho panela m\u00f4\u017eete vymeni\u0165 jedn\u00fdm kliknut\u00edm nain\u0161talovan\u00edm inej t\u00e9my. T\u00e9my m\u00f4\u017eu by\u0165 tie\u017e prisp\u00f4soben\u00e9 pomocou dostupn\u00fdch jazdcov a farebn\u00fdch mo\u017enost\u00ed."
+        "message": "Jedn\u00fdm kliknut\u00edm m\u00f4\u017eete zmeni\u0165 celkov\u00fd vzh\u013ead bo\u010dn\u00e9ho panela a n\u00e1sledne ho doladi\u0165 pomocou posuvn\u00edkov a farebn\u00fdch nastaven\u00ed."
     },
     "premium_pay_intro_payment_method": {
         "message": "Vyberte sp\u00f4sob platby ni\u017e\u0161ie a v nasleduj\u00facom kroku vyberte po\u017eadovan\u00fa sumu, ktor\u00fa chcete zaplati\u0165."
@@ -1498,5 +1465,95 @@
     },
     "premium_pay_info_name": {
         "message": "Meno"
+    },
+    "premium_title": {
+        "message": "Premium"
+    },
+    "premium_desc_teaser": {
+        "message": "Obsahuje pokro\u010dil\u00e9 funkcie pre pou\u017e\u00edvate\u013eov, ktor\u00ed o ne maj\u00fa z\u00e1ujem, pri\u010dom bezplatn\u00e1 verzia zost\u00e1va pre v\u00e4\u010d\u0161inu \u013eud\u00ed ve\u013emi v\u00fdkonn\u00e1 a u\u017eito\u010dn\u00e1."
+    },
+    "premium_desc_teaser_active": {
+        "message": "Zozn\u00e1mte sa s funkciami, ktor\u00e9 m\u00e1te k dispoz\u00edcii."
+    },
+    "premium_free": {
+        "message": "Zadarmo"
+    },
+    "premium_feature_bookmarks_headline": {
+        "message": "Prid\u00e1vanie, \u00faprava a mazanie z\u00e1lo\u017eiek"
+    },
+    "premium_feature_bookmarks_desc": {
+        "message": "Spravujte svoje z\u00e1lo\u017eky a prie\u010dinky priamo z bo\u010dn\u00e9ho panela, bez toho, aby ste museli otv\u00e1ra\u0165 spr\u00e1vcu z\u00e1lo\u017eiek."
+    },
+    "premium_feature_modes_headline": {
+        "message": "Re\u017eim prekrytia alebo bo\u010dn\u00e9ho panela"
+    },
+    "premium_feature_modes_desc": {
+        "message": "Otvorte si z\u00e1lo\u017eky ako prekr\u00fdvac\u00ed panel nad str\u00e1nkou alebo v bo\u010dnom paneli prehliada\u010da."
+    },
+    "premium_feature_styling_headline": {
+        "message": "Farby, ve\u013ekosti a rozostupy"
+    },
+    "premium_feature_styling_desc": {
+        "message": "Prisp\u00f4sobte si farby, ve\u013ekos\u0165 p\u00edsma a ikon, v\u00fd\u0161ku riadkov, odsadenie a mnoho \u010fal\u0161\u00edch nastaven\u00ed."
+    },
+    "premium_feature_trigger_area_headline": {
+        "message": "Nastavite\u013en\u00e1 sp\u00fa\u0161\u0165acia oblas\u0165"
+    },
+    "premium_feature_trigger_area_desc": {
+        "message": "Ur\u010dite, kde a ako sa bo\u010dn\u00fd panel otvor\u00ed, vr\u00e1tane ve\u013ekosti a farby indik\u00e1tora."
+    },
+    "premium_feature_visibility_headline": {
+        "message": "Pravidl\u00e1 vidite\u013enosti"
+    },
+    "premium_feature_visibility_desc": {
+        "message": "Vyberte si, na ktor\u00fdch webov\u00fdch str\u00e1nkach sa m\u00e1 bo\u010dn\u00fd panel zobrazova\u0165 a kde ho nechcete ma\u0165 na o\u010diach."
+    },
+    "premium_feature_dark_mode_headline": {
+        "message": "Tmav\u00fd re\u017eim"
+    },
+    "premium_feature_dark_mode_desc": {
+        "message": "Nastavte bo\u010dn\u00fd panel na tmav\u00fd vzh\u013ead, bu\u010f ru\u010dne, alebo automaticky."
+    },
+    "premium_feature_extension_icon_desc": {
+        "message": "Vyberte si tvar a farbu ikony roz\u0161\u00edrenia na paneli n\u00e1strojov."
+    },
+    "premium_feature_sync_headline": {
+        "message": "Synchroniz\u00e1cia z\u00e1lo\u017eiek a nastaven\u00ed"
+    },
+    "premium_feature_sync_desc": {
+        "message": "Synchronizujte svoje z\u00e1lo\u017eky a nastavenia roz\u0161\u00edren\u00ed na v\u0161etk\u00fdch svojich zariadeniach. Sta\u010d\u00ed, ke\u010f v nastaveniach prehliada\u010da zapnete synchroniz\u00e1ciu."
+    },
+    "premium_feature_newtab_headline": {
+        "message": "Str\u00e1nka novej karty"
+    },
+    "premium_feature_newtab_desc": {
+        "message": "Nahra\u010fte str\u00e1nku \u201eNov\u00e1 karta\u201c vo va\u0161om prehliada\u010di \u010distou str\u00e1nkou, na ktorej sa zobrazuj\u00fa va\u0161e z\u00e1lo\u017eky a vyh\u013ead\u00e1vacie pole."
+    },
+    "premium_feature_import_export_desc": {
+        "message": "Ulo\u017ete si nastavenia ako s\u00fabor do po\u010d\u00edta\u010da a importujte ich do ak\u00e9hoko\u013evek zariadenia, na ktorom je nain\u0161talovan\u00e9 toto roz\u0161\u00edrenie."
+    },
+    "premium_feature_pinned_headline": {
+        "message": "Pripnut\u00e9 z\u00e1lo\u017eky"
+    },
+    "premium_feature_pinned_desc": {
+        "message": "Pripnite svoje ob\u013e\u00faben\u00e9 z\u00e1lo\u017eky na horn\u00fa \u010das\u0165 bo\u010dn\u00e9ho panela a majte ich v\u017edy po ruke."
+    },
+    "premium_feature_both_modes_headline": {
+        "message": "Oba re\u017eimy bo\u010dn\u00e9ho panela naraz"
+    },
+    "premium_feature_both_modes_desc": {
+        "message": "Pou\u017e\u00edvajte prekr\u00fdvac\u00ed panel a bo\u010dn\u00fd panel ved\u013ea seba a vyberte si ten, ktor\u00fd sa hod\u00ed k danej situ\u00e1cii."
+    },
+    "premium_feature_priority_support_headline": {
+        "message": "Prioritn\u00e1 podpora"
+    },
+    "premium_feature_priority_support_desc": {
+        "message": "Va\u0161e ot\u00e1zky a pripomienky sa posun\u00fa na za\u010diatok poradia, v\u010faka \u010domu dostanete r\u00fdchlej\u0161iu odpove\u010f."
+    },
+    "premium_feature_support_dev_headline": {
+        "message": "Podporte rozvoj"
+    },
+    "premium_feature_support_dev_desc": {
+        "message": "Pom\u00f4\u017ete zachova\u0165 nez\u00e1vislos\u0165 a akt\u00edvnu \u00fadr\u017ebu Bookmark Sidebar a umo\u017eni\u0165 tak v\u00fdvoj nov\u00fdch funkci\u00ed."
     }
 }

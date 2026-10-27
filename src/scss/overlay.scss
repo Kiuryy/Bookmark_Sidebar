@@ -1,11 +1,14 @@
-@import "include/vars";
-@import "include/mixins";
-@import "include/loading";
-@import "include/scrollBox";
-@import "include/checkbox";
+@use "sass:list";
+@use "sass:meta";
+@use "include/placeholders";
+@use "include/vars";
+@use "include/mixins";
+@use "include/loading";
+@use "include/scrollBox";
+@use "include/checkbox";
 //
-$textColor: $__textColor;
-@import "include/generals";
+vars.$textColor: vars.$dyn-textColor;
+@use "include/generals";
 
 body {
   height: 100%;
@@ -33,8 +36,9 @@ div.modal {
   position: relative;
   width: 600px;
   height: 500px;
-  background: $contentBackground;
+  @include mixins.modalBackground(vars.$contentBackground);
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
   overflow: hidden;
   user-select: none;
   speak: none;
@@ -47,30 +51,30 @@ div.modal {
   }
 
   > header {
-    @include mask(null, $__foregroundColor, 24px);
+    @include mixins.mask(null, vars.$dyn-foregroundColor, 24px);
     position: relative;
-    color: $__foregroundColor;
-    height: $__overlayHeaderHeight;
+    color: vars.$dyn-foregroundColor;
+    height: vars.$dyn-overlayHeaderHeight;
     padding: 0 75px 0 52px;
-    background-color: $__colorScheme;
+    background-color: vars.$dyn-colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 2;
 
     &::before {
-      -webkit-mask-position: center;
+      mask-position: center;
       width: 50px;
-      height: $__overlayHeaderHeight;
+      height: vars.$dyn-overlayHeaderHeight;
       left: 5px;
     }
 
     > h1 {
       font-size: 150%;
-      font-weight: $__fontWeightNormal;
-      line-height: $__overlayHeaderHeight;
+      font-weight: vars.$dyn-fontWeightNormal;
+      line-height: vars.$dyn-overlayHeaderHeight;
     }
 
     > a.close {
-      @include mask('icon-close', $__foregroundColor, 24px);
+      @include mixins.mask('icon-close', vars.$dyn-foregroundColor, 24px);
       position: absolute;
       top: 0;
       bottom: 0;
@@ -91,19 +95,20 @@ div.modal {
   }
 
   > div.scrollBox {
-    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    height: calc(100% - #{vars.$dyn-overlayHeaderHeight} - 57px);
   }
 
   > a.preview, > span.preview {
     display: block;
     font-size: 140%;
-    font-weight: $__fontWeightNormal;
+    font-weight: vars.$dyn-fontWeightNormal;
     margin: 30px 30px 20px 30px;
     background-color: rgba(0, 0, 0, 0.05);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     padding: 17px 15px;
+    border-radius: 10px;
 
     > img, > span.icon {
       position: relative;
@@ -115,7 +120,7 @@ div.modal {
     }
 
     > span.icon {
-      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, 24px);
+      @include mixins.mask(#{'icon-' + vars.$dyn-bookmarksDirIcon}, vars.$dyn-bookmarksDirColor, 24px);
     }
   }
 
@@ -128,10 +133,10 @@ div.modal {
     }
 
     > span.icon {
-      @include mask(#{'icon-demo'}, transparent, 24px);
+      @include mixins.mask(#{'icon-demo'}, transparent, 24px);
 
-      @each $color in $demoColors {
-        $i: index($demoColors, $color);
+      @each $color in vars.$demoColors {
+        $i: list.index(vars.$demoColors, $color);
         &[data-color='#{$i}']::before {
           background-color: $color;
         }
@@ -142,7 +147,7 @@ div.modal {
       display: block;
       margin: -15px 30px 20px 30px;
       font-size: 80%;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       opacity: 0.7;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -159,7 +164,7 @@ div.modal {
 
     > h3 {
       font-size: 100%;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
     }
 
     > p {
@@ -176,12 +181,16 @@ div.modal {
   }
 
   p.premium {
-    @include mask('icon-premium', $__textColor, 48px);
+    @include mixins.mask('icon-premium', vars.$dyn-textColor, 48px);
     position: relative;
+    text-align: center;
+    margin-top: 40px;
     padding: 95px 0 0 0;
+    font-size: 140%;
+    line-height: 170%;
 
     &::before {
-      -webkit-mask-position-y: 20px;
+      mask-position: center 20px;
       pointer-events: none;
     }
 
@@ -191,21 +200,21 @@ div.modal {
     }
 
     > a {
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       cursor: pointer;
-      color: $__colorScheme;
+      color: vars.$dyn-colorScheme;
       font-size: 80%;
     }
   }
 
   &[data-type='keyboardShortcuts'] {
-    @extend %modalFooterBackground;
+    @include mixins.modalFooterBackground;
     width: 700px;
     height: 650px;
     max-height: 100%;
 
     > header::before {
-      @include maskImage('icon-keyboard');
+      @include mixins.maskImage('icon-keyboard');
     }
 
     > div.scrollBox {
@@ -214,15 +223,15 @@ div.modal {
         padding: 30px 30px 5px 30px;
 
         > h3 {
-          font-weight: $__fontWeightMedium;
+          font-weight: vars.$dyn-fontWeightMedium;
           margin: 0 0 10px 0;
         }
 
         > a {
           position: relative;
-          font-weight: $__fontWeightMedium;
+          font-weight: vars.$dyn-fontWeightMedium;
           cursor: pointer;
-          color: $__colorScheme;
+          color: vars.$dyn-colorScheme;
           padding-left: 16px;
 
           &::before {
@@ -234,8 +243,8 @@ div.modal {
             margin: auto;
             width: 7px;
             height: 7px;
-            border-top: 2px solid $__colorScheme;
-            border-right: 2px solid $__colorScheme;
+            border-top: 2px solid vars.$dyn-colorScheme;
+            border-right: 2px solid vars.$dyn-colorScheme;
             transform: rotateZ(45deg);
           }
         }
@@ -299,17 +308,21 @@ div.modal {
 
   &[data-type='delete'] > header::before,
   &[data-type='deleteSelected'] > header::before {
-    @include maskImage('icon-delete');
+    @include mixins.maskImage('icon-delete');
   }
 
   &[data-type='hide'] > header::before {
-    @include maskImage('icon-hide');
+    @include mixins.maskImage('icon-hide');
+  }
+
+  &[data-type='pin'] > header::before {
+    @include mixins.maskImage('icon-pin');
   }
 
   &[data-type='openChildren'], &[data-type='openSelected'] {
 
     > header::before, {
-      @include maskImage('icon-newTab');
+      @include mixins.maskImage('icon-newTab');
     }
   }
 
@@ -334,7 +347,7 @@ div.modal {
 
       > strong {
         font-size: 160%;
-        color: $__colorScheme;
+        color: vars.$dyn-colorScheme;
       }
 
       > span {
@@ -346,14 +359,14 @@ div.modal {
   &[data-type='infos'] {
 
     > header::before {
-      @include maskImage('icon-info');
+      @include mixins.maskImage('icon-info');
     }
 
     > a[data-type='bookmark-manager'] {
       display: inline-block;
       margin: -15px 30px 0;
       font-size: 80%;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       cursor: pointer;
       opacity: 0.7;
     }
@@ -379,7 +392,7 @@ div.modal {
         left: 30px;
         width: 60px;
         height: 24px;
-        background: linear-gradient(to right, $contentBackground 0%, transparent 100%);
+        background: linear-gradient(to right, vars.$contentBackground 0%, transparent 100%);
         z-index: 3;
       }
 
@@ -409,7 +422,7 @@ div.modal {
           top: -6px;
           right: -36px;
           border: 18px solid transparent;
-          border-left-color: $contentBackground;
+          border-left-color: vars.$contentBackground;
         }
 
         &::after {
@@ -435,7 +448,7 @@ div.modal {
         position: relative;
 
         &.tooltip {
-          @include mask('icon-info', $__textColor, 16px);
+          @include mixins.mask('icon-info', vars.$dyn-textColor, 16px);
           position: relative;
           cursor: help;
           background-size: 16px;
@@ -443,7 +456,7 @@ div.modal {
 
           &::before {
             opacity: 0.5;
-            -webkit-mask-position: right center;
+            mask-position: right center;
           }
         }
 
@@ -451,8 +464,8 @@ div.modal {
           position: absolute;
           top: 27px;
           right: -10px;
-          background: $tooltipBackground;
-          color: $tooltipTextColor;
+          background: vars.$tooltipBackground;
+          color: vars.$tooltipTextColor;
           font-size: 65%;
           padding: 2px 5px;
           border-radius: 2px;
@@ -466,7 +479,7 @@ div.modal {
             top: -14px;
             right: 10px;
             border: 7px solid transparent;
-            border-bottom-color: $tooltipBackground;
+            border-bottom-color: vars.$tooltipBackground;
           }
 
           > li {
@@ -515,7 +528,7 @@ div.modal {
         > label {
           display: block;
           font-size: 100%;
-          font-weight: $__fontWeightMedium;
+          font-weight: vars.$dyn-fontWeightMedium;
         }
 
         > input, > textarea, > select {
@@ -525,14 +538,14 @@ div.modal {
           font-size: 120%;
           padding: 5px 8px;
           margin-top: 5px;
-          border-radius: 5px;
+          border-radius: 8px;
           outline: none;
           box-shadow: none;
           transition: border-color 0.5s;
           border: 1px solid rgba(0, 0, 0, 0.15);
 
           &.error {
-            border-color: $colorError;
+            border-color: vars.$colorError;
           }
 
           &:focus {
@@ -552,7 +565,7 @@ div.modal {
   &[data-type='edit'] {
 
     > header::before {
-      @include maskImage('icon-edit');
+      @include mixins.maskImage('icon-edit');
     }
 
     > ul > li.info {
@@ -567,7 +580,7 @@ div.modal {
       > span {
         opacity: 0;
         font-size: 80%;
-        color: $colorError;
+        color: vars.$colorError;
         transition: opacity 0.5s;
       }
 
@@ -580,12 +593,12 @@ div.modal {
   &[data-type='add'] {
 
     > header::before {
-      @include maskImage('icon-add');
+      @include mixins.maskImage('icon-add');
     }
 
     h2 {
       margin: 0 0 40px 0;
-      font-weight: $__fontWeightThin;
+      font-weight: vars.$dyn-fontWeightThin;
       font-size: 200%;
     }
 
@@ -624,14 +637,14 @@ div.modal {
       }
 
       > a {
-        @include mask(none, $__textColor, 36px);
+        @include mixins.mask(none, vars.$dyn-textColor, 36px);
         position: relative;
         display: block;
         width: 86px;
         height: 86px;
         border-radius: 50%;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        background-color: $contentBackground2;
+        background-color: vars.$contentBackground2;
         transition: box-shadow 0.5s;
         cursor: pointer;
 
@@ -650,7 +663,7 @@ div.modal {
           padding: 40px 0 0 0;
           font-size: 120%;
           text-align: center;
-          color: $__textColor;
+          color: vars.$dyn-textColor;
           transition: color 0.5s;
         }
 
@@ -659,24 +672,24 @@ div.modal {
 
           &::before {
             opacity: 1;
-            background-color: $__colorScheme;
+            background-color: vars.$dyn-colorScheme;
           }
 
           &::after {
-            color: $__colorScheme;
+            color: vars.$dyn-colorScheme;
           }
         }
 
         &[data-type='bookmark']::before {
-          @include maskImage('icon-bookmark');
+          @include mixins.maskImage('icon-bookmark');
         }
 
         &[data-type='dir']::before {
-          @include maskImage('icon-dir-3');
+          @include mixins.maskImage('icon-dir-3');
         }
 
         &[data-type='separator']::before {
-          @include maskImage('icon-separator');
+          @include mixins.maskImage('icon-separator');
         }
       }
     }
@@ -716,10 +729,10 @@ div.modal {
       display: inline-block;
       padding: 5px 10px 4px;
       margin: 0 5px;
-      color: $__colorScheme;
-      font-weight: $__fontWeightBold;
+      color: vars.$dyn-colorScheme;
+      font-weight: vars.$dyn-fontWeightBold;
       text-transform: uppercase;
-      border-radius: 3px;
+      border-radius: 8px;
       cursor: pointer;
 
       &::before {
@@ -730,8 +743,8 @@ div.modal {
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 3px;
-        background: $__colorScheme;
+        border-radius: 8px;
+        background: vars.$dyn-colorScheme;
         transition: opacity 0.5s;
         @extend %hidden;
       }
@@ -746,6 +759,7 @@ div.modal {
     width: 100%;
     height: 100%;
     box-shadow: none;
+    border-radius: 0;
     transform: translate3d(-50px, 0, 0);
 
     &.visible {
@@ -766,10 +780,10 @@ div.modal {
   }
 }
 
-@import "include/linkchecker";
-@import "include/newtab/overlay";
+@include meta.load-css("include/linkchecker");
+@include meta.load-css("include/newtab/overlay");
 //
 //
-@import "rtl/overlay";
-@import "highContrast/overlay";
-@import "dark/overlay";
+@include meta.load-css("rtl/overlay");
+@include meta.load-css("highContrast/overlay");
+@include meta.load-css("dark/overlay");

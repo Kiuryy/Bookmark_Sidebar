@@ -205,8 +205,7 @@
             const doc = overlay[0].contentDocument;
 
             if (hoveredEntry.length() > 0) {
-                let newActiveElm = null;
-
+                let newActiveElm;
                 if (hoveredEntry.next("a").length() > 0) {
                     newActiveElm = hoveredEntry.next("a");
                 } else {
@@ -217,8 +216,7 @@
                 newActiveElm.addClass($.cl.hover);
             } else if (doc.activeElement.tagName === "INPUT") {
                 const parentEntry = $(doc.activeElement).parent("li");
-                let newActiveElm = null;
-
+                let newActiveElm;
                 if (parentEntry.length() > 0 && parentEntry.next("li").length() > 0) {
                     newActiveElm = parentEntry.next("li").find("input,text,area,select").eq(0);
                 } else {

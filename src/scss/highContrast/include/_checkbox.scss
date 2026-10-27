@@ -1,3 +1,5 @@
+@use "../../include/vars";
+
 
 body.highContrast:not(.dark) div.checkbox {
 
@@ -6,16 +8,16 @@ body.highContrast:not(.dark) div.checkbox {
     &.active {
 
       &::before {
-        background-color: $__textColor;
+        background-color: vars.$dyn-textColor;
       }
 
       &::after {
-        box-shadow: 0 0 0 0 $__textColor;
+        box-shadow: 0 0 0 0 vars.$dyn-textColor;
       }
 
       &.focus::after, &.clicked::after {
-        background: $__textColor;
-        box-shadow: 0 0 0 20px $__textColor;
+        background: vars.$dyn-textColor;
+        box-shadow: 0 0 0 20px vars.$dyn-textColor;
       }
     }
   }
@@ -25,7 +27,7 @@ body.highContrast:not(.dark) div.checkbox {
     &.active {
 
       &::before, &::after {
-        background-color: $__textColor;
+        background-color: vars.$dyn-textColor;
       }
     }
   }

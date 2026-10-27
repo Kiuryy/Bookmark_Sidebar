@@ -80,7 +80,7 @@ html[dir='rtl'] {
             padding-left: 18px;
 
             &::before {
-              -webkit-mask-position-x: left;
+              mask-position: left center;
             }
           }
 

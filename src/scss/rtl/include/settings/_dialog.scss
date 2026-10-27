@@ -1,0 +1,25 @@
+html[dir='rtl'] body > section.dialog > div > header {
+  padding: 15px 30px 15px 20px;
+
+  > h2 {
+    padding-left: 0;
+    padding-right: 40px;
+
+    &::before {
+      left: unset;
+      right: 0;
+    }
+  }
+}
+
+html[dir='rtl'] body > section#video-dialog > div > header {
+  padding: 8px 20px 8px 12px;
+
+  > h2 {
+    padding-right: 0;
+  }
+}
+
+html[dir='rtl'] body > section#share-info-dialog > div > header > h2::before {
+  transform: scaleX(-1);
+}

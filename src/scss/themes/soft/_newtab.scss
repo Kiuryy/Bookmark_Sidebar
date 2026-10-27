@@ -1,0 +1,70 @@
+@use "sass:meta";
+@use "helpers";
+
+// New tab page: same background and surfaces as the sidebar, so the page and the sidebar next to it look like one,
+// a custom background image keeps the semi-transparent surfaces of the generic styles
+body[data-theme='soft']:not(.dark) {
+  background-color: helpers.$background;
+
+  &::before {
+    background: helpers.$background;
+  }
+
+  &:not(.customBackground) {
+    background-image: helpers.$backgroundGradient;
+
+    form#search {
+
+      > input[type='text'] {
+        background: helpers.$glassBackground;
+        box-shadow: helpers.raised(4px), helpers.$highlight;
+      }
+
+      > button[type="submit"]:hover, > a.speechSearch:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      > ul.suggestions > li {
+        background: helpers.$menuSolidBackground;
+
+        &::after {
+          background: helpers.$menuSolidBackground;
+        }
+      }
+    }
+
+    &:not(.edit) div#gridLinks, div#gridLinks:not([data-type='custom']) { // in edit mode the custom links are dashed placeholders (see newtab/_edit.scss)
+
+      > ul > li > a {
+
+        > div {
+          background: helpers.$surfaceGradient;
+          border-color: transparent;
+          box-shadow: helpers.raised(4px), helpers.$highlight;
+        }
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.04);
+
+          > div {
+            border-color: transparent;
+            box-shadow: helpers.raised(5px), helpers.$highlight;
+          }
+        }
+      }
+    }
+
+    section#content > nav > ul > li > a:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &.edit {
+
+      section#content > nav select.edit, form#search > select, div#gridLinks select {
+        background: helpers.$menuSolidBackground;
+      }
+    }
+  }
+}
+
+@include meta.load-css("dark/newtab");

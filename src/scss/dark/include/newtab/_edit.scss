@@ -1,27 +1,30 @@
+@use "sass:color";
+@use "../../../include/vars";
+
 body.dark {
 
   menu.infoBar {
-    background: $darkContentBackground2;
+    background: vars.$darkContentBackground2;
 
     > a.save {
-      color: $darkContentBackground2;
+      color: vars.$darkContentBackground2;
     }
 
     > div.upload {
 
       > a.remove {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
       }
 
       > div {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
       }
 
       > span.premium {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
 
         &::after {
-          border-left-color: $darkContentBackground2;
+          border-left-color: vars.$darkContentBackground2;
         }
       }
     }
@@ -30,17 +33,17 @@ body.dark {
   > a.edit {
 
     &:hover {
-      background: $darkContentBackground2;
+      background: vars.$darkContentBackground2;
     }
   }
 
   div.editLinkTooltip {
-    background: $darkContentBackground2;
+    background: vars.$darkContentBackground2;
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
     transform: translate3d(0, 3px, 0);
 
     &::before {
-      border-bottom-color: $darkContentBackground2;
+      border-bottom-color: vars.$darkContentBackground2;
     }
 
     > input[type='text'] {
@@ -52,10 +55,10 @@ body.dark {
     }
 
     > button[type='submit'] {
-      color: $textColorLight;
+      color: vars.$textColorLight;
 
       &[data-type="delete"] {
-        color: rgba($textColorLight, 0.6);
+        color: rgba(vars.$textColorLight, 0.6);
       }
     }
   }
@@ -65,14 +68,14 @@ body.dark {
     section#content > nav {
 
       select.edit {
-        background: lighten($darkContentBackground2, 5%);
+        background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
       }
 
       a.add {
-        background: $darkContentBackground;
+        background: vars.$darkContentBackground;
 
         &:hover {
-          background: $darkContentBackground2;
+          background: vars.$darkContentBackground2;
         }
       }
 
@@ -84,29 +87,29 @@ body.dark {
     form#search {
 
       > select {
-        background: lighten($darkContentBackground2, 5%);
+        background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
 
         &.edit {
-          background: lighten($darkContentBackground2, 5%);
+          background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
         }
       }
 
       > a.edit:hover {
-        background: lighten($darkContentBackground2, 5%);
+        background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
       }
     }
 
     div#gridLinks {
 
       select {
-        background: lighten($darkContentBackground2, 5%);
+        background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
       }
 
       > div[data-type='gridsize'] > span.premium {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
 
         &::after {
-          border-left-color: $darkContentBackground2;
+          border-left-color: vars.$darkContentBackground2;
         }
       }
     }
@@ -115,42 +118,42 @@ body.dark {
   &.customBackground {
 
     > a.edit {
-      background-color: rgba($darkContentBackground, 0.7);
+      background-color: rgba(vars.$darkContentBackground, 0.7);
 
       &::before {
-        background-color: $textColorLight;
+        background-color: vars.$textColorLight;
       }
     }
 
     &.edit {
 
       form#search > select.edit {
-        background: rgba($darkContentBackground, 0.7);
+        background: rgba(vars.$darkContentBackground, 0.7);
       }
 
       div#gridLinks {
 
         > select {
-          background: rgba($darkContentBackground, 0.7);
+          background: rgba(vars.$darkContentBackground, 0.7);
         }
 
         > div[data-type='gridsize'] {
-          background: rgba($darkContentBackground, 0.7);
+          background: rgba(vars.$darkContentBackground, 0.7);
         }
 
         &[data-type="custom"] > ul > li > a {
 
           > div {
-            background: rgba($darkContentBackground, 0.7);
-            box-shadow: 0 0 0 3px rgba($darkContentBackground, 0.7);
+            background: rgba(vars.$darkContentBackground, 0.7);
+            box-shadow: 0 0 0 3px rgba(vars.$darkContentBackground, 0.7);
           }
 
           &:hover > div {
-            background: rgba($darkContentBackground, 0.7);
+            background: rgba(vars.$darkContentBackground, 0.7);
           }
 
           &.dragHover {
-            border-color: $__textColor;
+            border-color: vars.$dyn-textColor;
           }
         }
       }
@@ -158,11 +161,11 @@ body.dark {
       section#content > nav {
 
         > ul > li > a {
-          background: rgba($darkContentBackground, 0.7);
-          box-shadow: 0 0 0 3px rgba($darkContentBackground, 0.7);
+          background: rgba(vars.$darkContentBackground, 0.7);
+          box-shadow: 0 0 0 3px rgba(vars.$darkContentBackground, 0.7);
 
           &:hover {
-            background: rgba($darkContentBackground, 0.7);
+            background: rgba(vars.$darkContentBackground, 0.7);
           }
         }
       }
@@ -179,7 +182,7 @@ body.dark {
 
           &::after {
             border-left-color: transparent;
-            border-right-color: $darkContentBackground2;
+            border-right-color: vars.$darkContentBackground2;
           }
         }
       }

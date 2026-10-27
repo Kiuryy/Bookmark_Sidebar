@@ -19,7 +19,7 @@
          */
         this.init = () => {
             const delayRaw = ext.helper.model.getData("b/scrollBarHide");
-            scrollBarHide = +delayRaw * 1000;
+            scrollBarHide = parseInt(delayRaw) * 1000;
         };
 
         /**

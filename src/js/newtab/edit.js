@@ -49,12 +49,19 @@
                 if (elm.hasClass($.cl.cancel)) {
                     await leaveEditMode();
                 } else if (elm.hasClass($.cl.newtab.save)) {
+                    const autoOpen = n.helper.model.getData("n/autoOpen");
                     await saveChanges();
-                    await leaveEditMode();
+
+                    if (n.helper.model.getData("n/autoOpen") !== autoOpen) { // the sidebar only applies the auto open option when loading (pinned, without mask) -> reload the page without the edit mode
+                        history.replaceState({}, null, location.href.replace(/#edit/g, ""));
+                        location.reload();
+                    } else {
+                        await leaveEditMode();
+                    }
                 }
             });
 
-            if (n.helper.model.getUserType() === "premium") {
+            if (n.helper.model.getUserType().startsWith("premium")) {
                 $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
                     if (e.currentTarget.files) {
                         const reader = new FileReader();
@@ -118,7 +125,7 @@
                 "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
             };
 
-            if (n.helper.model.getUserType() === "premium") {
+            if (n.helper.model.getUserType().startsWith("premium")) {
                 data["n/gridMaxCols"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='cols']")[0].value;
                 data["n/gridMaxRows"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='rows']")[0].value;
             }
@@ -128,7 +135,7 @@
             }
 
             await n.helper.model.setData(data);
-            const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
+            const background = n.elm.body.hasClass($.cl.newtab.customBackground) ? n.elm.body[0].style.backgroundImage.replace(/(^url\("?|"?\)$)/g, "") : null; // the inline style set by the upload, the computed one would contain the background gradient of a theme
             await $.api.storage.local.set({
                 newtabBackground_1: background && background !== "none" ? background : null
             });
@@ -218,12 +225,12 @@
 
             const uploadWrapper = $("<div></div>").addClass($.cl.newtab.upload).appendTo(menu);
 
-            if (n.helper.model.getUserType() === "premium") {
+            if (n.helper.model.getUserType().startsWith("premium")) {
                 $("<a></a>").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
                 $("<div></div>").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
             } else {
                 uploadWrapper.attr("title", n.helper.i18n.get("premium_restricted_text"));
-                $("<span></span>").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(uploadWrapper);
+                $("<span></span>").text(n.helper.i18n.get("premium_title")).addClass($.cl.premium).appendTo(uploadWrapper);
                 $("<div></div>").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span>").appendTo(uploadWrapper);
             }
 
@@ -531,10 +538,10 @@
             });
             $("<span></span>").text("x").insertAfter(wrapper.children("select").eq(0));
 
-            if (n.helper.model.getUserType() !== "premium") {
+            if (!n.helper.model.getUserType().startsWith("premium")) {
                 wrapper.addClass($.cl.premium).attr("title", n.helper.i18n.get("premium_restricted_text"));
                 wrapper.find("select").attr("disabled", "disabled");
-                $("<span></span>").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(wrapper);
+                $("<span></span>").text(n.helper.i18n.get("premium_title")).addClass($.cl.premium).appendTo(wrapper);
 
                 wrapper.on("click", () => {
                     n.helper.model.call("openLink", {

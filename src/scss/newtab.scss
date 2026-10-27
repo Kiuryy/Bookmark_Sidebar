@@ -1,21 +1,22 @@
-@import "include/vars";
-@import "include/mixins";
+@use "sass:meta";
+@use "include/placeholders";
+@use "include/vars";
 //
-@import "include/loading";
-@import "include/checkbox";
+@use "include/loading";
+@use "include/checkbox";
 
-$textColor: $__textColor;
-@import "include/generals";
-@import "include/newtab/gridLinks";
-@import "include/newtab/topLinks";
-@import "include/newtab/search";
-@import "include/newtab/fallback";
-@import "include/newtab/edit";
+vars.$textColor: vars.$dyn-textColor;
+@use "include/generals";
+@use "include/newtab/gridLinks";
+@use "include/newtab/topLinks";
+@use "include/newtab/search";
+@use "include/newtab/fallback";
+@use "include/newtab/edit";
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: $bodyBackground;
+  background-color: vars.$bodyBackground;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -28,7 +29,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: $bodyBackground;
+    background: vars.$bodyBackground;
     transition: opacity 0.3s;
     z-index: 98;
     @extend %hidden;
@@ -58,7 +59,7 @@ body {
   }
 
   section#content.small ~ svg.loading {
-    left: calc(50% - 18px + #{$__sidebarWidth} / 2);
+    left: calc(50% - 18px + #{vars.$dyn-sidebarWidth} / 2);
   }
 }
 
@@ -71,11 +72,11 @@ section#content {
   transition: height 0.5s;
 
   &.small {
-    width: calc(100vw - #{$__sidebarWidth});
-    margin-left: $__sidebarWidth;
+    width: calc(100vw - #{vars.$dyn-sidebarWidth});
+    margin-left: vars.$dyn-sidebarWidth;
 
     ~ iframe#redeviation-bs-sidebar:not(.redeviation-bs-hover) {
-      width: $__sidebarWidth;
+      width: vars.$dyn-sidebarWidth;
     }
   }
 
@@ -102,9 +103,10 @@ body[data-pos='right'] {
     margin-left: 0;
 
     ~ svg.loading {
-      left: calc(50% - 18px - #{$__sidebarWidth} / 2);
+      left: calc(50% - 18px - #{vars.$dyn-sidebarWidth} / 2);
     }
   }
 }
 
-@import "dark/newtab";
+@include meta.load-css("dark/newtab");
+@include meta.load-css("themes/soft/newtab"); // the new tab page isn't themeable (see StylesheetHelper), so the theme styles are part of the stylesheet

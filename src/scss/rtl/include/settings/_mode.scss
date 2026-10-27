@@ -1,0 +1,57 @@
+html[dir='rtl'] body {
+
+  span.mode-info {
+    right: unset;
+    left: 15px;
+  }
+
+  > main {
+
+    section.wrapper > span.mode-info {
+      right: unset;
+      left: 4%;
+    }
+
+    section.mode-selection {
+
+      div.mode {
+
+        > div.left .btn + .btn {
+          margin-left: 0;
+          margin-right: 3px;
+        }
+
+        > div.right {
+
+          > strong.title {
+            padding-left: 0;
+            padding-right: 26px;
+
+            &::before {
+              mask-position: right center;
+            }
+          }
+
+          > div.pro-cons > ul > li {
+            padding: 9px 25px 9px 9px;
+
+            &::before {
+              left: unset;
+              right: 7px;
+            }
+          }
+        }
+      }
+
+      div.both-info {
+        padding-left: 0;
+        padding-right: 60px;
+
+        &::before, &::after {
+          left: unset;
+          right: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,16 @@
+@use "sass:meta";
+@use "placeholders";
+@use "vars";
+
 
 div.tooltip {
   position: absolute;
-  background: $tooltipBackground;
-  border-radius: 2px;
-  color: $tooltipTextColor;
+  background: vars.$tooltipBackground;
+  border-radius: 4px;
+  color: vars.$tooltipTextColor;
   padding: 2px 4px 3px;
   max-width: 300px;
-  font-size: $__tooltipFontSize;
+  font-size: vars.$dyn-tooltipFontSize;
   z-index: 2;
   transform: translate3d(-5px, 0, 0);
   transition: opacity 0.3s, transform 0.3s;
@@ -27,11 +31,11 @@ div.tooltip {
     top: calc(50% - 6px);
     left: -12px;
     border: 6px solid transparent;
-    border-right-color: $tooltipBackground;
+    border-right-color: vars.$tooltipBackground;
   }
 
   > h3 {
-    font-weight: $__fontWeightNormal;
+    font-weight: vars.$dyn-fontWeightNormal;
   }
 
   > span {
@@ -42,13 +46,13 @@ div.tooltip {
   > p {
     margin-top: 5px;
     padding-top: 3px;
-    border-top: 1px solid rgba($tooltipTextColor, 0.7);
+    border-top: 1px solid rgba(vars.$tooltipTextColor, 0.7);
   }
 
   > ul.breadcrumb {
     margin-top: 4px;
     padding: 2px 0;
-    border-top: 1px solid rgba($tooltipTextColor, 0.7);
+    border-top: 1px solid rgba(vars.$tooltipTextColor, 0.7);
 
     > li {
       display: inline-block;
@@ -69,7 +73,7 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
     left: auto;
     right: -12px;
     border-right-color: transparent;
-    border-left-color: $tooltipBackground;
+    border-left-color: vars.$tooltipBackground;
   }
 }
 
@@ -83,8 +87,8 @@ section#sidebar.sidepanel ~ div.tooltip {
     right: 0;
     margin: auto;
     border-color: transparent;
-    border-bottom-color: $tooltipBackground;
+    border-bottom-color: vars.$tooltipBackground;
   }
 }
 
-@import "../dark/include/tooltip";
+@include meta.load-css("../dark/include/tooltip");

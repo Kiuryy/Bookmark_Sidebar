@@ -99,7 +99,7 @@
                 b.preventReload = true;
             }
 
-            let ret = {};
+            let ret;
             try {
                 ret = await $.api.bookmarks.create(values);
                 await Promise.all([

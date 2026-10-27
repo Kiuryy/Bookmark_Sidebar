@@ -1,24 +1,27 @@
+@use "sass:color";
+@use "../../../include/vars";
+
 
 body.dark {
 
   form#search {
 
     > input[type='text'] {
-      background: $darkContentBackground2;
+      background: vars.$darkContentBackground2;
     }
 
     > button[type="submit"]:hover, > a.speechSearch:hover {
-      background: lighten($darkContentBackground2, 5%);
+      background: color.adjust(vars.$darkContentBackground2, $lightness: 5%);
     }
 
     > ul.suggestions {
       filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
 
       > li {
-        background: $darkContentBackground2;
+        background: vars.$darkContentBackground2;
 
         &::after {
-          background: $darkContentBackground2;
+          background: vars.$darkContentBackground2;
         }
       }
     }
@@ -27,11 +30,11 @@ body.dark {
   &.customBackground form#search {
 
     > input[type='text'] {
-      background: rgba($darkContentBackground, 0.7);
+      background: rgba(vars.$darkContentBackground, 0.7);
     }
 
     > button[type="submit"]::before, > a.speechSearch::before {
-      background: $textColorLight;
+      background: vars.$textColorLight;
     }
   }
 }

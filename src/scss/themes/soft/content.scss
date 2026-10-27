@@ -1,0 +1,5 @@
+// Overlay: blurs the website behind it, set on the iframe instead of its body, so it fades in together with the mask,
+// while the iframe is fading in (opacity < 1) a backdrop-filter inside of it can't see the website and pops in at the end
+body > iframe#redeviation-bs-overlay[data-theme='soft'] {
+  backdrop-filter: blur(4px);
+}

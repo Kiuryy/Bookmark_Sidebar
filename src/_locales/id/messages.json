@@ -5,9 +5,6 @@
     "extension_name_short": {
         "message": "Bookmarks"
     },
-    "extension_desc": {
-        "message": "Menambahkan sebuah sidebar yang dapat di toggle dengan semua bookmark di samping layar kamu."
-    },
     "extension_version": {
         "message": "Versi"
     },
@@ -410,7 +407,7 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Menutup sidebar, overyang sudah dibuka"
     },
-    "contribute_intro": {
+    "settings_share_info_intro_1": {
         "message": "Untuk meningkatkan kualitas extension ini saya ingin lebih tau tentang bagaimana cara pengguna menggunakan sidebar dan konfigurasi apa yang mereka lakukan."
     },
     "contribute_notice": {
@@ -419,13 +416,13 @@
     "contribute_outro": {
         "message": "Jika anda mempunyai pertanya atau kekhawatiran tentang membagi informasi, tolong mengirimkan saya sebuah feedback."
     },
-    "contribute_share_config_label": {
+    "settings_share_info_config": {
         "message": "Konfigurasi pembagian"
     },
     "contribute_share_config_desc": {
         "message": "Anda akan membagikan konfigurasi tanpa nama, yang membantu saya untuk mengenali pengaturan terkenal dan mencari tahu, untuk meningkatkan kualitas atau menggantikan di rilis di masa mendatang."
     },
-    "contribute_share_activity_label": {
+    "settings_share_info_activity": {
         "message": "Membagi aktivitas"
     },
     "contribute_share_activity_desc1": {
@@ -434,22 +431,22 @@
     "contribute_share_activity_desc2": {
         "message": "Informasi ini sangat berguna untuk mengidentifikasi masalah terkait usabilitas atau fitur yang, misalnya, tidak sering digunakan."
     },
-    "contribute_share_activity_examples_intro": {
+    "settings_share_info_activity_examples": {
         "message": "Data yang dibagikan adalah sebagai berikut :"
     },
-    "contribute_share_activity_example_1": {
+    "settings_share_info_activity_item_5": {
         "message": "Berapa rata-rata bookmark yang dimiliki pengguna?"
     },
-    "contribute_share_activity_example_2": {
+    "settings_share_info_activity_item_4": {
         "message": "Platform apa yang digunakan oleh pengguna (Windows, Mac, Linux, ...)?"
     },
-    "contribute_share_activity_example_3": {
+    "settings_share_info_activity_item_1": {
         "message": "Apakah pengguna sedang menggunakan pencarian?"
     },
-    "contribute_share_activity_example_4": {
+    "settings_share_info_activity_item_2": {
         "message": "Apakah pengguna mengubah sortiran bookmark?"
     },
-    "contribute_share_activity_example_5": {
+    "settings_share_info_activity_item_3": {
         "message": "Seberapa sering pengguna menyusun ulang atau menyunting entri?"
     },
     "onboarding_title": {
@@ -515,19 +512,19 @@
     "settings_menu_sidebar": {
         "message": "Sidebar"
     },
-    "settings_menu_sidebar_general": {
+    "settings_general": {
         "message": "Umum"
     },
     "settings_menu_sidebar_toggle": {
         "message": "Toggle"
     },
-    "settings_menu_sidebar_tooltip": {
+    "settings_tooltip": {
         "message": "Tooltip"
     },
     "settings_menu_sidebar_filter": {
         "message": "Filter"
     },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Penampilan"
     },
     "settings_menu_appearance_general": {
@@ -536,16 +533,16 @@
     "settings_menu_appearance_sidebar": {
         "message": "Sidebar"
     },
-    "settings_menu_appearance_indicator": {
+    "settings_indicator": {
         "message": "Indikator"
     },
-    "settings_menu_appearance_icon": {
+    "settings_extension_icon": {
         "message": "Ikon"
     },
     "settings_menu_appearance_overlay": {
         "message": "Overlay"
     },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "Tab Baru"
     },
     "settings_menu_language": {
@@ -554,10 +551,10 @@
     "settings_menu_language_general": {
         "message": "Umum"
     },
-    "settings_menu_language_translate": {
+    "settings_menu_translate": {
         "message": "Terjemahkan"
     },
-    "settings_menu_support": {
+    "settings_support": {
         "message": "Dukungan"
     },
     "settings_menu_infos": {
@@ -566,25 +563,25 @@
     "settings_menu_infos_aboutme": {
         "message": "Tentang saya"
     },
-    "settings_menu_infos_permissions": {
+    "settings_info_permissions": {
         "message": "Perizinan"
     },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "Privasi"
     },
     "settings_menu_infos_contact": {
         "message": "Kontak"
     },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "Changelog"
     },
-    "settings_menu_premium": {
+    "premium_title": {
         "message": "Premium"
     },
-    "settings_menu_export": {
+    "settings_import_export": {
         "message": "Impor\/Ekspor"
     },
-    "settings_menu_expert": {
+    "settings_expert": {
         "message": "Pengaturan ahli"
     },
     "settings_save": {
@@ -644,7 +641,7 @@
     "settings_open_action_icon": {
         "message": "Klik pada ikon"
     },
-    "settings_toggle_area": {
+    "settings_trigger_area_configure": {
         "message": "Konfigurasi area"
     },
     "settings_toggle_area_desc": {
@@ -662,7 +659,7 @@
     "settings_toggle_area_height_desc": {
         "message": "Anda dapat mengurangi ketinggian area, sehingga bilah samping hanya akan terbuka saat Anda memindahkan kursor ke lokasi tepi jendela browser Anda."
     },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "Seret untuk bergerak"
     },
     "settings_keyboard_shortcut_button": {
@@ -686,10 +683,10 @@
     "settings_open_delay_desc": {
         "message": "Mencegah bilah samping agar tidak segera dibuka saat melayang atau mengklik area aktivasi di tepi jendela browser."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Cegah pengguliran halaman"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Mencegah pengguliran situs web saat ini saat bar samping terbuka."
     },
     "settings_dir_accordion": {
@@ -800,7 +797,7 @@
     "settings_tooltip_content_url": {
         "message": "Hanya URL"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Info tambahan"
     },
     "settings_sidebar_position": {
@@ -815,34 +812,34 @@
     "settings_sidebar_position_right": {
         "message": "Kanan"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "Jika Anda tidak ingin bar samping dimuat di setiap halaman, Anda dapat mengonfigurasi tempat memuat ekstensi (daftar putih) atau di mana tidak memuatnya (daftar hitam)."
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Hanya tambahkan satu pola URL tiap baris"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Gunakan * untuk mencocokkan karakter apa pun (misalnya example.com\/* cocok dengan semua halaman di bawah example.com)"
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "Jika Anda tidak menyertakan * dalam aturan, hanya URL yang tepat yang akan cocok (misalnya \"example.com\/about.html\" tidak akan cocok untuk URL \"example.com\")"
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "Anda tidak perlu menambahkan protokol (misalnya http:\/\/) dalam aturan"
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "Muat sidebar"
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "Pada semua laman"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "Pada semua laman kecuali laman tertentu"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Hanya pada laman tertentu"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "Pola URL"
     },
     "settings_import_export_headline": {
@@ -917,22 +914,10 @@
     "settings_icon_color_desc_2": {
         "message": "Harap perhatikan bahwa warna otomatis tidak akan berfungsi saat menggunakan tema {browserName} khusus."
     },
-    "settings_indicator_width": {
-        "message": "Lebar"
-    },
-    "settings_indicator_color": {
-        "message": "Warna"
-    },
-    "settings_indicator_icon_size": {
-        "message": "Ukuran ikon"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Warna ikon"
-    },
     "settings_sidebar_width": {
         "message": "Lebar"
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "Ketinggian header"
     },
     "settings_sidebar_mask_color": {
@@ -1010,10 +995,10 @@
     "settings_theme_glass_desc": {
         "message": "Tema ini membuat latar sidebar semi-transparan dan menambahkan efek kaca buram ke dalamnya. Anda dapat menyesuaikan efek ini dan transparansi bilah sisi."
     },
-    "settings_install_theme": {
+    "settings_theme_use": {
         "message": "Instal tema"
     },
-    "settings_installed_theme_info": {
+    "settings_currently_selected": {
         "message": "Saat ini diinstal"
     },
     "settings_newtab_desc": {
@@ -1049,13 +1034,13 @@
     "settings_language_default": {
         "message": "Default peramban"
     },
-    "settings_language_desc": {
+    "settings_language_desc_old": {
         "message": "Bahasa antarmuka pengguna"
     },
-    "settings_translation_link": {
+    "settings_translation_cta_link": {
         "message": "Pergi ke ikhtisar penterjemah"
     },
-    "settings_translation_desc": {
+    "settings_translation_cta_desc": {
         "message": "Anda dapat membantu menerjemahkan ekstensi pada bahasa Anda atau mengembangkan terjemahan ekstensi yang sudah ada."
     },
     "settings_translation_add_language": {
@@ -1145,10 +1130,10 @@
     "settings_permissions_bookmarks_desc": {
         "message": "Ekstensi ini menampilkan bookmark Anda di bilah sisi dan karenanya memerlukan izin ini untuk mendapatkan akses. Izin juga memungkinkan ekstensi untuk menambah, mengedit, dan menghapus bookmark."
     },
-    "settings_headline_share_userdata": {
+    "settings_share_info": {
         "message": "Membagi informasi"
     },
-    "settings_saved_share_userdata": {
+    "settings_share_info_saved": {
         "message": "Pillihan mu telah berhasil di save"
     },
     "premium_popup_text": {
@@ -1157,7 +1142,7 @@
     "premium_restricted_text": {
         "message": "Fitur ini hanya tersedia pada Premium"
     },
-    "premium_desc_1": {
+    "premium_desc": {
         "message": "Dengan Premium Anda akan mendapatkan akses pada fitur tambahan dan membantu saya memelihara ekstensi ini."
     },
     "premium_desc_2": {
@@ -1190,10 +1175,10 @@
     "premium_feature_import_export_headline": {
         "message": "Impor dan ekspor pengaturan Anda"
     },
-    "premium_feature_custom_background_headline": {
+    "premium_feature_newtab_extended_headline": {
         "message": "Kustomisasi halaman Tab Baru"
     },
-    "premium_feature_custom_background_desc": {
+    "premium_feature_newtab_extended_desc": {
         "message": "Jika saat ini Anda menggunakan halaman Tab Baru ekstensi ini, anda dapat mengatur gambar latar belakang Anda untuk membuatnya menjadi lebih indah."
     },
     "premium_feature_custom_css_headline": {

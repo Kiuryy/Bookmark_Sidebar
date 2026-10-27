@@ -120,8 +120,7 @@
                         if (result[1] && result[1].val) {
                             ext.elm.pinnedBox.html(result[1].val);
 
-                            if (ext.helper.model.getData("u/lockPinned")) {
-                                ext.elm.lockPinned.addClass($.cl.sidebar.fixed);
+                            if (ext.helper.model.getData("b/lockPinned")) {
                                 ext.elm.pinnedBox.addClass($.cl.sidebar.fixed);
                             }
 
@@ -273,9 +272,11 @@
             ["label", "amount"].forEach((type) => {
                 let lastOffset = null;
                 headerIcons.forEach((icon) => {
-                    if (lastOffset === null) {
+                    const belowHeadline = icon.offsetTop >= headline[0].offsetTop + headline[0].offsetHeight; // all icons can wrap into the next line together, then they are still in one line with each other (e.g. soft theme)
+
+                    if (lastOffset === null && !belowHeadline) {
                         lastOffset = icon.offsetTop;
-                    } else if (icon.offsetTop > lastOffset * 2 || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
+                    } else if (belowHeadline || icon.offsetTop > lastOffset * 2 || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
                             headline.children("span").addClass($.cl.hidden);
                         } else if (type === "amount") {
@@ -417,7 +418,8 @@
                 box.css("padding-top", filterBoxHeight);
             });
 
-            ext.elm.pinnedBox.css("top", ext.helper.model.getData("u/lockPinned") ? -filterBoxHeight : 0);
+            // the sticky pinned entries are moved below the filter, while it is visible (see sidebar.scss)
+            ext.elm.pinnedBox[0].style.setProperty("--filterHeight", filterBoxHeight + "px");
         };
 
         /**
@@ -432,7 +434,7 @@
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
             const showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
-            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "u/showHidden"]);
+            const config = ext.helper.model.getData(["a/directoryArrows", "a/styles/bookmarksIconSize", "a/styles/directoriesIconSize", "u/showHidden"]);
 
             if (list.parents("li").length() > 0) {
                 list.css("transition", "height " + dirOpenDuration + "ms");
@@ -488,9 +490,8 @@
          * Updates the list with the pinned entries
          */
         const updatePinnedEntries = () => {
-            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "u/showHidden"]);
+            const config = ext.helper.model.getData(["a/directoryArrows", "a/styles/bookmarksIconSize", "a/styles/directoriesIconSize", "u/showHidden"]);
 
-            ext.elm.lockPinned.removeClass($.cl.sidebar.fixed);
             ext.elm.pinnedBox.removeClass([$.cl.hidden, $.cl.sidebar.fixed]);
 
             ext.elm.pinnedBox.children("ul").remove();
@@ -502,8 +503,7 @@
                 ext.helper.utility.sortEntries(pinnedEntries, sort);
                 const list = $("<ul></ul>").appendTo(ext.elm.pinnedBox);
 
-                if (ext.helper.model.getData("u/lockPinned")) {
-                    ext.elm.lockPinned.addClass($.cl.sidebar.fixed);
+                if (ext.helper.model.getData("b/lockPinned")) {
                     ext.elm.pinnedBox.addClass($.cl.sidebar.fixed);
                 }
 
@@ -575,8 +575,8 @@
             } else if (bookmark.children) { // dir
                 entryContent.addClass($.cl.sidebar.bookmarkDir);
                 $("<span></span>").addClass($.cl.add).insertBefore(dragElm);
-
-                if (opts.config.showDirectoryIcons) {
+                const showDirectoryIcons = parseInt(opts.config.directoriesIconSize) > 0;
+                if (showDirectoryIcons) {
                     entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "'></span>");
                 }
 
@@ -585,10 +585,10 @@
                 }
             } else if (bookmark.url) { // link
                 entryContent.addClass($.cl.sidebar.bookmarkLink);
-
-                if (opts.config.showBookmarkIcons) {
+                const showBookmkarsIcons = parseInt(opts.config.bookmarksIconSize) > 0;
+                if (showBookmkarsIcons) {
                     if ($.opts.demoMode) {
-                        entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "'></span>");
+                        entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (parseInt(bookmark.id) % 10 + 1) + "'></span>"); // derived from the id, so the colors are the same on every render
                     } else {
                         addFavicon(entryContent, bookmark.url);
                     }

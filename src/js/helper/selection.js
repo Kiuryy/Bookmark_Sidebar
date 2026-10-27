@@ -155,7 +155,7 @@
                             bookmarks.push(child);
                         }
                     }
-                } else { // add selected bookmark to the list
+                } else if (!ext.helper.entry.isSeparator(data.id)) { // add selected bookmark to the list, separators are skipped like for the folders above
                     bookmarks.push(data);
                 }
             }

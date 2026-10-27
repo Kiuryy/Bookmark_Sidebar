@@ -217,7 +217,7 @@
             const obj = await $.api.storage.local.get(["utility", "newtabBackground_1"]);
             if (obj.utility) {
                 const config = {};
-                ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
+                ["pinnedEntries", "customCss"].forEach((field) => {
                     if (typeof obj.utility[field] !== "undefined") {
                         config[field] = obj.utility[field];
                     }

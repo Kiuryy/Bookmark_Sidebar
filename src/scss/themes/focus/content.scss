@@ -1,5 +1,4 @@
-@import "../../include/vars";
-@import "../../include/mixins";
+@use "../../include/vars";
 
 
 // Indicator
@@ -11,7 +10,7 @@ body > div#redeviation-bs-indicator[data-theme='focus'] {
 }
 
 // Sidebar
-body > iframe#redeviation-bs-sidebar[data-theme='focus'] {
+body > #redeviation-bs-sidebar[data-theme='focus'] { // a custom element, the iframe is inside its shadow root
   transition: none;
 }
 

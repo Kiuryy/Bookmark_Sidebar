@@ -12,232 +12,306 @@
 
 <body class="building">
 <header>
-    <div id="logo"><span></span></div>
-    <h1 data-i18n="settings_title"></h1>
+    <div>
+        <div id="logo"><span></span></div>
 
-    <menu>
-        <li>
-            <button class="save"></button>
-        </li>
-        <li>
-            <button class="restore"></button>
-        </li>
-    </menu>
+        <menu id="tabs">
+            <li data-name="overview">
+                <a data-i18n="settings_tab_overview"></a>
+            </li>
+            <li data-name="settings">
+                <a data-i18n="settings_title"></a>
+            </li>
+            <li data-name="appearance">
+                <a data-i18n="settings_tab_appearance"></a>
+            </li>
+            <li data-name="newtab">
+                <a data-i18n="settings_tab_newtab"></a>
+            </li>
+        </menu>
+
+        <menu id="actions">
+            <li>
+                <a class="btn primary" id="save" data-i18n="settings_save"></a>
+            </li>
+        </menu>
+    </div>
 </header>
 
-<section id="wrapper">
-    <aside class="scrollBox">
-        <nav></nav>
-    </aside>
+<main>
 
-    <main class="scrollBox">
+    <section data-name="overview" class="tab">
 
-        <!--
-         #
-         #
-         # DASHBOARD
-         #
-         #
-         -->
-        <div class="tab" data-name="dashboard">
+        <section class="wrapper variant6">
+            <div class="cols" data-cols="3">
+                <div class="col">
+                    <div class="formElement" data-type="language" data-name="language" data-label="large" data-i18n="settings_language" data-no-restore-button="1"></div>
 
-            <div class="boxWrapper">
-                <div class="box wide tipsTricks">
-                    <button data-i18n="settings_tips_tricks_next"></button>
+                    <div class="translation-cta">
+                        <strong data-i18n="settings_translation_cta_headline"></strong>
+                        <p data-i18n="settings_translation_cta_desc"></p>
+                        <a href="#" class="btn icon translate" data-i18n="settings_translation_cta_link"></a>
+                    </div>
                 </div>
 
-                <div class="box small links">
+                <div class="col teaser" data-usertype="free">
+                    <label class="large" data-i18n="premium_title"></label>
+                    <img loading="lazy"
+                         src="/img/settings/premium.png"
+                         alt="" data-i18nAlt="premium_title"/>
+                    <div>
+                        <p data-i18n="premium_desc"></p>
+                        <p data-i18n="premium_desc_teaser"></p>
+                        <a href="#" class="premium-info btn" data-i18n="more_link"></a>
+                    </div>
+                </div>
+
+                <div class="col teaser" data-usertype="premium">
+                    <label class="large" data-i18n="premium_title"></label>
+                    <img loading="lazy"
+                         src="/img/settings/premium.png"
+                         alt="" data-i18nAlt="premium_title"/>
+                    <div>
+                        <p class="premium-active" data-i18n="premium_already_activated"></p>
+                        <p data-i18n="premium_desc_teaser_active"></p>
+                        <a href="#" class="premium-info btn" data-i18n="more_link"></a>
+                    </div>
+                </div>
+
+
+                <div class="col teaser">
+                    <label class="large" data-i18n="settings_knowledgebase"></label>
+                    <img loading="lazy"
+                         src="/img/settings/knowledgebase.png"
+                         alt="" data-i18nAlt="settings_knowledgebase"/>
+                    <div>
+                        <p data-i18n="settings_knowledgebase_desc"></p>
+                        <a href="#" class="knowledgebase-link btn" data-i18n="settings_knowledgebase_link"></a>
+                    </div>
+                </div>
+
+                <div class="col teaser">
+                    <label class="large" data-i18n="settings_support"></label>
+                    <img loading="lazy"
+                         src="/img/settings/support.png"
+                         alt="" data-i18nAlt="settings_support"/>
+                    <div>
+                        <p data-i18n="settings_support_desc"></p>
+                        <a href="#" class="support-link btn" data-i18n="settings_support"></a>
+                    </div>
+                </div>
+
+                <div class="col teaser">
+                    <label class="large" data-i18n="settings_share_info"></label>
+                    <img loading="lazy"
+                         src="/img/settings/stats.png"
+                         alt="" data-i18nAlt="settings_share_info"/>
+                    <div>
+                        <p data-i18n="settings_share_info_desc"></p>
+                        <a href="#" class="share-link btn" data-i18n="more_link"></a>
+                    </div>
+                </div>
+
+                <div class="col info-links">
                     <ul>
+                        <li><a href="#" data-name="permissions" data-i18n="settings_info_permissions"></a></li>
+                        <li><a href="#" data-name="privacyPolicy" data-i18n="settings_info_privacy"></a></li>
                         <li>
-                            <a href="#support" data-i18n="settings_menu_support" data-name="support"></a>
-                        </li>
-                        <li>
-                            <a href="#" data-src="privacyPolicy" data-i18n="settings_menu_infos_privacy"
-                               data-name="privacy"></a>
-                        </li>
-                        <li>
-                            <a href="#infos_permissions" data-i18n="settings_menu_infos_permissions"
-                               data-name="permissions"></a>
+                            <a href="#" data-name="changelog">
+                                <span data-i18n="extension_version"></span> <span class="version"></span>
+                                <span class="last-update"></span>
+                            </a>
                         </li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="boxWrapper">
-                <div class="box info">
-                    <a href="#sidebar_general">
-                        <h2 data-i18n="settings_dashboard_sidebar_options"></h2>
+                <div class="col info-links small">
+                    <ul>
+                        <li><a href="#" data-name="importExport" data-i18n="settings_import_export"></a></li>
+                    </ul>
+                </div>
+
+                <div class="col info-links small">
+                    <ul>
+                        <li><a href="#" data-name="expert" data-i18n="settings_expert"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="wrapper variant7">
+            <strong>
+                <span data-i18n="settings_tips_tricks_facts"></span>
+                <a class="btn primary next" data-i18n="settings_tips_tricks_next"></a>
+            </strong>
+
+            <div class="cols">
+                <div class="col full tips-tricks"></div>
+            </div>
+        </section>
+    </section>
+
+    <section data-name="settings" class="tab">
+        <section class="wrapper variant1 mode-selection">
+            <strong>
+                <span data-i18n="settings_mode_headline"></span>
+
+                <a class="btn primary" data-type="mode" data-value="both" data-notmode="both" data-premium-feature="bothModes" data-i18n="settings_mode_use_both"></a>
+
+                <div class="hidden">
+                    <div class="formElement" data-type="select" data-name="mode" data-config="b/mode">
+                        <span data-value="overlay"></span>
+                        <span data-value="sidepanel"></span>
+                        <span data-value="both"></span>
+                    </div>
+                </div>
+            </strong>
+
+            <div class="cols">
+                <div class="col mode" data-name="overlay">
+                    <div class="left">
                         <img loading="lazy"
-                             data-src="https://extensions.redeviation.com/img/illustration/sidebar-settings.png"
-                             alt="Sidebar"/>
-                        <p data-i18n="settings_dashboard_sidebar_options_desc"></p>
-                    </a>
+                             src="/img/settings/mode-overlay.png"
+                             alt="" data-i18nAlt="settings_mode_overlay"/>
+                        <a class="btn icon video" data-video="overlay-mode-chrome" data-video-title="settings_mode_overlay" data-i18n="settings_example"></a>
+                        <a class="btn icon external" data-i18n="settings_details"></a>
+                        <p data-mode="sidepanel">
+                            <a class="btn primary" data-type="mode" data-value="overlay" data-i18n="settings_mode_use"></a>
+                        </p>
+                        <p data-mode="overlay" data-notmode="both">
+                            <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <strong class="title" data-i18n="settings_mode_overlay"></strong>
+                        <p data-i18n="settings_mode_overlay_desc"></p>
+
+                        <div class="pro-cons">
+                            <ul>
+                                <li data-i18n="settings_mode_overlay_pro_1"></li>
+                                <li data-i18n="settings_mode_overlay_pro_2"></li>
+                            </ul>
+                            <ul>
+                                <li data-i18n="settings_mode_overlay_con_1"></li>
+                                <li data-i18n="settings_mode_overlay_con_2"></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="box info">
-                    <a href="#appearance_general">
-                        <h2 data-i18n="settings_dashboard_appearance_options"></h2>
+                <div class="col mode" data-name="sidepanel">
+
+                    <div class="left">
                         <img loading="lazy"
-                             data-src="https://extensions.redeviation.com/img/illustration/appearance-settings.png"
-                             alt="Appearance"/>
-                        <p data-i18n="settings_dashboard_appearance_options_desc"></p>
-                    </a>
+                             src="/img/settings/mode-sidepanel.png"
+                             alt="" data-i18nAlt="settings_mode_sidepanel"/>
+                        <a class="btn icon video" data-video="sidepanel-mode-chrome" data-video-title="settings_mode_sidepanel" data-i18n="settings_example"></a>
+                        <a class="btn icon external" data-i18n="settings_details"></a>
+                        <p data-mode="overlay">
+                            <a class="btn primary" data-type="mode" data-value="sidepanel" data-i18n="settings_mode_use"></a>
+                        </p>
+                        <p data-mode="sidepanel" data-notmode="both">
+                            <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <strong class="title" data-i18n="settings_mode_sidepanel"></strong>
+                        <p data-i18n="settings_mode_sidepanel_desc"></p>
+
+                        <div class="pro-cons">
+                            <ul>
+                                <li data-i18n="settings_mode_sidepanel_pro_1"></li>
+                                <li data-i18n="settings_mode_sidepanel_pro_2"></li>
+                            </ul>
+                            <ul>
+                                <li data-i18n="settings_mode_sidepanel_con_1"></li>
+                                <li data-i18n="settings_mode_sidepanel_con_2"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col both-info" data-mode="both">
+                    <p data-i18n="settings_mode_both_desc_1"></p>
+
+                    <p class="mt-2" data-i18n="settings_mode_both_desc_2"></p>
                 </div>
             </div>
+        </section>
 
-            <footer>
-                <div>
-                    <a class="version" href="#"></a>
-                    <span class="lastUpdate"></span>
+        <section class="wrapper variant4">
+            <strong data-i18n="settings_general"></strong>
+
+            <div class="cols">
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="select" data-name="rememberState" data-config="b/rememberState" data-i18n="settings_remember_state">
+                        <span data-value="openStatesAndPos" data-i18n="settings_remember_state_open_states_and_scroll"></span>
+                        <span data-value="all" data-i18n="settings_remember_state_all"></span>
+                        <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
+                        <span data-value="openStatesRoot" data-i18n="settings_remember_state_open_states_root"></span>
+                        <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
+                    </div>
+
+                    <div class="sub">
+                        <div class="formElement" data-type="checkbox" data-config="b/rememberOpenStatesSubDirectories"
+                             data-name="rememberOpenStatesSubDirectories"></div>
+                        <label data-i18n="settings_remember_open_states_sub_directories"></label>
+                    </div>
+
+                    <p class="desc" data-i18n="settings_remember_desc"></p>
                 </div>
-                <div class="copyright"></div>
-            </footer>
-        </div>
-
-        <!--
-         #
-         #
-         # SIDEBAR
-         #
-         #
-         -->
-        <div class="tab" data-name="sidebar" data-save="settings_save" data-restore="true">
-
-            <!-- General -->
-            <div data-name="general">
-                <div class="contentBox preview">
-                    <div>
-                        <strong data-i18n="onboarding_intro_sidebar_overlay_desc"></strong>
-                        <div class="video" data-type="overlay">
-                            <video preload="none"
-                                   data-src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4">
-                            </video>
-                            <span class="setup" data-i18n="onboarding_setup_start"></span>
-                        </div>
+                <div class="col" data-mode="overlay">
+                      <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="select" data-name="sidebarPosition"
+                         data-config="b/sidebarPosition"
+                         data-no-restore-button="1"
+                         data-i18n="settings_sidebar_position">
+                        <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
+                        <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
                     </div>
-                    <div>
-                        <strong data-i18n="onboarding_intro_sidebar_sidepanel_desc"></strong>
-                        <div class="video" data-type="sidepanel">
-                            <video preload="none"
-                                   data-src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4">
-                            </video>
-                            <span class="setup" data-i18n="onboarding_setup_start"></span>
-                        </div>
-                    </div>
+                    <p data-mode="both" class="note" data-i18n="settings_sidebar_position_note_overlay"></p>
                 </div>
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="checkbox" data-name="dirAccordion"
+                         data-config="b/dirAccordion" data-video="option-dirAccordion"
+                         data-i18n="settings_dir_accordion"></div>
+                </div>
+                <div class="col" data-mode="sidepanel">
+                    <span class="mode-info" data-i18n="settings_mode_sidepanel" data-i18nTitle="settings_mode_info_sidepanel"></span>
 
-                <h2 data-i18n="settings_menu_sidebar_general"></h2>
+                    <label class="large" data-i18n="settings_sidebar_position"></label>
+                    <a class="btn my-2 sidepanel-position" data-i18n="settings_sidepanel_position_configure"></a>
 
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="iconAction"
-                             data-i18n="settings_icon_action">
-                            <span data-value="overlay" data-i18n="settings_icon_action_overlay"></span>
-                            <span data-value="sidepanel" data-i18n="settings_icon_action_sidepanel"></span>
-                        </div>
-                        <a class="button keyboardShortcut" data-i18n="settings_keyboard_shortcut_button"></a>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="linkAction"
-                             data-i18n="settings_link_action">
-                            <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
-                            <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="newTab" data-i18n="settings_new_tab">
-                            <span data-value="foreground" data-i18n="settings_new_tab_foreground"></span>
-                            <span data-value="background" data-i18n="settings_new_tab_background"></span>
-                        </div>
-                        <br/>
-                        <div class="formElement" data-type="select" data-name="newTabPosition"
-                             data-i18n="settings_new_tab_position">
-                            <span data-value="afterCurrent" data-i18n="settings_new_tab_position_after_current"></span>
-                            <span data-value="afterLast" data-i18n="settings_new_tab_position_after_last"></span>
-                            <span data-value="beforeFirst" data-i18n="settings_new_tab_position_before_first"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="dirAccordion"
-                             data-i18n="settings_dir_accordion"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="scrollBarHide" data-min="0.5" data-max="5"
-                             data-step="0.5" data-infinity="1" data-unit="s" data-i18n="settings_scroll_bar_hide"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="rememberState"
-                             data-i18n="settings_remember_state">
-                            <span data-value="openStatesAndPos"
-                                  data-i18n="settings_remember_state_open_states_and_scroll"></span>
-                            <span data-value="all" data-i18n="settings_remember_state_all"></span>
-                            <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
-                            <span data-value="openStatesRoot"
-                                  data-i18n="settings_remember_state_open_states_root"></span>
-                            <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
-                        </div>
-
-                        <div class="sub rememberOpenStatesSubDirectories">
-                            <div class="formElement" data-type="checkbox"
-                                 data-name="rememberOpenStatesSubDirectories"></div>
-                            <label data-i18n="settings_remember_open_states_sub_directories"></label>
-                        </div>
-
-                        <p class="desc" data-i18n="settings_remember_desc"></p>
-                    </div>
+                    <p data-mode="both" class="note" data-i18n="settings_sidebar_position_note_sidepanel"></p>
+                </div>
+                <div class="col" data-mode="overlay">
+                    <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="range" data-name="closeTimeout"
+                         data-config="b/closeTimeout" data-min="0"
+                         data-max="5"
+                         data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
                 </div>
             </div>
+        </section>
 
-            <!-- Sidepanel -->
-            <div data-name="sidepanel">
-                <div class="contentBox preview">
-                    <strong class="large" data-i18n="settings_sidebar_sidepanel_intro"></strong>
+        <section class="wrapper variant7 trigger-area" data-mode="overlay">
+            <strong data-i18n="settings_trigger_area"></strong>
+            <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+
+            <section class="aside-wrapper">
+                <aside class="trigger-area-preview">
                     <div>
-                        <div class="video" data-type="overlay">
-                            <video preload="none"
-                                   data-src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4">
-                            </video>
-                        </div>
+                        <div class="indicator"><span></span></div>
+                        <div class="trigger-area"></div>
+                        <span data-i18n="settings_trigger_area_drag_desc"></span>
                     </div>
-                </div>
+                </aside>
 
-                <div class="boxWrapper">
-                    <div class="box">
-                        <label data-i18n="settings_sidebar_position"></label>
-                        <a class="button sidepanelSettings" data-i18n="settings_sidebar_sidepanel_configure"></a>
-                        <p class="desc" data-i18n="settings_sidebar_position_sidepanel"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Overlay -->
-            <div data-name="overlay">
-                <div class="contentBox preview">
-                    <strong class="large" data-i18n="settings_sidebar_overlay_intro"></strong>
-                    <div>
-                        <div class="video" data-type="overlay">
-                            <video preload="none"
-                                   data-src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="box">
-                            <div class="formElement" data-type="checkbox" data-name="overlayEnabled"
-                                 data-i18n="settings_overlay_enabled"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contentBox openAction hideable">
-                    <div>
-                        <div class="formElement" data-type="select" data-name="openAction"
+                <div class="cols">
+                    <div class="col">
+                        <div class="formElement" data-label="large" data-type="select" data-name="openAction"
+                             data-config="b/openAction"
                              data-i18n="settings_open_action">
                             <span data-value="mousedown" data-i18n="settings_open_action_leftclick"></span>
                             <span data-value="contextmenu" data-i18n="settings_open_action_rightclick"></span>
@@ -245,771 +319,840 @@
                             <span data-value="icon" data-i18n="settings_open_action_icon"></span>
                         </div>
                     </div>
-                    <div class="toggleArea">
-                        <h2 data-i18n="settings_toggle_area"></h2>
-                        <div data-type="preview">
-                            <div></div>
-                            <span data-i18n="settings_toggle_area_drag_desc"></span>
-                        </div>
-                        <div class="formElement" data-type="range" data-name="toggleArea_width" data-min="1"
-                             data-max="50" data-unit="px"
-                             data-i18n="settings_toggle_area_width"></div>
-                        <div class="formElement" data-type="range" data-name="toggleArea_widthWindowed" data-min="1"
-                             data-max="100"
-                             data-unit="px" data-i18n="settings_toggle_area_width_windowed"></div>
-                        <div class="formElement" data-type="range" data-name="toggleArea_height" data-min="5"
+
+                    <div class="col">
+                        <div class="formElement" data-label="large" data-type="range" data-name="triggerHeight"
+                             data-config="b/triggerHeight"
+                             data-min="5"
                              data-max="100" data-unit="%"
-                             data-i18n="settings_toggle_area_height"></div>
-                        <div class="hidden">
-                            <div class="formElement" data-type="range" data-name="toggleArea_top" data-min="0"
-                                 data-step="0.1"
-                                 data-max="100" data-unit="%"></div>
-                        </div>
+                             data-i18n="settings_trigger_height"></div>
+                    </div>
+
+                    <div class="col indicator-options">
+                        <label class="large" data-i18n="settings_indicator"></label>
+                        <p data-i18n="settings_indicator_desc"></p>
+
+                        <div class="formElement" data-label="mt-3" data-type="range" data-name="indicatorWidth"
+                             data-config="a/styles/indicatorWidth"
+                             data-min="0"
+                             data-max="90" data-unit="px"
+                             data-i18n="settings_indicator_width"></div>
+
+                        <div class="formElement" data-label="mt-4" data-type="color" data-name="indicatorColor"
+                             data-config="a/styles/indicatorColor"
+                             data-alpha="1"
+                             data-i18n="settings_indicator_color"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="formElement" data-label="large" data-type="range" data-name="triggerWidth"
+                             data-config="b/triggerWidth"
+                             data-min="1"
+                             data-max="50" data-unit="px"
+                             data-i18n="settings_trigger_width"></div>
+
+                        <div class="formElement" data-label="mt-4" data-type="range" data-name="triggerWidthWindowed"
+                             data-config="b/triggerWidthWindowed"
+                             data-min="1"
+                             data-max="90"
+                             data-unit="px" data-i18n="settings_trigger_width_windowed"></div>
+                    </div>
+
+                    <div class="col indicator-options">
+                        <label class="large" data-i18n="settings_indicator_icon"></label>
+
+                        <div class="formElement" data-label="mt-3" data-type="range" data-name="indicatorIconSize"
+                             data-config="a/styles/indicatorIconSize"
+                             data-min="0"
+                             data-max="72" data-unit="px"
+                             data-i18n="settings_indicator_icon_size"></div>
+                        <div class="formElement" data-label="mt-2" data-type="color" data-name="indicatorIconColor"
+                             data-config="a/styles/indicatorIconColor"
+                             data-alpha="1"
+                             data-i18n="settings_indicator_icon_color"></div>
+                    </div>
+
+                    <div class="hidden">
+                        <div class="formElement" data-type="range" data-name="triggerOffsetTop"
+                             data-config="b/triggerOffsetTop" data-min="0"
+                             data-step="0.1"
+                             data-max="100" data-unit="%"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="wrapper variant3">
+            <strong data-i18n="settings_extension_icon"></strong>
+
+            <div class="cols">
+                <div class="col">
+                    <div class="extension-icon-preview">
+                        <canvas width="128" height="128"></canvas>
+                    </div>
+                    <p data-i18n="settings_extension_icon_hidden"></p>
+                    <p><span data-i18n="settings_extension_icon_hidden_howto"></span> <a class="btn icon video" data-video="pin-extension-icon-chrome" data-video-title="settings_extension_icon" data-i18n="settings_details"></a></p>
+                </div>
+
+                <div class="col">
+                    <label class="large" data-i18n="settings_keyboard_shortcut"></label>
+                    <a class="btn my-2 keyboard-shortcut" data-i18n="settings_keyboard_shortcut_button"></a>
+                    <p data-i18n="settings_keyboard_shortcut_desc"></p>
+                </div>
+
+                <div class="col icon-selector">
+                    <div class="formElement" data-label="large" data-type="radio" data-name="iconShape"
+                         data-config="a/styles/iconShape"
+                         data-i18n="settings_icon_shape">
+                        <span data-value="bookmark"><span class="base64-icon"></span></span>
+                        <span data-value="star"><span class="base64-icon"></span></span>
+                        <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
+                        <span data-value="star-filled"><span class="base64-icon"></span></span>
                     </div>
                 </div>
 
-                <div class="boxWrapper hideable">
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="sidebarPosition"
-                             data-i18n="settings_sidebar_position">
-                            <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
-                            <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
-                        </div>
+                <div class="col extension-icon-color">
+                    <div class="formElement" data-label="large" data-type="select" data-i18n="settings_icon_color"
+                         data-name="iconColorType" data-no-restore-button="1">
+                        <span data-value="custom" data-i18n="settings_icon_color_custom"></span>
+                        <span data-value="auto" data-i18n="settings_icon_color_auto"></span>
                     </div>
+                    <span class="custom-color">
+                        <div class="formElement" data-type="color"
+                             data-suggestions='["#c8c8c8","#555555"]'
+                             data-name="iconColor" data-config="a/styles/iconColor"></div>
+                    </span>
 
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="closeTimeout" data-min="0" data-max="5"
-                             data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
-                    </div>
+                    <p class="desc" data-i18n="settings_icon_color_desc_1"></p>
+                    <p class="note" data-i18n="settings_icon_color_desc_2"></p>
+                </div>
+            </div>
+        </section>
 
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="openDelay" data-min="0" data-max="2"
-                             data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
-                    </div>
+        <section class="wrapper">
+            <strong data-i18n="settings_advanced"></strong>
 
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="preventPageScroll"
-                             data-i18n="settings_prevent_pagescroll"></div>
-                    </div>
+            <div class="cols">
 
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="preventWindowed"
-                             data-i18n="settings_prevent_windowed"></div>
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="select" data-name="linkAction"
+                         data-config="b/linkAction"
+                         data-i18n="settings_link_action">
+                        <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
+                        <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
                     </div>
                 </div>
 
-                <div class="contentBox hideable">
-                    <div class="formElement" data-type="select" data-name="visibility"
-                         data-i18n="settings_filter_visibility">
-                        <span data-value="always" data-i18n="settings_filter_visibility_always"></span>
-                        <span data-value="blacklist" data-i18n="settings_filter_visibility_blacklist"></span>
-                        <span data-value="whitelist" data-i18n="settings_filter_visibility_whitelist"></span>
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="select" data-name="newTab"
+                         data-config="b/newTab"
+                         data-i18n="settings_new_tab">
+                        <span data-value="foreground" data-i18n="settings_new_tab_foreground"></span>
+                        <span data-value="background" data-i18n="settings_new_tab_background"></span>
+                    </div>
+                    <div class="formElement" data-label="large" data-type="select" data-name="newTabPosition"
+                         data-config="b/newTabPosition">
+                                <span data-value="afterCurrent"
+                                      data-i18n="settings_new_tab_position_after_current"></span>
+                        <span data-value="afterLast" data-i18n="settings_new_tab_position_after_last"></span>
+                        <span data-value="beforeFirst"
+                              data-i18n="settings_new_tab_position_before_first"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="range" data-name="scrollBarHide"
+                         data-config="b/scrollBarHide"
+                         data-min="0.5"
+                         data-max="5"
+                         data-step="0.5" data-infinity="1" data-unit="s"
+                         data-i18n="settings_scroll_bar_hide"></div>
+                </div>
+
+                <div class="col" data-premium-hidden="lockPinned">
+                    <label class="large" data-i18n="settings_lock_pinned"></label>
+                    <div class="formElement" data-type="checkbox" data-name="lockPinned"
+                         data-config="b/lockPinned"></div>
+                    <p class="desc" data-i18n="settings_lock_pinned_desc"></p>
+                </div>
+
+                <div class="col" data-mode="overlay">
+                    <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="range" data-name="openDelay"
+                         data-config="b/openDelay" data-min="0"
+                         data-max="2"
+                         data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                </div>
+
+                <div class="col" data-mode="overlay">
+                    <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="checkbox" data-name="preventPageScroll"
+                         data-config="b/preventPageScroll"
+                         data-i18n="settings_prevent_page_scroll"></div>
+                </div>
+
+                <div class="col" data-mode="overlay">
+                    <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="checkbox" data-name="preventWindowed"
+                         data-config="b/preventWindowed"
+                         data-i18n="settings_prevent_windowed"></div>
+                </div>
+
+                <div class="col full" data-mode="overlay">
+                    <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-label="large" data-type="select" data-name="visibility"
+                         data-config="b/visibility"
+                         data-i18n="settings_visibility">
+                        <span data-value="always" data-i18n="settings_visibility_always"></span>
+                        <span data-value="blacklist" data-i18n="settings_visibility_blacklist"></span>
+                        <span data-value="whitelist" data-i18n="settings_visibility_whitelist"></span>
                     </div>
 
-                    <div class="filterOptions">
-                        <div class="patterns">
+
+                    <div class="visibility-rules cols">
+                        <div class="col">
                             <div class="formElement" data-type="textarea" data-name="visibilityFilter"
-                                 data-i18n="settings_filter_rules"></div>
+                                 data-i18n="settings_visibility_rules"></div>
                         </div>
-                        <div class="box patternExplanation">
-                            <ul class="bulletList">
-                                <li data-i18n="settings_filter_explanation_1"></li>
-                                <li data-i18n="settings_filter_explanation_2"></li>
-                                <li data-i18n="settings_filter_explanation_3"></li>
-                                <li data-i18n="settings_filter_explanation_4"></li>
+                        <div class="col">
+                            <ul class="bullet-list">
+                                <li data-i18n="settings_visibility_rules_explanation_1"></li>
+                                <li data-i18n="settings_visibility_rules_explanation_2"></li>
+                                <li data-i18n="settings_visibility_rules_explanation_3"></li>
+                                <li data-i18n="settings_visibility_rules_explanation_4"></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </section>
 
-            <!-- Tooltip -->
-            <div data-name="tooltip">
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="tooltipContent"
-                             data-i18n="settings_tooltip_content">
-                            <span data-value="all" data-i18n="settings_tooltip_content_all"></span>
-                            <span data-value="title" data-i18n="settings_tooltip_content_title"></span>
-                            <span data-value="url" data-i18n="settings_tooltip_content_url"></span>
-                        </div>
-
-                        <div class="sub additionalInfo">
-                            <div class="formElement" data-type="checkbox" data-name="tooltipAdditionalInfo"></div>
-                            <label data-i18n="settings_tooltip_content_additional_info"></label>
-                        </div>
-
-                        <p class="desc" data-i18n="settings_tooltip_desc"></p>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="tooltipDelay" data-min="0" data-max="3"
-                             data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
+    <section data-name="appearance" class="tab">
+        <section class="wrapper variant5 theme-selection">
+            <strong>
+                <span data-i18n="settings_theme"></span>
+                <div class="hidden">
+                    <div class="formElement" data-type="select" data-name="theme" data-config="a/theme">
+                        <span data-value="default"></span>
+                        <span data-value="soft"></span>
+                        <span data-value="glass"></span>
+                        <span data-value="focus"></span>
                     </div>
                 </div>
-            </div>
-        </div>
+            </strong>
 
-
-        <!--
-         #
-         #
-         # APPEARANCE
-         #
-         #
-         -->
-        <div class="tab" data-name="appearance" data-save="settings_save" data-restore="true">
-
-            <!-- General -->
-            <div data-name="general">
-                <div class="contentBox">
-                    <label data-i18n="settings_theme"></label>
-                    <div class="selectedTheme"><span></span></div>
-                    <p class="desc" data-i18n="settings_themes_notice"></p>
-                    <a class="showThemes" data-i18n="settings_show_themes"></a>
+            <div class="cols" data-cols="4">
+                <div class="col">
+                    <div class="title">
+                        <label class="large" data-i18n="settings_theme_default"></label>
+                        <a class="btn icon video" data-video="theme-default" data-video-title="settings_theme_default" data-i18n="settings_example"></a>
+                    </div>
+                    <img loading="lazy"
+                         src="/img/settings/theme-default.jpg"
+                         alt="" data-i18nAlt="settings_theme_default"/>
+                    <p class="desc" data-i18n="settings_theme_default_desc"></p>
+                    <p data-nottheme="default">
+                        <a class="btn primary" data-type="theme" data-value="default" data-i18n="settings_theme_use"></a>
+                    </p>
+                    <p data-theme="default">
+                        <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="title">
+                        <label class="large" data-i18n="settings_theme_soft"></label>
+                        <a class="btn icon video" data-video="theme-soft" data-video-title="settings_theme_soft" data-i18n="settings_example"></a>
+                    </div>
+                    <img loading="lazy"
+                         src="/img/settings/theme-soft.jpg"
+                         alt="" data-i18nAlt="settings_theme_soft"/>
+                    <p class="desc" data-i18n="settings_theme_soft_desc"></p>
+                    <p data-nottheme="soft">
+                        <a class="btn primary" data-type="theme" data-value="soft" data-premium-feature="themes" data-i18n="settings_theme_use"></a>
+                    </p>
+                    <p data-theme="soft">
+                        <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                    </p>
+                </div>
+                <div class="col" data-notmode="sidepanel">
+                    <div class="title">
+                        <label class="large" data-i18n="settings_theme_glass"></label>
+                        <a class="btn icon video" data-video="theme-glass" data-video-title="settings_theme_glass" data-i18n="settings_example"></a>
+                    </div>
+                    <img loading="lazy"
+                         src="/img/settings/theme-glass.jpg"
+                         alt="" data-i18nAlt="settings_theme_glass"/>
+                    <p class="desc" data-i18n="settings_theme_glass_desc"></p>
+                    <p data-nottheme="glass">
+                        <a class="btn primary" data-type="theme" data-value="glass" data-premium-feature="themes" data-i18n="settings_theme_use"></a>
+                    </p>
+                    <p data-theme="glass">
+                        <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="title">
+                        <label class="large" data-i18n="settings_theme_focus"></label>
+                        <a class="btn icon video" data-video="theme-focus" data-video-title="settings_theme_focus" data-i18n="settings_example"></a>
+                    </div>
+                    <img loading="lazy"
+                         src="/img/settings/theme-focus.jpg"
+                         alt="" data-i18nAlt="settings_theme_focus"/>
+                    <p class="desc" data-i18n="settings_theme_focus_desc"></p>
+                    <p data-nottheme="focus">
+                        <a class="btn primary" data-type="theme" data-value="focus" data-premium-feature="themes" data-i18n="settings_theme_use"></a>
+                    </p>
+                    <p data-theme="focus">
+                        <a class="btn selected" data-i18n="settings_currently_selected"></a>
+                    </p>
                 </div>
 
-                <div class="contentBox themeList">
-                    <h2 data-i18n="settings_available_themes"></h2>
-                    <div></div>
-
-                    <ul>
-                        <li data-name="default">
-                            <img loading="lazy"
-                                 data-src="https://extensions.redeviation.com/img/themes/theme_default.jpg"
-                                 alt="Default theme"/>
-                            <div class="caption">
-                                <h3 data-i18n="settings_theme_default"></h3>
-                                <p data-i18n="settings_theme_default_desc"></p>
-                            </div>
-                        </li>
-
-                        <li data-name="glass">
-                            <img loading="lazy" data-src="https://extensions.redeviation.com/img/themes/theme_glass.jpg"
-                                 alt="Glass theme"/>
-                            <div class="caption">
-                                <h3 data-i18n="settings_theme_glass"></h3>
-                                <p data-i18n="settings_theme_glass_desc"></p>
-                            </div>
-                        </li>
-
-                        <li data-name="focus">
-                            <img loading="lazy" data-src="https://extensions.redeviation.com/img/themes/theme_focus.jpg"
-                                 alt="Focus theme"/>
-                            <div class="caption">
-                                <h3 data-i18n="settings_theme_focus"></h3>
-                                <p data-i18n="settings_theme_focus_desc"></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="font" data-name="fontFamily"
-                             data-i18n="settings_font_family"></div>
-                    </div>
-                    <div class="box surface">
-                        <div class="formElement" data-type="checkbox" data-name="surface"
-                             data-i18n="settings_surface"></div>
-                        <div class="sub">
-                            <div class="formElement" data-type="checkbox" data-name="surfaceColorAuto"></div>
-                            <label data-i18n="settings_surface_auto"></label>
-                            <p class="desc" data-i18n="settings_surface_info"></p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color"
-                             data-suggestions='["#ff6670","#ffaa00","#903cfc","#00897b","#1f4d80","#1b82f1"]'
-                             data-name="colorScheme" data-i18n="settings_color_scheme"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="textColor"
-                             data-suggestions='["#c8c8c8","#646464"]' data-i18n="settings_text_color"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="hoverColor"
-                             data-suggestions='["#555555","#f5f5f5"]' data-alpha="1"
-                             data-i18n="settings_hover_color"></div>
-                    </div>
-                    <div class="box" data-theme="glass">
-                        <div class="formElement" data-type="range" data-name="backgroundTransparency" data-min="0.1"
-                             data-max="1" data-step="0.05" data-i18n="settings_background_transparency"></div>
-                    </div>
-                    <div class="box" data-theme="glass">
-                        <div class="formElement" data-type="range" data-name="backgroundBlur" data-min="0" data-max="20"
-                             data-unit="px" data-step="1" data-i18n="settings_background_blur"></div>
-                    </div>
-                </div>
-
-                <div class="advanced">
-                    <h3 data-i18n="settings_advanced"></h3>
-                    <div>
-                        <div class="contentBox">
-                            <div class="formElement" data-type="textarea" data-name="customCss"
-                                 data-i18n="settings_custom_css"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Sidebar -->
-            <div data-name="sidebar">
-                <div class="contentBox presets">
-                    <label data-i18n="settings_presets"></label>
+                <div class="col full presets">
                     <p data-i18n="settings_presets_desc"></p>
-                    <a data-type="l"></a>
-                    <a data-type="m"></a>
-                    <a data-type="s"></a>
-                    <a data-type="xs"></a>
+                    <div class="mt-2">
+                        <a class="btn" data-value="l">L</a>
+                        <a class="btn" data-value="m">M</a>
+                        <a class="btn" data-value="s">S</a>
+                        <a class="btn" data-value="xs">XS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper variant2">
+            <strong data-i18n="settings_general"></strong>
+
+            <div class="cols">
+                <div class="col" id="surface">
+                    <div class="formElement" data-type="checkbox" data-name="surface" data-config="a/surface"
+                         data-label="large"
+                         data-i18n="settings_surface"></div>
+                    <div class="sub">
+                        <div class="formElement" data-type="checkbox" data-name="surfaceColorAuto"></div>
+                        <label data-i18n="settings_surface_auto"></label>
+                        <p class="desc" data-i18n="settings_surface_info"></p>
+                    </div>
                 </div>
 
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="sidebarWidth" data-min="150"
-                             data-max="600" data-unit="px" data-step="10" data-i18n="settings_sidebar_width"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="sidebarHeaderHeight" data-min="32"
-                             data-max="80" data-unit="px" data-step="1" data-i18n="settings_header_height"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="sidebarMaskColor"
-                             data-suggestions='["transparent","rgba(255,255,255,0.8)","rgba(0,0,0,0.6)"]' data-alpha="1"
-                             data-i18n="settings_sidebar_mask_color"></div>
-                    </div>
-                    <div class="box iconShapeWrapper">
+                <div class="col">
+                    <div class="formElement" data-type="color" data-label="large"
+                         data-suggestions='["#ff6670","#ffaa00","#903cfc","#00897b","#1f4d80","#1b82f1"]'
+                         data-name="colorScheme" data-config="a/styles/colorScheme"
+                         data-i18n="settings_color_scheme"></div>
+                </div>
+
+                <div class="col" data-notsurface="auto">
+                    <div class="formElement" data-type="color" data-name="textColor" data-config="a/styles/textColor"
+                         data-label="large"
+                         data-suggestions='["#c8c8c8","#646464"]' data-i18n="settings_text_color"></div>
+                </div>
+
+                <div class="col" data-mode="overlay" data-notsurface="auto">
+                      <span class="mode-info" data-i18n="settings_mode_overlay" data-i18nTitle="settings_mode_info_overlay"></span>
+                    <div class="formElement" data-type="color" data-name="sidebarMaskColor"
+                         data-config="a/styles/sidebarMaskColor" data-label="large"
+                         data-suggestions='["transparent","rgba(255,255,255,0.8)","rgba(0,0,0,0.6)"]' data-alpha="1"
+                         data-i18n="settings_sidebar_mask_color"></div>
+                </div>
+
+                <div class="col" data-theme="glass">
+                    <label class="large" data-i18n="settings_background"></label>
+                    <div class="formElement" data-type="range" data-name="backgroundTransparency"
+                         data-config="a/styles/backgroundTransparency" data-min="0.1"
+                         data-max="1" data-step="0.05" data-i18n="settings_background_transparency"></div>
+                    <div class="formElement" data-type="range" data-name="backgroundBlur"
+                         data-config="a/styles/backgroundBlur" data-min="0" data-max="20"
+                         data-unit="px" data-step="1" data-i18n="settings_background_blur"></div>
+                </div>
+
+                <div class="col">
+                    <label class="large" data-i18n="overlay_label_dir"></label>
+
+                    <div class="icon-selector">
                         <div class="formElement" data-type="radio" data-name="bookmarksDirIcon"
+                             data-config="a/styles/bookmarksDirIcon"
                              data-i18n="settings_bookmarks_dir_icon">
-                            <span data-value="dir-1"><span class="icon-dir-1"></span></span>
-                            <span data-value="dir-3"><span class="icon-dir-3"></span></span>
-                            <span data-value="dir-2"><span class="icon-dir-2"></span></span>
+                            <span data-value="dir-1"><span class="base64-icon"></span></span>
+                            <span data-value="dir-3"><span class="base64-icon"></span></span>
+                            <span data-value="dir-2"><span class="base64-icon"></span></span>
                         </div>
                     </div>
-                    <div class="box">
+
+                    <div data-notsurface="auto">
                         <div class="formElement" data-type="color" data-name="bookmarksDirColor"
+                             data-config="a/styles/bookmarksDirColor"
                              data-suggestions='["#f0b40c","#c8c8c8","#646464"]'
                              data-i18n="settings_bookmarks_dir_color"></div>
                     </div>
+
+                    <div class="formElement" data-type="checkbox" data-name="directoryArrows"
+                         data-config="a/directoryArrows"
+                         data-i18n="settings_directory_arrows"></div>
+
+                    <div class="formElement" data-type="range" data-name="directoriesIconSize"
+                         data-config="a/styles/directoriesIconSize" data-min="0"
+                         data-max="32" data-unit="px" data-i18n="settings_directories_icon_size"></div>
+                </div>
+
+                <div class="col">
+                    <label class="large" data-i18n="overlay_label_bookmark"></label>
+
+
+                    <div class="formElement" data-type="range" data-name="bookmarksFontSize"
+                         data-config="a/styles/bookmarksFontSize" data-min="6"
+                         data-max="32" data-unit="px" data-i18n="settings_bookmarks_font_size"></div>
+
+                    <div class="formElement" data-type="range" data-name="bookmarksIconSize"
+                         data-config="a/styles/bookmarksIconSize" data-min="0"
+                         data-max="32" data-unit="px" data-i18n="settings_bookmarks_icon_size"></div>
+                </div>
+
+                <div class="col">
+                    <label class="large" data-i18n="settings_layout"></label>
+
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="directoryArrows"
-                             data-i18n="settings_directory_arrows"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="bookmarksFontSize" data-min="6"
-                             data-max="32" data-unit="px" data-i18n="settings_bookmarks_font_size"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="bookmarksLineHeight" data-min="10"
+                        <div class="formElement" data-type="range" data-name="bookmarksLineHeight"
+                             data-config="a/styles/bookmarksLineHeight" data-min="10"
                              data-max="60" data-unit="px" data-i18n="settings_bookmarks_line_height"></div>
                     </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="bookmarksIconSize" data-min="0"
-                             data-max="32" data-unit="px" data-i18n="settings_bookmarks_icon_size"></div>
+
+                    <div class="formElement" data-type="range" data-name="bookmarksDirIndentation"
+                         data-config="a/styles/bookmarksDirIndentation" data-min="0"
+                         data-unit="px" data-max="60" data-i18n="settings_bookmarks_dir_indentation"></div>
+
+                    <div class="formElement" data-type="range" data-name="bookmarksHorizontalPadding"
+                         data-config="a/styles/bookmarksHorizontalPadding" data-min="0"
+                         data-unit="px" data-max="40" data-i18n="settings_bookmarks_horizontal_padding"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <strong data-i18n="settings_advanced"></strong>
+
+            <div class="cols">
+                <div class="col">
+                    <div class="formElement" data-type="range" data-name="sidebarHeaderHeight"
+                         data-config="a/styles/sidebarHeaderHeight" data-label="large"
+                         data-min="32"
+                         data-max="80" data-unit="px" data-step="1" data-i18n="settings_sidebar_header_height"></div>
+                </div>
+
+                <div class="col" data-notsurface="auto">
+                    <div class="formElement" data-type="color" data-name="hoverColor" data-config="a/styles/hoverColor"
+                         data-label="large"
+                         data-suggestions='["#555555","#f5f5f5"]' data-alpha="1"
+                         data-i18n="settings_hover_color"></div>
+                </div>
+
+                <div class="col">
+                    <div class="formElement" data-type="range" data-name="scrollBarWidth"
+                         data-config="a/styles/scrollBarWidth" data-label="large"
+                         data-min="8"
+                         data-unit="px" data-max="30" data-i18n="settings_scroll_bar_width"></div>
+                </div>
+
+                <div class="col">
+                    <div class="formElement" data-type="font" data-name="fontFamily" data-config="a/styles/fontFamily"
+                         data-label="large"
+                         data-i18n="settings_font_family"></div>
+                </div>
+
+                <div class="col">
+                    <label class="large" data-i18n="settings_tooltip"></label>
+
+                    <div class="formElement" data-type="range" data-name="tooltipFontSize"
+                         data-config="a/styles/tooltipFontSize" data-min="6"
+                         data-unit="px" data-max="20" data-i18n="settings_tooltip_font_size"></div>
+
+                    <div class="formElement" data-type="select" data-name="tooltipContent"
+                         data-config="b/tooltipContent"
+                         data-i18n="settings_tooltip_content">
+                        <span data-value="all" data-i18n="settings_tooltip_content_all"></span>
+                        <span data-value="title" data-i18n="settings_tooltip_content_title"></span>
+                        <span data-value="url" data-i18n="settings_tooltip_content_url"></span>
                     </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="directoriesIconSize" data-min="0"
-                             data-max="32" data-unit="px" data-i18n="settings_directories_icon_size"></div>
+
+                    <div class="sub additionalInfo">
+                        <div class="formElement" data-type="checkbox"
+                             data-name="tooltipAdditionalInfo" data-config="b/tooltipAdditionalInfo"></div>
+                        <label data-i18n="settings_tooltip_additional_info"></label>
                     </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="bookmarksDirIndentation" data-min="0"
-                             data-unit="px" data-max="60" data-i18n="settings_bookmarks_dir_indentation"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="bookmarksHorizontalPadding" data-min="0"
-                             data-unit="px" data-max="40" data-i18n="settings_bookmarks_horizontal_padding"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="scrollBarWidth" data-min="8"
-                             data-unit="px" data-max="30" data-i18n="settings_scroll_bar_width"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="tooltipFontSize" data-min="6"
-                             data-unit="px" data-max="20" data-i18n="settings_tooltip_font_size"></div>
+
+                    <div class="formElement" data-type="range" data-name="tooltipDelay" data-config="b/tooltipDelay"
+                         data-min="0"
+                         data-max="3"
+                         data-infinity="1" data-step="0.25" data-unit="s"
+                         data-i18n="settings_tooltip_delay"></div>
+                </div>
+
+                <div class="col full">
+                    <div class="formElement" data-type="textarea" data-name="customCss" data-config="u/customCss" data-premium-feature="customCss" data-placeholder="section#sidebar {
+   ...
+}"
+                         data-label="large"
+                         data-no-restore-button="1"
+                         data-i18n="settings_custom_css"></div>
+                    <p class="note custom-css-link" data-i18n="settings_custom_css_more_info"></p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section data-name="newtab" class="tab">
+        <section class="wrapper variant2">
+            <strong data-i18n="settings_newtab_intro"></strong>
+
+            <div class="cols">
+                <div class="col full">
+                    <p data-i18n="settings_newtab_install_extension"></p>
+
+                    <section class="extension-recommendations"></section>
+                    <p class="recommendation-disclaimer" data-i18n="settings_newtab_extension_disclaimer"></p>
+
+                    <p data-i18n="settings_newtab_extension_desc"></p>
+
+                    <div class="url"></div>
+                    <div class="buttons">
+                        <a class="btn icon" data-name="preview" data-i18n="settings_newtab_override_preview"></a>
+                        <a class="btn icon" data-name="styling" data-i18n="settings_newtab_override_customise"></a>
                     </div>
                 </div>
             </div>
+        </section>
 
+        <section class="wrapper variant3">
+            <strong data-i18n="settings_newtab_favicon"></strong>
 
-            <!-- Indicator -->
-            <div data-name="indicator">
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0"
-                             data-max="100" data-unit="px" data-i18n="settings_indicator_width"></div>
+            <div class="cols">
+                <div class="col">
+                    <div class="newtab-favicon-preview">
+                        <canvas width="128" height="128"></canvas>
+                        <span data-i18n="newtab_title"></span>
                     </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1"
-                             data-i18n="settings_indicator_color"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="indicatorIconSize" data-min="0"
-                             data-max="72" data-unit="px" data-i18n="settings_indicator_icon_size"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="indicatorIconColor" data-alpha="1"
-                             data-i18n="settings_indicator_icon_color"></div>
+                    <p data-i18n="settings_newtab_favicon_desc"></p>
+                </div>
+
+                <div class="col icon-selector">
+                    <div class="formElement" data-label="large" data-type="radio" data-name="faviconShape"
+                         data-config="n/faviconShape"
+                         data-i18n="settings_icon_shape">
+                        <span data-value="new-1"><span class="base64-icon"></span></span>
+                        <span data-value="new-2"><span class="base64-icon"></span></span>
+                        <span data-value="bookmark"><span class="base64-icon"></span></span>
+                        <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
+                        <span data-value="star"><span class="base64-icon"></span></span>
+                        <span data-value="star-filled"><span class="base64-icon"></span></span>
                     </div>
                 </div>
-                <div class="contentBox">
-                    <div class="info">
-                        <p data-i18n="settings_toggle_area_desc"></p>
-                        <a class="button gotoToggleArea" data-i18n="settings_toggle_area"></a>
-                    </div>
+
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="color" data-suggestions='["#efefef","#545454"]' data-config="n/faviconColor"
+                         data-name="faviconColor" data-i18n="settings_icon_color"></div>
                 </div>
-            </div>
 
-
-            <!-- Dialog -->
-            <div data-name="dialog">
-                <div class="boxWrapper noCol">
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="overlayHeaderHeight" data-min="32"
-                             data-max="70" data-unit="px" data-step="1" data-i18n="settings_header_height"></div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="color" data-name="overlayMaskColor" data-alpha="1"
-                             data-i18n="settings_overlay_mask_color"></div>
-                    </div>
+                <div class="col">
+                    <div class="formElement" data-label="large" data-type="color" data-config="n/faviconBackground"
+                         data-suggestions='["transparent","#ff6670","#ffaa00","#00897b","#1b82f1"]' data-alpha="1"
+                         data-name="faviconBackground" data-i18n="settings_favicon_background"></div>
                 </div>
             </div>
+        </section>
+    </section>
 
+</main>
 
-            <!-- Icon -->
-            <div data-name="icon">
-                <div class="boxWrapper">
-                    <div class="box iconShapeWrapper">
-                        <div class="formElement" data-type="radio" data-name="iconShape"
-                             data-i18n="settings_icon_shape">
-                            <span data-value="bookmark"><span class="base64-icon"></span></span>
-                            <span data-value="star"><span class="base64-icon"></span></span>
-                            <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
-                            <span data-value="star-filled"><span class="base64-icon"></span></span>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-i18n="settings_icon_color"
-                             data-name="iconColorType">
-                            <span data-value="custom" data-i18n="settings_icon_color_custom"></span>
-                            <span data-value="auto" data-i18n="settings_icon_color_auto"></span>
-                        </div>
-                        <div class="iconColorWrapper">
-                            <div class="formElement" data-type="color" data-suggestions='["#c8c8c8","#555555"]'
-                                 data-name="iconColor"></div>
-                        </div>
-                        <p class="desc" data-i18n="settings_icon_color_desc_1"></p>
-                        <p class="note" data-i18n="settings_icon_color_desc_2"></p>
-                    </div>
+<section id="premium-dialog" class="dialog">
+    <div>
+        <header><h2 data-i18n="premium_title"></h2></header>
+
+        <p data-i18n="premium_desc"></p>
+
+        <div class="premium-actions" data-usertype="free">
+            <div class="buttons">
+                <a href="#" class="btn primary" data-type="checkout" data-i18n="premium_get_now"></a>
+                <a href="#" class="btn" data-type="showLicenseField" data-i18n="premium_show_license_input"></a>
+            </div>
+
+            <div class="license-key">
+                <strong data-i18n="premium_license_key"></strong>
+                <div>
+                    <input type="text" spellcheck="false"/>
+                    <a href="#" class="btn primary" data-type="activate" data-i18n="premium_activate"></a>
                 </div>
             </div>
         </div>
 
-
-        <!--
-        #
-        #
-        # NEWTAB
-        #
-        #
-        -->
-        <div class="tab" data-name="newtab" data-save="settings_save" data-restore="true">
-
-            <div class="contentBox intro">
-                <p class="large" data-i18n="settings_newtab_intro"></p>
-                <p data-i18n="settings_newtab_install_extension"></p>
-
-                <section class="extensionRecommendations"></section>
-                <p class="recommendationDisclaimer" data-i18n="settings_newtab_extension_disclaimer"></p>
-
-                <p data-i18n="settings_newtab_extension_desc"></p>
-
-                <div class="url"></div>
-                <div class="buttons">
-                    <a class="button" data-name="preview" data-i18n="settings_newtab_override_preview"></a>
-                    <a class="button" data-name="styling" data-i18n="settings_newtab_override_customise"></a>
-                </div>
-            </div>
-
-            <div class="contentBox faviconOptions">
-                <h2 data-i18n="settings_menu_appearance_icon"></h2>
-                <p data-i18n="settings_newtab_favicon_desc"></p>
-                <div>
-                    <div class="iconShapeWrapper">
-                        <div class="formElement" data-type="radio" data-name="faviconShape"
-                             data-i18n="settings_icon_shape">
-                            <span data-value="new-1"><span class="base64-icon"></span></span>
-                            <span data-value="new-2"><span class="base64-icon"></span></span>
-                            <span data-value="bookmark"><span class="base64-icon"></span></span>
-                            <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
-                            <span data-value="star"><span class="base64-icon"></span></span>
-                            <span data-value="star-filled"><span class="base64-icon"></span></span>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="formElement" data-type="color"
-                             data-suggestions='["transparent","#ff6670","#ffaa00","#00897b","#1b82f1"]' data-alpha="1"
-                             data-name="faviconBackground" data-i18n="settings_icon_background_color"></div>
-                    </div>
-                    <div>
-                        <div class="formElement" data-type="color" data-suggestions='["#efefef","#545454"]'
-                             data-name="faviconColor" data-i18n="settings_icon_color"></div>
-                    </div>
-                </div>
-
-                <aside>
-                    <canvas width="128" height="128"></canvas>
-                    <span data-i18n="newtab_title"></span>
-                </aside>
-            </div>
+        <div class="premium-actions" data-usertype="premium">
+            <p class="premium-active" data-i18n="premium_already_activated"></p>
+            <p class="license-key">
+                <strong data-i18n="premium_license_key"></strong>
+                <span></span>
+            </p>
         </div>
 
+        <table class="premium-comparison">
+            <thead>
+            <tr>
+                <th></th>
+                <th data-name="free" data-i18n="premium_free"></th>
+                <th data-name="premium" data-i18n="premium_title"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_bookmarks_headline"></strong>
+                    <span data-i18n="premium_feature_bookmarks_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_modes_headline"></strong>
+                    <span data-i18n="premium_feature_modes_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_styling_headline"></strong>
+                    <span data-i18n="premium_feature_styling_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr data-notmode="sidepanel">
+                <td>
+                    <strong data-i18n="premium_feature_trigger_area_headline"></strong>
+                    <span data-i18n="premium_feature_trigger_area_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr data-notmode="sidepanel">
+                <td>
+                    <strong data-i18n="premium_feature_visibility_headline"></strong>
+                    <span data-i18n="premium_feature_visibility_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_dark_mode_headline"></strong>
+                    <span data-i18n="premium_feature_dark_mode_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="settings_extension_icon"></strong>
+                    <span data-i18n="premium_feature_extension_icon_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_sync_headline"></strong>
+                    <span data-i18n="premium_feature_sync_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_newtab_headline"></strong>
+                    <span data-i18n="premium_feature_newtab_desc"></span>
+                </td>
+                <td data-value="1"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_newtab_extended_headline"></strong>
+                    <span data-i18n="premium_feature_newtab_extended_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_themes_headline"></strong>
+                    <span data-i18n="premium_feature_themes_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_custom_css_headline"></strong>
+                    <span data-i18n="premium_feature_custom_css_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_linkchecker_headline"></strong>
+                    <span data-i18n="premium_feature_linkchecker_desc"></span>
+                    <a class="btn icon video" data-video="feature-bookmark-checker" data-video-title="premium_feature_linkchecker_headline" data-i18n="settings_example"></a>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_pinned_headline"></strong>
+                    <span data-i18n="premium_feature_pinned_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_import_export_headline"></strong>
+                    <span data-i18n="premium_feature_import_export_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_both_modes_headline"></strong>
+                    <span data-i18n="premium_feature_both_modes_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_priority_support_headline"></strong>
+                    <span data-i18n="premium_feature_priority_support_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong data-i18n="premium_feature_support_dev_headline"></strong>
+                    <span data-i18n="premium_feature_support_dev_desc"></span>
+                </td>
+                <td data-value="0"></td>
+                <td data-value="1"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
-        <!--
-        #
-        #
-        # LANGUAGE
-        #
-        #
-        -->
-        <div class="tab" data-name="language" data-save="settings_save">
-            <div data-name="general">
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="language" data-name="language"
-                             data-i18n="settings_language"></div>
-                    </div>
-                    <div class="box">
-                        <strong data-i18n="settings_menu_language_translate"></strong>
-                        <p class="info" data-i18n="settings_translation_desc"></p>
-                        <a class="button" data-i18n="settings_translation_link"></a>
-                    </div>
-                </div>
-            </div>
+<section id="share-info-dialog" class="dialog">
+    <div>
+        <header><h2 data-i18n="settings_share_info"></h2></header>
 
-            <div data-name="translate" data-save="settings_translation_submit">
-                <div class="overview">
-                    <div class="contentBox noticeBox">
-                        <p data-i18n="settings_translation_info"></p>
-                    </div>
+        <p data-i18n="settings_share_info_intro_1"></p>
+        <p data-i18n="settings_share_info_intro_2"></p>
 
-                    <div class="boxWrapper"></div>
-                </div>
-
-                <div class="langvars">
-                    <div class="contentBox noticeBox translationInfo">
-                        <p data-i18n="settings_translation_notice1"></p>
-                        <p data-i18n="settings_translation_notice2"></p>
-                        <hr/>
-                        <div>
-                            <div class="formElement" data-type="checkbox" data-name="translationInfo"
-                                 data-i18n="settings_translation_reminder_desc"></div>
-                        </div>
-                    </div>
-
-                    <div class="boxWrapper"></div>
-                </div>
-
-                <div class="thanks">
-                    <div class="contentBox">
-                        <h2 data-i18n="settings_translation_thanks_headline"></h2>
-                        <blockquote>
-                            <span data-i18n="settings_translation_thanks_desc"></span>
-                            <footer data-i18n="extension_author"></footer>
-                        </blockquote>
-
-                        <div class="formElement" data-type="email" data-name="translationEmail"
-                             data-placeholder="your@email-address.com"></div>
-
-                        <p class="submitWrapper">
-                            <a class="button" data-i18n="settings_translation_submit"></a>
-                            <a class="close" data-i18n="settings_translation_thanks_close"></a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="unavailable">
-                    <div class="contentBox noticeBox">
-                        <h2 data-i18n="status_service_unavailable_headline"></h2>
-                        <p data-i18n="status_translation_unavailable_desc"></p>
-                    </div>
-                </div>
-            </div>
+        <div class="box" data-name="config">
+            <h3><span data-i18n="settings_share_info_config"></span></h3>
+            <p data-i18n="settings_share_info_config_intro"></p>
+            <ul class="bullet-list">
+                <li data-i18n="settings_share_info_config_item_1"></li>
+                <li data-i18n="settings_share_info_config_item_2"></li>
+                <li data-i18n="settings_share_info_config_item_3"></li>
+                <li data-i18n="settings_share_info_config_item_4"></li>
+            </ul>
+            <p data-i18n="settings_share_info_config_outro"></p>
         </div>
 
-
-        <!--
-         #
-         #
-         # SUPPORT
-         #
-         #
-         -->
-        <div class="tab" data-name="support">
-            <div class="contentBox faq">
-                <h2 data-i18n="settings_support_faq_headline"></h2>
-            </div>
-
-            <div class="boxWrapper">
-                <div class="box feedbackWrapper">
-                    <h2 data-i18n="settings_support_feedback_headline"></h2>
-                    <p data-i18n="settings_support_feedback_desc"></p>
-                    <p class="notice" data-i18n="settings_support_feedback_notice"></p>
-
-                    <section class="form">
-                        <div class="formElement" data-type="textarea" data-name="feedbackMsg"></div>
-
-                        <div class="mailWrapper">
-                            <div class="formElement" data-type="email" data-name="feedbackEmail"
-                                 data-i18n="settings_support_feedback_email"></div>
-                        </div>
-
-                        <div class="upload">
-                            <span data-i18n="settings_support_feedback_screenshot"></span><input type="file"
-                                                                                                 accept="image/*"
-                                                                                                 multiple/>
-                        </div>
-
-                        <ul class="uploadedFiles"></ul>
-
-                        <hr/>
-                        <button type="submit" data-i18n="settings_support_feedback_send"></button>
-                    </section>
-                </div>
-
-                <div class="box suggestedAnswers">
-                    <span class="icon"></span>
-                    <a data-i18n="settings_support_feedback_headline"></a>
-                </div>
-            </div>
+        <div class="box" data-name="activity">
+            <h3><span data-i18n="settings_share_info_activity"></span></h3>
+            <p data-i18n="settings_share_info_activity_intro"></p>
+            <p data-i18n="settings_share_info_activity_examples"></p>
+            <ul class="bullet-list">
+                <li data-i18n="settings_share_info_activity_item_1"></li>
+                <li data-i18n="settings_share_info_activity_item_2"></li>
+                <li data-i18n="settings_share_info_activity_item_3"></li>
+                <li data-i18n="settings_share_info_activity_item_4"></li>
+                <li data-i18n="settings_share_info_activity_item_5"></li>
+            </ul>
         </div>
 
+        <p><strong data-i18n="settings_share_info_important"></strong></p>
+        <ul class="bullet-list">
+            <li data-i18n="settings_share_info_not_collected_1"></li>
+            <li data-i18n="settings_share_info_not_collected_2"></li>
+            <li data-i18n="settings_share_info_not_collected_3"></li>
+            <li data-i18n="settings_share_info_not_collected_4"></li>
+        </ul>
+        <p data-i18n="settings_share_info_purpose"></p>
 
-        <!--
-         #
-         #
-         # INFOS
-         #
-         #
-         -->
-        <div class="tab" data-name="infos">
-            <div data-name="aboutme">
-                <div>
-                    <div class="desc">
-                        <p data-i18n="settings_about_me_desc"></p>
-                        <p class="highlight" data-i18n="settings_about_me_sub_text"></p>
-                    </div>
-                    <div class="preview">
-                        <img loading="lazy" data-src="https://extensions.redeviation.com/img/about-me/preview-3.jpg"
-                             alt="That's me"/>
-                        <a href="https://github.com/Kiuryy/Bookmark_Sidebar" target="_blank" class="github"></a>
-                        <a href="https://extensions.redeviation.com" target="_blank" class="website"></a>
-                    </div>
-                </div>
-            </div>
+        <p class="more-info share-info-link" data-i18n="settings_share_info_more_info"></p>
+    </div>
+</section>
 
-            <div data-name="permissions">
-                <div class="contentBox permissions">
-                    <h2 data-i18n="settings_menu_infos_permissions"></h2>
-                    <p class="text" data-i18n="settings_permissions_desc"></p>
+<section id="import-export-dialog" class="dialog">
+    <div>
+        <header><h2 data-i18n="settings_import_export"></h2></header>
 
-                    <h3 data-name="contentscript"></h3>
-                    <div class="details">
-                        <p data-i18n="settings_permissions_contentscript_desc_1"></p>
-                        <p data-i18n="settings_permissions_contentscript_desc_2"></p>
-                        <p data-i18n="settings_permissions_contentscript_desc_3"></p>
-                        <a href="https://github.com/Kiuryy/Bookmark_Sidebar" target="_blank" class="github button">Github</a>
-                    </div>
+        <p class="more-info">
+            <span data-i18n="settings_import_export_notice"></span>
+            <a href="#" class="btn" data-type="syncSettings" data-i18n="settings_sync_settings_link"></a>
+        </p>
 
-                    <h3 data-name="bookmarks"></h3>
-                    <div class="details">
-                        <p data-i18n="settings_permissions_bookmarks_desc"></p>
-                    </div>
-                </div>
-                <div class="contentBox shareInformation">
-                    <h2 data-i18n="settings_headline_share_userdata"></h2>
-                    <p class="text" data-i18n="contribute_intro"></p>
-                    <hr/>
-                    <p class="text" data-i18n="contribute_share_config_desc"></p>
-                    <div class="formElement" data-type="checkbox" data-style="switch" data-name="shareConfig"
-                         data-i18n="contribute_share_config_label"></div>
-                    <hr/>
-                    <p class="text" data-i18n="contribute_share_activity_desc1"></p>
-                    <p class="text" data-i18n="contribute_share_activity_examples_intro"></p>
-                    <ul class="bulletList">
-                        <li data-i18n="contribute_share_activity_example_1"></li>
-                        <li data-i18n="contribute_share_activity_example_2"></li>
-                        <li data-i18n="contribute_share_activity_example_3"></li>
-                        <li data-i18n="contribute_share_activity_example_4"></li>
-                        <li data-i18n="contribute_share_activity_example_5"></li>
-                    </ul>
-                    <p class="text" data-i18n="contribute_share_activity_desc2"></p>
-                    <div class="formElement" data-type="checkbox" data-style="switch" data-name="shareActivity"
-                         data-i18n="contribute_share_activity_label"></div>
-                    <hr/>
-                    <p class="text" data-i18n="contribute_outro"></p>
-                </div>
-            </div>
+        <h3 data-i18n="settings_import_export_headline"></h3>
 
-            <div data-name="privacy" data-src="privacyPolicy"></div>
-            <div data-name="changelog" data-src="changelog"></div>
+        <p data-i18n="settings_import_export_desc"></p>
+
+        <div class="buttons" data-premium-feature="importExport">
+            <a href="#" class="btn primary" data-type="export" data-i18n="settings_export"></a>
+            <a class="btn" data-type="import">
+                <input type="file" accept=".bookmark_sidebar"/>
+                <span data-i18n="settings_import"></span>
+            </a>
         </div>
 
+        <h3 data-i18n="settings_import_export_bookmarks"></h3>
+        <p data-i18n="settings_import_export_bookmarks_desc"></p>
+        <p>
+            <a href="https://support.google.com/chrome/answer/96816" target="_blank" rel="noopener noreferrer" data-i18n="settings_import_export_bookmarks_link"></a>
+        </p>
+    </div>
+</section>
 
-        <!--
-        #
-        #
-        # PREMIUM
-        #
-        #
-        -->
-        <div class="tab" data-name="premium">
-            <section data-type="intro">
-                <p class="large" data-i18n="premium_desc_1"></p>
-                <p data-i18n="premium_desc_2"></p>
-            </section>
+<section id="expert-dialog" class="dialog">
+    <div>
+        <header><h2 data-i18n="settings_expert"></h2></header>
 
-            <section data-type="themes">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/themes.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_themes_headline"></p>
-                    <p data-i18n="premium_feature_themes_desc"></p>
-                </div>
-            </section>
+        <p data-i18n="settings_expert_settings_desc"></p>
+        <p class="more-info" data-i18n="settings_expert_settings_notice"></p>
 
-            <section data-type="sidebarWidth">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/sidebarWidth.webp"/>
+        <input type="text" class="search" data-premium-hidden="expert"/>
 
-                <div>
-                    <p class="large" data-i18n="premium_feature_sidebar_width_headline"></p>
-                </div>
+        <div class="expert-config" data-premium-feature="expert"></div>
 
-                <span class="cursor">
-                      <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/cursor.webp"/>
-                </span>
-                <section class="sidebarMockup">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                </section>
-            </section>
+        <footer data-premium-hidden="expert">
+            <a href="#" class="btn primary" data-type="save" data-i18n="settings_save"></a>
+        </footer>
+    </div>
+</section>
 
-            <section data-type="linkchecker">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/linkchecker.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_linkchecker_headline"></p>
-                    <p data-i18n="premium_feature_linkchecker_desc"></p>
-                </div>
-            </section>
-
-            <section data-type="earlyAccess">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/earlyAccess.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_early_access_headline"></p>
-                    <p data-i18n="premium_feature_early_access_desc"></p>
-                </div>
-            </section>
-
-            <section data-type="customBackground">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/customBackground.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_custom_background_headline"></p>
-                    <p data-i18n="premium_feature_custom_background_desc"></p>
-                </div>
-            </section>
-
-            <section data-type="customCss">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/customCss.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_custom_css_headline"></p>
-                    <p data-i18n="premium_feature_custom_css_desc"></p>
-                </div>
-            </section>
-
-            <section data-type="importExportSettings">
-                <img loading="lazy" data-src="https://extensions.redeviation.com/img/premium/importExport.webp"/>
-                <div>
-                    <p class="large" data-i18n="premium_feature_import_export_headline"></p>
-                    <p data-i18n="settings_import_export_desc"></p>
-                </div>
-            </section>
-        </div>
-
-
-        <!--
-        #
-        #
-        # IMPORT/EXPORT
-        #
-        #
-        -->
-        <div class="tab" data-name="export">
-            <div class="contentBox" data-value="exportSettings">
-                <h2 data-i18n="settings_import_export_headline"></h2>
-                <p data-i18n="settings_import_export_desc"></p>
-
-                <div class="info">
-                    <hr/>
-                    <p data-i18n="settings_import_export_notice"></p>
-                    <hr/>
-                </div>
-
-                <a class="export button" data-i18n="settings_export"></a>
-                <a class="import button"><input type='file' accept=".bookmark_sidebar"/><span
-                        data-i18n="settings_import"></span></a>
+<section id="video-dialog" class="dialog">
+    <div>
+        <header>
+            <h2></h2>
+            <div class="video-controls">
+                <a class="play-pause"></a>
+                <input type="range" min="0" max="0" step="any" value="0" />
             </div>
-
-            <div class="contentBox" data-value="exportBookmarks">
-                <h2 data-i18n="settings_import_export_bookmarks"></h2>
-                <p data-i18n="settings_import_export_bookmarks_desc"></p>
-
-                <a class="externalLink" target="_blank" rel="noopener noreferrer"
-                   href="https://support.google.com/chrome/answer/96816"><span></span></a>
-            </div>
-        </div>
-
-
-        <!--
-        #
-        #
-        # EXPERT SETTINGS
-        #
-        #
-        -->
-        <div class="tab" data-name="expert" data-save="settings_save" data-restore="true">
-            <div class="contentBox">
-                <p data-i18n="settings_expert_settings_desc"></p>
-                <p data-i18n="settings_expert_settings_notice"></p>
-                <input type="text" class="search"/>
-            </div>
-
-            <template>
-                <div class="contentBox" data-type>
-                    <h2></h2>
-                    <ul></ul>
-                </div>
-            </template>
-        </div>
-    </main>
+        </header>
+        <div class="video"></div>
+    </div>
 </section>
 
 <script src='/js/settings.js'></script>

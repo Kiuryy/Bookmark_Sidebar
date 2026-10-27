@@ -1,0 +1,55 @@
+// Elements which are only visible for a specific mode, theme, user type or surface.
+// The current value is set as attribute of the body, elements use the same attribute to only show up for this value
+// or the "not"-variant (e.g. data-notmode="both") to be hidden for it.
+
+body {
+
+  // Mode: elements for overlay or sidepanel are also visible when both modes are used
+  [data-mode="both"] {
+    display: none;
+  }
+
+  &[data-mode="overlay"] {
+    [data-mode="sidepanel"], [data-notmode="overlay"] {
+      display: none;
+    }
+  }
+
+  &[data-mode="sidepanel"] {
+    [data-mode="overlay"], [data-notmode="sidepanel"] {
+      display: none;
+    }
+  }
+
+  &[data-mode="both"] {
+    [data-notmode="both"] {
+      display: none;
+    }
+
+    [data-mode="both"] {
+      display: block;
+    }
+  }
+
+  @each $theme in default, glass, focus, soft {
+    &[data-theme="#{$theme}"] {
+      [data-theme]:not([data-theme="#{$theme}"]), [data-nottheme="#{$theme}"] {
+        display: none;
+      }
+    }
+  }
+
+  @each $userType in free, premium {
+    &[data-usertype="#{$userType}"] {
+      [data-usertype]:not([data-usertype="#{$userType}"]), [data-notusertype="#{$userType}"] {
+        display: none !important;
+      }
+    }
+  }
+
+  &[data-surface="auto"] {
+    [data-notsurface="auto"] {
+      display: none;
+    }
+  }
+}

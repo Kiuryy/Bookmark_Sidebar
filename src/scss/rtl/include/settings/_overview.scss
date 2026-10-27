@@ -1,0 +1,32 @@
+html[dir='rtl'] body > main {
+
+  div.translation-cta {
+    padding: 12px 46px 14px 14px;
+
+    &::before {
+      mask-position: right 14px top 13px;
+    }
+  }
+
+  div.cols > div.col.info-links {
+
+    > ul > li > a {
+      padding: 0 46px 0 10px;
+
+      &::before {
+        left: unset;
+        right: 10px;
+      }
+    }
+
+    &.small > ul > li > a {
+      padding-left: 10px;
+      padding-right: 36px;
+
+      &::before {
+        left: unset;
+        right: 8px;
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
+@use "../../../include/vars";
+
 
 body.highContrast:not(.dark) div#fallbackInfo {
 
   > a {
-    color: $__textColor;
+    color: vars.$dyn-textColor;
   }
 }

@@ -73,7 +73,6 @@
     "sidePanel"
   ],
   "optional_permissions": [
-    "tabs",
     "history",
     "topSites"
   ]

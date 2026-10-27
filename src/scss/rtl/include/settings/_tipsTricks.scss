@@ -1,0 +1,12 @@
+// Slides move in the opposite direction
+html[dir='rtl'] body > main section.tab[data-name='overview'] div.col.tips-tricks > div.slide {
+  transform: translate3d(-100px, 0, 0);
+
+  &.visible {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.leaving {
+    transform: translate3d(100px, 0, 0);
+  }
+}

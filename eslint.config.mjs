@@ -1,8 +1,8 @@
 import globals from "globals";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import {fileURLToPath} from "node:url";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import {FlatCompat} from "@eslint/eslintrc";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,7 +12,9 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-export default [...compat.extends("eslint:recommended"), {
+export default [{
+    ignores: ["src/js/lib/**"], // vendored, overwritten from GitHub on release
+}, ...compat.extends("eslint:recommended"), {
     languageOptions: {
         globals: {
             ...globals.browser,
@@ -59,5 +61,16 @@ export default [...compat.extends("eslint:recommended"), {
         "comma-spacing": "warn",
         quotes: "warn",
         semi: "warn",
+    },
+}, {
+    files: ["**/*.mjs"], // ES modules (this config, demo scripts)
+    languageOptions: {
+        sourceType: "module",
+    },
+}, {
+    files: ["demo/**", "webstore/**", "build.mjs", "eslint.config.mjs"], // CLI scripts and tooling, not part of the extension
+    rules: {
+        "no-console": "off",
+        "dot-notation": "off",
     },
 }];

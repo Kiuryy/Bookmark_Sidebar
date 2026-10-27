@@ -1,38 +1,32 @@
+@use "../../include/vars";
+
 @mixin darkBookmarkEntry {
 
   &.separator > span.label {
-
-    &::after {
-      background: $darkSeparatorColor;
-    }
-
-    &[data-name]::before {
-      background: $darkContentBackground;
-      box-shadow: 0 0 0 10px $darkContentBackground;
-    }
+    --separatorColor: #{vars.$darkSeparatorColor};
   }
 
   > span.removeMask {
-    background: $darkRemovedBackground;
+    background: vars.$darkRemovedBackground;
   }
 
   > span.drag, > span.add {
     background-color: rgba(255, 255, 255, 0.1);
 
     &::before {
-      background-color: $darkReorderIconColor;
+      background-color: vars.$darkReorderIconColor;
     }
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.25) !important;
 
       &::before {
-        background-color: $darkReorderIconColorActive;
+        background-color: vars.$darkReorderIconColorActive;
       }
     }
   }
 
   &.snap {
-    background: $darkContentBackground;
+    background: vars.$darkContentBackground;
   }
 }

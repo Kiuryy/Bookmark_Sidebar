@@ -1,4 +1,7 @@
+@use "../../../include/vars";
+
 .dark[data-theme='focus'] div.modal {
+  background: vars.$darkContentBackground;
 
   > header {
     border-bottom-color: rgba(255, 255, 255, 0.15);

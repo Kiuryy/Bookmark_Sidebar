@@ -39,14 +39,14 @@
             await this.helper.model.init();
             this.helper.stylesheet.init();
 
-            const config = this.helper.model.getData(["a/surface", "a/highContrast", "b/sidebarPosition"]);
+            const config = this.helper.model.getData(["a/surface", "a/theme", "a/highContrast", "b/sidebarPosition"]);
             if (config.surface === "dark" || (config.surface === "auto" && this.helper.stylesheet.getSystemSurface() === "dark")) {
                 this.elm.body.addClass($.cl.page.dark);
             } else if (config.highContrast === true) {
                 this.elm.body.addClass($.cl.page.highContrast);
             }
 
-            this.elm.body.attr($.attr.position, config.sidebarPosition);
+            this.elm.body.attr($.attr.position, config.sidebarPosition).attr($.attr.theme, config.theme);
 
             await Promise.all([
                 initIcon(),
@@ -84,9 +84,9 @@
          * @returns {Promise}
          */
         this.getBackground = async () => {
-            if (this.helper.model.getUserType() === "premium") {
+            if (this.helper.model.getUserType().startsWith("premium")) {
                 const obj = await $.api.storage.local.get(["newtabBackground_1"]);
-                if (obj && obj.newtabBackground_1) {
+                if (obj && obj.newtabBackground_1 && obj.newtabBackground_1.startsWith("data:")) { // uploaded images are stored as data url, earlier versions could store the background gradient of a theme by mistake
                     return obj.newtabBackground_1;
                 }
             }

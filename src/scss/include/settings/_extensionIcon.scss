@@ -1,0 +1,27 @@
+@use "sass:meta";
+@use "helpers";
+
+body > main {
+
+  div.extension-icon-color span.custom-color {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  // Browser toolbar with the extension icon (canvas) at the right end
+  div.extension-icon-preview {
+    @include helpers.browser-mockup(70px, "mockup-right-spaced");
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+
+    > canvas {
+      position: absolute;
+      right: 40px;
+      top: 43px;
+      width: 18px;
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/extensionIcon");

@@ -10,118 +10,188 @@
     </style>
 </head>
 
-<body class="building">
+<body class="building intro">
+<main>
 
-<section class="slide" data-name="intro-1">
-    <p class="large" data-i18n="onboarding_headline"></p>
-</section>
+    <!-- welcome -->
+    <section class="step" data-name="welcome">
+        <section class="wrapper">
+            <p data-i18n="onboarding_headline"></p>
+        </section>
+    </section>
 
-<section class="slide" data-name="intro-2">
-    <p class="large" data-i18n="onboarding_intro_desc"></p>
+    <!-- mode selection -->
+    <section class="step" data-name="mode">
+        <section class="wrapper mode-selection">
+            <strong data-i18n="onboarding_mode_desc"></strong>
 
-    <div class="videos">
-        <div class="video" data-type="overlay">
-            <strong data-i18n="onboarding_intro_sidebar_overlay_desc"></strong>
-            <video autoplay muted loop
-                   data-src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4">
-            </video>
-            <span class="setup" data-i18n="onboarding_setup_start"></span>
-        </div>
-        <div class="video" data-type="sidepanel">
-            <strong data-i18n="onboarding_intro_sidebar_sidepanel_desc"></strong>
-            <video autoplay muted loop
-                   data-src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4">
-            </video>
-            <span class="setup" data-i18n="onboarding_setup_start"></span>
-        </div>
-    </div>
-</section>
+            <div class="cols">
+                <div class="col mode" data-name="overlay">
+                    <div class="left">
+                        <img src="/img/settings/mode-overlay.png" alt="" data-i18nAlt="settings_mode_overlay"/>
+                        <a class="btn icon video" data-video="overlay-mode-chrome" data-video-title="settings_mode_overlay" data-i18n="settings_example"></a>
+                        <a class="btn icon external" data-i18n="settings_details"></a>
+                        <p>
+                            <a class="btn primary" data-type="mode" data-value="overlay" data-i18n="settings_mode_use"></a>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <strong class="title" data-i18n="settings_mode_overlay"></strong>
+                        <p data-i18n="settings_mode_overlay_desc"></p>
 
-<section class="slide" data-name="openAction">
-    <p class="large" data-i18n="onboarding_sidebar_open_action_desc"></p>
+                        <div class="pro-cons">
+                            <ul>
+                                <li data-i18n="settings_mode_overlay_pro_1"></li>
+                                <li data-i18n="settings_mode_overlay_pro_2"></li>
+                            </ul>
+                            <ul>
+                                <li data-i18n="settings_mode_overlay_con_1"></li>
+                                <li data-i18n="settings_mode_overlay_con_2"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="video">
-        <span></span>
-        <video autoplay muted loop
-               data-src="https://extensions.redeviation.com/img/illustration/video_overlay.mp4">
-        </video>
-    </div>
+                <div class="col mode" data-name="sidepanel">
+                    <div class="left">
+                        <img src="/img/settings/mode-sidepanel.png" alt="" data-i18nAlt="settings_mode_sidepanel"/>
+                        <a class="btn icon video" data-video="sidepanel-mode-chrome" data-video-title="settings_mode_sidepanel" data-i18n="settings_example"></a>
+                        <a class="btn icon external" data-i18n="settings_details"></a>
+                        <p>
+                            <a class="btn primary" data-type="mode" data-value="sidepanel" data-i18n="settings_mode_use"></a>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <strong class="title" data-i18n="settings_mode_sidepanel"></strong>
+                        <p data-i18n="settings_mode_sidepanel_desc"></p>
 
+                        <div class="pro-cons">
+                            <ul>
+                                <li data-i18n="settings_mode_sidepanel_pro_1"></li>
+                                <li data-i18n="settings_mode_sidepanel_pro_2"></li>
+                            </ul>
+                            <ul>
+                                <li data-i18n="settings_mode_sidepanel_con_1"></li>
+                                <li data-i18n="settings_mode_sidepanel_con_2"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- overlay: how to open the sidebar -->
+    <section class="step" data-name="openAction">
+        <section class="wrapper">
+            <strong data-i18n="onboarding_sidebar_open_action_desc"></strong>
+            <p class="intro" data-i18n="settings_open_action_desc"></p>
+
+            <div class="video">
+                <video autoplay muted loop playsinline data-video="overlay-mode-chrome"></video>
+            </div>
+
+            <div class="cols" data-cols="4">
+                <div class="col option" data-value="mousedown"><strong data-i18n="settings_open_action_leftclick"></strong></div>
+                <div class="col option" data-value="contextmenu"><strong data-i18n="settings_open_action_rightclick"></strong></div>
+                <div class="col option" data-value="mousemove"><strong data-i18n="settings_open_action_mouseover"></strong></div>
+                <div class="col option" data-value="icon"><strong data-i18n="settings_open_action_icon"></strong></div>
+            </div>
+
+            <div class="icon-info">
+                <p data-i18n="settings_extension_icon_hidden"></p>
+                <p><span data-i18n="settings_extension_icon_hidden_howto"></span> <a class="btn icon video" data-video="pin-extension-icon-chrome" data-video-title="settings_extension_icon" data-i18n="settings_details"></a></p>
+            </div>
+        </section>
+    </section>
+
+    <!-- overlay: position of the sidebar -->
+    <section class="step" data-name="position">
+        <section class="wrapper">
+            <strong data-i18n="onboarding_sidebar_position_desc"></strong>
+
+            <div class="cols">
+                <div class="col option" data-value="left">
+                    <div class="preview"><span class="mock-sidebar"></span></div>
+                    <strong data-i18n="settings_sidebar_position_left"></strong>
+                </div>
+                <div class="col option" data-value="right">
+                    <div class="preview"><span class="mock-sidebar"></span></div>
+                    <strong data-i18n="settings_sidebar_position_right"></strong>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- overlay: surface of the sidebar -->
+    <section class="step" data-name="surface">
+        <section class="wrapper">
+            <strong data-i18n="onboarding_sidebar_surface_desc"></strong>
+            <p class="intro" data-i18n="settings_surface_info"></p>
+
+            <div class="cols" data-cols="3">
+                <div class="col option" data-value="light">
+                    <div class="preview"><span class="mock-sidebar"></span></div>
+                    <strong data-i18n="onboarding_sidebar_surface_light"></strong>
+                </div>
+                <div class="col option" data-value="dark">
+                    <div class="preview"><span class="mock-sidebar"></span></div>
+                    <strong data-i18n="onboarding_sidebar_surface_dark"></strong>
+                </div>
+                <div class="col option" data-value="auto">
+                    <div class="preview"><span class="mock-sidebar"></span></div>
+                    <strong data-i18n="settings_surface_auto"></strong>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- try out the sidebar -->
+    <section class="step" data-name="handson">
+        <section class="wrapper">
+            <strong data-i18n="onboarding_handson_desc"></strong>
+            <p class="intro"></p>
+            <div class="icon-info">
+                <p data-i18n="settings_extension_icon_hidden"></p>
+                <p><span data-i18n="settings_extension_icon_hidden_howto"></span> <a class="btn icon video" data-video="pin-extension-icon-chrome" data-video-title="settings_extension_icon" data-i18n="settings_details"></a></p>
+            </div>
+            <a class="btn primary" data-type="done" data-i18n="onboarding_handson_done"></a>
+            <span class="open-hint"></span>
+        </section>
+    </section>
+
+    <!-- finished -->
+    <section class="step" data-name="finished">
+        <section class="wrapper">
+            <strong data-i18n="onboarding_finish_desc"></strong>
+
+            <div class="cols">
+                <div class="col option" data-value="settings">
+                    <strong data-i18n="onboarding_finish_settings_title"></strong>
+                    <p data-i18n="onboarding_finish_settings_desc"></p>
+                </div>
+                <div class="col option" data-value="appearance">
+                    <strong data-i18n="onboarding_finish_appearance_title"></strong>
+                    <p data-i18n="onboarding_finish_appearance_desc"></p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+</main>
+
+<section id="video-dialog" class="dialog">
     <div>
-        <a href="#" data-value="mousedown" data-i18n="settings_open_action_leftclick"></a>
-        <a href="#" data-value="contextmenu" data-i18n="settings_open_action_rightclick"></a>
-        <a href="#" data-value="mousemove" data-i18n="settings_open_action_mouseover"></a>
-        <a href="#" data-value="icon" data-i18n="settings_open_action_icon"></a>
-    </div>
-
-    <p class="small" data-i18n="settings_open_action_desc"></p>
-
-    <a href="#" class="cancel" data-i18n="onboarding_sidebar_overlay_disable"></a>
-</section>
-
-<section class="slide" data-name="position">
-    <p class="large" data-i18n="onboarding_sidebar_position_desc"></p>
-    <div>
-        <a href="#" data-value="left" data-i18n="settings_sidebar_position_left"></a>
-        <a href="#" data-value="right" data-i18n="settings_sidebar_position_right"></a>
+        <header>
+            <h2></h2>
+            <div class="video-controls">
+                <a class="play-pause"></a>
+                <input type="range" min="0" max="0" step="any" value="0" />
+            </div>
+        </header>
+        <div class="video"></div>
     </div>
 </section>
-
-<section class="slide" data-name="surface">
-    <p class="large" data-i18n="onboarding_sidebar_surface_desc"></p>
-    <p class="small" data-i18n="settings_surface_info"></p>
-    <div>
-        <a href="#" data-value="light" data-i18n="onboarding_sidebar_surface_light"></a>
-        <a href="#" data-value="dark" data-i18n="onboarding_sidebar_surface_dark"></a>
-        <p class="wrap">
-            <a href="#" data-value="auto"><span data-i18n="settings_surface_auto"></span></a>
-        </p>
-    </div>
-</section>
-
-<section class="slide" data-name="handson">
-    <p class="large" data-i18n="onboarding_handson_desc"></p>
-    <div class="video">
-        <video autoplay muted loop
-               data-src="https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4">
-        </video>
-    </div>
-    <p class="small"></p>
-    <div>
-        <a href="#" data-i18n="onboarding_handson_done"></a>
-    </div>
-</section>
-
-<section class="slide" data-name="finished">
-    <p class="large" data-i18n="onboarding_finish_desc"></p>
-    <a href="#" class="settings" data-i18n="onboarding_goto_settings"></a>
-    <a href="#" class="appearance" data-i18n="onboarding_goto_appearance"></a>
-</section>
-
-<div id="sidebar">
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-</div>
 
 <script src='/js/onboarding.js'></script>
 </body>

@@ -1,21 +1,23 @@
+@use "../../include/vars";
+
 
 body.dark {
 
   div.tooltip {
-    color: $darkTooltipTextColor;
-    background: $darkTooltipBackground;
+    color: vars.$darkTooltipTextColor;
+    background: vars.$darkTooltipBackground;
 
     &::before {
-      border-right-color: $darkTooltipBackground;
+      border-right-color: vars.$darkTooltipBackground;
     }
   }
 
   section#sidebar[data-pos='right'] ~ div.tooltip::before {
-    border-left-color: $darkTooltipBackground;
+    border-left-color: vars.$darkTooltipBackground;
   }
 
   section#sidebar.sidepanel ~ div.tooltip::before {
     border-color: transparent;
-    border-bottom-color: $darkTooltipBackground;
+    border-bottom-color: vars.$darkTooltipBackground;
   }
 }

@@ -1,0 +1,228 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+@use "helpers";
+
+// Intro page: no header, the gradient of the body is shown behind all steps
+body.intro {
+  min-height: 100vh;
+  background: vars.$gradientContentBackground1 fixed;
+
+  &.initLoading::before {
+    background: vars.$gradientContentBackground1;
+  }
+}
+
+// Steps of the intro page, only the step set as attribute of the body is visible
+body > main > section.step {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@each $step in welcome, mode, openAction, position, surface, handson, finished {
+  body[data-step='#{$step}'] > main > section.step[data-name='#{$step}'] {
+    display: block;
+  }
+}
+
+body > main > section.step {
+
+  section.wrapper {
+    --accent: #{vars.$gradientContentAccent1};
+    --background: transparent;
+    min-height: 100vh;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  p.intro {
+    margin: -12px 0 30px;
+    font-size: 110%;
+  }
+
+  // Thank you message with the extension icon above
+  &[data-name='welcome'] section.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 11vh;
+    gap: 30px;
+    text-align: center;
+
+    &::before {
+      content: "";
+      width: 64px;
+      height: 64px;
+      filter: invert(1);
+      background: mixins.img('icon/icon.png') no-repeat center / 100%;
+    }
+
+    > p {
+      font-size: 180%;
+      opacity: 0.9;
+    }
+  }
+
+  // Selectable card, clicking it stores the value and continues with the next step
+  div.cols > div.col.option {
+    @include helpers.list-card;
+    @include helpers.clickable-card;
+  }
+
+  // Info how to make the extension icon visible
+  div.icon-info {
+    margin-top: 25px;
+
+    > p + p {
+      margin-top: 5px;
+    }
+  }
+
+  &[data-name='openAction'] div.icon-info { // below the option of the extension icon, which is the last column
+    text-align: right;
+  }
+
+  // Browser window with a placeholder sidebar
+  div.preview {
+    @include helpers.browser-mockup(24px, "mockup-right", false);
+    width: 100%;
+    max-width: 280px;
+    height: 150px;
+    background-color: vars.$contentBackground;
+    border-radius: 6px;
+    overflow: hidden;
+
+    > span.mock-sidebar {
+      position: absolute;
+      top: 24px;
+      bottom: 0;
+      left: 0;
+      width: 38%;
+      background: vars.$contentBackground repeating-linear-gradient(to bottom, transparent 0, transparent 14px, rgb(0 0 0 / 7%) 14px, rgb(0 0 0 / 7%) 20px) no-repeat 12px 12px / calc(100% - 24px) calc(100% - 12px);
+      box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+    }
+  }
+
+  &[data-name='position'] div.col.option[data-value='right'] span.mock-sidebar,
+  &[data-name='surface'][data-pos='right'] span.mock-sidebar {
+    left: auto;
+    right: 0;
+  }
+
+  &[data-name='surface'] div.col.option {
+
+    &[data-value='dark'] span.mock-sidebar {
+      background-color: vars.$darkContentBackground;
+      background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 14px, rgb(255 255 255 / 12%) 14px, rgb(255 255 255 / 12%) 20px);
+    }
+
+    &[data-value='auto'] span.mock-sidebar::after { // diagonally split into light and dark
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: vars.$darkContentBackground;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      opacity: 0.9;
+    }
+  }
+
+  // Video of the overlay mode
+  div.video {
+    width: 590px;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    > video {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  // Links to the settings, with an icon in front of the title and description
+  &[data-name='finished'] div.cols > div.col.option {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 18px;
+    row-gap: 6px;
+    padding: 22px 24px;
+
+    &::before {
+      content: "";
+      grid-row: 1 / 3;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: vars.$gradient2;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    }
+
+    &::after { // icon on top of the gradient square
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      width: 56px;
+      height: 56px;
+      background: vars.$textColorInverted;
+      mask: no-repeat center / 28px;
+    }
+
+    &[data-value='settings']::after {
+      @include mixins.maskImage('icon-settings');
+    }
+
+    &[data-value='appearance']::after {
+      @include mixins.maskImage('settings/icon-appearance');
+    }
+
+    > strong {
+      align-self: end;
+    }
+
+    > p {
+      opacity: 0.8;
+    }
+  }
+
+  &[data-name='handson'] {
+
+    a.btn[data-type='done'] {
+      margin-top: 10px;
+    }
+
+    div.icon-info {
+      margin: -15px 0 30px;
+    }
+
+    // Cursor at the edge of the window, pointing to the trigger area
+    span.open-hint {
+      @include mixins.mask('onboarding/icon-cursor', vars.$mainColor2, 48px);
+      position: fixed;
+      top: 50%;
+      left: 0;
+      width: 48px;
+      height: 48px;
+      pointer-events: none;
+
+      &[data-pos='right'] {
+        left: auto;
+        right: 0;
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/intro");

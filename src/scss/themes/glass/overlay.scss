@@ -1,12 +1,11 @@
-@import "../../include/vars";
-@import "../../include/mixins";
+@use "sass:meta";
+@use "../../include/vars";
 
-[data-theme='glass'] {
-  backdrop-filter: blur($__backgroundBlur);
+[data-theme='glass'] { // the website behind the overlay is blurred by the iframe itself, see content.scss
 
   div.modal {
-    background: #{"rgba(255, 255, 255, #{$__backgroundTransparency})"};
-    backdrop-filter: blur($__backgroundBlur);
+    background: #{"rgba(255, 255, 255, #{vars.$dyn-backgroundTransparency})"};
+    backdrop-filter: blur(vars.$dyn-backgroundBlur);
     transition: transform 0.15s;
 
     &:not(.visible) {
@@ -14,12 +13,12 @@
     }
 
     > header {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
       box-shadow: none;
       background: none;
 
       &::before {
-        background: $__textColor;
+        background: vars.$dyn-textColor;
       }
 
       > h1 {
@@ -29,17 +28,17 @@
       > a.close {
 
         &::before {
-          background: $__textColor;
+          background: vars.$dyn-textColor;
         }
 
         &:hover {
-          background-color: $__hoverColor;
+          background-color: vars.$dyn-hoverColor;
         }
       }
     }
 
     > div.scrollBox {
-      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+      height: calc(100% - #{vars.$dyn-overlayHeaderHeight} - 57px);
     }
 
     &[data-type='keyboardShortcuts']::after,
@@ -51,15 +50,15 @@
     &[data-type='checkBookmarks'] {
 
       > menu.categories > li.active {
-        background-color: $__hoverColor;
+        background-color: vars.$dyn-hoverColor;
 
         &::after {
           right: -4px;
           width: 10px;
           height: 10px;
           border: none;
-          border-top: 3px solid $__textColor;
-          border-right: 3px solid $__textColor;
+          border-top: 3px solid vars.$dyn-textColor;
+          border-right: 3px solid vars.$dyn-textColor;
           background: none;
         }
       }
@@ -70,8 +69,8 @@
           background: transparent;
         }
 
-        > ul > li a.urlCheckAction:hover {
-          background-color: $__hoverColor;
+        > ul > li a.urlCheckAction:hover, > ul > li a.urlCheckHide:hover {
+          background-color: vars.$dyn-hoverColor;
         }
       }
     }
@@ -110,7 +109,7 @@
             height: 0;
             right: -12px;
             border: 4px solid transparent;
-            border-left-color: $__textColor;
+            border-left-color: vars.$dyn-textColor;
           }
         }
       }
@@ -119,5 +118,5 @@
 }
 
 
-@import "rtl/overlay";
-@import "dark/overlay";
+@include meta.load-css("rtl/overlay");
+@include meta.load-css("dark/overlay");

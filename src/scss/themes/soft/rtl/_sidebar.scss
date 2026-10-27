@@ -1,0 +1,25 @@
+@use "../helpers";
+
+html[dir='rtl'] [data-theme='soft'] section#sidebar {
+
+  > header {
+
+    > a.cancel:not([data-type='compact']) { // the base rtl styles add margins for the text button
+      margin: 0;
+    }
+
+    > div.searchBox {
+      left: unset;
+      right: helpers.$headerPadding;
+
+      > input[type='text'] {
+        padding: 0 calc(#{helpers.$blobSize} * 0.3) 0 5px;
+      }
+    }
+  }
+
+  > div.filter {
+    left: unset;
+    right: helpers.$gap;
+  }
+}

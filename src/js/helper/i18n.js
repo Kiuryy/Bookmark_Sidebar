@@ -87,30 +87,21 @@
         };
 
         /**
-         * Parses all language vars in the given html context
+         * Parses all language vars in the given html context,
+         * the elements keep their language attributes, so the method can be called again,
+         * e.g. after `init()` reloaded the variables of a newly selected language
          *
          * @param context
          */
         this.parseHtml = (context) => {
             $(context).find("[" + $.attr.i18n + "]").forEach((elm) => {
-                let msg = null;
-                const val = $(elm).attr($.attr.i18n);
+                parseContent($(elm));
+            });
 
-                if (val) {
-                    let replaces = [];
-                    const replacesRaw = $(elm).attr($.attr.i18nReplaces);
-                    if (replacesRaw) {
-                        replaces = replacesRaw.split(",");
-                    }
-                    msg = this.get(val, replaces);
-                }
-
-                if (msg) {
-                    $(elm).removeAttr($.attr.i18n);
-                    $(elm).html(msg);
-                } else {
-                    $(elm).remove();
-                }
+            Object.entries({title: $.attr.i18nTitle, alt: $.attr.i18nAlt}).forEach(([attr, i18nAttr]) => {
+                $(context).find("[" + i18nAttr + "]").forEach((elm) => {
+                    parseAttribute($(elm), attr, i18nAttr);
+                });
             });
         };
 
@@ -147,6 +138,56 @@
             }
 
             return ret;
+        };
+
+        /**
+         * Replaces the content of the given element with the language variable it is referring to,
+         * elements without a matching variable are removed (and a warning is logged, unless the element is marked as optional)
+         *
+         * @param {jsu} elm
+         */
+        const parseContent = (elm) => {
+            const val = elm.attr($.attr.i18n);
+            let msg = null;
+
+            if (val) {
+                let replaces = [];
+                const replacesRaw = elm.attr($.attr.i18nReplaces);
+                if (replacesRaw) {
+                    replaces = replacesRaw.split(",");
+                }
+                msg = this.get(val, replaces);
+            }
+
+            if (msg) {
+                elm.html(msg);
+            } else {
+                if (!elm.attr($.attr.i18nOptional)) {
+                    // eslint-disable-next-line no-console
+                    console.warn("Missing language variable '" + val + "'");
+                }
+                elm.remove();
+            }
+        };
+
+        /**
+         * Sets the given attribute of the element (e.g. title or alt) to the language variable it is referring to,
+         * other than with the content, the element is kept if there is no matching variable
+         *
+         * @param {jsu} elm
+         * @param {string} attr
+         * @param {string} i18nAttr
+         */
+        const parseAttribute = (elm, attr, i18nAttr) => {
+            const val = elm.attr(i18nAttr);
+            const msg = this.get(val);
+
+            if (msg) {
+                elm.attr(attr, msg);
+            } else {
+                // eslint-disable-next-line no-console
+                console.warn("Missing language variable '" + val + "'");
+            }
         };
     };
 

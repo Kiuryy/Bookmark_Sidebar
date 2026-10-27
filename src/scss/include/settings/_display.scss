@@ -1,0 +1,143 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
+body > main {
+
+  section.theme-selection {
+
+    div.col:not(.full) { // the descriptions differ in length -> keep the buttons aligned at the bottom of the cards
+      display: flex;
+      flex-direction: column;
+
+      > p.desc {
+        margin-bottom: auto;
+      }
+    }
+
+    div.title { // name of the theme with the example button next to it
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px 12px;
+      margin-bottom: 10px;
+
+      > label.large {
+        margin-bottom: 0;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid rgb(0 0 0 / 8%);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
+    }
+
+    p {
+      margin-top: 10px;
+
+      &.desc {
+        font-size: 90%;
+      }
+    }
+  }
+
+  // Toggle between light and dark surface, looks like a switch with a sun/moon icon
+  #surface {
+
+    > div.checkbox {
+      @include mixins.mask('settings/icon-light', vars.$textColorInverted, 20px);
+      border-radius: 15px;
+      height: 30px;
+      width: 60px;
+      background: linear-gradient(to right, #fec171 0%, #ff6c69 100%);
+      transition: width 0.3s;
+
+      &::before {
+        mask-position: 32px center;
+        transition: mask 0.3s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: vars.$textColorInverted;
+        box-shadow: none;
+        opacity: 0.7;
+        mask: none;
+        transition: transform 0.3s, opacity 0.3s;
+      }
+
+      &.active {
+        background: linear-gradient(to right, #3c5fe1 0%, #3a2b96 100%);
+
+        &::before {
+          @include mixins.maskImage('settings/icon-dark');
+          mask-position: 6px center;
+        }
+
+        &::after {
+          transform: translate3d(30px, 0, 0);
+          opacity: 0.9;
+        }
+      }
+    }
+
+    &[data-type='auto'] > div.checkbox { // surface follows the system -> only show the icon
+      pointer-events: none;
+      width: 50px;
+
+      &::before {
+        mask-position: center center !important;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    > div.sub {
+      padding-top: 10px;
+    }
+  }
+
+  div.presets .btn + .btn {
+    margin-left: 5px;
+  }
+
+  div.visibility-rules {
+    margin-top: 15px;
+
+    > div.col:last-child {
+      margin-top: 25px;
+
+      ul.bullet-list {
+        line-height: 200%;
+
+        em {
+          position: relative;
+          font-size: 120%;
+          font-style: normal;
+          line-height: normal;
+          font-weight: vars.$dyn-fontWeightBold;
+          padding: 0 5px;
+          background: rgba(0, 0, 0, 0.02);
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 3px;
+          color: vars.$textColor;
+        }
+      }
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/display");

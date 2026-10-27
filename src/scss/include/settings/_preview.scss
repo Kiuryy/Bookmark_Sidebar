@@ -1,0 +1,35 @@
+@use "sass:meta";
+
+// Sidebar preview on the appearance tab (see SettingsPreviewHelper)
+iframe.sidebar-preview {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  display: none;
+  z-index: 4;
+}
+
+body[data-tab="appearance"] {
+  padding-right: 280px; // space for the preview
+  background: linear-gradient(
+          -135deg,
+          #8BDEDA 0%,
+          #43ADD0 7%,
+          #998EE0 14%,
+          #E17DC2 21%,
+          #EF9393 28%,
+          transparent 50%
+  );
+  background-repeat: no-repeat;
+  background-position: right top;
+
+  iframe.sidebar-preview {
+    display: block;
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/preview");

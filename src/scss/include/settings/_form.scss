@@ -1,10 +1,51 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
 label {
   display: block;
-  font-weight: $__fontWeightBold;
+  font-weight: vars.$dyn-fontWeightBold;
+
+  &.large {
+    font-size: 135%;
+    font-weight: vars.$dyn-fontWeightNormal;
+    color: vars.$mainColor2;
+    margin-bottom: 10px;
+  }
 }
 
 div.checkbox {
+  display: inline-block;
+  vertical-align: top;
   margin: 10px 0 10px 1px;
+}
+
+a.revert {
+  @include mixins.mask('icon-update', vars.$textColorLight, 18px);
+  display: inline-block;
+  vertical-align: top;
+  width: 18px;
+  height: 18px;
+  margin: 10px 0 10px 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transition: opacity 0.2s;
+
+  &.visible {
+    opacity: 0.8;
+    pointer-events: all;
+  }
+
+  &.visible:hover::before {
+    background-color: vars.$mainColor2;
+  }
+}
+
+// Button of a field with a video (data-video), on its own line below the field and its description
+a.btn.field-video {
+  display: table;
+  margin: 5px 0 10px;
 }
 
 select, input[type='email'], input[type='text'], textarea {
@@ -13,11 +54,12 @@ select, input[type='email'], input[type='text'], textarea {
   height: 28px;
   padding: 0 5px;
   margin: 7px 0 10px;
+  border-radius: 5px;
   background: rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.5s;
 
   &.error {
-    box-shadow: 0 0 10px $colorError;
+    box-shadow: 0 0 10px vars.$colorError;
   }
 }
 
@@ -28,16 +70,12 @@ input[type='text'] {
 select {
   cursor: pointer;
   max-width: 100%;
-
-  &.hidden {
-    display: none;
-  }
 }
 
 textarea {
   display: block;
   width: 100%;
-  height: 300px;
+  height: 200px;
   padding: 5px;
   line-height: 150%;
   resize: vertical;
@@ -73,7 +111,7 @@ input.color {
     }
 
     &::before {
-      background: $contentBackground img('settings/alpha.svg');
+      background: vars.$contentBackground mixins.img('settings/alpha.svg');
       background-size: 14px;
     }
 
@@ -102,7 +140,7 @@ input.color {
     }
 
     &::before {
-      background: $contentBackground img('settings/alpha.svg');
+      background: vars.$contentBackground mixins.img('settings/alpha.svg');
       background-size: 10px;
     }
 
@@ -117,7 +155,18 @@ input.color {
   }
 }
 
-ul.radioWrapper {
+// Overlay of the color field, positioned by SettingsFormHelper
+div.color-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+ul.radio-wrapper {
 
   > li {
     padding: 7px 0;
@@ -134,44 +183,38 @@ ul.radioWrapper {
   }
 }
 
-div.iconShapeWrapper ul.radioWrapper {
+div.icon-selector ul.radio-wrapper {
+  display: inline-flex;
+  flex-flow: row wrap;
+  grid-gap: 7px 25px;
   margin-top: 20px;
 
   span.base64-icon {
     position: relative;
     display: inline-block;
-    margin: -10px 0 5px 3px;
-    width: 38px;
-    height: 38px;
+    margin: -8px 0 5px 0;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background-color: $textColor;
+    background-color: vars.$textColor;
     background-size: 18px;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   span[class^='icon-'] {
-    @include mask(null, $textColorInverted, 20px);
+    @include mixins.mask(null, vars.$textColorInverted, 20px);
     position: relative;
     display: inline-block;
-    margin: -10px 0 5px 3px;
-    width: 38px;
-    height: 38px;
+    margin: -8px 0 5px 0;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background: $textColor;
+    background: vars.$textColor;
   }
 
-  span.icon-dir-1::before {
-    @include maskImage("icon-dir-1");
-  }
-
-  span.icon-dir-2::before {
-    @include maskImage("icon-dir-2");
-    -webkit-mask-size: 18px;
-  }
-
-  span.icon-dir-3::before {
-    @include maskImage("icon-dir-3");
+  + a.revert {
+    margin-top: 27px;
   }
 }
 
@@ -182,11 +225,11 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background-image: linear-gradient(to right, $mainColor2 0%, $mainColor2 -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+  background-image: linear-gradient(to right, vars.$mainColor2 0%, vars.$mainColor2 -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
   background-repeat: no-repeat;
   background-size: 100% 3px;
   background-position: 0 9px;
-  margin: 7px 0 20px;
+  margin: 7px 0 12px;
   cursor: pointer;
   transition: opacity 0.3s;
 
@@ -204,7 +247,7 @@ input[type='range'] {
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: $mainColor2;
+    background: vars.$mainColor2;
     border-radius: 50%;
     cursor: pointer;
     height: 12px;
@@ -216,7 +259,7 @@ input[type='range'] {
     position: relative;
     display: inline-block;
     background: rgba(0, 0, 0, 0.1);
-    color: $textColor;
+    color: vars.$textColor;
     font-size: 70%;
     padding: 2px 5px 3px;
     margin: 9px 0 0 6px;
@@ -246,7 +289,7 @@ input[type='range'] {
 }
 
 div.sub {
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
 
   div.checkbox {
     display: inline-block;
@@ -256,16 +299,20 @@ div.sub {
     height: 16px;
 
     &::before {
-      -webkit-mask-size: 18px;
+      mask-size: 18px;
     }
 
     + label {
       display: inline-block;
       vertical-align: top;
       font-size: 90%;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
     }
+  }
+
+  a.revert {
+    margin-top: 0;
   }
 }
 
-@import "../../rtl/include/settings/form";
+@include meta.load-css("../../rtl/include/settings/form");

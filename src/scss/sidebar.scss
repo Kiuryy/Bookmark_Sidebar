@@ -1,14 +1,16 @@
-@import "include/vars";
-@import "include/mixins";
-@import "include/loading";
-@import "include/scrollBox";
-@import "include/contextmenu";
-@import "include/tooltip";
-@import "include/checkbox";
-@import "include/bookmarkEntry";
+@use "sass:meta";
+@use "include/placeholders";
+@use "include/vars";
+@use "include/mixins";
+@use "include/loading";
+@use "include/scrollBox";
+@use "include/contextmenu";
+@use "include/tooltip";
+@use "include/checkbox";
+@use "include/bookmarkEntry";
 //
-$textColor: $__textColor;
-@import "include/generals";
+vars.$textColor: vars.$dyn-textColor;
+@use "include/generals";
 
 body {
   width: 100%;
@@ -35,9 +37,9 @@ body > textarea {
 
 // Sidebar
 a.dragHelper {
-  @include bookmarkEntry;
+  @include bookmarkEntry.bookmarkEntry;
   position: absolute;
-  background: $contentBackground !important;
+  background: vars.$contentBackground !important;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   cursor: grabbing;
@@ -45,7 +47,7 @@ a.dragHelper {
   z-index: 3;
 
   > span.drag {
-    @include mask('icon-reorder', $reorderIconColorActive, 18px);
+    @include mixins.mask('icon-reorder', vars.$reorderIconColorActive, 18px);
     display: block;
     transition: none;
     background-color: rgba(0, 0, 0, 0.1);
@@ -60,9 +62,9 @@ a.dragHelper {
     position: absolute;
     bottom: -8px;
     left: -7px;
-    background: $__colorScheme;
-    color: $__foregroundColor;
-    font-weight: $__fontWeightMedium;
+    background: vars.$dyn-colorScheme;
+    color: vars.$dyn-foregroundColor;
+    font-weight: vars.$dyn-fontWeightMedium;
     line-height: 100%;
     padding: 3px 5px;
     border-radius: 5px;
@@ -77,8 +79,8 @@ a.dragHelper {
 //
 section#sidebar {
   position: relative;
-  width: $__sidebarWidth;
-  background: $contentBackground;
+  width: vars.$dyn-sidebarWidth;
+  background: vars.$contentBackground;
   box-shadow: 15px 0 35px rgba(0, 0, 0, 0.12);
   height: 100%;
   display: flex;
@@ -117,9 +119,9 @@ section#sidebar {
     justify-content: flex-end;
     flex-wrap: wrap;
     width: 100%;
-    height: $__sidebarHeaderHeight;
+    height: vars.$dyn-sidebarHeaderHeight;
     padding: 0 12px;
-    background: $__colorScheme;
+    background: vars.$dyn-colorScheme;
     transition: background 0.3s;
     box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -127,8 +129,8 @@ section#sidebar {
     z-index: 3;
 
     > h1 {
-      color: $__foregroundColor;
-      font-weight: $__fontWeightMedium;
+      color: vars.$dyn-foregroundColor;
+      font-weight: vars.$dyn-fontWeightMedium;
       margin-right: auto;
       font-size: 100%;
       transition: transform 0.5s;
@@ -138,7 +140,7 @@ section#sidebar {
       }
 
       > strong {
-        font-weight: $__fontWeightNormal;
+        font-weight: vars.$dyn-fontWeightNormal;
         font-size: 150%;
       }
 
@@ -156,7 +158,7 @@ section#sidebar {
     }
 
     > a {
-      @include mask(null, $__foregroundColor, 22px);
+      @include mixins.mask(null, vars.$dyn-foregroundColor, 22px);
       position: relative;
       display: block;
       width: 34px;
@@ -185,10 +187,10 @@ section#sidebar {
           padding: 4px 6px 3px;
           margin: 0 5px 0 20px;
           font-size: 90%;
-          color: $__foregroundColor;
-          font-weight: $__fontWeightBold;
+          color: vars.$dyn-foregroundColor;
+          font-weight: vars.$dyn-fontWeightBold;
           text-transform: uppercase;
-          border-radius: 3px;
+          border-radius: 6px;
           cursor: pointer;
 
           &::before {
@@ -202,7 +204,7 @@ section#sidebar {
             left: -10px;
             height: 100%;
             width: 2px;
-            background: $__foregroundColor;
+            background: vars.$dyn-foregroundColor;
             opacity: 0.4;
           }
         }
@@ -231,11 +233,11 @@ section#sidebar {
         outline: none;
         border: 0;
         background: transparent;
-        color: $__foregroundColor;
+        color: vars.$dyn-foregroundColor;
         padding: 0 5px 0 12px;
 
         &::-webkit-input-placeholder {
-          color: $__foregroundColor;
+          color: vars.$dyn-foregroundColor;
           opacity: 0.7;
         }
       }
@@ -290,65 +292,11 @@ section#sidebar {
     }
   }
 
-  > a.lockPinned {
-    position: absolute;
-    top: $__sidebarHeaderHeight;
-    right: -22px;
-    display: block;
-    margin-top: 9px;
-    width: 18px;
-    height: 45px;
-    background: $contentBackground;
-    border-radius: 10px;
-    transition: transform 0.5s, opacity 0.5s;
-    transform: translate3d(-7px, 0, 0);
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    @extend %hidden;
-
-    > span {
-      @include mask('icon-lock', $__textColor, 16px);
-    }
-
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      left: 5px;
-      border: 4px solid transparent;
-      opacity: 0.5;
-    }
-
-    &::before {
-      top: 0;
-      border-bottom-color: $__textColor;
-    }
-
-    &::after {
-      bottom: 0;
-      border-top-color: $__textColor;
-    }
-
-    &.active {
-      @extend %visible;
-      transform: translate3d(0, 0, 0) !important;
-    }
-
-    &.fixed > span::before {
-      @include maskImage('icon-unlock');
-    }
-  }
-
   &[data-pos='right'] {
 
     > span.drag {
       right: unset;
       left: -10px;
-    }
-
-    > a.lockPinned {
-      right: unset;
-      left: -22px;
-      transform: translate3d(7px, 0, 0);
     }
   }
 
@@ -356,12 +304,12 @@ section#sidebar {
     position: absolute;
     display: flex;
     align-content: flex-start;
-    top: $__sidebarHeaderHeight;
+    top: vars.$dyn-sidebarHeaderHeight;
     left: 11px;
-    width: calc(100% - 11px - #{$__scrollBarWidth});
-    background: $contentBackground2;
-    padding: 10px $__bookmarksHorizontalPadding 5px;
-    border-radius: 0 0 5px 5px;
+    width: calc(100% - 11px - #{vars.$dyn-scrollBarWidth});
+    background: vars.$contentBackground2;
+    padding: 10px vars.$dyn-bookmarksHorizontalPadding 5px;
+    border-radius: 0 0 10px 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index: 2;
 
@@ -370,7 +318,7 @@ section#sidebar {
     }
 
     > a[data-direction] {
-      @include mask('icon-arrow-up', $__textColor, 24px);
+      @include mixins.mask('icon-arrow-up', vars.$dyn-textColor, 24px);
       position: relative;
       display: inline-block;
       cursor: pointer;
@@ -409,7 +357,7 @@ section#sidebar {
           left: 0;
 
           &::before {
-            -webkit-mask-size: 18px;
+            mask-size: 18px;
           }
 
           + a {
@@ -433,6 +381,7 @@ section#sidebar {
 
   > div.scrollBox {
     display: none;
+    overscroll-behavior-y: none;
 
     &.active {
       display: block;
@@ -455,17 +404,21 @@ section#sidebar {
       box-shadow: none;
     }
 
+    &.scrolled:not([data-direction='up']) > div.pinned.fixed { // filter is hidden -> directly below the header
+      top: calc(var(--filterHeight, 0px) * -1);
+    }
+
     > ul, > div.pinned > ul {
       position: relative;
       margin: 9px 0;
       z-index: 1;
 
       a {
-        @include bookmarkEntry;
+        @include bookmarkEntry.bookmarkEntry;
         position: relative;
 
         + ul {
-          padding-left: $__bookmarksDirIndentation;
+          padding-left: vars.$dyn-bookmarksDirIndentation;
           height: 0;
           overflow: hidden;
         }
@@ -506,7 +459,7 @@ section#sidebar {
 
           > a {
             visibility: hidden;
-            line-height: calc(#{$__bookmarksLineHeight} - 6px);
+            line-height: calc(#{vars.$dyn-bookmarksLineHeight} - 6px);
 
             > img {
               visibility: hidden;
@@ -522,7 +475,7 @@ section#sidebar {
           position: relative;
 
           > a {
-            background-color: $__hoverColor;
+            background-color: vars.$dyn-hoverColor;
           }
 
           &::before {
@@ -556,7 +509,7 @@ section#sidebar {
 
     > div.pinned {
       position: relative;
-      background-color: $contentBackground;
+      background-color: vars.$contentBackground;
       margin: 0 0 9px 0;
       padding-top: 9px;
       z-index: 2;
@@ -565,17 +518,18 @@ section#sidebar {
         display: none;
       }
 
-      &.fixed {
+      &.fixed { // the scrollBox has a padding-top of --filterHeight, which also offsets the sticky position
         position: sticky;
-        top: 0;
+        top: 0; // directly below the filter
+        transition: top 0.3s;
       }
 
       &::after {
         content: "";
         display: block;
         height: 1px;
-        margin: 7px $__bookmarksHorizontalPadding;
-        background: $separatorColor;
+        margin: 7px vars.$dyn-bookmarksHorizontalPadding;
+        background: vars.$separatorColor;
       }
 
       > ul {
@@ -584,19 +538,19 @@ section#sidebar {
     }
 
     > a[data-name='add'] {
-      @include mask('icon-add', $__textColor, 20px);
+      @include mixins.mask('icon-add', vars.$dyn-textColor, 20px);
       position: relative;
       display: block;
       width: 32px;
       height: 32px;
       cursor: pointer;
       border-radius: 50%;
-      margin: 0 calc(#{$__bookmarksHorizontalPadding} - 6px) 9px;
+      margin: 0 calc(#{vars.$dyn-bookmarksHorizontalPadding} - 6px) 9px;
       padding: 0 !important;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: $__hoverColor;
+        background-color: vars.$dyn-hoverColor;
       }
     }
   }
@@ -608,44 +562,44 @@ section#sidebar {
       > a {
 
         &.search::before {
-          @include maskImage('icon-search');
+          @include mixins.maskImage('icon-search');
         }
 
         &.removeSelected::before {
-          @include maskImage('icon-delete');
+          @include mixins.maskImage('icon-delete');
         }
 
         &.openSelected::before {
-          @include maskImage('icon-newtab');
-          -webkit-mask-size: 20px;
+          @include mixins.maskImage('icon-newtab');
+          mask-size: 20px;
         }
 
         &.cancel[data-type='compact']::before {
-          @include maskImage('icon-close');
+          @include mixins.maskImage('icon-close');
         }
 
         &.sort::before {
-          @include maskImage('icon-sort');
+          @include mixins.maskImage('icon-sort');
         }
 
         &.menu::before {
-          @include maskImage('icon-menu');
+          @include mixins.maskImage('icon-menu');
         }
       }
 
       > div.searchBox > a.searchClose {
-        @include mask('icon-close', $__foregroundColor, 18px);
+        @include mixins.mask('icon-close', vars.$dyn-foregroundColor, 18px);
       }
     }
 
     > div.scrollBox a {
 
       > span.drag {
-        @include mask('icon-reorder', $reorderIconColor, 18px);
+        @include mixins.mask('icon-reorder', vars.$reorderIconColor, 18px);
       }
 
       > span.add {
-        @include mask('icon-add', $reorderIconColor, 18px);
+        @include mixins.mask('icon-add', vars.$reorderIconColor, 18px);
       }
     }
   }
@@ -681,7 +635,7 @@ section#sidebar {
   &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
 
     &:hover {
-      padding-right: $__bookmarksHorizontalPadding;
+      padding-right: vars.$dyn-bookmarksHorizontalPadding;
     }
 
     > span.drag {
@@ -701,7 +655,7 @@ section#sidebar {
           margin: 0;
           position: absolute;
           top: 50%;
-          left: calc(#{$__bookmarksHorizontalPadding} + 11px);
+          left: calc(#{vars.$dyn-bookmarksHorizontalPadding} + 11px);
         }
 
         &.dir > span.icon {
@@ -741,7 +695,7 @@ div#infoBox {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   padding: 12px 18px 10px;
   border-radius: 50px;
-  background: $contentBackground;
+  background: vars.$contentBackground;
   text-align: center;
   z-index: 4;
   transform: translate3d(0, 20px, 0);
@@ -764,10 +718,10 @@ div#infoBox {
     display: inline-block;
     padding: 5px 10px 4px;
     margin: 0 3px;
-    color: $__colorScheme;
-    font-weight: $__fontWeightBold;
+    color: vars.$dyn-colorScheme;
+    font-weight: vars.$dyn-fontWeightBold;
     text-transform: uppercase;
-    border-radius: 3px;
+    border-radius: 8px;
     cursor: pointer;
 
     &::before {
@@ -778,8 +732,8 @@ div#infoBox {
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 3px;
-      background: $__colorScheme;
+      border-radius: 8px;
+      background: vars.$dyn-colorScheme;
       transition: opacity 0.5s;
       @extend %hidden;
     }
@@ -811,6 +765,6 @@ body {
   }
 }
 
-@import "rtl/sidebar";
-@import "highContrast/sidebar";
-@import "dark/sidebar";
+@include meta.load-css("rtl/sidebar");
+@include meta.load-css("highContrast/sidebar");
+@include meta.load-css("dark/sidebar");

@@ -8,6 +8,7 @@ html[dir='rtl'] [data-theme='focus'] section#sidebar {
       left: unset;
       right: 0;
       border-radius: 0 0 3px 0;
+      transform: translate3d(0, 0, 0); // the theme only fades the search field in, the base rtl styles would move it
 
       > input[type='text'] {
         padding: 0 7px 0 5px;

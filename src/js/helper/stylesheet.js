@@ -56,12 +56,13 @@
         };
 
         /**
-         * Extends the given list of stylesheets with the ones of the currently selected theme
+         * Extends the given list of stylesheets with the ones of the given theme
          *
          * @param files
+         * @param theme
          * @returns {Array}
          */
-        this.getStylesheetFilesWithThemes = (files) => {
+        this.getStylesheetFilesWithThemes = (files, theme) => {
             const ret = files;
             if (theme && theme !== "default") { // add theme css files to the list, so that they will be loaded, too
                 files.forEach((file) => {
@@ -88,7 +89,7 @@
                 }
             }
 
-            let head = null;
+            let head;
             if (context.find("head").length() === 0) { // document does not have a head -> append styles to the body
                 head = context.find("body");
             } else {
@@ -104,7 +105,7 @@
             }
             const styles = ext.helper.model.getData("a/styles", defaultVal);
 
-            const stylesheetFiles = this.getStylesheetFilesWithThemes(files);
+            const stylesheetFiles = this.getStylesheetFilesWithThemes(files, theme);
 
             for (const file of stylesheetFiles) {
                 const xhr = await $.xhr($.api.runtime.getURL("css/" + file + ".css"), {

@@ -28,10 +28,8 @@
             ext.helper.toggle.addSidebarHoverClass();
             ext.helper.tooltip.close();
 
-            if (alreadyExists(type, elm)) { // contextmenu is already opened
-                if (type === "menu" || type === "sort") { // close menu/sort menu when reclicking the icon
-                    this.close();
-                }
+            if (alreadyExists(type, elm)) { // contextmenu is already opened for this element -> right click/reclick closes it
+                this.close();
             } else {
                 this.close(); // close other contextmenus
                 elm.addClass($.cl.active);
@@ -95,7 +93,8 @@
         };
 
         /**
-         * Returns whether a contextmenu from the same type and if available with the same element id already exists
+         * Returns whether a visible contextmenu from the same type and if available with the same element id already exists,
+         * a contextmenu which is currently closing doesn't count, so it can be reopened right away
          *
          * @param {string} type
          * @param {jsu} elm
@@ -105,7 +104,7 @@
             const elmId = elm.attr($.attr.id);
             const value = elm.attr($.attr.value);
 
-            let existingElm = "div." + $.cl.contextmenu.wrapper + "[" + $.attr.type + "='" + type + "']";
+            let existingElm = "div." + $.cl.contextmenu.wrapper + "." + $.cl.visible + "[" + $.attr.type + "='" + type + "']";
             if (elmId) {
                 existingElm += "[" + $.attr.id + "='" + elmId + "']";
             } else if (value) {
@@ -479,9 +478,14 @@
          * @param {object} opts
          */
         clickFuncs.pin = async (opts) => {
+            const userType = ext.helper.model.getUserType();
+            if (!userType.startsWith("premium") && userType !== "pre2018" && userType !== "pre2026") { // pinning entries requires premium
+                ext.helper.overlay.create("pin", ext.helper.i18n.get("contextmenu_pin"), opts.data);
+                return;
+            }
+
             await ext.helper.bookmark.pinEntry(opts.data);
             ext.helper.model.call("reload", {type: "Pin"});
-
         };
 
         /**

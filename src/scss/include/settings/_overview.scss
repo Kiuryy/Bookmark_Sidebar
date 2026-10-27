@@ -1,0 +1,130 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
+body > main {
+
+  // Call to action below the language selection
+  div.translation-cta {
+    @include mixins.mask("settings/icon-translate", vars.$textColor, 22px);
+    background: vars.$contentBackground2;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 12px 14px 14px 46px;
+
+    &::before {
+      mask-position: 14px 13px;
+    }
+
+    > strong {
+      display: block;
+      font-size: 110%;
+      font-weight: vars.$dyn-fontWeightMedium;
+    }
+
+    > p {
+      margin: 4px 0 12px;
+      font-size: 90%;
+      opacity: 0.8;
+    }
+
+    > a.btn.translate::before {
+      @include mixins.maskImage('icon-web');
+    }
+  }
+
+  // Box with image on the left, headline across the full width and text + button on the right
+  div.cols > div.col.teaser {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-content: start;
+    align-items: start;
+    column-gap: 18px;
+
+    > label {
+      grid-column: 1 / -1; // headline spans across image and text
+    }
+
+    > img {
+      display: block;
+      width: 92px;
+      height: 92px;
+      margin-top: 4px;
+    }
+
+    > div {
+      min-width: 0;
+
+      > p {
+        margin: 0 0 10px;
+      }
+
+      > .btn {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  div.cols > div.col.info-links {
+
+    > ul > li {
+
+      + li {
+        border-top: 1px solid rgb(0 0 0 / 10%);
+      }
+
+      > a {
+        @include mixins.mask(null, vars.$textColor, 26px);
+        display: block;
+        padding: 0 10px 0 46px;
+        height: 60px;
+        align-content: center;
+        font-size: 120%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgb(0 0 0 / 5%);
+        }
+
+        &::before {
+          width: 26px;
+          left: 10px;
+        }
+
+        @each $name, $icon in (
+          "privacyPolicy": "settings/icon-privacy",
+          "permissions": "icon-unlock",
+          "changelog": "icon-info",
+          "importExport": "settings/icon-importExport",
+          "expert": "icon-settings"
+        ) {
+          &[data-name="#{$name}"]::before {
+            @include mixins.maskImage($icon);
+          }
+        }
+
+        > span.last-update {
+          display: block;
+          font-size: 60%;
+          opacity: 0.7;
+          margin-top: 2px;
+        }
+      }
+    }
+
+    &.small > ul > li > a { // compact variant with smaller font, icon and padding
+      padding-left: 36px;
+      height: 44px;
+      font-size: 100%;
+
+      &::before {
+        width: 20px;
+        mask-size: 20px;
+        left: 8px;
+      }
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/overview");

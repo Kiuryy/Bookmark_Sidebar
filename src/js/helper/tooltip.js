@@ -31,8 +31,9 @@
          */
         this.create = (elm) => {
             const id = elm.attr($.attr.id);
+            const isDragging = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
 
-            if (id && ext.helper.entry.isSeparator(id) === false) {
+            if (id && !isDragging && ext.helper.entry.isSeparator(id) === false) {
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);
@@ -62,7 +63,7 @@
 
                         timeout[id] = setTimeout(() => {
                             tooltip.addClass($.cl.visible);
-                        }, +config.tooltipDelay * 1000);
+                        }, +config.tooltipDelay * 1000); // the delay is in seconds with steps of 0.25s, so it must not be parsed as integer
                     }
                 }
             } else {
@@ -160,9 +161,9 @@
          * @param {int} except
          */
         const closeAllExcept = async (except = null) => {
-            Object.values(timeout).forEach((id) => {
-                if (id) {
-                    clearTimeout(timeout[id]);
+            Object.values(timeout).forEach((instance) => {
+                if (instance) {
+                    clearTimeout(instance);
                 }
             });
             timeout = {};

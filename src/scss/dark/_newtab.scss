@@ -1,8 +1,10 @@
+@use "../include/vars";
+
 body.dark {
-  background-color: $darkContentBackground;
+  background-color: vars.$darkContentBackground;
 
   &::before {
-    background: $darkContentBackground;
+    background: vars.$darkContentBackground;
   }
 
   &.loading::before {

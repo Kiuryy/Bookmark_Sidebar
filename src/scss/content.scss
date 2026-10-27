@@ -1,5 +1,6 @@
-@import "include/vars";
-@import "include/mixins";
+@use "include/placeholders";
+@use "include/vars";
+@use "include/mixins";
 
 // Scroll prevention
 body.redeviation-bs-noscroll {
@@ -11,21 +12,21 @@ body > div#redeviation-bs-indicator {
 
   > div {
     position: absolute;
-    transform: translate3d(-$__indicatorWidth, 0, 0);
+    transform: translate3d(-(vars.$dyn-indicatorWidth), 0, 0);
     top: 0;
     left: 0;
-    width: $__indicatorWidth !important;
+    width: vars.$dyn-indicatorWidth !important;
     height: 100%;
-    background: $__indicatorColor;
+    background: vars.$dyn-indicatorColor;
     border-radius: 0 10px 10px 0;
     transition: opacity 0.3s, transform 0.3s;
     z-index: 2;
     @extend %hidden;
 
     > span {
-      -webkit-mask: no-repeat center / $__indicatorIconSize;
-      @include maskImage('icon-bookmark');
-      background-color: $__indicatorIconColor;
+      mask: no-repeat center / vars.$dyn-indicatorIconSize;
+      @include mixins.maskImage('icon-bookmark');
+      background-color: vars.$dyn-indicatorIconColor;
       position: absolute;
       display: block;
       top: 0;
@@ -40,7 +41,7 @@ body > div#redeviation-bs-indicator {
     right: 0;
 
     > div {
-      transform: translate3d($__indicatorWidth, 0, 0);
+      transform: translate3d(vars.$dyn-indicatorWidth, 0, 0);
       left: auto;
       right: 0;
       border-radius: 10px 0 0 10px;
@@ -70,7 +71,7 @@ body > div#redeviation-bs-indicator {
       background: transparent;
 
       > span {
-        -webkit-mask-position-y: 20px;
+        mask-position: center 20px;
       }
     }
   }
@@ -78,28 +79,28 @@ body > div#redeviation-bs-indicator {
 
 // Sidebar
 body > #redeviation-bs-sidebar {
-  width: $__sidebarWidth;
+  width: vars.$dyn-sidebarWidth;
   max-width: none;
   height: 0;
   z-index: #{2147483647 - 1};
-  background-color: $__sidebarMaskColor !important;
+  background-color: vars.$dyn-sidebarMaskColor !important;
   color-scheme: auto !important;
   speak: none;
   border: none;
   display: block !important;
   visibility: visible !important;
-  transform: translate3d(-$__sidebarWidth, 0, 0);
+  transform: translate3d(-(vars.$dyn-sidebarWidth), 0, 0);
   transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s;
 
   &[data-pos='right'] {
     left: auto;
     right: 0;
-    transform: translate3d($__sidebarWidth, 0, 0);
+    transform: translate3d(vars.$dyn-sidebarWidth, 0, 0);
   }
 
   &.redeviation-bs-visible {
     @extend %visible;
-    width: calc(100% + #{$__sidebarWidth});
+    width: calc(100% + #{vars.$dyn-sidebarWidth});
     height: 100%;
     transform: translate3d(0, 0, 0);
     transition: opacity 0.3s, transform 0.3s;
@@ -113,7 +114,7 @@ body > #redeviation-bs-sidebar {
     background: none !important;
 
     &:not(.redeviation-bs-hover) {
-      width: calc(#{$__sidebarWidth} + 50px);
+      width: calc(#{vars.$dyn-sidebarWidth} + 50px);
     }
   }
 }
@@ -126,7 +127,7 @@ body > #redeviation-bs-overlay {
   z-index: 2147483647;
   border: none;
   speak: none;
-  background: $__overlayMaskColor !important;
+  background: vars.$dyn-overlayMaskColor !important;
   color-scheme: auto !important;
   transition: opacity 0.3s;
 

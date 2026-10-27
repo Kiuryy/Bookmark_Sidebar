@@ -55,8 +55,15 @@
                 isLoading = true;
 
                 await this.helper.model.init();
+                await this.helper.i18n.init();
+
+                try {
+                    populateFeedbackForm();
+                } catch (ignored) {
+                    //
+                }
+
                 if (isAllowedToInitialize()) { // check against blacklist or whitelist (if one is set)
-                    await this.helper.i18n.init();
                     this.helper.stylesheet.init();
                     await this.helper.stylesheet.addStylesheets(["content"]);
 
@@ -136,11 +143,12 @@
         };
 
         /**
-         * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
+         * Sets a class to the iframe body and fires an event to indicate that the extension is loaded completely
          */
         this.loaded = () => {
             if (!this.elm.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
-                const data = this.helper.model.getData(["b/animations", "b/toggleArea", "a/showIndicator"]);
+                const data = this.helper.model.getData(["b/animations", "b/triggerWidth", "b/triggerWidthWindowed", "b/triggerHeight", "b/triggerOffsetTop", "a/styles/indicatorWidth"]);
+
                 this.elm.iframeBody.addClass($.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
@@ -161,8 +169,11 @@
 
                 this.helper.utility.triggerEvent("loaded", {
                     config: {
-                        toggleArea: data.toggleArea,
-                        showIndicator: data.showIndicator
+                        triggerWidth: data.triggerWidth,
+                        triggerWidthWindowed: data.triggerWidthWindowed,
+                        triggerHeight: data.triggerHeight,
+                        triggerOffsetTop: data.triggerOffsetTop,
+                        showIndicator: parseInt(data.indicatorWidth) > 0
                     },
                     elm: {
                         iframe: this.elm.iframe,
@@ -296,8 +307,33 @@
                 utility: new $.UtilityHelper(this),
                 contextmenu: new $.ContextmenuHelper(this),
                 tooltip: new $.TooltipHelper(this),
-                linkchecker: new $.Linkchecker(this)
+                linkchecker: new $.Linkchecker(this),
+                importExport: new $.SettingsImportExportHelper(this),
             };
+        };
+
+        const populateFeedbackForm = async () => {
+            const feedbackForm = $("#" + $.opts.ids.page.feedbackForm);
+            if (location.href.startsWith($.opts.website.info.landing) && feedbackForm.length() > 0) {
+                const config = this.helper.importExport.getExportConfig();
+                if (config.utility && config.utility.newtabBackground) { // don't send newtab background
+                    delete config.utility.newtabBackground;
+                }
+
+                $("<input/>")
+                    .attr("type", "hidden")
+                    .attr("name", "ext-data")
+                    .attr("value", JSON.stringify({
+                        version: $.opts.manifest.version_name || $.opts.manifest.version,
+                        lastUpdate: await this.helper.model.call("lastUpdateDate"),
+                        ua: navigator.userAgent,
+                        browser: $.ua().browser,
+                        lang: this.helper.i18n.getLanguage(),
+                        userType: this.helper.model.getUserType(),
+                        config: JSON.stringify(config, null, 2)
+                    }))
+                    .appendTo(feedbackForm);
+            }
         };
 
         /**
@@ -309,7 +345,7 @@
         const isAllowedToInitialize = () => {
             const isSidepanel = this.helper.utility.getPageType() === "sidepanel";
             const isNewTabPage = location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0;
-            const overlayModeEnabled = this.helper.model.getData("b/overlayEnabled");
+            const overlayModeEnabled = ["overlay", "both"].includes(this.helper.model.getData("b/mode"));
             if (!overlayModeEnabled && !isSidepanel && !isNewTabPage) {
                 return false;
             }
@@ -461,13 +497,12 @@
             });
 
             this.elm.widthDrag = $("<span></span>").addClass($.cl.drag.trigger);
-            if (this.helper.model.getUserType() === "premium" && pageType !== "sidepanel") {
+            if (pageType !== "sidepanel") {
                 this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
             }
 
             this.elm.filterBox = $("<div></div>").addClass([$.cl.sidebar.filterBox, $.cl.hidden]).appendTo(this.elm.sidebar);
             this.elm.pinnedBox = $("<div></div>").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
-            this.elm.lockPinned = $("<a></a>").addClass($.cl.sidebar.lockPinned).html("<span></span>").appendTo(this.elm.sidebar);
 
             this.elm.header = $("<header></header>").prependTo(this.elm.sidebar);
 

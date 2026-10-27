@@ -1,6 +1,9 @@
+@use "../include/mixins";
+@use "../include/vars";
+
 
 body.dark div.modal {
-  background: $darkContentBackground;
+  @include mixins.modalBackground(vars.$darkContentBackground);
 
   > a.preview, > span.preview {
     background: rgba(255, 255, 255, 0.05);
@@ -13,7 +16,7 @@ body.dark div.modal {
   p.premium {
 
     > a {
-      color: $__textColor;
+      color: vars.$dyn-textColor;
     }
   }
 
@@ -29,11 +32,11 @@ body.dark div.modal {
         border-color: rgba(255, 255, 255, 0.1);
 
         > option {
-          background: $darkContentBackground2;
+          background: vars.$darkContentBackground2;
         }
 
         &.error {
-          border-color: rgba($colorError, 0.5);
+          border-color: rgba(vars.$colorError, 0.5);
         }
 
         &:focus {
@@ -48,7 +51,7 @@ body.dark div.modal {
     > menu:not(.buttons) {
 
       > a {
-        background-color: $darkContentBackground2;
+        background-color: vars.$darkContentBackground2;
 
         &::before, &::after {
           opacity: 0.5;
@@ -59,12 +62,12 @@ body.dark div.modal {
 
           &::before {
             opacity: 1;
-            background-color: $__textColor;
+            background-color: vars.$dyn-textColor;
           }
 
           &::after {
             opacity: 1;
-            color: $__textColor;
+            color: vars.$dyn-textColor;
           }
         }
       }
@@ -82,20 +85,20 @@ body.dark div.modal {
   &[data-type='infos'] {
 
     > header::before {
-      @include maskImage('icon-info');
+      @include mixins.maskImage('icon-info');
     }
 
     > ul.breadcrumb {
 
       &::before {
-        background: linear-gradient(to right, $darkContentBackground 0%, transparent 100%);
+        background: linear-gradient(to right, vars.$darkContentBackground 0%, transparent 100%);
       }
 
       > li {
         background: rgba(255, 255, 255, 0.08);
 
         &::before {
-          border-left-color: $darkContentBackground;
+          border-left-color: vars.$darkContentBackground;
         }
 
         &::after {
@@ -108,11 +111,11 @@ body.dark div.modal {
       border-color: rgba(255, 255, 255, 0.1);
 
       > li > ul {
-        background: $darkTooltipBackground;
-        color: $darkTooltipTextColor;
+        background: vars.$darkTooltipBackground;
+        color: vars.$darkTooltipTextColor;
 
         &::before {
-          border-bottom-color: $darkTooltipBackground;
+          border-bottom-color: vars.$darkTooltipBackground;
         }
       }
     }
@@ -121,16 +124,16 @@ body.dark div.modal {
   &[data-type='keyboardShortcuts'] {
 
     &::after {
-      background: $darkContentBackground2;
+      background: vars.$darkContentBackground2;
     }
 
     > div.scrollBox > div {
 
       > a {
-        color: $__textColor;
+        color: vars.$dyn-textColor;
 
         &::before {
-          border-color: $__textColor;
+          border-color: vars.$dyn-textColor;
         }
       }
 
@@ -147,10 +150,10 @@ body.dark div.modal {
   }
 
   > menu.buttons > a {
-    color: $__textColor;
+    color: vars.$dyn-textColor;
 
     &::before {
-      background: $__textColor;
+      background: vars.$dyn-textColor;
     }
   }
 }

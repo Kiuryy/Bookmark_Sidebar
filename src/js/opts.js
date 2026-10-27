@@ -9,7 +9,8 @@
                 iframe: "redeviation-bs-sidebar",
                 overlay: "redeviation-bs-overlay",
                 newtab: "redeviation-bs-newtab",
-                indicator: "redeviation-bs-indicator"
+                indicator: "redeviation-bs-indicator",
+                feedbackForm: "redeviation-bs-feedback-form"
             },
             sidebar: {
                 sidebar: "sidebar",
@@ -73,7 +74,6 @@
                 menu: "menu",
                 sort: "sort",
                 fixed: "fixed",
-                lockPinned: "lockPinned",
                 lastHover: "lastHover",
                 copied: "copied",
                 filterBox: "filter",
@@ -146,71 +146,85 @@
                 upload: "upload",
                 save: "save"
             },
-            onboarding: {
-                slide: "slide",
-                skip: "skip",
-                close: "close",
-                settings: "settings",
-                toggleArea: "toggleArea",
-                appearance: "appearance",
-                finished: "finished",
-                highlightIcon: "highlightIcon",
-                hideOpenTypeIcon: "hideOpenType",
-                video: "video",
-                large: "large",
-                small: "small"
-            },
             settings: {
-                tabs: {
-                    content: "tab"
-                },
                 color: {
                     field: "color",
-                    mask: "colorMask",
+                    mask: "color-mask",
                 },
                 radio: {
-                    wrapper: "radioWrapper"
+                    wrapper: "radio-wrapper"
                 },
                 translation: {
-                    select: "languageSelect",
-                    category: "category",
-                    thanks: "thanks",
-                    edit: "edit",
+                    select: "language-select",
                     progress: "progress",
                     mark: "mark",
-                    requiredInfo: "requiredInfo",
-                    amountInfo: "amountInfo",
+                    amountInfo: "amount-info",
                     empty: "empty",
                     back: "back",
-                    goto: "goto"
+                    goto: "goto",
+                    view: "view",
+                    languages: "languages",
+                    categories: "categories",
+                    entries: "entries",
+                    headline: "headline",
+                    original: "original",
+                    varName: "var-name",
+                    help: "help",
+                    reminder: "reminder",
+                    status: "status",
+                    required: "required"
                 },
-                toggleArea: {
-                    fullHeight: "fullHeight",
+                infoLinks: {
+                    wrapper: "info-links",
+                    version: "version",
+                    lastUpdate: "last-update"
+                },
+                premium: {
+                    info: "premium-info",
+                    comparison: "premium-comparison",
+                    actions: "premium-actions",
+                    licenseKey: "license-key",
+                    banner: "premium-banner",
+                    restricted: "premium-restricted",
+                    locked: "premium-locked",
+                    replaced: "premium-replaced",
+                    devUserType: "dev-user-type"
+                },
+                expert: {
+                    list: "expert-config",
+                    search: "search"
+                },
+                tipsTricks: {
+                    slide: "slide",
+                    leaving: "leaving",
+                    next: "next"
+                },
+                intro: {
+                    step: "step",
+                    text: "intro",
+                    option: "option",
+                    video: "video",
+                    openHint: "open-hint",
+                    iconInfo: "icon-info"
+                },
+                triggerArea: {
+                    fullHeight: "full-height",
                     dragged: "dragged",
                     dragging: "dragging"
                 },
-                appearance: {
-                    preview: {
-                        fullHeight: "redeviation-bs-fullHeight"
-                    }
-                },
-                support: {
-                    onlySuggestions: "onlySuggestions",
-                    answer: "answer",
-                    noHeight: "noHeight",
-                    absolute: "absolute"
-                },
-                hideable: "hideable",
                 inactive: "inactive",
                 revert: "revert",
+                fieldVideo: "field-video",
                 highlight: "highlight",
-                lazyloaded: "lazyloaded",
                 sub: "sub",
                 desc: "desc",
                 box: "box",
                 dialog: "dialog",
-                boxWrapper: "boxWrapper",
-                contentBox: "contentBox",
+                dialogOpen: "dialog-open",
+                video: "video",
+                videoControls: "video-controls",
+                playPause: "play-pause",
+                paused: "paused",
                 incomplete: "incomplete",
                 suggestion: "suggestion"
             }
@@ -226,19 +240,23 @@
             sort: "data-sort",
             direction: "data-direction",
             style: "data-style",
+            label: "data-label",
             id: "data-id",
             i18n: "data-i18n",
             i18nReplaces: "data-i18nReplaces",
-            onboarding: {
-                openType: "data-openType",
-                surface: "data-surface"
-            },
+            i18nTitle: "data-i18nTitle",
+            i18nAlt: "data-i18nAlt",
+            i18nOptional: "data-i18nOptional",
             settings: {
-                appearance: "data-appearance",
-                success: "data-successtext",
-                hideOnFalse: "data-hideOnFalse",
-                save: "data-save",
-                restore: "data-restore",
+                userType: "data-usertype",
+                step: "data-step",
+                premiumFeature: "data-premium-feature",
+                premiumHidden: "data-premium-hidden",
+                hideOnValue: "data-hideOnValue",
+                video: {
+                    name: "data-video",
+                    title: "data-video-title"
+                },
                 range: {
                     min: "data-min",
                     max: "data-max",
@@ -251,11 +269,13 @@
                     suggestions: "data-suggestions"
                 },
                 field: {
-                    placeholder: "data-placeholder"
+                    placeholder: "data-placeholder",
+                    noRestoreButton: "data-no-restore-button"
                 },
                 translation: {
                     releaseStatus: "data-status",
-                    language: "data-lang"
+                    language: "data-lang",
+                    view: "data-view"
                 }
             }
         },
@@ -269,24 +289,30 @@
             checkboxChanged: "redeviation-bs-checkbox-changed",
             scrollBoxLastPart: "redeviation-bs-scrollbox-lastpart",
             premiumPurchased: "redeviation-bs-premiumPurchased",
-            showFeedbackForm: "redeviation-bs-feedback",
             lsbLoaded: "redeviation-lsb-loaded",
             pageChanged: "redeviation-bs-pageChanged"
         },
         website: {
+            knowledgebase: {
+                overview: "https://extensions.redeviation.com/kb/",
+                shareData: "https://extensions.redeviation.com/kb/blog/share-information/",
+                aboutMe: "https://extensions.redeviation.com/kb/blog/development/",
+                premium: "https://extensions.redeviation.com/kb/blog/premium/",
+                support: "https://extensions.redeviation.com/kb/support/",
+                permissions: "https://extensions.redeviation.com/kb/blog/permissions/",
+                overlayMode: "https://extensions.redeviation.com/kb/blog/overlay-mode/",
+                sidepanelMode: "https://extensions.redeviation.com/kb/blog/sidepanel-mode/",
+                customCss: "https://extensions.redeviation.com/kb/blog/custom-css/",
+            },
             info: {
                 landing: "https://extensions.redeviation.com/",
                 privacyPolicy: "https://extensions.redeviation.com/privacy/bs",
                 changelog: "https://extensions.redeviation.com/changelog/bs",
-                uninstall: "https://extensions.redeviation.com/uninstall/bs",
+                uninstall: "https://extensions.redeviation.com/kb/?uninstall=1",
             },
             premium: {
                 checkout: "https://extensions.redeviation.com/premium/bs/checkout",
                 checkLicenseKey: "https://extensions.redeviation.com/ajax/premium/bs/check",
-            },
-            feedback: {
-                form: "https://extensions.redeviation.com/ajax/feedback",
-                suggestions: "https://extensions.redeviation.com/ajax/feedback/suggestions"
             },
             translation: {
                 info: "https://extensions.redeviation.com/ajax/translation/bs/info",
@@ -294,7 +320,6 @@
                 submit: "https://extensions.redeviation.com/ajax/translation/bs/submit"
             },
             api: {
-                checkStatus: "https://extensions.redeviation.com/ajax/status/bs",
                 evaluate: "https://extensions.redeviation.com/api/evaluate/log",
             }
         },
@@ -304,8 +329,9 @@
                 "chrome://bookmarks": "edge://favorites",
                 "chrome://extensions/shortcuts": "edge://extensions/shortcuts",
                 "chrome://settings/syncSetup": "edge://settings/profiles/sync",
-                "https://extensions.redeviation.com/img/illustration/video_sidepanel.mp4": "https://extensions.redeviation.com/img/illustration/edge/video_sidepanel.mp4",
-                "https://extensions.redeviation.com/img/illustration/video_overlay.mp4": "https://extensions.redeviation.com/img/illustration/edge/video_overlay.mp4"
+                "/video/overlay-mode-chrome.webm": "/video/overlay-mode-edge.webm",
+                "/video/sidepanel-mode-chrome.webm": "/video/sidepanel-mode-edge.webm",
+                "/video/pin-extension-icon-chrome.webm": "/video/pin-extension-icon-edge.webm"
             },
             Opera: {
                 "chrome://newtab/": "chrome://startpageshared/",
@@ -314,11 +340,11 @@
             }
         },
         leftsideBackSelector: "div#redeviation-lsb-indicator.redeviation-lsb-visible",
-        manifest: $.api.runtime.getManifest(),
-        demoMode: false
+        manifest: $.api.runtime.getManifest()
     };
 
-    $.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
+    $.opts.demoMode = $.opts.manifest.version_name === "Demo"; // node build.mjs --demo
+    $.isDev = $.opts.manifest.version_name === "Dev" || $.opts.demoMode || !("update_url" in $.opts.manifest);
     $.copyrightDate = 2016;
 
     $.browserName = "Chrome";

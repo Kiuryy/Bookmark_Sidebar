@@ -24,7 +24,7 @@ html[dir='rtl'] {
           &::before {
             left: unset;
             right: 10px;
-            -webkit-mask-position-x: right;
+            mask-position: right center;
           }
 
           &.active::after {
@@ -55,7 +55,7 @@ html[dir='rtl'] {
             padding-left: 0;
 
             &::before {
-              -webkit-mask-position-x: right;
+              mask-position: right center;
             }
           }
         }

@@ -1,5 +1,11 @@
+@use "sass:color";
+@use "sass:meta";
+@use "../mixins";
+@use "../placeholders";
+@use "../vars";
+
 %premiumTooltip {
-  @include mask('icon-premium', $textColorInverted, 14px);
+  @include mixins.mask('icon-premium', vars.$textColorInverted, 14px);
   position: relative;
   display: inline-block;
   font-size: 90%;
@@ -7,8 +13,8 @@
   line-height: 26px;
   padding: 0 4px 0 22px;
   vertical-align: top;
-  color: $textColorInverted;
-  background: $__textColor;
+  color: vars.$textColorInverted;
+  background: vars.$dyn-textColor;
 
   &::after {
     content: "";
@@ -16,16 +22,16 @@
     top: 5px;
     right: -16px;
     border: 8px solid transparent;
-    border-left-color: $__textColor;
+    border-left-color: vars.$dyn-textColor;
   }
 
   &::before {
-    -webkit-mask-position-x: 4px;
+    mask-position: 4px center;
   }
 }
 
 body > a.edit {
-  @include mask('icon-edit', $textColorLight, 24px);
+  @include mixins.mask('icon-edit', vars.$textColorLight, 24px);
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -37,7 +43,7 @@ body > a.edit {
   transition: background 0.3s;
 
   &:hover {
-    background: darken($bodyBackground, 5%);
+    background: color.adjust(vars.$bodyBackground, $lightness: -5%);
   }
 }
 
@@ -47,7 +53,7 @@ menu.infoBar {
   left: 0;
   width: 100%;
   height: 60px;
-  background: $__textColor;
+  background: vars.$dyn-textColor;
   padding: 15px 20px;
   transition: transform 0.5s;
   transform: translate3d(0, 60px, 0);
@@ -60,16 +66,16 @@ menu.infoBar {
     cursor: pointer;
 
     &.save {
-      background: $contentBackground;
+      background: vars.$contentBackground;
       padding: 4px 8px;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       font-size: 100%;
       border-radius: 5px;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     }
 
     &.cancel {
-      color: $textColorInverted;
+      color: vars.$textColorInverted;
       margin: 0 20px;
       padding: 5px 3px;
     }
@@ -84,10 +90,10 @@ menu.infoBar {
     transition: transform 0.5s, opacity 0.5s;
 
     > a.remove {
-      @include mask('icon-delete', $__textColor, 18px);
+      @include mixins.mask('icon-delete', vars.$dyn-textColor, 18px);
       position: relative;
       display: none;
-      background: $contentBackground;
+      background: vars.$contentBackground;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
       border-radius: 50%;
       width: 32px;
@@ -99,23 +105,23 @@ menu.infoBar {
       position: relative;
       overflow: hidden;
       display: inline-block;
-      background: $contentBackground;
+      background: vars.$contentBackground;
       padding: 0 8px;
       margin: 0 0 0 10px;
       height: 32px;
       line-height: 32px;
-      font-weight: $__fontWeightMedium;
+      font-weight: vars.$dyn-fontWeightMedium;
       font-size: 100%;
       border-radius: 5px;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 
       > span {
-        @include mask('settings/icon-screenshot', $__textColor, 20px);
+        @include mixins.mask('settings/icon-screenshot', vars.$dyn-textColor, 20px);
         position: relative;
         padding: 0 3px 0 28px;
 
         &::before {
-          -webkit-mask-position-x: 0;
+          mask-position: 0 center;
         }
       }
 
@@ -149,7 +155,7 @@ menu.infoBar {
 div.editLinkTooltip {
   position: absolute;
   text-align: left;
-  background: $contentBackground;
+  background: vars.$contentBackground;
   filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
   padding: 10px;
   bottom: -170px;
@@ -166,11 +172,11 @@ div.editLinkTooltip {
     right: 20px;
     width: 0;
     border: 10px solid transparent;
-    border-bottom-color: $contentBackground;
+    border-bottom-color: vars.$contentBackground;
   }
 
   > label {
-    font-weight: $__fontWeightMedium;
+    font-weight: vars.$dyn-fontWeightMedium;
     display: block;
   }
 
@@ -192,15 +198,15 @@ div.editLinkTooltip {
     border: none;
     outline: none;
     background: none;
-    color: $__colorScheme;
-    font-weight: $__fontWeightMedium;
+    color: vars.$dyn-colorScheme;
+    font-weight: vars.$dyn-fontWeightMedium;
     cursor: pointer;
     float: right;
     margin-top: 3px;
 
     &[data-type="delete"] {
       float: left;
-      color: $textColorLight;
+      color: vars.$textColorLight;
     }
   }
 }
@@ -247,11 +253,11 @@ body[data-pos='right'] {
           right: unset;
           left: -16px;
           border-left-color: transparent;
-          border-right-color: $__textColor;
+          border-right-color: vars.$dyn-textColor;
         }
 
         &::before {
-          -webkit-mask-position-x: 4px;
+          mask-position: 4px center;
         }
       }
     }
@@ -276,10 +282,10 @@ body.customBackground {
   }
 
   > a.edit {
-    background: rgba($bodyBackground, 0.8);
+    background: rgba(vars.$bodyBackground, 0.8);
 
     &::before {
-      background-color: darken($textColorLight, 15%);
+      background-color: color.adjust(vars.$textColorLight, $lightness: -15%);
     }
   }
 }
@@ -292,7 +298,7 @@ body.edit {
 
   select.edit {
     display: block;
-    background: $contentBackground;
+    background: vars.$contentBackground;
     height: 25px;
     margin: 0 auto;
     border-radius: 10px;
@@ -322,28 +328,28 @@ body.edit {
       }
 
       > a.add {
-        @include mask('icon-add', $textColorLight, 20px);
+        @include mixins.mask('icon-add', vars.$textColorLight, 20px);
         position: absolute;
         display: block;
         width: 30px;
         height: 30px;
         top: 0;
         left: 0;
-        background: $bodyBackground;
+        background: vars.$bodyBackground;
         transition: background 0.3s;
         border-radius: 50%;
         cursor: pointer;
 
         &:hover {
-          background: darken($bodyBackground, 5%);
+          background: color.adjust(vars.$bodyBackground, $lightness: -5%);
         }
       }
 
       > ul > li {
 
         > a {
-          @include mask('icon-edit', $textColorLight, 14px);
-          border: 2px dashed $textColorLight;
+          @include mixins.mask('icon-edit', vars.$textColorLight, 14px);
+          border: 2px dashed vars.$textColorLight;
           padding-top: 5px;
           padding-bottom: 21px;
           border-radius: 10px;
@@ -420,12 +426,12 @@ body.edit {
         display: inline-block;
 
         &::before {
-          -webkit-mask-size: 18px;
+          mask-size: 18px;
         }
 
         + span {
           font-size: 90%;
-          font-weight: $__fontWeightMedium;
+          font-weight: vars.$dyn-fontWeightMedium;
           vertical-align: top;
           display: inline-block;
           margin: 3px 20px 0 5px;
@@ -442,10 +448,10 @@ body.edit {
     }
 
     > a.edit {
-      @include mask('icon-edit', $textColorLight, 22px);
+      @include mixins.mask('icon-edit', vars.$textColorLight, 22px);
       right: 20px;
-      width: calc(#{$newTabSearchHeight} - 14px);
-      height: calc(#{$newTabSearchHeight} - 14px);
+      width: calc(#{vars.$newTabSearchHeight} - 14px);
+      height: calc(#{vars.$newTabSearchHeight} - 14px);
     }
   }
 
@@ -462,7 +468,7 @@ body.edit {
       margin: 0 10px;
 
       > strong {
-        font-weight: $__fontWeightNormal;
+        font-weight: vars.$dyn-fontWeightNormal;
         margin: 0 5px 0 0;
       }
 
@@ -491,7 +497,7 @@ body.edit {
       &.premium {
 
         > select.edit {
-          color: $textColorLight;
+          color: vars.$textColorLight;
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
           opacity: 0.7;
           cursor: not-allowed;
@@ -528,9 +534,9 @@ body.edit {
           }
 
           > div {
-            @include mask('icon-edit', $textColorLight, 18px);
+            @include mixins.mask('icon-edit', vars.$textColorLight, 18px);
             box-shadow: none;
-            border: 2px dashed $textColorLight;
+            border: 2px dashed vars.$textColorLight;
             background: transparent;
             cursor: pointer;
             transition: background 0.3s;
@@ -545,7 +551,7 @@ body.edit {
           }
 
           &.dragHover {
-            border: 2px dashed $textColorLight;
+            border: 2px dashed vars.$textColorLight;
 
             > * {
               opacity: 0.3;
@@ -553,7 +559,7 @@ body.edit {
           }
 
           &[data-value='empty'] > div::before {
-            @include maskImage('icon-add');
+            @include mixins.maskImage('icon-add');
           }
         }
       }
@@ -563,7 +569,7 @@ body.edit {
   &.customBackground {
 
     select.edit {
-      background: rgba($contentBackground, 0.8);
+      background: rgba(vars.$contentBackground, 0.8);
     }
 
     &.edit {
@@ -571,7 +577,7 @@ body.edit {
       div#gridLinks {
 
         > div[data-type='gridsize'] {
-          background: rgba($contentBackground, 0.8);
+          background: rgba(vars.$contentBackground, 0.8);
           border-radius: 10px;
           padding: 2px 8px 1px 10px;
           margin: 0 7px;
@@ -580,21 +586,21 @@ body.edit {
         &[data-type="custom"] > ul > li > a {
 
           > div {
-            background: rgba($contentBackground, 0.8);
-            box-shadow: 0 0 0 3px rgba($contentBackground, 0.8);
-            border-color: $__textColor;
+            background: rgba(vars.$contentBackground, 0.8);
+            box-shadow: 0 0 0 3px rgba(vars.$contentBackground, 0.8);
+            border-color: vars.$dyn-textColor;
 
             &::before {
-              background: $__textColor;
+              background: vars.$dyn-textColor;
             }
           }
 
           &:hover > div {
-            background: rgba($contentBackground, 0.9);
+            background: rgba(vars.$contentBackground, 0.9);
           }
 
           &.dragHover {
-            border-color: $contentBackground;
+            border-color: vars.$contentBackground;
 
             > * {
               opacity: 0.5;
@@ -606,20 +612,20 @@ body.edit {
       section#content > nav {
 
         > a.add::before {
-          background: $__textColor;
+          background: vars.$dyn-textColor;
         }
 
         > ul > li > a {
-          background: rgba($contentBackground, 0.8);
-          box-shadow: 0 0 0 3px rgba($contentBackground, 0.8);
-          border-color: $__textColor;
+          background: rgba(vars.$contentBackground, 0.8);
+          box-shadow: 0 0 0 3px rgba(vars.$contentBackground, 0.8);
+          border-color: vars.$dyn-textColor;
 
           &::before {
-            background: $__textColor;
+            background: vars.$dyn-textColor;
           }
 
           &:hover {
-            background: rgba($contentBackground, 0.9);
+            background: rgba(vars.$contentBackground, 0.9);
           }
 
           &.dragHover {
@@ -631,5 +637,5 @@ body.edit {
   }
 }
 
-@import "../../rtl/include/newtab/edit";
-@import "../../dark/include/newtab/edit";
+@include meta.load-css("../../rtl/include/newtab/edit");
+@include meta.load-css("../../dark/include/newtab/edit");

@@ -1,0 +1,104 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
+body > main section.tab[data-name='overview'] div.col.tips-tricks {
+  display: grid;
+  min-height: 350px;
+  max-width: 800px;
+  overflow: hidden;
+
+  > div.slide {
+    grid-area: 1 / 1; // all slides share the same cell, so the leaving and the entering one overlap
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 20px;
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    transition: opacity 0.2s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); // duration has to match SLIDE_DURATION in tipsTricks.js
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none !important;
+    }
+
+    &.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: 0.2s; // let the previous slide move out a bit first
+    }
+
+    &.leaving {
+      opacity: 0;
+      transition-delay: 0s;
+      transform: translate3d(-100px, 0, 0);
+      pointer-events: none;
+    }
+
+    > div.info {
+      padding: 5px;
+
+      > p {
+        font-size: 115%;
+        line-height: 180%;
+
+        > i, > span {
+          position: relative;
+          display: inline-block;
+          line-height: 140%;
+          border: 1px solid rgb(0 0 0 / 10%);
+          background: rgb(0 0 0 / 5%);
+          font-style: normal;
+          padding: 0 5px;
+          border-radius: 4px;
+          margin: 0 3px;
+        }
+
+        > span {
+          @include mixins.mask(null, vars.$textColor, 22px);
+          width: 35px;
+          height: 30px;
+          vertical-align: top;
+        }
+      }
+
+      > .btn {
+        margin-top: 20px;
+      }
+    }
+
+    > img {
+      display: block;
+      width: 300px;
+    }
+  }
+
+  > div.slide[data-type='quick_bookmarking'] > div.info > p > span::before {
+    @include mixins.maskImage("icon-lock");
+  }
+
+  > div.slide[data-type='hide_entries'] > div.info > p > span::before {
+    @include mixins.maskImage("icon-hide");
+  }
+
+  > div.slide[data-type='separators'] > div.info > p > span::before {
+    @include mixins.maskImage("icon-add");
+  }
+
+  > div.slide[data-type='keyboard_shortcuts'] > div.info > p > span::before {
+    @include mixins.maskImage("icon-keyboard");
+  }
+
+  > div.slide[data-type='version'] > img,
+  > div.slide[data-type='privacy'] > img {
+    width: 220px;
+    margin: 10px 20px 0;
+  }
+
+  > div.slide[data-type='synchronization'] > img {
+    width: 200px;
+    margin: 20px 40px 0;
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/tipsTricks");

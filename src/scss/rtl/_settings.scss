@@ -1,38 +1,12 @@
-
 html[dir='rtl'] {
 
-  div.noticeBox {
+  ul.bullet-list > li {
+    padding-left: 0;
+    padding-right: 10px;
 
     &::before {
       left: unset;
-      right: 15px;
-    }
-
-    > p, > h2 {
-      padding-left: 0;
-      padding-right: 40px;
-    }
-  }
-
-  ul.bulletList {
-
-    > li {
-      padding-left: unset;
-      padding-right: 10px;
-
-      &::before {
-        left: unset;
-        right: 0;
-      }
-    }
-  }
-
-  p.premium {
-    padding-left: 0;
-    padding-right: 50px;
-
-    &::before {
-      transform: scaleX(-1);
+      right: 0;
     }
   }
 }

@@ -1,105 +1,95 @@
-@import "include/vars";
-@import "include/mixins";
-@import "include/settingsMixins";
+@use "sass:meta";
+@use "include/vars";
+@use "include/spacing";
+@use "include/placeholders";
 //
-$__colorScheme: $mainColor2;
-$__textColor: $textColor;
-@import "include/loading";
-@import "include/checkbox";
+vars.$dyn-colorScheme: vars.$mainColor2;
+vars.$dyn-textColor: vars.$settingsTextColor;
+vars.$textColor: vars.$settingsTextColor;
+
+@use "include/loading";
+@use "include/checkbox";
 //
-@import "include/generals";
+@use "include/generals";
 //
-$__scrollBarWidth: 14px;
-@import "include/scrollBox";
-@import "include/settings/header";
-@import "include/settings/content";
-@import "include/settings/dashboard";
-@import "include/settings/advanced";
-@import "include/settings/infos";
-@import "include/settings/sidebar";
-@import "include/settings/appearance";
-@import "include/settings/newtab";
-@import "include/settings/support";
-@import "include/settings/premium";
-@import "include/settings/form";
-@import "include/settings/translation";
-@import "include/settings/importExport";
-@import "include/settings/menu";
-@import "include/settings/tooltip";
-@import "include/settings/expert";
-@import "include/settings/colorpicker";
+@use "include/settings/header";
+@use "include/settings/layout";
+@use "include/settings/conditional";
+@use "include/settings/overview";
+@use "include/settings/mode";
+@use "include/settings/triggerArea";
+@use "include/settings/extensionIcon";
+@use "include/settings/display";
+@use "include/settings/preview";
+@use "include/settings/newtab";
+@use "include/settings/button";
+@use "include/settings/form";
+@use "include/settings/colorpicker";
+@use "include/settings/tipsTricks";
+@use "include/settings/premium";
+@use "include/settings/dialog";
+@use "include/settings/expert";
+@use "include/settings/translations";
+@use "include/settings/intro";
+
+*, *::before, *::after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+html {
+  overscroll-behavior-y: none;
+}
 
 body {
-  background: $bodyBackground;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-width: 1024px;
-  height: 100%;
-  user-select: none;
-  overflow: hidden;
+  background: vars.$bodyBackground;
 
-  @media (max-width: 800px) {
-    overflow: auto;
-  }
-
-  &::before, &::after {
-    position: fixed;
-    @extend %hidden;
-  }
-
-  &::after {
-    content: attr(data-successtext);
-    top: 70px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 600px;
-    padding: 40px;
-    text-align: center;
-    font-size: 140%;
-    color: $textColorInverted;
-    background: $colorSuccess;
-    transform: translate3d(0, -50px, 0);
-    transition: opacity 0.5s, transform 0.5s;
-    z-index: 99;
-  }
-
-  &::before {
+  &.initLoading::before {
     content: "";
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    transition: opacity 0.3s;
+    background: vars.$bodyBackground;
     z-index: 98;
   }
 
-  &.success {
+  > div.message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    pointer-events: none;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.4s;
 
-    &::before, &::after {
-      @extend %visible;
+    &.visible {
+      transform: translateY(20px);
+      opacity: 1;
     }
 
-    &::after {
-      transform: translate3d(0, 0, 0);
+    > span {
+      display: inline-block;
+      background: vars.$contentBackground;
+      padding: 20px 35px 22px;
+      border-radius: 50px;
+      font-size: 110%;
+      font-weight: vars.$dyn-fontWeightMedium;
+      box-shadow: 0 10px 50px rgb(0 0 0 / 50%);
+      text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
     }
-  }
 
-  &.initLoading {
-
-    &::before {
-      @extend %visible;
-      background: $bodyBackground;
-    }
-  }
-
-  &.loading {
-
-    &::before {
-      @extend %visible;
+    &[data-type="success"] > span {
+      background: vars.$colorSuccess;
+      color: vars.$textColorInverted;
     }
   }
 
@@ -112,43 +102,10 @@ body {
   }
 }
 
-// Headlines
-h2 {
-  font-size: 150%;
-  font-weight: $__fontWeightNormal;
-  color: $mainColor2;
-  margin: 0 0 15px 0;
-}
-
-// Notice
-div.noticeBox {
-  @include mask('icon-info', $textColorLight, 32px);
-
-  &::before {
-    top: 0;
-    bottom: 0;
-    left: 15px;
-    width: 32px;
-    height: 32px;
-    margin: auto;
-  }
-
-  > p {
-    line-height: 150%;
-    padding: 3px 0 3px 40px;
-  }
-
-  > h2 {
-    padding: 0 0 0 40px;
-    margin-bottom: 5px;
-  }
-}
-
 // List
-ul.bulletList {
+ul.bullet-list {
 
   > li {
-    position: relative;
     padding-left: 10px;
 
     &::before {
@@ -159,67 +116,4 @@ ul.bulletList {
   }
 }
 
-// Separator
-hr {
-  border: none;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 15px 0;
-}
-
-// Button
-main button[type='submit'], a.button {
-  @extend %button;
-  margin: 10px 0;
-}
-
-// Image
-img[loading='lazy'] {
-  transition: opacity 0.5s;
-  opacity: 0;
-
-  &.lazyloaded {
-    opacity: 1;
-  }
-}
-
-// Premium Text
-p.premium {
-  @include mask('icon-premium', $__textColor, 32px);
-  position: relative;
-  margin: 20px 0;
-  padding: 0 0 0 50px;
-  font-size: 120%;
-
-  &::before {
-    -webkit-mask-position-x: 0;
-    pointer-events: none;
-  }
-
-  > span {
-    display: block;
-    margin-bottom: 3px;
-  }
-
-  > a {
-    font-weight: $__fontWeightMedium;
-    cursor: pointer;
-    color: $mainColor2;
-    font-size: 80%;
-  }
-}
-
-// External link
-a.externalLink {
-  display: inline-block;
-  font-weight: $__fontWeightMedium;
-  color: $mainColor2;
-  font-size: 90%;
-  margin-top: 15px;
-
-  &::before {
-    content: attr(href);
-  }
-}
-
-@import "rtl/settings";
+@include meta.load-css("rtl/settings");

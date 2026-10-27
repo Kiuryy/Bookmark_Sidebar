@@ -1,0 +1,169 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
+$modeColors: (
+  overlay: vars.$settingsColorOverlayMode,
+  sidepanel: vars.$settingsColorSidepanelMode
+);
+
+// Badge in the corner of the areas which only apply to one of the modes, only visible when both modes are used
+body {
+  span.mode-info {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: vars.$textColorInverted;
+    cursor: help;
+    z-index: 2;
+  }
+
+  @each $mode, $color in $modeColors {
+    [data-mode="#{$mode}"] span.mode-info {
+      background-color: $color;
+    }
+  }
+
+  &[data-mode="both"] {
+    span.mode-info {
+      display: block;
+    }
+
+    @each $mode, $color in $modeColors {
+      [data-mode="#{$mode}"] label.large {
+        color: $color;
+      }
+    }
+  }
+}
+
+body > main {
+  section.wrapper > span.mode-info {
+    top: 30px;
+    right: 4%;
+  }
+
+  section.mode-selection {
+
+    div.mode {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      > div.left {
+        text-align: center;
+
+        > img {
+          display: block;
+          width: 100%;
+          max-width: 220px;
+        }
+
+        .btn + .btn {
+          margin-left: 3px;
+        }
+
+        > p {
+          margin-top: 10px;
+          font-size: 110%;
+        }
+      }
+
+      > div.right {
+        flex: 1;
+
+        > strong.title {
+          @include mixins.mask("settings/icon-circle", transparent, 20px);
+          display: block;
+          font-size: 130%;
+          font-weight: vars.$dyn-fontWeightMedium;
+          margin: 10px 0;
+          padding-left: 26px;
+
+          &::before {
+            mask-position: left center;
+            left: 0;
+          }
+        }
+
+        > div.pro-cons {
+          margin-top: 10px;
+          background: vars.$contentBackground2;
+          border-radius: 10px;
+          font-size: 90%;
+
+          > ul {
+
+            + ul {
+              border-top: 1px solid vars.$separatorColor;
+            }
+
+            > li {
+              padding: 9px 9px 9px 25px;
+
+              + li {
+                border-top: 1px solid vars.$separatorColor;
+              }
+
+              &::before {
+                position: absolute;
+                font-weight: vars.$dyn-fontWeightBold;
+                left: 7px;
+              }
+            }
+
+            &:first-child > li::before {
+              content: "+";
+              color: vars.$colorSuccess;
+            }
+
+            &:last-child > li::before {
+              content: "-";
+              color: vars.$colorError;
+            }
+          }
+        }
+      }
+
+      @each $mode, $color in $modeColors {
+        &[data-name="#{$mode}"] strong.title {
+          color: $color;
+
+          &::before {
+            background-color: $color !important;
+          }
+        }
+      }
+    }
+
+    // Explanation of using both modes, with a circle in both colors in front of it
+    div.both-info {
+      padding-left: 60px;
+
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      &::before {
+        background: vars.$settingsColorSidepanelMode;
+        clip-path: inset(0 0 0 55%); // right half
+      }
+
+      &::after {
+        background: vars.$settingsColorOverlayMode;
+        clip-path: inset(0 55% 0 0); // left half
+      }
+    }
+  }
+}
+
+@include meta.load-css("../../rtl/include/settings/mode");

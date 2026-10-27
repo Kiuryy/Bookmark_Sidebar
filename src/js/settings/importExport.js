@@ -1,37 +1,44 @@
 ($ => {
     "use strict";
 
-    $.ImportExportHelper = function (s) {
+    $.SettingsImportExportHelper = function (s) {
+
+        let dialog = null;
 
         /**
-         *
-         * @returns {Promise}
+         * Initialises the export and import buttons of the import/export dialog
          */
-        this.init = async () => {
-            if (s.helper.model.getUserType() !== "default") {
+        this.init = () => {
+            dialog = $(`section#import-export-${$.cl.settings.dialog}`);
+
+            if (s.helper.premium.hasAccess("importExport")) { // for other users the buttons are disabled and covered by the premium banner
                 initExport();
                 initImport();
-            } else {
-                initNoPremium();
             }
+
+            dialog.find(`a[${$.attr.type}='syncSettings']`).on("click", (e) => {
+                e.preventDefault();
+                s.helper.model.call("openLink", {
+                    href: "chrome://settings/syncSetup", // gets replaced with the matching url for other browsers by the background script
+                    newTab: true,
+                    active: true
+                });
+            });
         };
 
         /**
-         * Returns the config which should be exported
+         * Returns the config which should be exported (also used by the content script to prefill the feedback form on the website)
          *
          * @returns {object}
          */
         this.getExportConfig = () => {
             const config = Object.assign({}, s.helper.model.getAllData());
+            const utility = config.utility || {};
 
-            if (s.helper.model.getUserType() !== "default") {
-                config.utility = {
-                    customCss: config.utility.customCss || "",
-                    newtabBackground: config.utility.newtabBackground || ""
-                };
-            } else {
-                delete config.utility;
-            }
+            config.utility = {
+                customCss: utility.customCss || "",
+                newtabBackground: utility.newtabBackground || ""
+            };
 
             return config;
         };
@@ -44,27 +51,27 @@
         };
 
         /**
-         *
+         * Initialises the export button, the file is generated when clicking the button, so it always contains the currently stored configuration
          */
-        const initNoPremium = () => {
-            s.addNoPremiumText(s.elm.importExport.content.find("div[" + $.attr.value + "='exportSettings']"));
-
-            ["import", "export"].forEach((field) => {
-                s.elm.buttons[field].addClass($.cl.settings.inactive);
+        const initExport = () => {
+            dialog.find(`a[${$.attr.type}='export']`).on("click", (e) => { // the href is read after the event handlers ran, so setting it here is enough
+                const config = JSON.stringify(this.getExportConfig(), null, 2);
+                $(e.currentTarget).attr({
+                    href: "data:text/json;charset=utf-8," + encodeURIComponent(config),
+                    download: getExportFilename()
+                });
             });
         };
 
         /**
-         * Initialises the import function
-         *
-         * @returns {Promise}
+         * Initialises the import button
          */
-        const initImport = async () => {
-            s.elm.buttons["import"].children("input[type='file']").on("change", (e) => { // import config
+        const initImport = () => {
+            dialog.find(`a[${$.attr.type}='import'] > input[type='file']`).on("change", (e) => {
                 e.preventDefault();
-                const _self = e.currentTarget;
+                const input = e.currentTarget;
 
-                if (_self.files && _self.files[0] && _self.files[0].name.search(/\.bookmark_sidebar$/) > -1) {
+                if (input.files && input.files[0] && input.files[0].name.search(/\.bookmark_sidebar$/) > -1) {
                     const reader = new FileReader();
 
                     reader.onload = (e) => {
@@ -76,10 +83,12 @@
                         }
                     };
 
-                    reader.readAsText(_self.files[0]);
+                    reader.readAsText(input.files[0]);
                 } else {
                     alertImportError();
                 }
+
+                input.value = ""; // allows choosing the same file again
             });
         };
 
@@ -87,68 +96,47 @@
          * Saves the given configuration and triggers a refresh of the extension
          *
          * @param {object} config
-         */
-        const saveConfig = async (config) => {
-            if (config.behaviour && config.appearance && config.newtab) {
-                await $.api.storage.sync.set({
-                    behaviour: config.behaviour,
-                    appearance: config.appearance,
-                    newtab: config.newtab
-                });
-
-                const currentConfig = Object.assign({}, s.helper.model.getAllData());
-                currentConfig.utility = currentConfig.utility || {};
-
-                ["customCss", "newtabBackground"].forEach((field) => {
-                    let val = "";
-                    if (config.utility && config.utility[field]) {
-                        val = config.utility[field];
-                    }
-                    currentConfig.utility[field] = val;
-                });
-
-                await $.api.storage.local.set({utility: currentConfig.utility});
-
-                s.showSuccessMessage("import_saved");
-
-                await s.helper.model.call("reinitialize");
-                await $.delay(1500);
-                s.helper.model.call("reloadIcon");
-                s.helper.model.call("reloadBrowserAction");
-
-                location.reload(true);
-            } else {
-                alertImportError();
-            }
-        };
-
-        /**
-         * Initialises the export function
-         *
          * @returns {Promise}
          */
-        const initExport = async () => {
-            $(document).on($.opts.events.pageChanged, (e) => {
-                if (e.detail.path && e.detail.path[0] === "export") {
-                    updateExportDataHref();
+        const saveConfig = async (config) => {
+            if (!config.behaviour || !config.appearance || !config.newtab) {
+                alertImportError();
+                return;
+            }
+
+            s.helper.dialog.setLoading("import-export", true);
+
+            await $.api.storage.sync.set({
+                behaviour: config.behaviour,
+                appearance: config.appearance,
+                newtab: config.newtab
+            });
+
+            const currentConfig = Object.assign({}, s.helper.model.getAllData());
+            currentConfig.utility = currentConfig.utility || {};
+
+            ["customCss", "newtabBackground"].forEach((field) => {
+                let val = "";
+                if (config.utility && config.utility[field]) {
+                    val = config.utility[field];
                 }
+                currentConfig.utility[field] = val;
             });
-            updateExportDataHref();
+
+            await $.api.storage.local.set({utility: currentConfig.utility});
+
+            s.showMessage("import_saved", "success");
+
+            await s.helper.model.call("reinitialize");
+            await $.delay(1500);
+            s.helper.model.call("reloadIcon");
+            s.helper.model.call("reloadBrowserAction");
+
+            s.reload();
         };
 
         /**
-         * Set a data:text/json href to the export button with the current configuration
-         */
-        const updateExportDataHref = () => {
-            const config = JSON.stringify(this.getExportConfig(), null, 2);
-            s.elm.buttons["export"].attr({
-                href: "data:text/json;charset=utf-8," + encodeURIComponent(config),
-                download: getExportFilename()
-            });
-        };
-
-        /**
-         * Generates a filename for the export file, based on the current date and time
+         * Generates a filename for the export file, based on the current date
          *
          * @returns {string}
          */

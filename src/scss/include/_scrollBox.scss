@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "vars";
+
 .scrollBox {
   position: relative;
   overflow-y: scroll;
@@ -6,7 +9,7 @@
   transition: background-color 0.3s;
 
   &::-webkit-scrollbar {
-    width: $__scrollBarWidth;
+    width: vars.$dyn-scrollBarWidth;
     background: transparent;
   }
 
@@ -14,7 +17,7 @@
     border-radius: 20px;
     border: 3px solid transparent;
     background-clip: content-box;
-    background-color: $scrollBarBackground;
+    background-color: vars.$scrollBarBackground;
   }
 
   &::-webkit-scrollbar-track {
@@ -29,4 +32,4 @@
   }
 }
 
-@import "../dark/include/scrollBox";
+@include meta.load-css("../dark/include/scrollBox");

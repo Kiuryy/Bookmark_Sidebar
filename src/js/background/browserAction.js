@@ -8,25 +8,26 @@
         let reason = null;
 
         /**
+         * Determines what a click on the extension icon does, based on the configured mode:
+         * overlay -> toggles the sidebar in the overlay of the current tab (see toggleSidebar), sidepanel and both -> opens the sidebar in the side panel,
+         * called again whenever the settings are saved (reloadBrowserAction)
          *
          * @returns {Promise}
          */
         this.init = async () => {
             if ($.api.sidePanel) {
-                $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: true}); // click on extension icon shall toggle the sidebar
-
                 const config = await $.api.storage.sync.get(["behaviour"]);
-                if (config && config.behaviour && config.behaviour.iconAction && config.behaviour.iconAction !== "sidepanel") {
-                    $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: false});
-                }
+                const mode = (config && config.behaviour && config.behaviour.mode) || "sidepanel";
+
+                // with openPanelOnActionClick the browser opens the side panel itself and action.onClicked is not fired, otherwise toggleSidebar is called
+                await $.api.sidePanel.setPanelBehavior({openPanelOnActionClick: mode !== "overlay"});
             }
 
             await this.initContextmenus();
         };
 
         /**
-         * Adds a link to the changelog page in the browser action contextmenu,
-         * Adds an entry to the page contextmenu which toggles the sidebar (like the extension icon)
+         * Adds links to the settings, the knowledgebase and the changelog in the browser action contextmenu
          *
          * @returns {Promise}
          */
@@ -43,14 +44,14 @@
             });
 
             $.api.contextMenus.create({
-                id: "bsChangelog_" + uid,
-                title: lang.vars.settings_menu_infos_changelog.message,
+                id: "bsKnowledgebase_" + uid,
+                title: lang.vars.settings_knowledgebase.message,
                 contexts: ["action"]
             });
 
             $.api.contextMenus.create({
-                id: "bsPrivacy_" + uid,
-                title: lang.vars.settings_menu_infos_privacy.message,
+                id: "bsChangelog_" + uid,
+                title: lang.vars.settings_info_changelog.message,
                 contexts: ["action"]
             });
 
@@ -60,15 +61,14 @@
                         href: $.api.runtime.getURL("html/settings.html"),
                         newTab: true
                     });
+                } else if (obj.menuItemId === "bsKnowledgebase_" + uid) {
+                    b.helper.utility.openLink({
+                        href: $.opts.website.knowledgebase.overview,
+                        newTab: true
+                    });
                 } else if (obj.menuItemId === "bsChangelog_" + uid) {
                     b.helper.utility.openLink({
                         hrefName: "changelog",
-                        newTab: true,
-                        params: {lang: b.helper.language.getUILanguage()}
-                    });
-                } else if (obj.menuItemId === "bsPrivacy_" + uid) {
-                    b.helper.utility.openLink({
-                        hrefName: "privacyPolicy",
                         newTab: true,
                         params: {lang: b.helper.language.getUILanguage()}
                     });
@@ -138,7 +138,8 @@
                 // only show fallback info when not already on the custom new tab page
                 if (!url.includes($.api.runtime.getURL("html/newtab.html"))) {
                     const pageType = getNotWorkingPageInfo(url);
-                    const delay = pageType ? 0 : 700; // don't delay if the page is a known url where the sidebar is not being loaded
+                    const ownPage = url.startsWith($.api.runtime.getURL("")); // pages of the extension itself can load the sidebar (e.g. the onboarding page), so they get the chance to clear the timeout
+                    const delay = pageType && !ownPage ? 0 : 700; // don't delay if the page is a known url where the sidebar is not being loaded
 
                     timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
                         showFallbackPage(tabs[0]);

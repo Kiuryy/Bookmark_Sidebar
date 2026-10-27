@@ -39,7 +39,7 @@
                 },
                 icon: {
                     forLight: "#555555",
-                    forDark: "#ffffff"
+                    forDark: "#eeeeee"
                 }
             },
             glass: {
@@ -49,7 +49,7 @@
                 },
                 overlayMaskColor: {
                     light: "rgba(255, 255, 255, 0.5)",
-                    dark: "rgba(0, 0, 0, 0.3)"
+                    dark: "rgba(0, 0, 0, 0.5)"
                 },
                 textColor: {
                     light: "#444444",
@@ -63,6 +63,28 @@
                     light: "rgba(0, 0, 0, 0.05)",
                     dark: "rgba(255, 255, 255, 0.1)"
                 }
+            },
+            soft: {
+                colorScheme: { // the counter in the header uses the color scheme as text color, the dark blue is hard to read on the dark background
+                    light: "#1b82f1",
+                    dark: "#1b82f1"
+                },
+                overlayMaskColor: {
+                    light: "rgba(170, 180, 195, 0.5)",
+                    dark: "rgba(10, 12, 15, 0.6)"
+                },
+                textColor: {
+                    light: "#5a6474",
+                    dark: "#c9ced6"
+                },
+                bookmarksDirColor: {
+                    light: "#5a6474",
+                    dark: "#c9ced6"
+                },
+                hoverColor: {
+                    light: "rgba(0, 0, 0, 0.05)",
+                    dark: "rgba(255, 255, 255, 0.08)"
+                }
             }
         };
 
@@ -70,8 +92,8 @@
             "textColor",
             "hoverColor",
             "sidebarMaskColor",
-            "bookmarksDirColor",
-            "overlayMaskColor"
+            "overlayMaskColor",
+            "bookmarksDirColor"
         ];
 
         const defaults = {
@@ -83,7 +105,6 @@
                 separators: {},
                 customCss: "",
                 pinnedEntries: {},
-                lockPinned: true,
                 translationHelp: true,
                 translationThanked: false,
                 entryAmounts: {},
@@ -97,19 +118,16 @@
                 viewAsTree: true
             },
             b: { // behaviour -> synced across devices
-                overlayEnabled: true,
                 animations: true,
                 preventPageScroll: false,
-                toggleArea: {
-                    width: 2,
-                    widthWindowed: 20,
-                    height: 100,
-                    top: 0
-                },
+                triggerWidth: 2,
+                triggerWidthWindowed: 20,
+                triggerHeight: 100,
+                triggerOffsetTop: 0,
                 blacklist: [],
                 whitelist: [],
+                mode: "sidepanel",
                 sidebarPosition: "left",
-                iconAction: "sidepanel",
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",
@@ -132,17 +150,14 @@
                 openDelay: 0,
                 closeTimeout: 1,
                 dndOpenDirDelay: 0.5,
+                lockPinned: true,
                 refocusWebsite: false
             },
             a: { // appearance -> synced across devices
                 theme: "default",
-                showIndicator: true,
-                showIndicatorIcon: true,
                 surface: "light",
                 highContrast: false,
                 directoryArrows: false,
-                showBookmarkIcons: true,
-                showDirectoryIcons: true,
                 styles: {
                     colorScheme: defaultColors["default"].colorScheme.light,
                     foregroundColor: defaultColors["default"].foregroundColor.light,
@@ -176,7 +191,6 @@
                 }
             },
             n: { // new tab -> synced across devices
-                override: false,
                 faviconShape: "new-1",
                 faviconColor: "#545454",
                 faviconBackground: "transparent",
@@ -285,6 +299,7 @@
 
         /**
          * Returns all surface color dependent styles
+         * TODO DEPRECATED Remove this since it is no longer used in the new settings
          *
          * @returns {Array}
          */
@@ -313,6 +328,17 @@
         };
 
         /**
+         * Returns whether the given color is the default color scheme of any theme and surface,
+         * those are replaced with the default of the current theme and surface, while a custom color scheme is kept
+         *
+         * @param {string} color
+         * @returns {boolean}
+         */
+        this.isDefaultColorScheme = (color) => {
+            return Object.values(defaultColors).some((colors) => colors.colorScheme && (colors.colorScheme.light === color || colors.colorScheme.dark === color));
+        };
+
+        /**
          * Retrieves the stored values for the given keys,
          * if a value is undefined, it will be set to the default value
          *
@@ -328,8 +354,9 @@
             let result = {};
 
             configKeys.forEach((keyInfo) => {
-                const scope = keyInfo.split("/")[0];
-                const key = keyInfo.split("/")[1];
+                const parts = keyInfo.split("/");
+                const scope = parts[0];
+                const key = parts[1];
                 let value = null;
 
                 const scopeName = getNameByAlias(scope);
@@ -343,7 +370,7 @@
                     }
                 }
 
-                if (keyInfo === "a/styles") {
+                if (scope === "a" && key === "styles") {
                     const surface = this.getData("a/surface");
                     const colorScheme = surface === "auto" ? ext.helper.stylesheet.getSystemSurface() : surface;
                     const theme = this.getData("a/theme");
@@ -359,11 +386,8 @@
                         }
                     }
 
-                    if (surface === "auto" && (
-                        value.colorScheme === defaultColors["default"].colorScheme.light ||
-                        value.colorScheme === defaultColors["default"].colorScheme.dark
-                    )) { // change color scheme according to the system color, when automatical switch is enabled and the color scheme is the default value
-                        value.colorScheme = defaultColors["default"].colorScheme[colorScheme];
+                    if (surface === "auto" && this.isDefaultColorScheme(value.colorScheme)) { // change color scheme according to the system color, when automatical switch is enabled and the color scheme is the default value
+                        value.colorScheme = this.getDefaultColors(theme).colorScheme[colorScheme];
                     }
 
                     if (ext.helper.font) { // FontHelper is available -> extend object with font weights
@@ -371,15 +395,58 @@
                     }
                 }
 
-                result[key] = value;
+                if (parts.length > 2 && value !== null && typeof value === "object") {
+                    for (let i = 2; i < parts.length; i++) {
+                        if (typeof value[parts[i]] !== "undefined") {
+                            value = value[parts[i]];
+                        } else {
+                            value = undefined;
+                            break;
+                        }
+                    }
+                }
+
+                result[parts[parts.length - 1]] = value;
             });
 
             if (typeof keys === "string") {
-                const key = keys.split("/")[1];
-                result = result[key];
+                const parts = keys.split("/");
+                result = result[parts[parts.length - 1]];
             }
 
             return result;
+        };
+
+        /**
+         * Converts a "scope/key/.../key" string + value into a nested data object
+         * e.g. ("b/mode", "overlay") => {behaviour: {mode: "overlay"}}
+         * e.g. ("a/styles/fontSize", 14) => {appearance: {styles: {fontSize: 14}}}
+         *
+         * @param {string} keyInfo
+         * @param {*} value
+         * @returns {object}
+         */
+        this.toDataObject = (keyInfo, value) => {
+            const scopeMap = {
+                u: "utility",
+                b: "behaviour",
+                a: "appearance",
+                n: "newtab"
+            };
+
+            const parts = keyInfo.split("/");
+            const scope = scopeMap[parts[0]];
+            const path = parts.slice(1); // everything after the scope
+
+            const leafKey = path.pop();
+            let leaf = {[leafKey]: value};
+
+            // build up nested objects from the inside out for any remaining path segments
+            while (path.length) {
+                leaf = {[path.pop()]: leaf};
+            }
+
+            return {[scope]: leaf};
         };
 
         /**
@@ -391,29 +458,20 @@
         this.setData = (values) => {
             return new Promise((resolve) => {
                 refresh().then(() => { // refresh to retrieve the newest data
-                    Object.keys(values).forEach((keyInfo) => {
-                        const scope = keyInfo.split("/")[0];
-                        const key = keyInfo.split("/")[1];
-                        const value = values[keyInfo];
+                    Object.keys(values).forEach((keyInfo) => { // replace the value at the given path instead of merging it, so removed keys (e.g. unpinned entries) stay removed
+                        const parts = keyInfo.split("/");
+                        const scopeName = getNameByAlias(parts[0]);
+                        const leafKey = parts.pop();
 
-                        switch (scope) {
-                            case "u": {
-                                data.utility[key] = value;
-                                break;
+                        let target = data[scopeName];
+                        parts.slice(1).forEach((key) => {
+                            if (typeof target[key] !== "object" || target[key] === null || Array.isArray(target[key])) {
+                                target[key] = {};
                             }
-                            case "b": {
-                                data.behaviour[key] = value;
-                                break;
-                            }
-                            case "a": {
-                                data.appearance[key] = value;
-                                break;
-                            }
-                            case "n": {
-                                data.newtab[key] = value;
-                                break;
-                            }
-                        }
+                            target = target[key];
+                        });
+
+                        target[leafKey] = values[keyInfo];
                     });
 
                     let savedAmount = 0;

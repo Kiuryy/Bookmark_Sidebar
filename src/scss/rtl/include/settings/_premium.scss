@@ -1,39 +1,42 @@
 html[dir='rtl'] {
 
-  div.tab[data-name='premium'] {
+  .premium-active {
+    padding: 8px 36px 8px 12px;
 
-    > section {
-      box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.1);
+    &::before {
+      left: unset;
+      right: 0;
+    }
+  }
 
-      &[data-type='intro'] {
-        padding-right: 100px;
+  div.premium-banner {
+    padding: 10px 48px 10px 12px;
+
+    &::before {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  a.btn.premium-locked {
+    padding-left: 12px;
+    padding-right: 32px;
+
+    &::before {
+      left: unset;
+      right: 10px;
+    }
+  }
+
+  section#premium-dialog table.premium-comparison {
+
+    th, td {
+
+      &:first-child {
+        text-align: right;
         padding-left: 20px;
-
-        &::before {
-          left: unset;
-          right: 0;
-        }
-
-        > a {
-
-          &[data-type="activate"] {
-            margin-left: 0;
-            margin-right: 10px;
-          }
-        }
-
-        > span[data-type='activated'] {
-          padding-right: 54px;
-          padding-left: 15px;
-
-          &::before {
-            left: unset;
-            right: 0;
-            width: 50px;
-          }
-        }
+        padding-right: 0;
       }
     }
   }
 }
-

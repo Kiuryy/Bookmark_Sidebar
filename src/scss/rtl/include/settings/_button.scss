@@ -1,0 +1,33 @@
+html[dir='rtl'] .btn {
+
+  &.icon {
+    padding: 9px 26px 9px 10px;
+
+    &::before {
+      mask-position: right center !important;
+      left: unset !important;
+      right: 5px !important;
+    }
+
+    &.external::before {
+      transform: scaleX(-1);
+      mask-position: left center !important; // mirrored -> left is the right side again
+    }
+  }
+
+  &.primary.icon {
+    padding-left: 10px;
+    padding-right: 30px;
+  }
+
+  &.selected {
+    padding-left: 12px;
+    padding-right: 30px;
+
+    &::before {
+      mask-position: right center;
+      left: unset;
+      right: 7px;
+    }
+  }
+}

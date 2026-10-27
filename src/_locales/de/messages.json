@@ -6,7 +6,10 @@
         "message": "Lesezeichen"
     },
     "extension_desc": {
-        "message": "F\u00fcgt eine ausklappbare Leiste mit all deinen Lesezeichen auf der Seite deines Browsers hinzu."
+        "message": "Die Lesezeichenleiste bietet dir einfachen Zugriff auf all deine Lesezeichen in einer \u00fcbersichtlichen, schnellen Sidebar, genau dort, wo du sie brauchst."
+    },
+    "extension_webstore_desc": {
+        "message": "ZWEI WEGE DIE LESEZEICHENLEISTE ZU VERWENDEN\n- Overlay: Die Sidebar schiebt sich \u00fcber die aktuelle Website, wenn du an den linken\/rechten Rand des Browserfensters klickst, die Maus dorthin bewegst oder auf das Erweiterungssymbol klickst, und verschwindet wieder, sobald du fertig bist.\n- Seitenleiste: Die Sidebar \u00f6ffnet sich in der Seitenleiste deines Browsers und bleibt als dauerhafte Sidebar neben den Websites ge\u00f6ffnet, die du besuchst.\n\nLESEZEICHEN VERWALTEN\n- Lesezeichen, Ordner und Trennlinien direkt in der Sidebar hinzuf\u00fcgen, bearbeiten und l\u00f6schen\n- Alles per Drag & Drop neu anordnen\n- Mehrere Eintr\u00e4ge auf einmal ausw\u00e4hlen, um sie gemeinsam zu verschieben, zu l\u00f6schen oder zu \u00f6ffnen\n- Alle Lesezeichen sofort durchsuchen und so sortieren, wie du m\u00f6chtest\n- Deine Lieblingslesezeichen oben fixieren und die ausblenden, die du nicht brauchst\n\nGANZ NACH DEINEN W\u00dcNSCHEN\nViele Optionen lassen dich die Sidebar an deine Arbeitsweise anpassen: Lege fest, wie und wo sie sich \u00f6ffnet, \u00e4ndere Gr\u00f6\u00dfe, Farben, Schriftarten und Symbole, wechsle in den dunklen Modus und ersetze auf Wunsch deine New-Tab-Seite durch eine mit integrierter Sidebar.\n\nFEEDBACK\nDu hast einen Fehler gefunden oder eine Idee f\u00fcr eine neue Funktion oder Verbesserung? Lass es mich wissen. Jede Nachricht wird gelesen und hilft dabei, die Lesezeichenleiste noch besser zu machen."
     },
     "extension_version": {
         "message": "Version"
@@ -182,9 +185,6 @@
     "overlay_delete": {
         "message": "L\u00f6schen"
     },
-    "overlay_update": {
-        "message": "Aktualisieren"
-    },
     "overlay_show_in_bookmark_manager": {
         "message": "Im Lesezeichenmanager anzeigen"
     },
@@ -317,12 +317,6 @@
     "newtab_grid_links_hidden": {
         "message": "Keine Seiten anzeigen"
     },
-    "newtab_grid_links_appearance_thumbnail": {
-        "message": "Seitenvorschau anzeigen"
-    },
-    "newtab_grid_links_appearance_favicon": {
-        "message": "Seiten-Icons anzeigen"
-    },
     "newtab_grid_links_grid_size": {
         "message": "Rastergr\u00f6\u00dfe"
     },
@@ -395,9 +389,6 @@
     "status_service_unavailable_headline": {
         "message": "Dienst nicht erreichbar"
     },
-    "status_feedback_unavailable_desc": {
-        "message": "Der Feedback-Dienst ist aktuell nicht erreichbar. Wenn du Feedback geben willst, schreibe mir eine E-Mail."
-    },
     "status_translation_unavailable_desc": {
         "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
@@ -423,7 +414,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Markiert den n\u00e4chsten bzw. vorherigen Eintrag in der Sidebar"
+        "message": "Markiert den n\u00e4chsten oder vorherigen Eintrag in der Sidebar"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Klickt den aktuell markierten Eintrag an"
@@ -440,74 +431,17 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Schlie\u00dft die Sidebar, den ge\u00f6ffneten Dialog oder Rechtsklickmen\u00fc"
     },
-    "contribute_intro": {
-        "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen, wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
-    },
-    "contribute_notice": {
-        "message": "Du kannst mich unterst\u00fctzen, indem du deine Konfiguration teilst"
-    },
-    "contribute_outro": {
-        "message": "Wenn du Fragen oder Bedenken bez\u00fcglich des Teilens von Nutzerinformationen hast, kannst du mir gerne Feedback hinterlassen."
-    },
-    "contribute_share_config_label": {
-        "message": "Einstellungen \u00fcbermittelt"
-    },
-    "contribute_share_config_desc": {
-        "message": "Du kannst deine Einstellungen anonym \u00fcbermitteln. Dies hilft mir um popul\u00e4re Einstellungen zu identifizieren und herauszufinden, was ich in Zukunft verbessern oder \u00e4ndern muss."
-    },
-    "contribute_share_activity_label": {
-        "message": "Nutzeraktivit\u00e4t \u00fcbermitteln"
-    },
-    "contribute_share_activity_desc1": {
-        "message": "Du kannst deine Nutzeraktivit\u00e4t anonym \u00fcbermitteln. Dies hilft mir herauszufinden wie die Nutzer die Sidebar im Allgemeinen verwenden. Informationen \u00fcber deine Lesezeichen, oder der besuchten Seiten [b]werden nicht[\/b] erfasst."
-    },
-    "contribute_share_activity_desc2": {
-        "message": "Diese Informationen sind sehr hilfreich, um die Benutzerfreundlichkeit zu verbessern und herauszufinden, welche Funktionen beispielsweise h\u00e4ufig verwendet werden."
-    },
-    "contribute_share_activity_examples_intro": {
-        "message": "Daten die \u00fcbermittelt werden sind beispielsweise:"
-    },
-    "contribute_share_activity_example_1": {
-        "message": "Wie viele Lesezeichen haben die Nutzer im Durchschnitt?"
-    },
-    "contribute_share_activity_example_2": {
-        "message": "Welche Plattformen verwenden die Nutzer (Windows, Mac, Linux, ...)?"
-    },
-    "contribute_share_activity_example_3": {
-        "message": "Verwenden die Nutzer die Suche?"
-    },
-    "contribute_share_activity_example_4": {
-        "message": "\u00c4ndern die Nutzer die Sortierung der Lesezeichen?"
-    },
-    "contribute_share_activity_example_5": {
-        "message": "Wie oft verschieben, oder bearbeiten die Nutzer Eintr\u00e4ge?"
-    },
     "onboarding_title": {
         "message": "Einrichten"
     },
     "onboarding_headline": {
         "message": "Danke, dass du die Erweiterung installiert hast."
     },
-    "onboarding_intro_desc": {
-        "message": "Es gibt mehrere Wege deine Lesezeichenleiste zu \u00f6ffnen."
-    },
-    "onboarding_intro_sidebar_overlay_desc": {
-        "message": "\u00dcber Webseiten anzeigen (\u00dcberlagert Seiteninhalt)."
-    },
-    "onboarding_intro_sidebar_sidepanel_desc": {
-        "message": "In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
-    },
-    "onboarding_sidebar_overlay_disable": {
-        "message": "Ich m\u00f6chte diese \u00fcberlagernde Lesezeichenleiste nicht verwenden"
-    },
-    "onboarding_setup_start": {
-        "message": "Jetzt einrichten"
-    },
-    "onboarding_setup_complete": {
-        "message": "Eingerichtet"
+    "onboarding_mode_desc": {
+        "message": "Wie m\u00f6chtest du deine Sidebar verwenden?"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Wo willst du deine Sidebar haben?"
+        "message": "Auf welcher Seite soll deine Sidebar erscheinen?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "Wie willst du deine Sidebar \u00f6ffnen?"
@@ -533,9 +467,6 @@
     "onboarding_handson_icon_desc": {
         "message": "Klicke auf das Symbol der Erweiterung um die Sidebar zu \u00f6ffnen."
     },
-    "onboarding_handson_sidepanel_desc": {
-        "message": "Klicke auf das Seitenleisten-Symbol und w\u00e4hle die Lesezeichenleiste f\u00fcr die Anzeige aus."
-    },
     "onboarding_left": {
         "message": "linken"
     },
@@ -548,107 +479,47 @@
     "onboarding_finish_desc": {
         "message": "Viel Spa\u00df mit deiner Sidebar."
     },
-    "onboarding_goto_settings": {
-        "message": "Mehr Einstellungen"
+    "onboarding_finish_settings_title": {
+        "message": "Viele Einstellungsm\u00f6glichkeiten"
     },
-    "onboarding_goto_appearance": {
-        "message": "Aussehen konfigurieren"
+    "onboarding_finish_settings_desc": {
+        "message": "Lege fest, wie sich die Sidebar verh\u00e4lt, wie deine Lesezeichen ge\u00f6ffnet werden und vieles mehr. Schau dir die Einstellungen an."
+    },
+    "onboarding_finish_appearance_title": {
+        "message": "Personalisiere deine Sidebar"
+    },
+    "onboarding_finish_appearance_desc": {
+        "message": "Passe Farben, Schriften, Abst\u00e4nde und mehr an und gib der Sidebar genau das Aussehen, das dir gef\u00e4llt."
     },
     "settings_title": {
         "message": "Einstellungen"
     },
-    "settings_menu_dashboard": {
+    "settings_tab_overview": {
         "message": "\u00dcbersicht"
     },
-    "settings_menu_sidebar": {
-        "message": "Sidebar"
+    "settings_general": {
+        "message": "Allgemeine Einstellungen"
     },
-    "settings_menu_sidebar_general": {
-        "message": "Allgemein"
-    },
-    "settings_menu_sidebar_overlay": {
-        "message": "Overlay"
-    },
-    "settings_menu_sidebar_sidepanel": {
-        "message": "Seitenleiste"
-    },
-    "settings_menu_sidebar_tooltip": {
-        "message": "Tooltips"
-    },
-    "settings_menu_appearance": {
+    "settings_tab_appearance": {
         "message": "Aussehen"
     },
-    "settings_menu_appearance_general": {
-        "message": "Allgemein"
-    },
-    "settings_menu_appearance_sidebar": {
-        "message": "Sidebar"
-    },
-    "settings_menu_appearance_indicator": {
-        "message": "Indikator"
-    },
-    "settings_menu_appearance_icon": {
-        "message": "Symbol"
-    },
-    "settings_menu_appearance_dialog": {
-        "message": "Dialog"
-    },
-    "settings_menu_newtab": {
+    "settings_tab_newtab": {
         "message": "Neuer Tab"
     },
-    "settings_menu_language": {
-        "message": "Sprache"
-    },
-    "settings_menu_language_general": {
-        "message": "Allgemein"
-    },
-    "settings_menu_language_translate": {
-        "message": "\u00dcbersetzen"
-    },
-    "settings_menu_support": {
-        "message": "Support"
-    },
-    "settings_menu_infos": {
-        "message": "Informationen"
-    },
-    "settings_menu_infos_aboutme": {
-        "message": "\u00dcber mich"
-    },
-    "settings_menu_infos_permissions": {
-        "message": "Berechtigungen"
-    },
-    "settings_menu_infos_privacy": {
+    "settings_info_privacy": {
         "message": "Datenschutz"
     },
-    "settings_menu_infos_contact": {
+    "settings_info_contact": {
         "message": "Kontakt"
     },
-    "settings_menu_infos_changelog": {
+    "settings_info_changelog": {
         "message": "\u00c4nderungshistorie"
-    },
-    "settings_menu_premium": {
-        "message": "Premium"
-    },
-    "settings_menu_export": {
-        "message": "Import\/Export"
-    },
-    "settings_menu_expert": {
-        "message": "Experteneinstellungen"
     },
     "settings_save": {
         "message": "\u00c4nderungen speichern"
     },
     "settings_saved_message": {
         "message": "\u00c4nderungen erfolgreich gespeichert"
-    },
-    "settings_restore": {
-        "message": "Standard wiederherstellen"
-    },
-    "settings_restore_confirm": {
-        "message": "M\u00f6chstest du wirklich die Standard-Konfiguration wiederherstellen?"
-    },
-    "settings_restored_message": {
-        "message": "Die Einstellungen wurden erfolgreich zur\u00fcckgesetzt"
     },
     "settings_advanced": {
         "message": "Erweiterte Einstellungen"
@@ -662,29 +533,20 @@
     "settings_premium_invalid_key": {
         "message": "Premium konnte nicht aktiviert werden. Bitte gib einen g\u00fcltigen Aktivierungscode ein"
     },
-    "settings_search_placeholder": {
-        "message": "Nach Konfiguration suchen"
+    "settings_currently_selected": {
+        "message": "Aktuell ausgew\u00e4hlt"
     },
-    "settings_expert_settings_desc": {
-        "message": "Mit Hilfe der Experteneinstellungen k\u00f6nnen alle Konfigurationen der Erweiterungen ge\u00e4ndert werden. Es lassen sich auch Werte \u00e4ndern, die nicht \u00fcber die normalen Checkboxen und Regler in den Einstellungen angepasst werden k\u00f6nnen."
+    "settings_example": {
+        "message": "Beispiel"
     },
-    "settings_expert_settings_notice": {
-        "message": "Bitte \u00e4ndere die Werte hier nur, wenn du wei\u00dft was du tust. Fehlerhafte Konfiguration kann zu unerwartetem Verhalten der Erweiterung f\u00fchren. Falls etwas nicht mehr funktionieren sollte, kann die Standard-Konfiguration wiederhergestellt werden."
+    "settings_details": {
+        "message": "Details"
     },
-    "settings_expert_save_error": {
-        "message": "Einstellungen konnten nicht gespeichert werden. Bitte \u00fcberpr\u00fcfe deine Eingabe."
+    "settings_video_play": {
+        "message": "Wiedergabe"
     },
-    "settings_dashboard_sidebar_options": {
-        "message": "Stelle das Verhalten deiner Sidebar ein"
-    },
-    "settings_dashboard_sidebar_options_desc": {
-        "message": "Es existiert eine Vielzahl an Auswahlm\u00f6glichkeiten, die du \u00e4ndern kannst, um die Erweiterung einzustellen. Du kannst zum Beispiel einstellen, wie die Sidebar eingeblendet wird, oder wie deine Lesezeichen ge\u00f6ffnet werden sollen. Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kannst du das ebenfalls \u00fcber entsprechende Regeln einrichten."
-    },
-    "settings_dashboard_appearance_options": {
-        "message": "\u00c4ndere das Aussehen deiner Sidebar"
-    },
-    "settings_dashboard_appearance_options_desc": {
-        "message": "Du kannst das Aussehen der Sidebar komplett anpassen und auf deine Anforderungen zuschneiden. Es existiert eine Vielzahl an Einstellungen zum \u00c4ndern der Schriftgr\u00f6\u00dfen, Zeilenabst\u00e4nden, Farben, Symbolen und vielem mehr. Du kannst aus vordefinierten Designs und Voreinstellungen ausw\u00e4hlen, um der Sidebar schnell eine neue Optik zu verpassen."
+    "settings_video_pause": {
+        "message": "Pause"
     },
     "settings_tips_tricks_facts": {
         "message": "Wusstest du schon?"
@@ -752,7 +614,7 @@
     "settings_tips_tricks_synchronization_desc": {
         "message": "All eine Einstellungen der Sidebar werden zwischen deinen Ger\u00e4ten synchronisiert, wenn du dies in den Einstellungen deines Browsers aktiviert hast. Auch ohne Premium."
     },
-    "settings_tips_tricks_synchronization_action": {
+    "settings_sync_settings_link": {
         "message": "Sychronisierungseinstellungen"
     },
     "settings_tips_tricks_i18n_desc": {
@@ -782,23 +644,44 @@
     "settings_tips_tricks_multiselect_desc": {
         "message": "Du kannst mehrere Lesezeichen oder Ordner in der Sidebar ausw\u00e4hlen, um sie dann zu \u00f6ffnen, zu l\u00f6schen, oder aber auch zu verschieben."
     },
-    "settings_tips_tricks_newtab": {
-        "message": "Neuer Tab"
-    },
-    "settings_tips_tricks_newtab_desc": {
-        "message": "Du kannst die Darstellung der New-Tab-Seite direkt auf der Seite anpassen, indem du auf das {1} Symbol in der unteren Ecke klickst. Anschlie\u00dfend lassen sich die Gitter-Elemente, die Suchmaschine, das Hintergrundbild und die Links oben bearbeiten."
-    },
     "settings_tips_tricks_privacy": {
         "message": "Datenschutz"
     },
     "settings_tips_tricks_privacy_desc": {
         "message": "Die Lesezeichen, die in der Sidebar dargestellt werden, werden von {browserName} synchronisiert und verwaltet. Die Erweiterung speichert diese Lesezeichen nicht gesondert und analysiert diese auch nicht, sondern stellt diese lediglich in der Sidebar dar."
     },
-    "settings_tips_tricks_sidepanel": {
-        "message": "Browser Seitenleiste"
+    "settings_support": {
+        "message": "Support"
     },
-    "settings_tips_tricks_sidepanel_desc": {
-        "message": "Du kannst deine Lesezeichenleiste permanent ge\u00f6ffnet haben, w\u00e4hrend du surfst. Es gibt eine Seitenleiste, die dein Browser bereitstellt. Klicke auf das Seitenleisten-Symbol und w\u00e4hle die Lesezeichenleiste f\u00fcr die Anzeige aus."
+    "settings_info_permissions": {
+        "message": "Berechtigungen"
+    },
+    "settings_translation_cta_link": {
+        "message": "Beim \u00dcbersetzen helfen"
+    },
+    "settings_translation_cta_desc": {
+        "message": "Alle \u00dcbersetzungen stammen aus der Community. Wenn deine Sprache fehlt, unvollst\u00e4ndig ist oder Fehler enth\u00e4lt, kannst du helfen, sie f\u00fcr alle zu verbessern."
+    },
+    "settings_trigger_area_configure": {
+        "message": "Bereich konfigurieren"
+    },
+    "settings_translation_cta_headline": {
+        "message": "Sprichst du eine andere Sprache?"
+    },
+    "settings_knowledgebase": {
+        "message": "Wissensdatenbank"
+    },
+    "settings_knowledgebase_desc": {
+        "message": "Die Wissensdatenbank sammelt Artikel mit ausf\u00fchrlichen Einblicken in einzelne Funktionen, hilfreichen Tipps und einem Blick hinter die Kulissen der Entwicklung."
+    },
+    "settings_knowledgebase_link": {
+        "message": "Entdecken"
+    },
+    "settings_support_desc": {
+        "message": "Du hast eine Frage, einen Fehler gefunden oder eine Idee? Schau in die FAQ f\u00fcr schnelle Antworten oder nutze das Kontaktformular, um den Entwickler direkt zu erreichen."
+    },
+    "settings_share_info_desc": {
+        "message": "Du kannst freiwillig Informationen teilen, zum Beispiel deine Einstellungen und wie du die Sidebar nutzt. Das hilft dabei, die Erweiterung zu verbessern."
     },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
@@ -818,77 +701,47 @@
     "settings_open_action_icon": {
         "message": "Klick auf das Symbol"
     },
-    "settings_toggle_area": {
-        "message": "Bereich konfigurieren"
-    },
-    "settings_toggle_area_desc": {
-        "message": "Standardm\u00e4ssig kann die gesamte Seite des Browserfesters mit der Maus \u00fcberfahren, oder geklickt werden, um die Sidebar zu \u00f6ffnen. Dies l\u00e4sst sich einschr\u00e4nken und genauer bestimmen, wo sich die Sidebar \u00f6ffnen lassen soll."
-    },
-    "settings_toggle_area_width": {
-        "message": "Breite"
-    },
-    "settings_toggle_area_width_windowed": {
-        "message": "Breite (Fenstermodus)"
-    },
-    "settings_toggle_area_height": {
-        "message": "H\u00f6he"
-    },
-    "settings_toggle_area_height_desc": {
-        "message": "Du kannst die H\u00f6he des Bereichts verringern, so dass die Sidebar nur ge\u00f6ffnet wird, wenn der Mauszeiger in diesen Bereich des Browserrands bewegt wird."
-    },
-    "settings_toggle_area_drag_desc": {
+    "settings_trigger_area_drag_desc": {
         "message": "Ziehen zum Bewegen"
     },
-    "settings_trigger_area_width": {
+    "settings_trigger_width": {
         "message": "Ausl\u00f6sebreite"
     },
-    "settings_trigger_area_width_desc": {
+    "settings_trigger_width_desc": {
         "message": "Die Breite am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet."
     },
-    "settings_trigger_area_width_windowed": {
+    "settings_trigger_width_windowed": {
         "message": "Ausl\u00f6sebreite im Fenstermodus"
     },
-    "settings_trigger_area_width_windowed_desc": {
+    "settings_trigger_width_windowed_desc": {
         "message": "Die Breite am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet, wenn der Browser nicht im Vollbildmodus ist oder eine reduzierte Breite hat (Fenstermodus)."
     },
-    "settings_trigger_area_height": {
+    "settings_trigger_height": {
         "message": "Ausl\u00f6seh\u00f6he"
     },
-    "settings_trigger_area_height_desc": {
+    "settings_trigger_height_desc": {
         "message": "Die H\u00f6he am Bildschirmrand, bei der die konfigurierte Mausaktion die Sidebar einblendet. Eine geringere H\u00f6he kann helfen, unbeabsichtigte Aktivierungen der Sidebar bei normaler Nutzung der Website zu vermeiden."
     },
-    "settings_trigger_area_indicator_desc": {
+    "settings_indicator_desc": {
         "message": "Wenn sich die Maus in den konfigurierten Bildschirmrandbereich befindet, erscheint eine Indikatorleiste. Du kannst das Aussehen dieser Leiste anpassen oder die Breite auf Null setzen, um sie zu deaktivieren."
     },
-    "settings_trigger_area_indicator_width": {
+    "settings_indicator_width": {
         "message": "Indikatorbreite"
     },
-    "settings_trigger_area_indicator_width_desc": {
+    "settings_indicator_width_desc": {
         "message": "Breite der sichtbaren Indikatorleiste. Kann von der Ausl\u00f6sebreite abweichen."
     },
-    "settings_trigger_area_indicator_color": {
+    "settings_indicator_color": {
         "message": "Indikatorfarbe"
     },
-    "settings_trigger_area_indicator_icon_size": {
+    "settings_indicator_icon_size": {
         "message": "Indikator-Symbolgr\u00f6\u00dfe"
     },
-    "settings_trigger_area_indicator_icon_color": {
+    "settings_indicator_icon_color": {
         "message": "Indikator-Symbolfarbe"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Tastenkombination einrichten"
-    },
-    "settings_icon_action": {
-        "message": "Klick auf das Erweiterungssymbol"
-    },
-    "settings_icon_action_desc": {
-        "message": "Du kannst konfigurieren, wie die Lesezeichenleiste angezeigt werden soll, wenn du auf das Erweiterungssymbol klickst, welches rechts der Adressleiste des Browsers ist."
-    },
-    "settings_icon_action_overlay": {
-        "message": "Lesezeichenleiste \u00fcber Webseiten anzeigen (\u00dcberlagert Seiteninhalt)"
-    },
-    "settings_icon_action_sidepanel": {
-        "message": "Lesezeichenleiste In der Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen."
     },
     "settings_link_action": {
         "message": "Lesezeichen \u00f6ffnen"
@@ -908,10 +761,10 @@
     "settings_open_delay_desc": {
         "message": "Verhindert das unmittelbare \u00d6ffnen der Sidebar beim Mouseover oder Klicken mit Hilfe einer kurzen Verz\u00f6gerung."
     },
-    "settings_prevent_pagescroll": {
+    "settings_prevent_page_scroll": {
         "message": "Seiten-Scrollen verhindern"
     },
-    "settings_prevent_pagescroll_desc": {
+    "settings_prevent_page_scroll_desc": {
         "message": "Verhindert, dass die aktuelle Seite gescrollt werden kann, solange die Sidebar offen ist."
     },
     "settings_dir_accordion": {
@@ -1016,20 +869,11 @@
     "settings_tooltip_content_url": {
         "message": "Nur URL"
     },
-    "settings_tooltip_content_additional_info": {
+    "settings_tooltip_additional_info": {
         "message": "Zus\u00e4tzliche Infos"
-    },
-    "settings_sidebar_overlay_intro": {
-        "message": "Hier kannst du das Verhalten der \u00fcberlagernden Lesezeichenleiste, sie sich \u00fcber den Seiteninhalt legt, anpassen."
     },
     "settings_sidebar_position": {
         "message": "Position"
-    },
-    "settings_overlay_enabled": {
-        "message": "\u00dcberlagernde Lesezeichenleiste aktivieren"
-    },
-    "settings_overlay_enabled_desc": {
-        "message": "Wenn du deine Lesezeichen nur \u00fcber die eingebaute Seitenleiste des Browsers neben dem Seiteninhalt \u00f6ffnen m\u00f6chtest, kannst du die \u00fcberlagernde Lesezeichenleiste deaktivieren."
     },
     "settings_sidebar_position_desc": {
         "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Browserfensters \u00f6ffnen soll."
@@ -1040,74 +884,131 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_filter_explanation_1": {
+    "settings_visibility_rules_explanation_1": {
         "message": "Nur eine URL-Regel pro Zeile"
     },
-    "settings_filter_explanation_2": {
+    "settings_visibility_rules_explanation_2": {
         "message": "Verwende * f\u00fcr beliebige Zeichen (z.B. example.com\/* trifft f\u00fcr alle Seiten unterhalb von example.com zu)"
     },
-    "settings_filter_explanation_3": {
+    "settings_visibility_rules_explanation_3": {
         "message": "Wenn kein * in einer Regel verwendet wird, trifft nur die exakte URL zu (z.B. \"example.com\" trifft nicht f\u00fcr die URL \"example.com\/about.html\" zu)"
     },
-    "settings_filter_explanation_4": {
+    "settings_visibility_rules_explanation_4": {
         "message": "Das Protokoll (z.b. http:\/\/) muss in den Regeln nicht vorangestellt werden"
     },
-    "settings_filter_visibility": {
+    "settings_visibility": {
         "message": "Sidebar laden"
     },
-    "settings_filter_visibility_desc": {
+    "settings_visibility_desc": {
         "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },
-    "settings_filter_visibility_always": {
+    "settings_visibility_always": {
         "message": "Auf jeder Seite"
     },
-    "settings_filter_visibility_blacklist": {
+    "settings_visibility_blacklist": {
         "message": "Auf jeder Seite, au\u00dfer spezifischen Seiten"
     },
-    "settings_filter_visibility_whitelist": {
+    "settings_visibility_whitelist": {
         "message": "Nur auf spezifischen Seiten"
     },
-    "settings_filter_rules": {
+    "settings_visibility_rules": {
         "message": "URL-Regeln"
     },
-    "settings_import_export_headline": {
-        "message": "Import\/Export Einstellungen"
+    "settings_sidepanel_position_configure": {
+        "message": "Position der Seitenleiste festlegen"
     },
-    "settings_import_export_notice": {
-        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du in {browserName} mit deinem Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
+    "settings_mode_overlay": {
+        "message": "Overlay-Modus"
     },
-    "settings_import_export_desc": {
-        "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
+    "settings_mode_sidepanel": {
+        "message": "Seitenleisten-Modus"
     },
-    "settings_export": {
-        "message": "Konfiguration exportieren"
+    "settings_extension_icon": {
+        "message": "Symbol der Erweiterung"
     },
-    "settings_import": {
-        "message": "Konfiguration importieren"
+    "settings_indicator": {
+        "message": "Indikator"
     },
-    "settings_import_saved": {
-        "message": "Konfiguration erfolgreich importiert"
+    "settings_mode_headline": {
+        "message": "Wie m\u00f6chtest du die Sidebar \u00f6ffnen?"
     },
-    "settings_import_failed": {
-        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
+    "settings_mode_use_both": {
+        "message": "Beide Modi verwenden"
     },
-    "settings_import_export_bookmarks": {
-        "message": "Import\/Export Lesezeichen"
+    "settings_mode_use": {
+        "message": "Diesen Modus verwenden"
     },
-    "settings_import_export_bookmarks_desc": {
-        "message": "Dies ist eine Browserfunktion und nicht Teil der Erweiterung. Erfahre mehr dar\u00fcber, wie du Lesezeichen im {browserName} importieren und exportieren kannst."
+    "settings_mode_overlay_desc": {
+        "message": "Greife \u00fcber eine ein- und ausblendbare Sidebar auf deine Lesezeichen zu. Sie gleitet vom Rand des Browserfensters herein und \u00fcberlagert die aktuell besuchte Webseite."
     },
-    "settings_sidebar_sidepanel_intro": {
-        "message": "Hier kannst du das Verhalten der Lesezeichenleiste, die in der Seitenleiste des Browsers neben dem Seiteninhalt angezeigt wird, anpassen."
+    "settings_mode_overlay_pro_1": {
+        "message": "Nimmt dem Seiteninhalt keinen Platz weg"
     },
-    "settings_sidebar_position_sidepanel": {
-        "message": "Konfiguriere, ob die Browser-Seitenleiste auf der linken oder rechten Seite angezeigt werden soll."
+    "settings_mode_overlay_pro_2": {
+        "message": "Wird ausgeblendet, wenn ein Lesezeichen angeklickt wird"
     },
-    "settings_sidebar_sidepanel_configure": {
-        "message": "Seitenleiste konfigurieren"
+    "settings_mode_overlay_con_1": {
+        "message": "Kann mit manchen Webseiten in Konflikt geraten"
     },
-    "settings_presets": {
-        "message": "Relative Gr\u00f6\u00dfen"
+    "settings_mode_overlay_con_2": {
+        "message": "Kann nur auf regul\u00e4ren Webseiten verwendet werden (nicht auf der Standard-New-Tab-Seite oder Einstellungsseiten)"
+    },
+    "settings_mode_sidepanel_desc": {
+        "message": "Greife \u00fcber die integrierte Seitenleiste des Browsers auf deine Lesezeichen zu. Sie \u00f6ffnet sich neben dem Seiteninhalt."
+    },
+    "settings_mode_sidepanel_pro_1": {
+        "message": "Nach dem \u00d6ffnen dauerhaft neben dem Seiteninhalt sichtbar"
+    },
+    "settings_mode_sidepanel_pro_2": {
+        "message": "Bleibt ge\u00f6ffnet, wenn ein Lesezeichen angeklickt wird"
+    },
+    "settings_mode_sidepanel_con_1": {
+        "message": "Verringert die Breite des Seiteninhalts"
+    },
+    "settings_mode_sidepanel_con_2": {
+        "message": "Ist relativ breit, da der Browser eine Mindestbreite f\u00fcr die Seitenleiste vorgibt"
+    },
+    "settings_mode_both_desc_1": {
+        "message": "Beide Modi sind gleichzeitig aktiv. \u00d6ffne die Sidebar im Seitenleisten-Modus mit einem Klick auf das Symbol der Erweiterung und im Overlay-Modus mit einem Klick auf den Rand des Browserfensters."
+    },
+    "settings_mode_both_desc_2": {
+        "message": "Einstellungen, die nur f\u00fcr einen bestimmten Modus gelten, sind entsprechend gekennzeichnet."
+    },
+    "settings_mode_info_overlay": {
+        "message": "Diese Optionen gelten nur f\u00fcr die Sidebar im Overlay-Modus"
+    },
+    "settings_mode_info_sidepanel": {
+        "message": "Diese Optionen gelten nur f\u00fcr die Sidebar im Seitenleisten-Modus"
+    },
+    "settings_sidebar_position_note_overlay": {
+        "message": "Bitte beachte, dass hierdurch nur die Position der Sidebar im Overlay-Modus ge\u00e4ndert wird. Die Position der Sidebar im Seitenleisten-Modus muss in den Einstellungen des Browsers festgelegt werden."
+    },
+    "settings_sidebar_position_note_sidepanel": {
+        "message": "Bitte beachte, dass hierdurch nur die Position der Sidebar im Seitenleisten-Modus ge\u00e4ndert wird. Die Position der Sidebar im Overlay-Modus wird im anderen Bereich festgelegt."
+    },
+    "settings_trigger_area": {
+        "message": "Ausl\u00f6sebereich"
+    },
+    "settings_indicator_icon": {
+        "message": "Indikator-Symbol"
+    },
+    "settings_extension_icon_hidden": {
+        "message": "Du siehst das Symbol der Erweiterung nicht neben der Adressleiste?"
+    },
+    "settings_extension_icon_hidden_howto": {
+        "message": "So kannst du es sichtbar machen:"
+    },
+    "settings_keyboard_shortcut": {
+        "message": "Tastenkombination"
+    },
+    "settings_keyboard_shortcut_desc": {
+        "message": "Du kannst eine Tastenkombination festlegen, die einen Klick auf das Symbol der Erweiterung ausl\u00f6st. Ein Klick auf das Symbol \u00f6ffnet die Sidebar."
+    },
+    "settings_lock_pinned": {
+        "message": "Fixierte Eintr\u00e4ge oben halten"
+    },
+    "settings_lock_pinned_desc": {
+        "message": "Fixierte Eintr\u00e4ge bleiben oben in der Sidebar stehen, anstatt mit den restlichen Lesezeichen weggescrollt zu werden."
     },
     "settings_presets_desc": {
         "message": "Es lassen sich vordefinierte Gr\u00f6\u00dfen f\u00fcr die Sidebar ausw\u00e4hlen. Dadurch \u00e4ndern sich die Slider auf dieser Seite und passen die Breite der Sidebar, die Zeilenh\u00f6he, Icongr\u00f6\u00dfen und weitere Einstellungen an."
@@ -1145,9 +1046,6 @@
     "settings_scroll_bar_width": {
         "message": "Scrollbalken-Breite"
     },
-    "settings_icon_background_color": {
-        "message": "Hintergrundfarbe"
-    },
     "settings_icon_color": {
         "message": "Farbe"
     },
@@ -1163,25 +1061,13 @@
     "settings_icon_color_desc_2": {
         "message": "Beachte, dass das automatische Einf\u00e4rben nicht funktioniert, wenn ein ge\u00e4ndertes {browserName}-Design verwendet wird."
     },
-    "settings_indicator_width": {
-        "message": "Breite"
-    },
-    "settings_indicator_color": {
-        "message": "Farbe"
-    },
-    "settings_indicator_icon_size": {
-        "message": "Symbolgr\u00f6\u00dfe"
-    },
-    "settings_indicator_icon_color": {
-        "message": "Symbolfarbe"
-    },
     "settings_sidebar_width": {
         "message": "Breite"
     },
     "settings_sidebar_width_desc": {
         "message": "Die Breite der Sidebar wenn sie die aktuell ge\u00f6ffnete Webseite \u00fcberdeckt. Diese Einstellung hat keine Auswirkung wenn die Sidebar in der Seitenleiste, die dein Browser bereitstellt, ge\u00f6ffnet wird."
     },
-    "settings_header_height": {
+    "settings_sidebar_header_height": {
         "message": "H\u00f6he der Kopfzeile"
     },
     "settings_sidebar_mask_color": {
@@ -1235,23 +1121,23 @@
     "settings_custom_css_desc": {
         "message": "Du kanst dein eigenes Stylesheet definieren und das Standard-Styling \u00fcberschreiben. Bitte nutze diese Option nur, wenn du dich mit CSS auskennst und wei\u00dft, was du tust."
     },
+    "settings_custom_css_more_info": {
+        "message": "M\u00f6chtest du mehr \u00fcber CSS erfahren oder suchst du einen Einstieg? Dann schau dir [a]diesen Artikel[\/a] an."
+    },
     "settings_theme": {
-        "message": "Design"
-    },
-    "settings_themes_notice": {
-        "message": "Du kannst das Grunddesign der Sidebar ausw\u00e4hlen. Das ausgew\u00e4hlte Design kann mit den vorhandenen Reglern und Farboptionen zus\u00e4tzlich angepasst werden."
-    },
-    "settings_available_themes": {
-        "message": "Verf\u00fcgbare Designs"
-    },
-    "settings_show_themes": {
-        "message": "Verf\u00fcgbare Designs anzeigen"
+        "message": "Theme"
     },
     "settings_theme_default": {
         "message": "Standard-Design"
     },
     "settings_theme_default_desc": {
         "message": "Dieses Design stellt die Lesezeichen klar und modern dar. Viele Elemente sind in einem konfigurierbaren Farbschema eingef\u00e4rbt"
+    },
+    "settings_theme_soft": {
+        "message": "Soft-Design"
+    },
+    "settings_theme_soft_desc": {
+        "message": "Dieses Design verleiht der Sidebar einen weichen, haptischen Look mit abgerundeten Formen, sanften Farbverl\u00e4ufen und einem schwebenden, halbtransparenten Header mit einzeln angeordneten Buttons."
     },
     "settings_theme_glass": {
         "message": "Glas-Design"
@@ -1265,14 +1151,17 @@
     "settings_theme_focus_desc": {
         "message": "Dieses Design reduziert die Animationen und r\u00fcckt die Elemente n\u00e4her zusammen, um die Produktivit\u00e4t und Performance zu verbessern."
     },
-    "settings_install_theme": {
-        "message": "Design installieren"
+    "settings_theme_use": {
+        "message": "Dieses Design verwenden"
     },
-    "settings_installed_theme_info": {
-        "message": "Aktuell installiert"
+    "settings_tooltip": {
+        "message": "Tooltips"
     },
-    "settings_theme_changed": {
-        "message": "Das Design wurde erfolgreich ge\u00e4ndert"
+    "settings_background": {
+        "message": "Hintergrund"
+    },
+    "settings_layout": {
+        "message": "Layout"
     },
     "settings_newtab_intro": {
         "message": "M\u00f6chtest Du die Sidebar in neuen Tabs automatisch \u00f6ffnen?"
@@ -1295,38 +1184,17 @@
     "settings_newtab_favicon_desc": {
         "message": "Du kannst das Tab-Symbol (Favicon) f\u00fcr die New-Tab-Seite \u00e4ndern. So erkennst du sie leichter zwischen deinen offenen Tabs."
     },
-    "newtab_tmp_upgrade_headline": {
-        "message": "Deine Lesezeichen-Sidebar wurde gerade aktualisiert."
+    "settings_favicon_background": {
+        "message": "Hintergrundfarbe"
     },
-    "newtab_tmp_upgrade_action_required": {
-        "message": "Aktion erforderlich!"
-    },
-    "newtab_tmp_upgrade_desc1": {
-        "message": "Wegen einer Richtlinien\u00e4nderung von Google musste die bisherige Funktion zum \u00dcberschreiben der New-Tab-Seite entfernt werden, da sie nicht mehr den Entwickler-Richtlinien entspricht."
-    },
-    "newtab_tmp_upgrade_desc2": {
-        "message": "Da du das \u00dcberschreiben der New-Tab-Seite aktiviert hast, bist du von dieser \u00c4nderung betroffen."
-    },
-    "newtab_tmp_upgrade_desc3": {
-        "message": "Um das gewohnte Verhalten wiederherzustellen, richte bitte die neue L\u00f6sung in den Einstellungen der Erweiterung ein."
-    },
-    "newtab_tmp_upgrade_open_settings": {
-        "message": "Einstellungen \u00f6ffnen"
+    "settings_newtab_favicon": {
+        "message": "Favicon der New-Tab-Seite"
     },
     "settings_language": {
         "message": "Sprache"
     },
     "settings_language_default": {
         "message": "Browser Standard"
-    },
-    "settings_language_desc": {
-        "message": "Die Sprache der Oberfl\u00e4che"
-    },
-    "settings_translation_link": {
-        "message": "Zur \u00dcbersicht"
-    },
-    "settings_translation_desc": {
-        "message": "Du kannst helfen die Erweiterung in deine Sprache zu \u00fcbersetzen, oder falls bereits vorhanden, diese zu verbessern."
     },
     "settings_translation_add_language": {
         "message": "Sprache hinzuf\u00fcgen"
@@ -1355,8 +1223,14 @@
     "settings_translation_submit_message": {
         "message": "Deine \u00dcbersetzung wurde erfolgreich \u00fcbermittelt"
     },
+    "settings_translation_submit_error": {
+        "message": "Deine \u00dcbersetzung konnte nicht \u00fcbermittelt werden. Bitte versuche es sp\u00e4ter erneut."
+    },
     "settings_translation_status_released": {
         "message": "\u00dcbersetzung ist vorhanden"
+    },
+    "settings_translation_unsaved_confirm": {
+        "message": "Deine \u00c4nderungen wurden noch nicht \u00fcbertragen. M\u00f6chtest du sie wirklich verwerfen?"
     },
     "settings_translation_status_incomplete": {
         "message": "\u00dcbersetzung ist vorhanden, aber manche Kategorien sind unvollst\u00e4ndig"
@@ -1370,59 +1244,143 @@
     "settings_translation_required_category": {
         "message": "Erforderlich"
     },
-    "settings_support_faq_headline": {
-        "message": "H\u00e4ufig gestellte Fragen"
+    "settings_translation_overview": {
+        "message": "\u00dcbersetzungen"
     },
-    "settings_support_feedback_headline": {
-        "message": "Feedback"
+    "settings_translation_goto_prev": {
+        "message": "Vorheriges leeres Feld"
     },
-    "settings_support_feedback_desc": {
-        "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern, bin ich f\u00fcr jedes Feedback dankbar."
+    "settings_translation_goto_next": {
+        "message": "N\u00e4chstes leeres Feld"
     },
-    "settings_support_feedback_notice": {
-        "message": "Du kannst die Nachricht gerne auf Deutsch schreiben."
+    "settings_import_export": {
+        "message": "Import\/Export"
     },
-    "settings_support_feedback_email": {
-        "message": "Du willst eine Antwort? Gib deine E-Mail Adresse an (optional)"
+    "settings_import_export_headline": {
+        "message": "Import\/Export Einstellungen"
     },
-    "settings_support_feedback_screenshot": {
-        "message": "Screenshots anh\u00e4ngen"
+    "settings_import_export_notice": {
+        "message": "Um deine Ger\u00e4te synchron zu halten, brauchst du das nicht. Wenn du in deinem Browser angemeldet bist und die Synchronisierung aktiviert hast, werden deine Lesezeichen und die Einstellungen dieser Erweiterung automatisch auf alle deine Ger\u00e4te \u00fcbertragen. Das Exportieren und Importieren einer Datei ist nur n\u00f6tig, wenn du die Synchronisierung nicht nutzt, deine Einstellungen mit jemand anderem teilen oder sie in einem anderen Browserprofil verwenden m\u00f6chtest."
     },
-    "settings_support_feedback_screenshot_error_filesize": {
-        "message": "Die Datei {1} ist zu gro\u00df (> 1 MB)"
+    "settings_import_export_desc": {
+        "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
     },
-    "settings_support_feedback_screenshot_error_amount": {
-        "message": "Es k\u00f6nnen maximal {1} Screenshots hochgeladen werden"
+    "settings_export": {
+        "message": "Konfiguration exportieren"
     },
-    "settings_support_feedback_send": {
-        "message": "Feedback abschicken"
+    "settings_import": {
+        "message": "Konfiguration importieren"
     },
-    "settings_support_feedback_sent_message": {
-        "message": "Vielen Dank f\u00fcr dein Feedback"
+    "settings_import_saved": {
+        "message": "Konfiguration erfolgreich importiert"
     },
-    "settings_support_feedback_send_failed": {
-        "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
+    "settings_import_failed": {
+        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
-    "settings_permissions_desc": {
-        "message": "Um eine ausklappbare Sidebar im {browserName} zu realisieren, werden folgende Berechtigungen ben\u00f6tigt und angefragt:"
+    "settings_import_export_bookmarks": {
+        "message": "Import\/Export Lesezeichen"
     },
-    "settings_permissions_contentscript_desc_1": {
-        "message": "Leider bietet {browserName} keine M\u00f6glichkeit Inhalte im Browserfenster anzuzeigen, ohne mit der gerade ge\u00f6ffneten Webseite zu interagieren."
+    "settings_import_export_bookmarks_desc": {
+        "message": "Deine Lesezeichen werden nicht von dieser Erweiterung gespeichert. Sie werden von deinem Browser verwaltet, die Erweiterung zeigt sie nur an. Deshalb enth\u00e4lt der Export oben deine Einstellungen, aber keine Lesezeichen. Um deine Lesezeichen zu sichern, zu \u00fcbertragen oder zu importieren, nutze den Lesezeichen-Manager deines Browsers."
     },
-    "settings_permissions_contentscript_desc_2": {
-        "message": "Da sich die Sidebar \u00fcber die aktuelle Webseite legt, ist diese Berechtigung notwendig. Neben diesem technischen Grund wird die Berechtigung nicht weiter verwendet."
+    "settings_expert": {
+        "message": "Experteneinstellungen"
     },
-    "settings_permissions_contentscript_desc_3": {
-        "message": "Falls du Bedenken hast, was ich mit der Berechtigung mache, kannst du dir den Quelltext der Erweiterung auf Github ansehen. Dieser ist Open Source and f\u00fcr jeden sichtbar."
+    "settings_expert_settings_desc": {
+        "message": "Mit Hilfe der Experteneinstellungen k\u00f6nnen alle Konfigurationen der Erweiterungen ge\u00e4ndert werden. Es lassen sich auch Werte \u00e4ndern, die nicht \u00fcber die normalen Checkboxen und Regler in den Einstellungen angepasst werden k\u00f6nnen."
     },
-    "settings_permissions_bookmarks_desc": {
-        "message": "Die Erweiterung zeigt deine Lesezeichen in der Sidebar an und ben\u00f6tigt daher diese Berechtigung, um Zugriff zu erlangen. Die Berechtigung erlaubt der Erweiterung au\u00dferdem, Lesezeichen hinzuzuf\u00fcgen, zu \u00e4ndern und zu l\u00f6schen."
+    "settings_expert_settings_notice": {
+        "message": "Bitte \u00e4ndere die Werte hier nur, wenn du wei\u00dft was du tust. Fehlerhafte Konfiguration kann zu unerwartetem Verhalten der Erweiterung f\u00fchren. Falls etwas nicht mehr funktionieren sollte, kann die Standard-Konfiguration wiederhergestellt werden."
     },
-    "settings_headline_share_userdata": {
+    "settings_expert_save_error": {
+        "message": "Einstellungen konnten nicht gespeichert werden. Bitte \u00fcberpr\u00fcfe deine Eingabe."
+    },
+    "settings_search_placeholder": {
+        "message": "Nach Konfiguration suchen"
+    },
+    "settings_import_export_bookmarks_link": {
+        "message": "So importierst und exportierst du Lesezeichen in deinem Browser"
+    },
+    "settings_share_info_intro_1": {
+        "message": "Bookmark Sidebar bietet eine optionale Funktion zum Teilen von Daten. Diese ist ausschlie\u00dflich freiwillig. Standardm\u00e4\u00dfig wird nichts \u00fcbertragen."
+    },
+    "contribute_notice": {
+        "message": "Du kannst mich unterst\u00fctzen, indem du deine Konfiguration teilst"
+    },
+    "settings_share_info_config": {
+        "message": "1. Einstellungen teilen"
+    },
+    "settings_share_info_activity": {
+        "message": "2. Nutzungsaktivit\u00e4t teilen"
+    },
+    "settings_share_info_activity_examples": {
+        "message": "Daten die \u00fcbermittelt werden sind beispielsweise:"
+    },
+    "settings_share_info_activity_item_5": {
+        "message": "Wie viele Lesezeichen haben die Nutzer im Durchschnitt?"
+    },
+    "settings_share_info_activity_item_4": {
+        "message": "Welche Modi der Sidebar sind beliebt?"
+    },
+    "settings_share_info_activity_item_1": {
+        "message": "Verwenden die Nutzer die Suche?"
+    },
+    "settings_share_info_activity_item_2": {
+        "message": "\u00c4ndern die Nutzer die Sortierung der Lesezeichen?"
+    },
+    "settings_share_info_activity_item_3": {
+        "message": "Wie oft verschieben, oder bearbeiten die Nutzer Eintr\u00e4ge?"
+    },
+    "settings_share_info": {
         "message": "Informationen teilen"
     },
-    "settings_saved_share_userdata": {
+    "settings_share_info_saved": {
         "message": "Deine Einstellung wurde erfolgreich gespeichert"
+    },
+    "settings_share_info_intro_2": {
+        "message": "Wer mitmachen m\u00f6chte, kann anonym einige technische Informationen teilen, die helfen, die Erweiterung zu verbessern. Es gibt zwei Kategorien:"
+    },
+    "settings_share_info_config_intro": {
+        "message": "Anonyme Daten zu den Einstellungen helfen dabei, herauszufinden:"
+    },
+    "settings_share_info_config_item_1": {
+        "message": "welche Einstellungen am h\u00e4ufigsten verwendet werden"
+    },
+    "settings_share_info_config_item_2": {
+        "message": "welche Optionen kaum ver\u00e4ndert werden"
+    },
+    "settings_share_info_config_item_3": {
+        "message": "welche Standardwerte gut funktionieren"
+    },
+    "settings_share_info_config_item_4": {
+        "message": "was in zuk\u00fcnftigen Versionen vereinfacht oder verbessert werden sollte"
+    },
+    "settings_share_info_config_outro": {
+        "message": "Wenn aktiviert, sendet die Erweiterung regelm\u00e4\u00dfig den aktuellen Stand der Einstellungen an meinen Server."
+    },
+    "settings_share_info_activity_intro": {
+        "message": "Anonyme Daten zur Nutzung helfen zu verstehen, wie die Funktionen in der Praxis verwendet werden."
+    },
+    "settings_share_info_important": {
+        "message": "Wichtig:"
+    },
+    "settings_share_info_not_collected_1": {
+        "message": "Es werden keine Titel von Lesezeichen erfasst"
+    },
+    "settings_share_info_not_collected_2": {
+        "message": "Es werden keine URLs von Lesezeichen erfasst"
+    },
+    "settings_share_info_not_collected_3": {
+        "message": "Es wird kein Browserverlauf erfasst"
+    },
+    "settings_share_info_not_collected_4": {
+        "message": "Es werden keine besuchten Webseiten verfolgt"
+    },
+    "settings_share_info_purpose": {
+        "message": "Es geht um die Auswertung von Funktionen, nicht um \u00dcberwachung."
+    },
+    "settings_share_info_more_info": {
+        "message": "Du m\u00f6chtest mehr erfahren? Lies den [a]Artikel in der Wissensdatenbank[\/a] mit Details zur Auswertung."
     },
     "premium_popup_text": {
         "message": "Hast Du dir schon die Premium-Funktionen angeschaut?"
@@ -1430,11 +1388,8 @@
     "premium_restricted_text": {
         "message": "Diese Funktion ist nur mit Premium verf\u00fcgbar"
     },
-    "premium_desc_1": {
-        "message": "Premium gibt dir Zugriff auf zus\u00e4tzliche Funktionen. Au\u00dferdem unterst\u00fctzt du mich dabei, die Erweiterung weiterzuentwickeln."
-    },
-    "premium_desc_2": {
-        "message": "Du kannst weiter unten die Funktionen, die in Premium enthalten sind, anschauen. Die Kernfunktionen der Erweiterung sind kostenlos nutzbar und ben\u00f6tigen \u00fcberhaupt kein Premium. Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf diese Funktionen zu erhalten."
+    "premium_desc": {
+        "message": "Premium ist ein einmaliger Kauf, mit dem du eine lebenslange Lizenz f\u00fcr alle erweiterten Funktionen erh\u00e4ltst."
     },
     "premium_get_now": {
         "message": "Jetzt Premium holen"
@@ -1451,41 +1406,32 @@
     "premium_license_key": {
         "message": "Aktivierungscode"
     },
-    "premium_feature_early_access_headline": {
-        "message": "Sei der Erste, der neue experimentelle Funktionen ausprobieren kann"
-    },
-    "premium_feature_early_access_desc": {
-        "message": "Mit Premium bekommst du Zugriff auf bisher unver\u00f6ffentlichte Funktionen, die aktuell noch in der Entwicklung sind oder sich gerade in der Testphase befinden."
-    },
-    "premium_feature_sidebar_width_headline": {
-        "message": "Passe die Breite deiner Sidebar jederzeit an"
-    },
     "premium_feature_import_export_headline": {
         "message": "Importiere und exportiere deine Einstellungen"
     },
-    "premium_feature_custom_background_headline": {
-        "message": "Passe deine New-Tab-Seite an"
+    "premium_feature_newtab_extended_headline": {
+        "message": "Erweiterte Anpassung der New-Tab-Seite"
     },
-    "premium_feature_custom_background_desc": {
-        "message": "Wenn Du die New-Tab-Seite der Erweiterung verwendest, kannst Du dein eigenes Hintergrundbild festlegen, um die Seite noch h\u00fcbscher zu gestalten."
+    "premium_feature_newtab_extended_desc": {
+        "message": "Mach die New-Tab-Seite ganz zu deiner eigenen: Lege ein eigenes Hintergrundbild fest und bestimme, wie viele Verkn\u00fcpfungen das Raster unter dem Suchfeld anzeigt."
     },
     "premium_feature_custom_css_headline": {
-        "message": "Passe alles an ... Mit deinem eigenen Stylesheet"
+        "message": "Eigenes Stylesheet (CSS)"
     },
     "premium_feature_custom_css_desc": {
-        "message": "Wenn du dich mit CSS auskennst, kannst du das komplette Aussehen der Sidebar ver\u00e4ndern, in dem du eigene Style-Definitionen hinzuf\u00fcgst. Damit l\u00e4sst sich absolut alles anpassen."
+        "message": "Geh \u00fcber Regler und Farbw\u00e4hler hinaus und gestalte jedes Detail der Sidebar mit deinen eigenen CSS-Regeln."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "\u00dcberpr\u00fcfe deine Lesezeichen auf kaputte oder doppelte Links"
+        "message": "Lesezeichen-Check"
     },
     "premium_feature_linkchecker_desc": {
         "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten URLs, nicht mehr funktionierende Lesezeichen und Eintr\u00e4ge mit doppelten URLs auf."
     },
     "premium_feature_themes_headline": {
-        "message": "\u00c4ndere das Design deiner Sidebar"
+        "message": "Designs f\u00fcr die Sidebar"
     },
     "premium_feature_themes_desc": {
-        "message": "Du kannst das gesamte Aussehen der Sidebar mit einem Klick \u00e4ndern, in dem du ein anderes Design installierst. Die Designs k\u00f6nnen auch mit den vorhandenen Reglern und Farboptionen angepasst werden."
+        "message": "\u00c4ndere das gesamte Aussehen der Sidebar mit einem Klick und passe es anschlie\u00dfend mit Reglern und Farboptionen genau an."
     },
     "premium_pay_intro_payment_method": {
         "message": "Klicke unten eine Zahlungsart an und w\u00e4hle den Betrag, den Du bezahlen m\u00f6chtest, im n\u00e4chsten Schritt aus."
@@ -1543,5 +1489,95 @@
     },
     "premium_pay_info_name": {
         "message": "Name"
+    },
+    "premium_title": {
+        "message": "Premium"
+    },
+    "premium_desc_teaser": {
+        "message": "Es enth\u00e4lt erweiterte Funktionen f\u00fcr alle, die sie m\u00f6chten, w\u00e4hrend die kostenlose Version weiterhin sehr leistungsf\u00e4hig und f\u00fcr die meisten v\u00f6llig ausreichend ist."
+    },
+    "premium_desc_teaser_active": {
+        "message": "Erfahre, auf welche Funktionen du Zugriff hast."
+    },
+    "premium_free": {
+        "message": "Kostenlos"
+    },
+    "premium_feature_bookmarks_headline": {
+        "message": "Lesezeichen hinzuf\u00fcgen, bearbeiten und l\u00f6schen"
+    },
+    "premium_feature_bookmarks_desc": {
+        "message": "Verwalte deine Lesezeichen und Ordner direkt in der Sidebar, ohne jemals den Lesezeichen-Manager \u00f6ffnen zu m\u00fcssen."
+    },
+    "premium_feature_modes_headline": {
+        "message": "Overlay- oder Seitenleisten-Modus"
+    },
+    "premium_feature_modes_desc": {
+        "message": "\u00d6ffne deine Lesezeichen als Overlay \u00fcber der Webseite oder in der Seitenleiste des Browsers."
+    },
+    "premium_feature_styling_headline": {
+        "message": "Farben, Gr\u00f6\u00dfen und Abst\u00e4nde"
+    },
+    "premium_feature_styling_desc": {
+        "message": "Passe Farben, Schrift- und Symbolgr\u00f6\u00dfen, Zeilenh\u00f6he, Einr\u00fcckung und vieles mehr genau an."
+    },
+    "premium_feature_trigger_area_headline": {
+        "message": "Anpassbarer Ausl\u00f6sebereich"
+    },
+    "premium_feature_trigger_area_desc": {
+        "message": "Lege fest, wo und wie sich die Sidebar \u00f6ffnet, einschlie\u00dflich Gr\u00f6\u00dfe und Farbe des Indikators."
+    },
+    "premium_feature_visibility_headline": {
+        "message": "Sichtbarkeitsregeln"
+    },
+    "premium_feature_visibility_desc": {
+        "message": "W\u00e4hle aus, auf welchen Webseiten die Sidebar verf\u00fcgbar ist und wo sie dir nicht in die Quere kommt."
+    },
+    "premium_feature_dark_mode_headline": {
+        "message": "Dunkler Modus"
+    },
+    "premium_feature_dark_mode_desc": {
+        "message": "Gib der Sidebar ein dunkles Aussehen, manuell oder automatisch."
+    },
+    "premium_feature_extension_icon_desc": {
+        "message": "W\u00e4hle Form und Farbe des Symbols der Erweiterung in deiner Symbolleiste."
+    },
+    "premium_feature_sync_headline": {
+        "message": "Lesezeichen und Einstellungen synchronisieren"
+    },
+    "premium_feature_sync_desc": {
+        "message": "Halte deine Lesezeichen und die Einstellungen der Erweiterung auf all deinen Ger\u00e4ten synchron. Achte einfach darauf, dass die Synchronisierung in den Einstellungen deines Browsers aktiviert ist."
+    },
+    "premium_feature_newtab_headline": {
+        "message": "New-Tab-Seite"
+    },
+    "premium_feature_newtab_desc": {
+        "message": "Ersetze die New-Tab-Seite deines Browsers durch eine aufger\u00e4umte Seite mit deinen Lesezeichen und einem Suchfeld."
+    },
+    "premium_feature_import_export_desc": {
+        "message": "Speichere deine Einstellungen als Datei auf deinem Computer und importiere sie auf jedem Ger\u00e4t, auf dem die Erweiterung installiert ist."
+    },
+    "premium_feature_pinned_headline": {
+        "message": "Fixierte Lesezeichen"
+    },
+    "premium_feature_pinned_desc": {
+        "message": "Fixiere deine Lieblingslesezeichen oben in der Sidebar, damit du sie jederzeit griffbereit hast."
+    },
+    "premium_feature_both_modes_headline": {
+        "message": "Beide Modi gleichzeitig"
+    },
+    "premium_feature_both_modes_desc": {
+        "message": "Nutze das Overlay und die Seitenleiste parallel und w\u00e4hle, was gerade besser passt."
+    },
+    "premium_feature_priority_support_headline": {
+        "message": "Bevorzugter Support"
+    },
+    "premium_feature_priority_support_desc": {
+        "message": "Deine Fragen und dein Feedback werden vorrangig behandelt, sodass du schneller eine Antwort bekommst."
+    },
+    "premium_feature_support_dev_headline": {
+        "message": "Unterst\u00fctze die Entwicklung"
+    },
+    "premium_feature_support_dev_desc": {
+        "message": "Hilf dabei, Bookmark Sidebar unabh\u00e4ngig zu halten und aktiv weiterzuentwickeln, und erm\u00f6gliche neue Funktionen."
     }
 }

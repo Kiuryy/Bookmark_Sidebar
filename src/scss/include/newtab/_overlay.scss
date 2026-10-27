@@ -1,12 +1,16 @@
+@use "sass:meta";
+@use "../mixins";
+@use "../vars";
+
 
 div.modal[data-type='searchEngine'] {
-  @extend %modalFooterBackground;
+  @include mixins.modalFooterBackground;
   width: 600px;
   height: 550px;
   max-height: 100%;
 
   > header::before {
-    @include maskImage('icon-search');
+    @include mixins.maskImage('icon-search');
   }
 
   > div.scrollBox {
@@ -30,12 +34,12 @@ div.modal[data-type='searchEngine'] {
         > a {
           display: inline-block;
           line-height: 39px;
-          font-weight: $__fontWeightMedium;
+          font-weight: vars.$dyn-fontWeightMedium;
           cursor: pointer;
           transition: color 0.3s;
 
           &:hover {
-            color: $__colorScheme;
+            color: vars.$dyn-colorScheme;
           }
 
           > img {
@@ -65,7 +69,7 @@ div.modal[data-type='searchEngine'] {
           > label {
             display: block;
             font-size: 100%;
-            font-weight: $__fontWeightMedium;
+            font-weight: vars.$dyn-fontWeightMedium;
           }
 
           > input {
@@ -91,6 +95,6 @@ div.modal[data-type='searchEngine'] {
   }
 }
 
-@import "../../rtl/include/newtab/overlay";
-@import "../../dark/include/newtab/overlay";
-@import "../../highContrast/include/newtab/overlay";
+@include meta.load-css("../../rtl/include/newtab/overlay");
+@include meta.load-css("../../dark/include/newtab/overlay");
+@include meta.load-css("../../highContrast/include/newtab/overlay");

@@ -27,6 +27,34 @@
         },
         "defaultHash": "ecc1e712629d556a"
     },
+    "es": {
+        "hashes": {
+            "chrome": "afc1cc268a940f30",
+            "edge": "8eb7510c04f89007"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "fr": {
+        "hashes": {
+            "chrome": "324b7381bef09e1b",
+            "edge": "26885fe695bb579f"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "ja": {
+        "hashes": {
+            "chrome": "736e59907838b1f1",
+            "edge": "2f7f18f9218a0188"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
+    "nl": {
+        "hashes": {
+            "chrome": "6248e84aacd2d11a",
+            "edge": "af0412b2c51b5244"
+        },
+        "defaultHash": "ecc1e712629d556a"
+    },
     "zh_CN": {
         "hashes": {
             "chrome": "1cfee88a780bdf9c",

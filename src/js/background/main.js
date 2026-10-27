@@ -46,11 +46,6 @@
             await this.helper.cache.remove({name: "htmlList"});
             await this.helper.cache.remove({name: "htmlPinnedEntries"});
 
-            const injectFuncs = {
-                css: "insertCSS",
-                js: "executeScript"
-            };
-
             let type = null;
             if (opts && opts.type) {
                 type = opts.type;
@@ -62,16 +57,15 @@
                 if (typeof tab.url === "undefined" || tab.url.startsWith("http://") || tab.url.startsWith("https://") || tab.url.startsWith("file://")) {
                     await $.delay(70);
 
-                    Object.entries(injectFuncs).forEach(([fileType, func]) => {
-                        const files = $.opts.manifest.content_scripts[0][fileType];
+                    const target = {tabId: tab.id};
+                    const contentScript = $.opts.manifest.content_scripts[0];
+                    const onError = () => { // send a notification instead to let the page deal with it
+                        notifyReinitialization(tab.id, type);
+                    };
 
-                        $.api.scripting[func]({
-                            target: {tabId: tab.id},
-                            files: files
-                        })["catch"](() => { // send a notification instead to let the page deal with it
-                            notifyReinitialization(tab.id, type);
-                        });
-                    });
+                    // explicit calls (no dynamic method names), so the usage of the "scripting" permission is detectable for the store reviews
+                    $.api.scripting.insertCSS({target, files: contentScript.css})["catch"](onError);
+                    $.api.scripting.executeScript({target, files: contentScript.js})["catch"](onError);
                 } else { // send a notification instead of loading the scripts to let the page deal with the reinitialization
                     notifyReinitialization(tab.id, type);
                 }

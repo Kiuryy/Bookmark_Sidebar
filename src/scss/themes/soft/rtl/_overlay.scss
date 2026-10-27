@@ -1,0 +1,18 @@
+html[dir='rtl'] [data-theme='soft'] div.modal[data-type='infos'] > ul.breadcrumb > li {
+  padding: 0 10px;
+
+  + li {
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    margin-left: 0;
+  }
+
+  &:not(:last-child)::before {
+    right: unset;
+    left: -14px;
+  }
+}

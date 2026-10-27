@@ -62,6 +62,11 @@
     }
   }
 
+  &[data-type='infos'] > ul.breadcrumb > li {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: helpers.darkPressed(2px);
+  }
+
   &[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
     background: helpers.$darkSurfaceGradient;
     box-shadow: helpers.darkRaised(2px);

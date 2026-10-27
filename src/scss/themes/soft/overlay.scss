@@ -60,6 +60,49 @@
       background: rgba(255, 255, 255, 0.35);
     }
 
+    &[data-type='infos'] > ul.breadcrumb { // pressed pills instead of the arrows, their cutouts are painted in the solid content background
+
+      &::before {
+        display: none;
+      }
+
+      > li {
+        padding: 0 10px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.04);
+        box-shadow: helpers.pressed(2px);
+
+        + li {
+          padding-left: 10px;
+          margin-left: 16px;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        &:last-child {
+          margin-right: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        &:not(:last-child)::before {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 0;
+          height: 0;
+          right: -14px;
+          border: 4px solid transparent;
+          border-left-color: vars.$dyn-textColor;
+          opacity: 0.4;
+        }
+      }
+    }
+
     &[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
       border: none;
       border-radius: 6px;
@@ -131,4 +174,5 @@
   }
 }
 
+@include meta.load-css("rtl/overlay");
 @include meta.load-css("dark/overlay");

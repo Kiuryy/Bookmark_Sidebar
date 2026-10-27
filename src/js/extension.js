@@ -290,19 +290,41 @@
          *  https://stackoverflow.com/a/66618269/1660305
          */
         const initKeepalive = () => {
-            let port;
+            let port = null;
+            let pageCached = false;
+
             const connect = () => {
-                port = $.api.runtime.connect({name: "keepalive"});
-                port.onDisconnect.addListener(() => {
-                    if (!this.isOrphaned()) { // service worker restarted -> reconnect
-                        connect();
+                if (port !== null || pageCached || this.isOrphaned()) {
+                    return;
+                }
+
+                const currentPort = $.api.runtime.connect({name: "keepalive"});
+                port = currentPort;
+
+                currentPort.onDisconnect.addListener(() => {
+                    $.api.runtime.lastError; // mark the error as checked (e.g. the page got moved into the back/forward cache)
+
+                    if (port === currentPort) {
+                        port = null;
+                        connect(); // service worker restarted -> reconnect (unless the page is cached or the extension context got invalidated)
                     }
                 });
-                port.onMessage.addListener(msg => {
+                currentPort.onMessage.addListener(msg => {
                     // eslint-disable-next-line no-console
                     console.log("keepalive message: ", msg);
                 });
             };
+
+            // the browser closes the port when the page is moved into the back/forward cache -> reconnect when it gets restored
+            $(window).on("pagehide.bs", (e) => {
+                if (e.persisted) {
+                    pageCached = true;
+                }
+            }).on("pageshow.bs", () => {
+                pageCached = false;
+                connect();
+            });
+
             connect();
         };
 

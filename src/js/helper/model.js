@@ -518,6 +518,8 @@
             let response = await $.api.runtime.sendMessage(opts)["catch"]((err) => {
                 if (err && ("" + err).includes("Could not establish connection")) {
                     backendDead = true;
+                } else if (err && ("" + err).includes("back/forward cache")) {
+                    // the page got moved into the back/forward cache while waiting for the response -> nothing to do
                 } else {
                     console.error(err);
                 }

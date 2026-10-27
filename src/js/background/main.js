@@ -186,6 +186,8 @@
             };
 
             const deleteTimer = (port) => {
+                $.api.runtime.lastError; // mark the error as checked (e.g. the page got moved into the back/forward cache)
+
                 if (port._timer) {
                     clearTimeout(port._timer);
                     delete port._timer;

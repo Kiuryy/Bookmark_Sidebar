@@ -259,6 +259,26 @@
             });
         };
 
+        /**
+         * Checks whether the extension context got invalidated (e.g. extension reload), which leaves this instance orphaned,
+         * if so its event handlers are removed, since every extension API call would throw from now on
+         *
+         * @returns {boolean}
+         */
+        this.isOrphaned = () => {
+            let orphaned = true;
+            try {
+                orphaned = !$.api.runtime.id;
+            } catch (ignored) {
+                //
+            }
+
+            if (orphaned) {
+                destroyOrphanedInstance();
+            }
+            return orphaned;
+        };
+
         /*
          * ################################
          * PRIVATE
@@ -273,7 +293,11 @@
             let port;
             const connect = () => {
                 port = $.api.runtime.connect({name: "keepalive"});
-                port.onDisconnect.addListener(connect);
+                port.onDisconnect.addListener(() => {
+                    if (!this.isOrphaned()) { // service worker restarted -> reconnect
+                        connect();
+                    }
+                });
                 port.onMessage.addListener(msg => {
                     // eslint-disable-next-line no-console
                     console.log("keepalive message: ", msg);
@@ -443,6 +467,21 @@
             }
 
             return ret;
+        };
+
+        /**
+         * Removes the event handlers of this instance after the extension context got invalidated (e.g. extension reload),
+         * the reinjected instance runs in a separate content script world, so its destroyOldInstance() can't remove them.
+         * The DOM elements are kept, since they might already belong to the reinjected instance
+         */
+        const destroyOrphanedInstance = () => {
+            if (existenceTimeout !== null) {
+                clearTimeout(existenceTimeout);
+                existenceTimeout = null;
+            }
+
+            $(document).off("*.bs");
+            $(window).off("*.bs");
         };
 
         const initAppFrame = () => {

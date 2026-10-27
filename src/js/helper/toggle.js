@@ -142,6 +142,10 @@
          * Opens the sidebar
          */
         this.openSidebar = () => {
+            if (ext.isOrphaned()) { // the reinjected instance takes over
+                return;
+            }
+
             ext.helper.model.call("infoToDisplay").then((opts) => { // check whether to show any info to the user
                 if (opts && opts.info) {
                     if (opts.info === "shareInfo" || opts.info === "premium" || opts.info === "translation") {

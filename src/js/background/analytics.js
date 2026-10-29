@@ -197,7 +197,12 @@
 
             let isOverrideNewtab = false;
 
+            const defaults = structuredClone($.defaults.config);
             const configList = await $.api.storage.sync.get(configCategories);
+            configList.behaviour = $.deepMerge(defaults.b, configList.behaviour || {}); // track the default value of the options the user never changed as well
+            configList.appearance = $.deepMerge(defaults.a, configList.appearance || {});
+            configList.newtab = $.deepMerge(defaults.n, configList.newtab || {});
+
             for (const category in configList) {
                 if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
                     if (typeof configList[category] === "object" && typeof configList[category].override !== "undefined" && configList[category].override === true) {
@@ -215,25 +220,19 @@
             }
 
             const obj = await $.api.storage.local.get(["utility", "newtabBackground_1"]);
-            if (obj.utility) {
-                const config = {};
-                ["pinnedEntries", "customCss"].forEach((field) => {
-                    if (typeof obj.utility[field] !== "undefined") {
-                        config[field] = obj.utility[field];
-                    }
-                });
+            const utility = $.deepMerge(defaults.u, obj.utility || {});
+            const config = {
+                pinnedEntries: utility.pinnedEntries,
+                customCss: utility.customCss,
+                sortType: utility.sort.name,
+                sortDetail: utility.sort.name + "-" + utility.sort.dir
+            };
 
-                if (typeof obj.utility.sort !== "undefined") {
-                    config.sortType = obj.utility.sort.name;
-                    config.sortDetail = obj.utility.sort.name + "-" + obj.utility.sort.dir;
-                }
-
-                if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
-                    config.newtabBackground = obj.newtabBackground_1 || "";
-                }
-
-                await proceedConfig("utility", config);
+            if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
+                config.newtabBackground = obj.newtabBackground_1 || "";
             }
+
+            await proceedConfig("utility", config);
         };
 
         /**

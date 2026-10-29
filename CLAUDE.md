@@ -52,7 +52,7 @@ Web Store descriptions (`webstore/descriptions.mjs`):
   manually, in the right order.
 - External tools (`sass`, `terser`, `eslint`, `html-minifier-terser`, `zip`) run through `run()`,
   which aborts the build when one of them fails.
-- Load order matters: `lib/jsu.js` → `opts.js` → helpers → page script.
+- Load order matters: `lib/jsu.js` → `opts.js` → `defaults.js` → helpers → page script.
 - **SCSS**: `sass src/scss:dist/css` compiles the whole tree, so every non-partial `.scss`
   (including `themes/<theme>/*.scss`) becomes a stylesheet the extension can load by name.
   Partials (`_name.scss`, mostly under `src/scss/include/**`) are pulled in with `@use`.
@@ -68,6 +68,7 @@ Web Store descriptions (`webstore/descriptions.mjs`):
 | Path | What |
 | --- | --- |
 | `src/js/opts.js` | Global constants. Exposes `$.opts`, plus the aliases `$.cl` (CSS class names) and `$.attr` (data-attribute names), `$.api` (`chrome`/`browser`), `$.browserName`, `$.isDev`. |
+| `src/js/defaults.js` | `$.defaults.config` (default configuration, keyed by the model aliases `u`/`b`/`a`/`n`) and `$.defaults.colors` (per theme and surface). Shared by the page `model` helper and the service worker (analytics merges it under the stored config). |
 | `src/js/helper/*.js` | Shared helpers (`i18n`, `model`, `stylesheet`, `checkbox`, `template`, `utility`, …). |
 | `src/js/background/`, `background.js` | Service worker. `model.call("<action>")` from a page routes here. |
 | `src/js/extension.js` + `helper/` | Content script: the sidebar itself. |

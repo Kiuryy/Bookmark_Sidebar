@@ -139,11 +139,11 @@ const newtabJs = listJs("src/js/newtab");
 const settingsJs = listJs("src/js/settings");
 const translationsJs = listJs("src/js/translations");
 
-const pageHelperJs = ["src/js/helper/i18n.js", "src/js/helper/font.js", "src/js/helper/stylesheet.js", "src/js/helper/template.js", "src/js/helper/utility.js", "src/js/helper/model.js"];
+const pageHelperJs = ["src/js/defaults.js", "src/js/helper/i18n.js", "src/js/helper/font.js", "src/js/helper/stylesheet.js", "src/js/helper/template.js", "src/js/helper/utility.js", "src/js/helper/model.js"];
 
-const bundles = { // load order matters: lib/jsu.js -> opts.js -> helpers -> page script
-    "background": ["src/js/background-prepare.js", "src/js/lib/jsu.js", "src/js/opts.js", ...backgroundJs, "src/js/background.js"],
-    "extension": ["src/js/webcomponents-bundle.js", "src/js/lib/jsu.js", "src/js/opts.js", ...helperJs, "src/js/settings/importExport.js", "src/js/extension.js"],
+const bundles = { // load order matters: lib/jsu.js -> opts.js -> defaults.js -> helpers -> page script
+    "background": ["src/js/background-prepare.js", "src/js/lib/jsu.js", "src/js/opts.js", "src/js/defaults.js", ...backgroundJs, "src/js/background.js"],
+    "extension": ["src/js/webcomponents-bundle.js", "src/js/lib/jsu.js", "src/js/opts.js", "src/js/defaults.js", ...helperJs, "src/js/settings/importExport.js", "src/js/extension.js"],
     "sidepanel": ["src/js/lib/jsu.js", "src/js/opts.js", "src/js/sidepanel.js"],
     "onboarding": ["src/js/lib/jsu.js", "src/js/opts.js", ...pageHelperJs, "src/js/settings/dialog.js", "src/js/settings/video.js", "src/js/onboarding.js"],
     "settings": ["src/js/lib/jsu.js", "src/js/lib/colorpicker.js", "src/js/opts.js", ...pageHelperJs, "src/js/helper/checkbox.js", ...settingsJs, "src/js/settings.js"],

@@ -9,7 +9,7 @@ body > main section.tab[data-name='overview'] div.col.tips-tricks {
   overflow: hidden;
 
   > div.slide {
-    grid-area: 1 / 1; // all slides share the same cell, so the leaving and the entering one overlap
+    grid-area: 1 / 1;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: start;
@@ -25,7 +25,7 @@ body > main section.tab[data-name='overview'] div.col.tips-tricks {
     &.visible {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition-delay: 0.2s; // let the previous slide move out a bit first
+      transition-delay: 0.2s;
     }
 
     &.leaving {
@@ -74,7 +74,7 @@ body > main section.tab[data-name='overview'] div.col.tips-tricks {
   }
 
   > div.slide[data-type='quick_bookmarking'] > div.info > p > span::before {
-    @include mixins.maskImage("icon-lock");
+    @include mixins.maskImage("settings/icon-tune");
   }
 
   > div.slide[data-type='hide_entries'] > div.info > p > span::before {

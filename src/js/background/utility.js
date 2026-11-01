@@ -39,7 +39,7 @@
             const installationDates = {
                 free: +new Date(),
                 pre2018: +new Date(2016, 11, 1),
-                pre2026: +new Date(2026, 11, 1)
+                pre2026: +new Date(2026, 11, 7)
             };
 
             if (!$.isDev || !installationDates[opts.userType]) {

@@ -197,11 +197,29 @@
 
             let isOverrideNewtab = false;
 
+            /**
+             * Returns the stored value as plain object, some users have a category stored as JSON string,
+             * which deepMerge would otherwise split into one entry per character ("0" => "{", "1" => "\"", ...)
+             *
+             * @param {*} val
+             * @returns {object}
+             */
+            const toPlainObject = (val) => {
+                if (typeof val === "string") {
+                    try {
+                        val = JSON.parse(val);
+                    } catch (e) {
+                        //
+                    }
+                }
+                return val && typeof val === "object" && !Array.isArray(val) ? val : {};
+            };
+
             const defaults = structuredClone($.defaults.config);
             const configList = await $.api.storage.sync.get(configCategories);
-            configList.behaviour = $.deepMerge(defaults.b, configList.behaviour || {}); // track the default value of the options the user never changed as well
-            configList.appearance = $.deepMerge(defaults.a, configList.appearance || {});
-            configList.newtab = $.deepMerge(defaults.n, configList.newtab || {});
+            configList.behaviour = $.deepMerge(defaults.b, toPlainObject(configList.behaviour)); // track the default value of the options the user never changed as well
+            configList.appearance = $.deepMerge(defaults.a, toPlainObject(configList.appearance));
+            configList.newtab = $.deepMerge(defaults.n, toPlainObject(configList.newtab));
 
             for (const category in configList) {
                 if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
@@ -220,7 +238,7 @@
             }
 
             const obj = await $.api.storage.local.get(["utility", "newtabBackground_1"]);
-            const utility = $.deepMerge(defaults.u, obj.utility || {});
+            const utility = $.deepMerge(defaults.u, toPlainObject(obj.utility));
             const config = {
                 pinnedEntries: utility.pinnedEntries,
                 customCss: utility.customCss,

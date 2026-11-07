@@ -62,6 +62,32 @@
         };
 
         /**
+         * Returns whether the given value is an object (and not null or an array)
+         *
+         * @param {*} val
+         * @returns {boolean}
+         */
+        const isPlainObject = (val) => !!val && typeof val === "object" && !Array.isArray(val);
+
+        /**
+         * Returns the given stored category as object, a category stored as JSON string (e.g. via an import of a manipulated file) is parsed,
+         * anything else which is not an object is reset
+         *
+         * @param {*} val
+         * @returns {object}
+         */
+        const repairCategory = (val) => {
+            if (typeof val === "string") {
+                try {
+                    val = JSON.parse(val);
+                } catch (e) {
+                    //
+                }
+            }
+            return isPlainObject(val) ? val : {};
+        };
+
+        /**
          * Updates the stored settings and data after installing or upgrading
          *
          * @param {string} type
@@ -71,22 +97,13 @@
         const updateOptions = async (type, previousVersion = null) => {
             const obj = await $.api.storage.sync.get(null); // get all stored information
             const {utility} = await $.api.storage.local.get(["utility"]);
-            obj.utility = utility || {};
+            obj.utility = repairCategory(utility);
+            obj.behaviour = repairCategory(obj.behaviour);
+            obj.appearance = repairCategory(obj.appearance);
+            obj.newtab = repairCategory(obj.newtab);
 
-            if (typeof obj.behaviour === "undefined") {
-                obj.behaviour = {};
-            }
-
-            if (typeof obj.appearance === "undefined") {
-                obj.appearance = {};
-            }
-
-            if (typeof obj.appearance.styles === "undefined") {
+            if (!isPlainObject(obj.appearance.styles)) {
                 obj.appearance.styles = {};
-            }
-
-            if (typeof obj.newtab === "undefined") {
-                obj.newtab = {};
             }
 
             if (type === "upgrade") {

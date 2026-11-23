@@ -1,6 +1,6 @@
 {
   "name": "bookmark_sidebar",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MS-RSL",
   "author": "Philipp Koenig",
   "homepage": "https://extensions.redeviation.com/",
@@ -26,11 +26,11 @@
   "devDependencies": {
     "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "10.0.1",
-    "eslint": "10.13.0",
-    "globals": "17.13.0",
+    "eslint": "10.15.0",
+    "globals": "17.14.0",
     "html-minifier-terser": "7.2.0",
     "npm-check-updates": "23.1.1",
-    "sass": "1.106.1",
+    "sass": "1.108.2",
     "terser": "5.51.2"
   }
 }

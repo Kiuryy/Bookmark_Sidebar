@@ -44,6 +44,12 @@
                 newtab: conf.newtab
             });
 
+            // utility is stored locally and contains more than the form provides (pinned entries, sort, ...) -> only update the custom css
+            const {utility} = await $.api.storage.local.get(["utility"]);
+            await $.api.storage.local.set({
+                utility: Object.assign({}, utility, {customCss: conf.utility.customCss})
+            });
+
             await s.helper.model.call("reinitialize");
             s.helper.model.call("reloadIcon");
             s.helper.model.call("reloadBrowserAction");

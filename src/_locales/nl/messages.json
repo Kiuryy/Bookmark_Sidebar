@@ -509,6 +509,9 @@
     "settings_info_privacy": {
         "message": "Privacy"
     },
+    "settings_info_contact": {
+        "message": "Contact"
+    },
     "settings_info_changelog": {
         "message": "Logboek"
     },

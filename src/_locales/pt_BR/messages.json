@@ -1,16 +1,4 @@
 {
-    "extension_name": {
-        "message": "Barra de Favoritos"
-    },
-    "extension_name_short": {
-        "message": "Favoritos"
-    },
-    "extension_version": {
-        "message": "Vers\u00e3o"
-    },
-    "extension_last_update": {
-        "message": "\u00daltima atualiza\u00e7\u00e3o {1}"
-    },
     "header_bookmarks": {
         "message": "Favoritos"
     },

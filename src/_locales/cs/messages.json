@@ -509,6 +509,9 @@
     "settings_info_privacy": {
         "message": "Soukrom\u00ed"
     },
+    "settings_info_contact": {
+        "message": "Kontakt"
+    },
     "settings_info_changelog": {
         "message": "Z\u00e1znam zm\u011bn"
     },

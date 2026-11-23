@@ -5,6 +5,12 @@
     "extension_name_short": {
         "message": "Z\u00e1lo\u017eky"
     },
+    "extension_desc": {
+        "message": "Bo\u010dn\u00fd panel z\u00e1lo\u017eiek v\u00e1m poskytuje r\u00fdchly pr\u00edstup ku v\u0161etk\u00fdm va\u0161im z\u00e1lo\u017ek\u00e1m v preh\u013eadnom a r\u00fdchlom bo\u010dnom paneli, presne tam, kde ho potrebujete."
+    },
+    "extension_webstore_desc": {
+        "message": "DVA SP\u00d4SOBY POU\u017dITIA\n- Prekr\u00fdvac\u00ed panel: Bo\u010dn\u00fd panel sa vysunie cez aktu\u00e1lnu webov\u00fa str\u00e1nku, ke\u010f kliknete alebo umiestnite kurzor na \u013eav\u00fd\/prav\u00fd okraj okna prehliada\u010da alebo kliknete na ikonu roz\u0161\u00edrenia, a hne\u010f ako skon\u010d\u00edte, zmizne z obrazovky.\n- Bo\u010dn\u00fd panel: Bo\u010dn\u00fd panel sa otvor\u00ed v bo\u010dnom paneli v\u00e1\u0161ho prehliada\u010da a zostane otvoren\u00fd ved\u013ea nav\u0161tevovan\u00fdch webov\u00fdch str\u00e1nok ako trval\u00fd bo\u010dn\u00fd panel.\n\nSPR\u00c1VA Z\u00c1LO\u017dIEK\n- Prid\u00e1vajte, upravujte a odstra\u0148ujte z\u00e1lo\u017eky, prie\u010dinky a odde\u013eova\u010de priamo v bo\u010dnom paneli\n- Zme\u0148te poradie v\u0161etk\u00fdch polo\u017eiek pomocou drag & drop\n- Vyberte viacero polo\u017eiek naraz, aby ste ich mohli presun\u00fa\u0165, odstr\u00e1ni\u0165 alebo otvori\u0165 s\u00fa\u010dasne\n- Okam\u017eite vyh\u013ead\u00e1vajte vo v\u0161etk\u00fdch svojich z\u00e1lo\u017ek\u00e1ch a triedte ich pod\u013ea vlastn\u00fdch preferenci\u00ed\n- Pripnite si ob\u013e\u00faben\u00e9 z\u00e1lo\u017eky na vrch a skryte tie, ktor\u00e9 nepotrebujete\n\nPRISP\u00d4SOBTE SI HO\nMno\u017estvo mo\u017enost\u00ed v\u00e1m umo\u017e\u0148uje prisp\u00f4sobi\u0165 bo\u010dn\u00fd panel v\u00e1\u0161mu sp\u00f4sobu pr\u00e1ce: vyberte si, ako a kde sa otvor\u00ed, zme\u0148te jeho ve\u013ekos\u0165, farby, p\u00edsma a ikony, prepnite do tmav\u00e9ho re\u017eimu a volite\u013ene nahra\u010fte str\u00e1nku novej karty str\u00e1nkou, ktor\u00e1 m\u00e1 bo\u010dn\u00fd panel integrovan\u00fd.\n\nSP\u00c4TN\u00c1 V\u00c4ZBA\nNa\u0161li ste chybu alebo m\u00e1te n\u00e1pad na nov\u00fa funkciu \u010di vylep\u0161enie? Dajte mi, pros\u00edm, vedie\u0165. Ka\u017ed\u00e1 spr\u00e1va sa pre\u010d\u00edta a pom\u00e1ha vylep\u0161ova\u0165 aplik\u00e1ciu Bookmark Sidebar."
+    },
     "extension_version": {
         "message": "Verzia"
     },
@@ -503,6 +509,9 @@
     "settings_info_privacy": {
         "message": "S\u00fakromie"
     },
+    "settings_info_contact": {
+        "message": "Kontakt"
+    },
     "settings_info_changelog": {
         "message": "Z\u00e1znam zmien"
     },
@@ -532,6 +541,12 @@
     },
     "settings_details": {
         "message": "Podrobnosti"
+    },
+    "settings_video_play": {
+        "message": "Hra\u0165"
+    },
+    "settings_video_pause": {
+        "message": "Pauza"
     },
     "settings_tips_tricks_facts": {
         "message": "Vedeli ste ?"
@@ -1109,11 +1124,20 @@
     "settings_custom_css_more_info": {
         "message": "Chcete sa dozvedie\u0165 viac o CSS alebo h\u013ead\u00e1te v\u00fdchodiskov\u00fd bod? Pozrite si [a]tento \u010dl\u00e1nok[\/a]."
     },
+    "settings_theme": {
+        "message": "T\u00e9ma"
+    },
     "settings_theme_default": {
         "message": "Predvolen\u00e1 t\u00e9ma"
     },
     "settings_theme_default_desc": {
         "message": "T\u00e1to t\u00e9ma v\u00e1m umo\u017e\u0148uje pristupova\u0165 k z\u00e1lo\u017ek\u00e1m \u010dist\u00fdm a modern\u00fdm sp\u00f4sobom. Farba mnoh\u00fdch prvkov sa d\u00e1 zmeni\u0165 \u00fapravou farebnej sch\u00e9my."
+    },
+    "settings_theme_soft": {
+        "message": "Jemn\u00e1 t\u00e9ma"
+    },
+    "settings_theme_soft_desc": {
+        "message": "T\u00e1to \u0161abl\u00f3na dod\u00e1va bo\u010dn\u00e9mu panelu jemn\u00fd, pr\u00edjemn\u00fd vzh\u013ead v\u010faka zaoblen\u00fdm tvarom, jemn\u00fdm prechodom a pl\u00e1vaj\u00facej, poloprieh\u013eadnej hlavi\u010dke so samostatn\u00fdmi tla\u010didlami."
     },
     "settings_theme_glass": {
         "message": "Sklenen\u00fd efekt"
